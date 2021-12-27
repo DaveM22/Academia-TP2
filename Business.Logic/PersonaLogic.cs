@@ -2,7 +2,7 @@
 
 namespace Business.Logic
 {
-    public class Class1
+    public class PersonaLogic
     {
     }
 }

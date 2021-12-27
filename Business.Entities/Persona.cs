@@ -21,5 +21,9 @@ namespace Business.Entities
         public int PlanId { get; set; }
 
         public TipoPersonaEnum TipoPersona { get; set; }
+
+        public Usuario Usuario { get; set; }
+
+        public Plan Plan { get; set; }
     }
 }

@@ -22,5 +22,9 @@ namespace Business.Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Especialidad> Especialidades { get; set; }
+
+        public DbSet<Plan> Planes { get; set; }
     }
 }

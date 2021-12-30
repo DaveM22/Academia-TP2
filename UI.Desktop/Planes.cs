@@ -11,18 +11,14 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formLogin : Form
+    public partial class Planes : Form
     {
-        private UsuarioLogic UsuarioLogic { get; set; }
-        public formLogin()
+        private PlanLogic PlanLogic => new PlanLogic();
+        public Planes()
         {
             InitializeComponent();
-            UsuarioLogic = new UsuarioLogic();
-        }
-
-        private void BtnIngresar_Click(object sender, EventArgs e)
-        {
-            //var list = UsuarioLogic.GetOne(txtUsuario.Text);
+            dgvPlanes.AutoGenerateColumns = false;
+            dgvPlanes.DataSource = PlanLogic.GetAll();
         }
     }
 }

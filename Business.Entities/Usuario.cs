@@ -12,5 +12,8 @@ namespace Business.Entities
         public string Clave { get; set; }
         public int? PersonaId { get; set; }
         public Persona Persona { get; set; }
+        public string Nombre => Persona.Nombre;
+        public string Apellido => Persona.Apellido;
+        public string Email => Persona.Email;
     }
 }

@@ -21,6 +21,7 @@ namespace Business.Data.Mapping
             builder.Property(x => x.Nombre).HasColumnName("nombre");
             builder.Property(x => x.Apellido).HasColumnName("apellido");
             builder.Property(x => x.Telefono).HasColumnName("telefono");
+            builder.Property(x => x.Email).HasColumnName("email");
             builder.Property(x => x.TipoPersona).HasColumnName("tipo_persona");
             builder.Property(x => x.PlanId).HasColumnName("id_plan");
             builder.HasOne(x => x.Plan).WithOne();

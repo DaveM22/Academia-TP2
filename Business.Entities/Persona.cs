@@ -14,6 +14,8 @@ namespace Business.Entities
 
         public string Telefono { get; set; }
 
+        public string Email { get; set; }
+
         public int Legajo { get; set; }
 
         public DateTime FechaNacimiento { get; set; }

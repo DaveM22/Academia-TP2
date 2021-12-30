@@ -11,18 +11,14 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formLogin : Form
+    public partial class Especialidades : Form
     {
-        private UsuarioLogic UsuarioLogic { get; set; }
-        public formLogin()
+        EspecialidadLogic EspecialidadLogic => new();
+        public Especialidades()
         {
             InitializeComponent();
-            UsuarioLogic = new UsuarioLogic();
-        }
-
-        private void BtnIngresar_Click(object sender, EventArgs e)
-        {
-            //var list = UsuarioLogic.GetOne(txtUsuario.Text);
+            dgvEspecialidades.AutoGenerateColumns = false;
+            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
     }
 }

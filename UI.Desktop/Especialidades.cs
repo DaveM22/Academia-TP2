@@ -26,6 +26,7 @@ namespace UI.Desktop
         {
             var form = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
             form.ShowDialog();
+            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
         private void tsEditar_Click(object sender, EventArgs e)

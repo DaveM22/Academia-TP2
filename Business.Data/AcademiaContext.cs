@@ -26,5 +26,7 @@ namespace Business.Data
         public DbSet<Especialidad> Especialidades { get; set; }
 
         public DbSet<Plan> Planes { get; set; }
+
+        public DbSet<Comision> Comisiones { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class Form1
+    partial class ApplicationForm
     {
         /// <summary>
         ///  Required designer variable.

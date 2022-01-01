@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Form1 : Form
+    public partial class ApplicationForm : Form
     {
-        public Form1()
+        public ApplicationForm()
         {
             InitializeComponent();
+        }
+
+        public ModoForm Modo { get; set; }
+
+        public enum ModoForm
+        {
+            Alta,Baja,Modificacion,Consulta
         }
 
     }

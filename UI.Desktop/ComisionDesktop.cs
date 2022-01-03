@@ -32,6 +32,7 @@ namespace UI.Desktop
         public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            NewDescription();
         }
 
         public ComisionDesktop(int id, ModoForm modo) : this()

@@ -28,5 +28,9 @@ namespace Business.Data
         public DbSet<Plan> Planes { get; set; }
 
         public DbSet<Comision> Comisiones { get; set; }
+
+        public DbSet<Curso> Cursos { get; set; }
+
+        public DbSet<Materia> Materias { get; set; }
     }
 }

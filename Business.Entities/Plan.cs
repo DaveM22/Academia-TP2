@@ -12,5 +12,6 @@ namespace Business.Entities
         public int EspecialidadId { get; set; }
         public virtual Especialidad Especialidad { get; set; }
         public string EspecialidadDescripcion => Especialidad.Descripcion;
+        public List<Materia> Materias { get; set; }
     }
 }

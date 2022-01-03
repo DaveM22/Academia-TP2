@@ -8,11 +8,12 @@ namespace Business.Entities
 {
     public class Curso : BusinessEntity
     {
-        public string Descripcion { get; set; }
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
         public int ComisionId { get; set; }
         public int MateriaId { get; set; }
+        public string ComisionDescripcion => Comision.Descripcion;
+        public string MateriaDescripcion => Materia.Descripcion;
         public Comision Comision { get; set; }
         public Materia Materia { get; set; }
     }

@@ -7,10 +7,9 @@ namespace Business.Entities
     {
         public int Id { get; set; }
         public string Apellido { get; set; }
+        public string Nombre { get; set; }
 
         public string Direccion { get; set; }
-
-        public string Nombre { get; set; }
 
         public string Telefono { get; set; }
 
@@ -27,5 +26,7 @@ namespace Business.Entities
         public Usuario Usuario { get; set; }
 
         public Plan Plan { get; set; }
+
+        public string PlanDescripcion => Plan.Descripcion;
     }
 }

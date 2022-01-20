@@ -23,20 +23,20 @@ namespace Business.Logic
             return UsuarioAdapter.GetAll();
         }
 
-        public UsuarioDto GetOne(string nombreUsario, string clave)
+        public Usuario GetOne(string nombreUsario, string clave)
         {
             List<string> errors = new List<string>();
             var usuario = UsuarioAdapter.GetOneByString(nombreUsario);
             if (usuario == null)
-                errors.Add("No existe el cliente con el nombre de usuario ingresado");
+                throw new Exception("No existe el cliente con el nombre de usuario ingresado");
             else
             {
                 if(usuario.Clave != clave)
                 {
-                    errors.Add("La clave ingresada es incorrecta");
+                    throw new Exception("La clave ingresada es incorrecta");
                 }
             }
-            return new UsuarioDto() { Id = usuario.Id, NombreUsuario = usuario.NombreUsuario };
+            return new Usuario() { Id = usuario.Id, NombreUsuario = usuario.NombreUsuario };
         }
     }
 }

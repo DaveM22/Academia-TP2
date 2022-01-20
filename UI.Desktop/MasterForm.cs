@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -15,6 +8,30 @@ namespace UI.Desktop
         public MasterForm()
         {
             InitializeComponent();
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Personas(Business.Util.TipoPersonaEnum.ALUMNO);
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Personas(Business.Util.TipoPersonaEnum.PROFESOR);
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Cursos();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }

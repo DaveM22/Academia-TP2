@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tscPlanes = new System.Windows.Forms.ToolStripContainer();
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPlanes = new System.Windows.Forms.DataGridView();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsModificar = new System.Windows.Forms.ToolStripButton();
             this.Eliminar = new System.Windows.Forms.ToolStripButton();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reporte = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tscPlanes.ContentPanel.SuspendLayout();
             this.tscPlanes.TopToolStripPanel.SuspendLayout();
             this.tscPlanes.SuspendLayout();
@@ -90,40 +92,19 @@
             this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
-            this.Especialidad});
+            this.Especialidad,
+            this.Reporte});
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
             this.dgvPlanes.MultiSelect = false;
             this.dgvPlanes.Name = "dgvPlanes";
             this.dgvPlanes.ReadOnly = true;
-            this.dgvPlanes.RowHeadersWidth = 62;
+            this.dgvPlanes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvPlanes.RowTemplate.Height = 33;
             this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlanes.Size = new System.Drawing.Size(794, 371);
             this.dgvPlanes.TabIndex = 0;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Plan";
-            this.Descripcion.MinimumWidth = 8;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.ToolTipText = "Nombre del plan";
-            this.Descripcion.Width = 150;
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.DataPropertyName = "EspecialidadDescripcion";
-            this.Especialidad.Frozen = true;
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.MinimumWidth = 8;
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            this.Especialidad.ToolTipText = "Nombre de especialidad";
-            this.Especialidad.Width = 150;
             // 
             // btnActualizar
             // 
@@ -187,6 +168,41 @@
             this.Eliminar.Text = "Eliminar plan";
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Plan";
+            this.Descripcion.MinimumWidth = 8;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.ToolTipText = "Nombre del plan";
+            this.Descripcion.Width = 150;
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.DataPropertyName = "EspecialidadDescripcion";
+            this.Especialidad.Frozen = true;
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.MinimumWidth = 8;
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.ToolTipText = "Nombre de especialidad";
+            this.Especialidad.Width = 150;
+            // 
+            // Reporte
+            // 
+            dataGridViewCellStyle1.NullValue = "Editar";
+            this.Reporte.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Reporte.HeaderText = "";
+            this.Reporte.MinimumWidth = 8;
+            this.Reporte.Name = "Reporte";
+            this.Reporte.ReadOnly = true;
+            this.Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Reporte.Text = "Editar";
+            this.Reporte.Width = 150;
+            // 
             // Planes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -222,5 +238,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewLinkColumn Reporte;
     }
 }

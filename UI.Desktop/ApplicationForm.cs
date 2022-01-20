@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,8 @@ namespace UI.Desktop
         }
 
         public ModoForm Modo { get; set; }
+
+        protected Usuario UsuarioActual { get; set; }
 
         public enum ModoForm
         {

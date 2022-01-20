@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formLogin : Form
+    public partial class formLogin : ApplicationForm
     {
         private UsuarioLogic UsuarioLogic { get; set; }
         public formLogin()
@@ -22,7 +22,15 @@ namespace UI.Desktop
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            //var list = UsuarioLogic.GetOne(txtUsuario.Text);
+            try
+            {
+                var user = UsuarioLogic.GetOne(txtUsuario.Text, txtClave.Text);
+                UsuarioActual = user ?? UsuarioActual;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al identificar el usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

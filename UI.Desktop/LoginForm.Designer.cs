@@ -31,7 +31,7 @@
             this.txtUsuario = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.lblClave = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -60,13 +60,13 @@
             this.lblClave.TabIndex = 2;
             this.lblClave.Text = "Clave";
             // 
-            // textBox1
+            // txtClave
             // 
-            this.textBox1.Location = new System.Drawing.Point(201, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(210, 31);
-            this.textBox1.TabIndex = 3;
+            this.txtClave.Location = new System.Drawing.Point(201, 139);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
+            this.txtClave.Size = new System.Drawing.Size(210, 31);
+            this.txtClave.TabIndex = 3;
             // 
             // btnIngresar
             // 
@@ -85,7 +85,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(525, 350);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtClave);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.txtUsuario);
@@ -102,7 +102,7 @@
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label lblClave;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnIngresar;
     }
 }

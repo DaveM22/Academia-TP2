@@ -91,7 +91,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(420, 114);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(112, 34);
-            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -101,7 +101,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(538, 114);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 34);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -120,7 +120,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(166, 3);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(366, 31);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // cmbPlanes
             // 
@@ -129,7 +129,7 @@
             this.cmbPlanes.Location = new System.Drawing.Point(166, 74);
             this.cmbPlanes.Name = "cmbPlanes";
             this.cmbPlanes.Size = new System.Drawing.Size(366, 33);
-            this.cmbPlanes.TabIndex = 7;
+            this.cmbPlanes.TabIndex = 2;
             this.cmbPlanes.ValueMember = "Id";
             // 
             // nudAño
@@ -142,7 +142,7 @@
             0});
             this.nudAño.Name = "nudAño";
             this.nudAño.Size = new System.Drawing.Size(145, 31);
-            this.nudAño.TabIndex = 6;
+            this.nudAño.TabIndex = 1;
             // 
             // ComisionDesktop
             // 

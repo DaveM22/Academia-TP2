@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlPlan = new System.Windows.Forms.TableLayoutPanel();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblEspecialidad = new System.Windows.Forms.Label();
@@ -205,8 +205,8 @@
             // 
             // Accion
             // 
-            dataGridViewCellStyle1.NullValue = "Editar";
-            this.Accion.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.NullValue = "Editar";
+            this.Accion.DefaultCellStyle = dataGridViewCellStyle2;
             this.Accion.HeaderText = "";
             this.Accion.MinimumWidth = 8;
             this.Accion.Name = "Accion";

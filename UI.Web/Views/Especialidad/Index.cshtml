@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UI.Web.Models.EspecialidadViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Especialidades</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Nuevo">Crear especialidad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Id)
+                    </td>
+                    <td colspan="2">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id= item.Id }) |
+                        @Html.ActionLink("Detalles", "Detalles", new { id = item.Id }) |
+                        @Html.ActionLink("Borrar", "Borrar", new {  id= item.Id})
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

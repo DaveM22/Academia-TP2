@@ -9,11 +9,11 @@
 <p>
     <a class="btn btn-primary" asp-action="Nuevo">Crear especialidad</a>
 </p>
-<table class="table">
+<table id="table" class="table">
     <thead>
         <tr>
             <th></th>
-            <th colspan="2">
+            <th>
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>Acciones</th>
@@ -25,7 +25,7 @@
                     <td>
                         @Html.HiddenFor(modelItem => item.Id)
                     </td>
-                    <td colspan="2">
+                    <td>
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
                     <td>
@@ -37,3 +37,14 @@
         }
     </tbody>
 </table>
+
+@section scripts {
+   
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    });
+</script>
+}
+
+

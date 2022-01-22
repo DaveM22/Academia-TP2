@@ -1,0 +1,55 @@
+﻿@model IEnumerable<UI.Web.Models.PlanViewModel>
+
+@{
+    ViewData["Title"] = "Planes";
+}
+
+<h1>Planes</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Nuevo">Nuevo Plan</a>
+</p>
+<table id="table" class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Especialidad
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecialidadDescripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts {
+   
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    });
+</script>
+}

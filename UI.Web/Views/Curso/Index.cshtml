@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UI.Web.Models.CursoViewModel>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+<h1>Cursos</h1>
+
+<p>
+    <a asp-action="Nuevo">Crear nuevo curso</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ComisionDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MateriaDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioCalendario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cupo)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComisionDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MateriaDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioCalendario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cupo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+                @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
+                @Html.ActionLink("Borrar", "Borrar", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">UI.Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Academia</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,10 +32,9 @@
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Especialidades</a></li>
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Plan" asp-action="Index">Planes y Materias</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Cursos</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Comisiones</a></li> 
-                            </ul>
-                            
+                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
+                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li> 
+                            </ul>                          
                         </li>
                     </ul>
                 </div>
@@ -50,12 +49,12 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - UI.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - UTN Frro - Academia
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/jquery.dataTables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

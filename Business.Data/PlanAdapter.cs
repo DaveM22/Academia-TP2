@@ -26,6 +26,7 @@ namespace Business.Data
         {
             using var context = new AcademiaContext();
             context.Planes.Update(plan);
+            context.SaveChanges();
             return plan;
         }
 

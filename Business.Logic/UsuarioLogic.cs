@@ -28,7 +28,9 @@ namespace Business.Logic
             List<string> errors = new List<string>();
             var usuario = UsuarioAdapter.GetOneByString(nombreUsario);
             if (usuario == null)
+            {
                 throw new Exception("No existe el cliente con el nombre de usuario ingresado");
+            }
             else
             {
                 if(usuario.Clave != clave)

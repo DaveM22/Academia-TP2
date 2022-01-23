@@ -1,80 +1,72 @@
 ﻿using AutoMapper;
-using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
-    public class PlanController : Controller
+    public class CursoController : Controller
     {
         private readonly IMapper mapper;
 
-        private PlanLogic PlanLogic => new();
+        private CursoLogic CursoLogic => new();
 
-        private EspecialidadLogic EspecialidadLogic => new();
+        private MateriaLogic MateriaLogic => new();
 
-        public PlanController(IMapper mapper)
+        private ComisionLogic ComisionLogic => new();
+
+        public CursoController(IMapper mapper)
         {
             this.mapper = mapper;
         }
 
 
-
-        // GET: PlanController
+        // GET: CursoController
         public ActionResult Index()
         {
-            var vms = mapper.Map<List<PlanViewModel>>(PlanLogic.GetAll());
+            var vms = mapper.Map<List<CursoViewModel>>(CursoLogic.GetAll());
             return View(vms);
         }
 
-        // GET: PlanController/Details/5
+        // GET: CursoController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: PlanController/Create
+        // GET: CursoController/Create
         public ActionResult Nuevo()
         {
-            var vm = new PlanViewModel();
-            vm.Especialidades = mapper.Map<List<EspecialidadViewModel>>(EspecialidadLogic.GetAll());
+            var vm = new CursoViewModel();
             vm.Materias = new();
-            vm.Materia = new();
+            vm.Comisiones = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
             return View(vm);
         }
 
-        // POST: PlanController/Create
+        // POST: CursoController/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Nuevo(PlanViewModel planViewModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult Nuevo(CursoViewModel cursoViewModel)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var entity = mapper.Map<Plan>(planViewModel);
-                    PlanLogic.Save(entity);
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(planViewModel);
+                return RedirectToAction(nameof(Index));
             }
-            catch(Exception ex)
+            catch
             {
                 return View();
             }
         }
 
-        // GET: PlanController/Edit/5
+        // GET: CursoController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: PlanController/Edit/5
+        // POST: CursoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -89,13 +81,13 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: PlanController/Delete/5
+        // GET: CursoController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: PlanController/Delete/5
+        // POST: CursoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

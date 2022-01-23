@@ -19,7 +19,7 @@ namespace Business.Data
         public Comision GetOne(int id)
         {
             using var context = new AcademiaContext();
-            return context.Comisiones.Find(id);
+            return context.Comisiones.Include(x => x.Plan).FirstOrDefault(x => x.Id == id);
         }
 
         public Comision Save(Comision com)

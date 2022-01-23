@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UI.Web.Models.ComisionViewModel>
+
+@{
+    ViewData["Title"] = "Comisiones";
+}
+
+<h1>Comisiones</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Nuevo">Crear nueva comisión</a>
+</p>
+<table id="table" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioEspecialidad)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioEspecialidad)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+                @Html.ActionLink("Detalle", "Detalle", new { id=item.Id}) |
+                @Html.ActionLink("Borrar", "Borrar", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts {
+   
+<script type="text/javascript" src="~/js/initDatatables.js">
+</script>
+}

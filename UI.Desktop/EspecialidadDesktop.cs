@@ -1,6 +1,7 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -76,6 +77,16 @@ namespace UI.Desktop
             }
         }
 
+        private List<string> Validate()
+        {
+            List<string> errors = new();
+            if(txtDescripcion.Text?.Length == 0)
+            {
+                errors.Add("Descripción");
+            }
+            return errors;
+        }
+
 
 
         private void EspecialidadDesktop_Load(object sender, EventArgs e)
@@ -91,19 +102,28 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Especialidad = (Especialidad)dataSource.Current;
-            switch (Modo)
+            var errors = Validate();
+            if(errors.Count == 0)
             {
-                case ModoForm.Modificacion:
-                case ModoForm.Alta:
-                    Save();
-                    break;
-                case ModoForm.Baja:
-                    Delete();
-                    break;
+                Especialidad = (Especialidad)dataSource.Current;
+                switch (Modo)
+                {
+                    case ModoForm.Modificacion:
+                    case ModoForm.Alta:
+                        Save();
+                        break;
+                    case ModoForm.Baja:
+                        Delete();
+                        break;
+                }
+                this.Close();
             }
-            this.Close();
+            else
+            {
+                string error = "Los siguientes campos son requeridos:";
+                errors.ForEach(x => error += "\n" + x);
+                MessageBox.Show(error, "Error al guardar especialidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
     }
 }

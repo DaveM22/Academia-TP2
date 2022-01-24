@@ -57,7 +57,6 @@
             this.tlComision.Controls.Add(this.nudAño, 1, 1);
             this.tlComision.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlComision.Location = new System.Drawing.Point(0, 0);
-            this.tlComision.Margin = new System.Windows.Forms.Padding(2);
             this.tlComision.Name = "tlComision";
             this.tlComision.RowCount = 5;
             this.tlComision.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.09302F));
@@ -65,36 +64,33 @@
             this.tlComision.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.5814F));
             this.tlComision.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.65116F));
             this.tlComision.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlComision.Size = new System.Drawing.Size(458, 96);
+            this.tlComision.Size = new System.Drawing.Size(654, 160);
             this.tlComision.TabIndex = 0;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(2, 0);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescripcion.Location = new System.Drawing.Point(3, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(69, 15);
+            this.lblDescripcion.Size = new System.Drawing.Size(104, 25);
             this.lblDescripcion.TabIndex = 2;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(3, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 15);
+            this.label2.Size = new System.Drawing.Size(147, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Año Especialidad";
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(295, 68);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Location = new System.Drawing.Point(422, 114);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(78, 20);
+            this.btnAceptar.Size = new System.Drawing.Size(111, 33);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -102,10 +98,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(377, 68);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Location = new System.Drawing.Point(539, 114);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(78, 20);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 33);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -114,52 +109,47 @@
             // lblPlan
             // 
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(2, 42);
-            this.lblPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPlan.Location = new System.Drawing.Point(3, 71);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(30, 15);
+            this.lblPlan.Size = new System.Drawing.Size(45, 25);
             this.lblPlan.TabIndex = 4;
             this.lblPlan.Text = "Plan";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(116, 2);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.Location = new System.Drawing.Point(166, 3);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(257, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(365, 31);
             this.txtDescripcion.TabIndex = 0;
             // 
             // cmbPlanes
             // 
             this.cmbPlanes.DisplayMember = "Descripcion";
             this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(116, 44);
-            this.cmbPlanes.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbPlanes.Location = new System.Drawing.Point(166, 74);
             this.cmbPlanes.Name = "cmbPlanes";
-            this.cmbPlanes.Size = new System.Drawing.Size(257, 23);
+            this.cmbPlanes.Size = new System.Drawing.Size(365, 33);
             this.cmbPlanes.TabIndex = 2;
             this.cmbPlanes.ValueMember = "Id";
             // 
             // nudAño
             // 
-            this.nudAño.Location = new System.Drawing.Point(116, 23);
-            this.nudAño.Margin = new System.Windows.Forms.Padding(2);
+            this.nudAño.Location = new System.Drawing.Point(166, 38);
             this.nudAño.Maximum = new decimal(new int[] {
             2999,
             0,
             0,
             0});
             this.nudAño.Name = "nudAño";
-            this.nudAño.Size = new System.Drawing.Size(102, 23);
+            this.nudAño.Size = new System.Drawing.Size(146, 31);
             this.nudAño.TabIndex = 1;
             // 
             // ComisionDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 96);
+            this.ClientSize = new System.Drawing.Size(654, 160);
             this.Controls.Add(this.tlComision);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ComisionDesktop";
             this.Text = "ComisionDesktop";
             this.Load += new System.EventHandler(this.ComisionDesktop_Load);

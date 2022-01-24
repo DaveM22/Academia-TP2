@@ -4,11 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Especialidades</h1>
+<div class="container">
+    <div class="row">
+        <div>
+              <h1>Especialidades</h1>
+        </div>
 
-<p>
-    <a class="btn btn-primary" asp-action="Nuevo">Crear especialidad</a>
-</p>
+          <div class="ml-auto">
+              <a class="btn btn-primary" asp-action="Nuevo">Crear especialidad</a>
+          </div>
+            
+       
+    </div>
+</div>
+
 <table id="table" class="table">
     <thead>
         <tr>
@@ -40,10 +49,10 @@
 
 @section scripts {
    
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#table').DataTable();
-    });
+<script type="text/javascript" src="~/js/initDatatables.js">
+</script>
+<script>
+    init();
 </script>
 }
 

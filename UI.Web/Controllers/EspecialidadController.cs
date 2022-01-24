@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +13,12 @@ namespace UI.Web.Controllers
         private EspecialidadLogic EspecialidadLogic => new EspecialidadLogic();
 
         private readonly IMapper mapper;
+        private readonly INotyfService notyf;
 
-        public EspecialidadController(IMapper mapper)
+        public EspecialidadController(IMapper mapper, INotyfService notyf)
         {
             this.mapper = mapper;
+            this.notyf = notyf;
         }
 
         // GET: EspecialidadController
@@ -48,6 +51,7 @@ namespace UI.Web.Controllers
                 {
                     var entity = mapper.Map<Especialidad>(especialidadViewModel);
                     EspecialidadLogic.Save(entity);
+                    notyf.Success("Se ha agregado una nueva especialidad", 3);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(especialidadViewModel);
@@ -76,6 +80,7 @@ namespace UI.Web.Controllers
                 {
                     var entity = mapper.Map<Especialidad>(especialidadViewModel);
                     EspecialidadLogic.Save(entity);
+                    notyf.Success("Se han guardado los cambios de la especialidad", 3);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(especialidadViewModel);
@@ -101,11 +106,12 @@ namespace UI.Web.Controllers
             try
             {
                 EspecialidadLogic.Delete(especialidadViewModel.Id);
+                notyf.Success("Se ha borrado la especialidad");
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(especialidadViewModel);
             }
         }
     }

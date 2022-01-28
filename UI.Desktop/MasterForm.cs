@@ -33,5 +33,19 @@ namespace UI.Desktop
             form.ShowDialog();
             this.Show();
         }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(pnlMenu.Controls.Count > 0)
+            {
+                this.pnlMenu.Controls.RemoveAt(0);
+            }
+            Especialidades especialidades = new Especialidades();
+            especialidades.TopLevel = false;
+            especialidades.Dock = DockStyle.Fill;
+            this.pnlMenu.Controls.Add(especialidades);
+            this.pnlMenu.Tag = especialidades;
+            especialidades.Show();
+        }
     }
 }

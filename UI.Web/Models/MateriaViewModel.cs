@@ -16,6 +16,7 @@ namespace UI.Web.Models
         [DisplayName("Hs totales")]
         public int HSTotales { get; set; }
         public int PlanId { get; set; }
+        [DisplayName("Plan")]
         public string PlanDescripcion { get; set; }
     }
 }

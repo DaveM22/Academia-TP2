@@ -28,6 +28,12 @@ namespace UI.Web.Controllers
             return View(vm);
         }
 
+        public JsonResult Lista()
+        {
+            var entities = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
+            return Json(entities);
+        }
+
         // GET: ComisionController/Details/5
         public ActionResult Detalle(int id)
         {

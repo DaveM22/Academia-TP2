@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace Business.Data
         {
             using var context = new AcademiaContext();
             return context.Materias.Where(x => x.PlanId == idPlan).ToList();
+        }
+
+        public List<Materia> GetAll()
+        {
+            using var context = new AcademiaContext();
+            return context.Materias.Include(x => x.Plan).ToList();
         }
     }
 }

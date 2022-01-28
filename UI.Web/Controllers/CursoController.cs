@@ -1,7 +1,10 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
+using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
@@ -10,6 +13,7 @@ namespace UI.Web.Controllers
     public class CursoController : Controller
     {
         private readonly IMapper mapper;
+        private readonly INotyfService notyfService;
 
         private CursoLogic CursoLogic => new();
 
@@ -17,9 +21,10 @@ namespace UI.Web.Controllers
 
         private ComisionLogic ComisionLogic => new();
 
-        public CursoController(IMapper mapper)
+        public CursoController(IMapper mapper, INotyfService notyfService)
         {
             this.mapper = mapper;
+            this.notyfService = notyfService;
         }
 
 
@@ -40,7 +45,7 @@ namespace UI.Web.Controllers
         public ActionResult Nuevo()
         {
             var vm = new CursoViewModel();
-            vm.Materias = new();
+            vm.Materias = mapper.Map<List<MateriaViewModel>>(MateriaLogic.GetAll());
             vm.Comisiones = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
             return View(vm);
         }
@@ -52,9 +57,16 @@ namespace UI.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var entity = mapper.Map<Curso>(cursoViewModel);
+                    CursoLogic.Save(entity);
+                    notyfService.Success("Se ha agregado un nuevo curso", 3);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(cursoViewModel);
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

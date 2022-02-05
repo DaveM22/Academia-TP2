@@ -73,21 +73,31 @@ namespace UI.Web.Controllers
         }
 
         // GET: CursoController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            return View();
+            var vm = mapper.Map<CursoViewModel>(CursoLogic.GetOne(id));
+            vm.Materias = mapper.Map<List<MateriaViewModel>>(MateriaLogic.GetAll());
+            vm.Comisiones = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
+            return View(vm);
         }
 
         // POST: CursoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Editar(CursoViewModel cursoViewModel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var entity = mapper.Map<Curso>(cursoViewModel);
+                    CursoLogic.Save(entity);
+                    notyfService.Success("Se han guardado los cambios del curso", 3);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(cursoViewModel);
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

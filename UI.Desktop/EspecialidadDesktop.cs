@@ -14,13 +14,13 @@ namespace UI.Desktop
         public EspecialidadDesktop()
         {
             InitializeComponent();
-            Especialidad = new();
         }
 
 
         public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            Especialidad = new();
             NewDescription();
         }
 
@@ -54,6 +54,7 @@ namespace UI.Desktop
 
         private void EditDescription()
         {
+            lblTitulo.Text = "Modificar especialidad";
             Text = "Modificar especialidad";
         }
 
@@ -63,6 +64,8 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 EspecialidadLogic.Save(Especialidad);
+                MessageBox.Show($"Se ha creado la especialidad: {Especialidad.Descripcion}","Crear especialidad",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
         }

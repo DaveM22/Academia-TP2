@@ -27,5 +27,12 @@ namespace UI.Desktop
             Alta,Baja,Modificacion,Consulta
         }
 
+        public ApplicationForm LoadEspecialidadDesktop(ApplicationForm applicationForm, FormClosedEventHandler formClosedEvent)
+        {
+            applicationForm.TopLevel = false;
+            applicationForm.Dock = DockStyle.Fill;
+            applicationForm.FormClosed += formClosedEvent;
+            return applicationForm;
+        }
     }
 }

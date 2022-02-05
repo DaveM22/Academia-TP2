@@ -42,6 +42,7 @@ namespace UI.Desktop
             }
             Especialidades especialidades = new Especialidades();
             especialidades.TopLevel = false;
+            especialidades.FormBorderStyle = FormBorderStyle.None;
             especialidades.Dock = DockStyle.Fill;
             this.pnlMenu.Controls.Add(especialidades);
             this.pnlMenu.Tag = especialidades;

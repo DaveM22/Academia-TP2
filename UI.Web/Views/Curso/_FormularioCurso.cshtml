@@ -1,0 +1,61 @@
+﻿@model UI.Web.Models.CursoViewModel
+
+@{
+    var curso = Model.Id == 0 ? "Nuevo" : "Editar"; 
+}
+
+
+<h3>@curso curso</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="@curso">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AnioCalendario" class="control-label"></label>
+                <input asp-for="AnioCalendario" class="form-control" />
+                <span asp-validation-for="AnioCalendario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cupo" class="control-label"></label>
+                <input asp-for="Cupo" class="form-control" />
+                <span asp-validation-for="Cupo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComisionDescripcion" class="control-label"></label>      
+                  <div class="input-group">
+                    <input asp-for="ComisionDescripcion" readonly class="form-control" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalComision">
+                          Seleccionar comisión
+                        </button>
+                    </div>
+                  </div>
+                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="MateriaDescripcion" class="control-label"></label>      
+                  <div class="input-group">
+                    <input asp-for="MateriaDescripcion" readonly class="form-control" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Seleccionar materia
+                        </button>
+                    </div>
+                  </div>
+                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+            </div>
+            <input asp-for="MateriaId" hidden />
+            <input asp-for="ComisionId" hidden /> 
+            <input asp-for="Id" hidden />
+            <div class="form-group">
+                <input type="submit" value="@curso" class="btn btn-success" />
+                <a class="btn btn-danger" asp-action="Index">Volver a cursos</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

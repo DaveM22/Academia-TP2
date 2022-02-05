@@ -1,16 +1,15 @@
 ﻿@model UI.Web.Models.CursoViewModel
 
 @{
-    ViewData["Title"] = "Nuevo curso";
+    ViewData["Title"] = "Editar";
 }
+
 
     <partial name ="_FormularioCurso" for="@Model" />
     <partial name="_ModalMateria" for="Materias" />
     <partial name="_ModalComision" for="Comisiones" />
 
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
     <script type="text/javascript" src="~/js/cursoScripts.js"></script>
 }

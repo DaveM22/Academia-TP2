@@ -19,7 +19,7 @@ namespace Business.Data
         public Curso GetOne(int id)
         {
             using var context = new AcademiaContext();
-            return context.Cursos.Find(id);
+            return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).SingleOrDefault(x => x.Id == id);
         }
 
         public Curso Save(Curso cur)

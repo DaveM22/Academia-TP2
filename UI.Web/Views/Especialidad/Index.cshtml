@@ -5,20 +5,10 @@
 }
 
 <div class="container">
-    <div class="row">
-        <div>
-              <h1>Especialidades</h1>
-        </div>
 
-          <div class="ml-auto">
-              <a class="btn btn-primary" asp-action="Nuevo">Crear especialidad</a>
-          </div>
-            
-       
-    </div>
-</div>
+<header-index action="Nuevo" title="Especialidades" button-text="Crear especialidad"></header-index>
 
-<table id="table" class="table">
+<table id="table" class="table table-dark text-dark">
     <thead>
         <tr>
             <th></th>
@@ -46,6 +36,7 @@
         }
     </tbody>
 </table>
+</div>
 
 @section scripts {
    

@@ -3,12 +3,10 @@
 @{
     ViewData["Title"] = "Planes";
 }
+<div class="container">
 
-<h1>Planes</h1>
+<header-index action="Nuevo" title="Planes" button-text="Crear plan"></header-index>
 
-<p>
-    <a class="btn btn-primary" asp-action="Nuevo">Nuevo Plan</a>
-</p>
 <table id="table" class="table">
     <thead>
         <tr>
@@ -44,6 +42,7 @@
         }
     </tbody>
 </table>
+</div>
 
 @section scripts {
     <script type="text/javascript" src="~/js/initDatatables.js" ></script>

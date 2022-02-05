@@ -18,7 +18,10 @@ function init() {
                 "emptyTable": "No hay materias cargadas en el plan"
             },
             lengthChange: false,
-            info: false
+            info: false,
+            "initComplete": function (settings, json) {
+                $('.table-dark').css("background-color", "#212529");
+            },
         });
     });
 }

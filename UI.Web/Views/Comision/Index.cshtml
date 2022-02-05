@@ -4,12 +4,9 @@
     ViewData["Title"] = "Comisiones";
 }
 
-<h1>Comisiones</h1>
-
-<p>
-    <a class="btn btn-primary" asp-action="Nuevo">Crear nueva comisión</a>
-</p>
-<table id="table" class="table">
+<div class="container">
+    <header-index action="Nuevo" title="Comisiones" button-text="Crear comisión"></header-index>
+<table id="table" class="table table-dark table-striped">
     <thead>
         <tr>
             <th>
@@ -45,9 +42,13 @@
 }
     </tbody>
 </table>
+</div>
 
 @section scripts {
    
 <script type="text/javascript" src="~/js/initDatatables.js">
+</script>
+<script>
+    init()
 </script>
 }

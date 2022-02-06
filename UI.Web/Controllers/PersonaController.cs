@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Logic;
+using Business.Util;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,79 +19,92 @@ namespace UI.Web.Controllers
             _mapper = mapper;
         }
 
-        public ActionResult Index()
+        public ActionResult Alumnos()
         {
-            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(Business.Util.TipoPersonaEnum.ALUMNO));
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.ALUMNO));
+            return View(vms);
+        }
+
+        public ActionResult Profesores()
+        {
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.PROFESOR));
+            return View(vms);
+        }
+
+        public ActionResult Administradores()
+        {
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.ALUMNO));
             return View(vms);
         }
 
         // GET: PlanController_/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         // GET: PlanController_/Create
-        public ActionResult Create()
+        public ActionResult Nuevo(TipoPersonaEnum tipoPersona)
         {
-            return View();
+            var vm = new PersonaViewModel() { TipoPersona = tipoPersona };
+            return View(vm);
         }
 
-        // POST: PlanController_/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: PlanController_/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(IFormCollection collection)
+        //{
+        //    //try
+        //    //{
+        //    //    return RedirectToAction(nameof(Index));
+        //    //}
+        //    //catch
+        //    //{
+        //    //    return View();
+        //    //}
+        //}
 
-        // GET: PlanController_/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //// GET: PlanController_/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: PlanController_/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: PlanController_/Edit/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int id, IFormCollection collection)
+        //{
+        //    //try
+        //    //{
+        //    //    return RedirectToAction(nameof(Index));
+        //    //}
+        //    //catch
+        //    //{
+        //    //    return View();
+        //    //}
+        //}
 
-        // GET: PlanController_/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //// GET: PlanController_/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: PlanController_/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: PlanController_/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    //try
+        //    //{
+        //    //    return RedirectToAction(nameof(Index));
+        //    //}
+        //    //catch
+        //    //{
+        //    //    return View();
+        //    //}
+        //}
     }
 }

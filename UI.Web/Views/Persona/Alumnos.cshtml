@@ -1,0 +1,92 @@
+﻿@using Business.Util
+@model IEnumerable<UI.Web.Models.PersonaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    var tipo = TipoPersonaEnum.ALUMNO;
+}
+
+<h3>Personas</h3>
+
+<p>
+    @Html.ActionLink("Nuevo", "Nuevo", new { tipoPersona = @tipo }, new { @class= "btn btn-primary"}) 
+    <a class="btn btn-primary" asp-action="Create" asp-p>Nueva persona</a>
+</p>
+<table id="table" class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Legajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPersona)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.Legajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPersona)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id, tipoPersona = @tipo }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts {
+   
+<script type="text/javascript" src="~/js/initDatatables.js">
+</script>
+<script>
+    init();
+</script>
+}

@@ -1,0 +1,78 @@
+﻿@model UI.Web.Models.PersonaViewModel
+@{
+    var accion = Model.Id == 0 ? "Nuevo" : "Editar"; 
+}
+<h4>Editar </h4>
+<hr />
+
+<div class="row">
+        <form asp-action="_FormularioPersona">
+    <div class="col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                  <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Legajo" class="form-label"></label>
+                            <input asp-for="Legajo" class="form-control form-control-sm" />
+                            <span asp-validation-for="Legajo" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Apellido" class="form-label"></label>
+                            <input asp-for="Apellido" class="form-control form-control-sm" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label"></label>
+                            <input asp-for="Nombre" class="form-control form-control-sm" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="FechaNacimiento" class="form-label"></label>
+                            <input asp-for="FechaNacimiento" class="form-control form-control-sm" />
+                            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                        </div>
+                      </div>
+                  <div class="col-md-6">
+                                <div class="mb-3">
+                <label asp-for="Direccion" class="form-label"></label>
+                <input asp-for="Direccion" class="form-control form-control-sm" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Telefono" class="form-label"></label>
+                <input asp-for="Telefono" class="form-control form-control-sm" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control form-control-sm" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PlanId" class="form-label"></label>
+                <input asp-for="PlanId" class="form-control form-control-sm" />
+                <span asp-validation-for="PlanId" class="text-danger"></span>
+            </div>
+                  </div>
+            </div>
+ 
+
+
+    </div>
+          <div class="mb-3">
+                    <div>
+                         <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                                
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+            </div>
+        </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

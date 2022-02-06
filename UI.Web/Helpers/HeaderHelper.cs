@@ -8,7 +8,6 @@ namespace UI.Web.Helpers
     [HtmlTargetElement("header-index")]
     public class HeaderHelper : TagHelper
     {
-
         public string Action { get; set; }
 
         public string Title { get; set; }

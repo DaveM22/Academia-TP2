@@ -104,23 +104,26 @@ namespace UI.Web.Controllers
         }
 
         // GET: CursoController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Borrar(int id)
         {
-            return View();
+            var vm = mapper.Map<CursoViewModel>(CursoLogic.GetOne(id));
+            return View(vm);
         }
 
         // POST: CursoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Borrar(CursoViewModel cursoViewModel)
         {
             try
             {
+                CursoLogic.Delete(cursoViewModel.Id);
+                notyfService.Success($"Se ha borrado el curso {cursoViewModel.ComisionDescripcion} - {cursoViewModel.MateriaDescripcion}", 3);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(cursoViewModel);
             }
         }
     }

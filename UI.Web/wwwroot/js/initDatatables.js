@@ -11,11 +11,12 @@
     });
 }
 
-function init() {
+function init(obj) {
     $(document).ready(function () {
         $('#table').DataTable({
             language: {
-                "emptyTable": "No hay materias cargadas en el plan"
+                "emptyTable": "No hay materias "+obj+" en el plan",
+                "search":"Buscar"
             },
             lengthChange: false,
             info: false,

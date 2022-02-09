@@ -8,7 +8,7 @@
             {
                 data: null, title: "Acciones",
                 render: function (data, type, full, meta) {
-                    return '<button class="btn btn-primary">Seleccionar</button>'
+                    return '<button class="btn btn-primary" data-dismiss="modal">Seleccionar</button>'
                 }
             }
         ]
@@ -20,7 +20,7 @@
             {
                 data: null, title: "Acciones",
                 render: function (data, type, full, meta) {
-                    return '<button class="btn btn-primary">Seleccionar</button>'
+                    return '<button class="btn btn-primary" data-dismiss="modal">Seleccionar</button>'
                 }
             }
         ]
@@ -63,6 +63,7 @@
             var data = tableComision.row($(this).parents('tr')).data();
             $("#ComisionDescripcion").val(data.descripcion);
             $("#ComisionId").val(data.id);
+            $("#modalComision").modal("dispose");
         });
 
     });

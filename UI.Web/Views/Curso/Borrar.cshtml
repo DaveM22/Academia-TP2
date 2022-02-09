@@ -1,0 +1,55 @@
+﻿@model UI.Web.Models.CursoViewModel
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+<h1>Borrar curso</h1>
+
+<h3>Esta seguro de borrar el siguiente curso?</h3>
+<div>
+    <hr />
+    <form asp-action="Borrar">
+   <div class="row">
+                    <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="AnioCalendario" class="form-label"></label>
+                <input asp-for="AnioCalendario" class="form-control form-control-md" disabled />
+                <span asp-validation-for="AnioCalendario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Cupo" class="form-label"></label>
+                <input asp-for="Cupo" class="form-control form-control-md" disabled />
+                <span asp-validation-for="Cupo" class="text-danger"></span>
+            </div>
+  
+            <input asp-for="MateriaId" hidden disabled />
+            <input asp-for="ComisionId" hidden disabled /> 
+            <input asp-for="Id" hidden disabled />
+ 
+                </div>
+                <div class="col-md-6">
+                              <div class="mb-3">
+                <label asp-for="ComisionDescripcion" class="form-label"></label>      
+                  <div class="input-group">
+                    <input asp-for="ComisionDescripcion" readonly class="form-control form-control-md" />
+                  </div>
+                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+            </div>
+            <div class="mb-3">
+                <label asp-for="MateriaDescripcion" class="form-label"></label>      
+                  <div class="input-group">
+                    <input asp-for="MateriaDescripcion" readonly class="form-control form-control-sm" />
+                  </div>
+                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+            </div>
+                </div>
+
+            </div>
+
+    
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

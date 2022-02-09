@@ -4,7 +4,8 @@
     ViewData["Title"] = "Cursos";
 }
 <div class="container">
-<header-index action="Nuevo" title="Cursos" button-text="Crear curso"></header-index>
+       
+<header-index action="/Curso/Nuevo" title="Cursos" button-text="Crear curso"></header-index>
 
 
     <table id="table" class="table table-dark table-striped">
@@ -57,5 +58,5 @@
 @section Scripts {
 
     <script type="text/javascript" src="~/js/initDatatables.js"></script>
-    <script>init();</script>
+    <script>init("cursos");</script>
 }

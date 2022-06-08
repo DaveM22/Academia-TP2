@@ -1,0 +1,11 @@
+﻿@model UI.Web.Models.PersonaViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<partial name ="_FormularioPersona" for="@Model" />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

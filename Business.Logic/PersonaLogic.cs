@@ -14,5 +14,20 @@ namespace Business.Logic
         {
             return PersonaData.GetPersonas(tipoPersona);
         }
+
+        public Persona GetOne(int id)
+        {
+            return PersonaData.GetOne(id);
+        }
+
+        public Persona Save(Persona persona)
+        {
+            return PersonaData.Save(persona);
+        }
+
+        public void Delete(Persona persona)
+        {
+            PersonaData.Delete(persona);
+        }
     }
 }

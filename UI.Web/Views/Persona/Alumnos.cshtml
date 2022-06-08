@@ -9,12 +9,10 @@
     var tipo = TipoPersonaEnum.ALUMNO;
 }
 
-<h3>Personas</h3>
-
 <p>
-    @Html.ActionLink("Nuevo", "Nuevo", new { tipoPersona = @tipo }, new { @class= "btn btn-primary"}) 
-    <a class="btn btn-primary" asp-action="Create" asp-p>Nueva persona</a>
+    <partial for="@tipo" name="_HeaderPersona" />
 </p>
+
 <table id="table" class="table table-striped">
     <thead>
         <tr>
@@ -40,9 +38,8 @@
                 @Html.DisplayNameFor(model => model.FechaNacimiento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoPersona)
+                Acciones
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -70,12 +67,9 @@
                 @Html.DisplayFor(modelItem => item.FechaNacimiento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoPersona)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id, tipoPersona = @tipo }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Editar", new { id=item.Id, tipoPersona = @tipo }) |
+                @Html.ActionLink("Detalles", "Detalles", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Borrar", "Borrar", new { id=item.Id })
             </td>
         </tr>
 }

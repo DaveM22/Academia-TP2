@@ -13,6 +13,7 @@ namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
+        protected UserControl Desktop { get; set; }
         public ApplicationForm()
         {
             InitializeComponent();
@@ -33,6 +34,13 @@ namespace UI.Desktop
             applicationForm.Dock = DockStyle.Fill;
             applicationForm.FormClosed += formClosedEvent;
             return applicationForm;
+        }
+
+        public void LoadDesktop(UserControl desktop, EventHandler evento)
+        {
+            Desktop = desktop;
+            Desktop.Dock = DockStyle.Fill;
+            Desktop.Disposed += evento;
         }
     }
 }

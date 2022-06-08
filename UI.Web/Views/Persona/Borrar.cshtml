@@ -1,0 +1,103 @@
+﻿@using Business.Util
+@model UI.Web.Models.PersonaViewModel
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+@{
+    TipoPersonaEnum persona = @Model.TipoPersona;
+    string redirect = string.Empty;
+    string namePersona = string.Empty;
+}
+    @switch(Model.TipoPersona)
+    {
+       case TipoPersonaEnum.ALUMNO:
+            redirect = "Alumnos";
+            namePersona = "alumno";
+        break;
+       case TipoPersonaEnum.PROFESOR:
+            redirect = "Profesores";
+            namePersona = "profesor";
+        break;
+    default:
+            break;
+     }
+
+
+
+<h1>Borrar</h1>
+
+<h3>¿Esta seguro de eliminar el siguiente @namePersona </h3>
+    <div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Legajo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Legajo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlanId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlanId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoPersona)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoPersona)
+        </dd>
+    </dl>
+    
+    <form asp-action="Borrar">
+       <input asp-for="Id" hidden="hidden" />
+       
+       <input asp-for="TipoPersona" hidden="hidden" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="@redirect" class="btn btn-danger">Volver al listado</a>
+    </form>
+</div>

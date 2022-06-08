@@ -9,12 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Desktop.UserControls;
 
 namespace UI.Desktop
 {
     public partial class Especialidades : ApplicationForm
     {
         EspecialidadLogic EspecialidadLogic => new();
+
+        public int? Id { get; set; }
         public Especialidades()
         {
             InitializeComponent();
@@ -22,16 +25,13 @@ namespace UI.Desktop
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {
-            tabFormulario.Controls.Clear();
-            var desktop = this.LoadEspecialidadDesktop(new EspecialidadDesktop(ModoForm.Alta), Form_Especialidad_FormClosed);
-            desktop.Show();
-            LoadControls(desktop);
-            tabEspecialidades.SelectTab(nameof(tabFormulario));
+            this.tlEspecialidades.Controls.Clear();
+            this.tlEspecialidades.Controls.Add(this.Desktop);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
+            //dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -39,46 +39,73 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.ColumnIndex > 0)
-            {
-                tabEspecialidades.SelectTab(nameof(tabFormulario));
-                tabFormulario.Controls.Clear();
-                var especialidad = dgvEspecialidades.Rows[e.RowIndex].DataBoundItem as Especialidad;
-                var desktop = this.LoadEspecialidadDesktop(new EspecialidadDesktop(especialidad.Id, ModoForm.Modificacion), Form_Especialidad_FormClosed);
-                LoadControls(desktop);
-                desktop.Show();
-            }
-        }
-
         private void Form_Especialidad_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
-            tabEspecialidades.SelectTab("tabLista");
+            this.tlEspecialidades.Controls.Clear();
+            this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill});
+        }
+
+        private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex > 0)
+            {
+            }
         }
 
         private void Especialidades_Load(object sender, EventArgs e)
         {
-            dgvEspecialidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvEspecialidades.AutoGenerateColumns = false;
-            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
+
+            this.LoadDesktop(new dgvEspecialidadesList() { Dock = DockStyle.Fill },Back);
+            var especialidadForm = new EspecialidadFormControl();
+            especialidadForm.Visible = false;
+            this.Controls.Add(especialidadForm);
+            //dgvEspecialidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvEspecialidades.AutoGenerateColumns = false;
+            //dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
         private void LoadControls(ApplicationForm desktop)
         {
-            this.tabFormulario.Controls.Add(desktop);
-            this.tabFormulario.Tag = desktop;
+            this.tlEspecialidades.Controls.Clear();
+            this.tlEspecialidades.Controls.Add(desktop);
+        }
+
+        private void Back(object sender, EventArgs e)
+        {
+            this.tlEspecialidades.Controls.Clear();
+            this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill });
         }
 
         private void tabEspecialidades_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (tabEspecialidades.SelectedTab.Text == "Formulario")
+            //if (tabEspecialidades.SelectedTab.Text == "Formulario")
+            //{
+            //    if (tabFormulario.Controls.Count == 0)
+            //    {
+            //        e.Cancel = true;
+            //    }
+            //}
+        }
+
+        private void dgvEspecialidades_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex > 0)
             {
-                if (tabFormulario.Controls.Count == 0)
-                {
-                    e.Cancel = true;
-                }
+
+                ////tabEspecialidades.SelectTab(nameof(tabFormulario));
+                ////tabFormulario.Controls.Clear();
+                //
+
+            }
+        }
+
+        private void dgvEspecialidadesList1_Click(object sender, EventArgs e)
+        {
+            if (Id.HasValue)
+            {
+                var desktop = this.LoadEspecialidadDesktop(new EspecialidadDesktop(dgvEspecialidadesList1.Id.Value, ModoForm.Modificacion), Form_Especialidad_FormClosed);
+                LoadControls(desktop);
+                desktop.Show();
             }
         }
     }

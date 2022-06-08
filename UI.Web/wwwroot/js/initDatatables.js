@@ -19,6 +19,17 @@ function init(obj) {
                 "search":"Buscar"
             },
             lengthChange: false,
+            responsive: {
+                details: {
+                    display: $.fn.dataTable.Responsive.display.modal({
+                        header: function (row) {
+                            var data = row.data();
+                            return 'Details for ' + data[0] + ' ' + data[1];
+                        }
+                    }),
+                    renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+                }
+            },
             info: false,
             "initComplete": function (settings, json) {
                 $('.table-dark').css("background-color", "#212529");

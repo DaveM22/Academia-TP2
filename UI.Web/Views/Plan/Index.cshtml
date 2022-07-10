@@ -3,14 +3,17 @@
 @{
     ViewData["Title"] = "Planes";
 }
+
+@{var tuple = ("Planes", "Plan");}
+<partial for="@tuple" name="_HeaderGeneric" />
+
+
 <div class="container">
 
-<header-index action="Nuevo" title="Planes" button-text="Crear plan"></header-index>
-
-<table id="table" class="table">
+<table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>
+            <th hidden>
             </th>
             <th>
                 Descripción
@@ -18,13 +21,13 @@
             <th>
                 Especialidad
             </th>
-            <th>Acciones</th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model) {
                 <tr>
-                    <td>
+                    <td hidden>
                         @Html.HiddenFor(modelItem => item.Id)
                     </td>
                     <td>
@@ -33,10 +36,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.EspecialidadDescripcion)
                     </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-                        @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
-                        @Html.ActionLink("Borrar", "Borrar", new { id=item.Id })
+                    <td class="text-center">
+                      <a class="btn btn-primary btn-sm" title="Editar plan" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a>
+                      <a class="btn btn-danger btn-sm" title="Borrar plan" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></a>
                     </td>
                 </tr>
         }
@@ -46,4 +48,29 @@
 
 @section scripts {
     <script type="text/javascript" src="~/js/initDatatables.js" ></script>
+
+        <script>
+            $(document).ready(function() {
+            $('#table').DataTable( {
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 1, targets: 1 },
+                    { responsivePriority: 1, targets: 3 }
+                ],
+                language: {
+                "emptyTable": "No hay planes registrados",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            } );
+        } );
+    </script>
 }

@@ -16,21 +16,31 @@ function init(obj) {
         $('#table').DataTable({
             language: {
                 "emptyTable": "No hay materias "+obj+" en el plan",
-                "search":"Buscar"
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
             },
+            dom: "ftip",
             lengthChange: false,
+            info: false,
             responsive: {
                 details: {
                     display: $.fn.dataTable.Responsive.display.modal({
                         header: function (row) {
                             var data = row.data();
-                            return 'Details for ' + data[0] + ' ' + data[1];
+                            return 'Detalles de: ' + data[0] + ' ' + data[1];
                         }
                     }),
-                    renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+                    renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                        tableClass: 'table'
+                    })
                 }
             },
-            info: false,
+
             "initComplete": function (settings, json) {
                 $('.table-dark').css("background-color", "#212529");
             },
@@ -39,4 +49,27 @@ function init(obj) {
 }
 
 
-
+function initDataTable() {
+    $(document).ready(function () {
+        $('#table').DataTable({
+            responsive: true,
+            columnDefs: [
+                { responsivePriority: 1, targets: 0 },
+                { responsivePriority: 2, targets: 1 },
+                { responsivePriority: 1, targets: 3 }
+            ],
+            language: {
+                "emptyTable": "No hay comisiones registradas",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            lengthChange: false,
+            info: false,
+        });
+    });
+}

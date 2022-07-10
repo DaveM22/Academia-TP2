@@ -1,11 +1,9 @@
 ﻿@model (string Titulo,string Entidad)
-    <div class="mt-4">
-        <div class="col-lg-12 col-sm-12 d-flex justify-content-between align-items-center">
-            <div>
-                <h2>@Model.Titulo</h2>
-            </div>
-            <div>
-                <a asp-controller="@Model.Entidad" asp-action="Nuevo" class="btn btn-primary">Crear @Model.Entidad</a>
-            </div>
+    <h2 class="text-center">@Model.Titulo</h2>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="@Model.Entidad" asp-action="Nuevo" class="btn btn-primary">Crear @Model.Entidad</a>
         </div>
     </div>
+</div>

@@ -9,7 +9,6 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
-    [Authorize]
     public class EspecialidadController : Controller
     {
         private EspecialidadLogic EspecialidadLogic => new EspecialidadLogic();

@@ -54,5 +54,25 @@ namespace UI.Desktop
             form.ShowDialog();
             dgvComisiones.DataSource = ComisionLogic.GetAll();
         }
+
+        private void dgvComisiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var cell = e;
+            switch (cell.ColumnIndex)
+            {
+                case 4:
+                    var rowEdit = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
+                    var formEdit = new ComisionDesktop(rowEdit.Id, ApplicationForm.ModoForm.Modificacion);
+                    formEdit.ShowDialog();
+                    dgvComisiones.DataSource = ComisionLogic.GetAll();
+                    break;
+                case 5:
+                    var rowDelete = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
+                    var formDelete = new ComisionDesktop(rowDelete.Id, ApplicationForm.ModoForm.Baja);
+                    formDelete.ShowDialog();
+                    dgvComisiones.DataSource = ComisionLogic.GetAll();
+                    break;
+            }
+        }
     }
 }

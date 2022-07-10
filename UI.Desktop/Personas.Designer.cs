@@ -32,12 +32,6 @@
             this.tscPersonas = new System.Windows.Forms.ToolStripContainer();
             this.tlpPersonas = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsModificar = new System.Windows.Forms.ToolStripButton();
-            this.tsEliminar = new System.Windows.Forms.ToolStripButton();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +40,12 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsModificar = new System.Windows.Forms.ToolStripButton();
+            this.tsEliminar = new System.Windows.Forms.ToolStripButton();
             this.tscPersonas.ContentPanel.SuspendLayout();
             this.tscPersonas.TopToolStripPanel.SuspendLayout();
             this.tscPersonas.SuspendLayout();
@@ -114,67 +114,7 @@
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonas.Size = new System.Drawing.Size(794, 371);
             this.dgvPersonas.TabIndex = 0;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(567, 380);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(112, 34);
-            this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(685, 380);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(112, 34);
-            this.btnCerrar.TabIndex = 2;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsNuevo,
-            this.tsModificar,
-            this.tsEliminar});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(120, 33);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // tsNuevo
-            // 
-            this.tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsNuevo.Image")));
-            this.tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsNuevo.Name = "tsNuevo";
-            this.tsNuevo.Size = new System.Drawing.Size(34, 28);
-            this.tsNuevo.Text = "toolStripButton1";
-            // 
-            // tsModificar
-            // 
-            this.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsModificar.Image")));
-            this.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsModificar.Name = "tsModificar";
-            this.tsModificar.Size = new System.Drawing.Size(34, 28);
-            this.tsModificar.Text = "toolStripButton2";
-            // 
-            // tsEliminar
-            // 
-            this.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsEliminar.Image")));
-            this.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsEliminar.Name = "tsEliminar";
-            this.tsEliminar.Size = new System.Drawing.Size(34, 28);
-            this.tsEliminar.Text = "toolStripButton3";
+            this.dgvPersonas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPersonas_CellMouseClick);
             // 
             // Id
             // 
@@ -248,6 +188,67 @@
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
             this.Plan.Width = 150;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(567, 380);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(112, 34);
+            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(685, 380);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(112, 34);
+            this.btnCerrar.TabIndex = 2;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsNuevo,
+            this.tsModificar,
+            this.tsEliminar});
+            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(120, 33);
+            this.toolStrip1.TabIndex = 0;
+            // 
+            // tsNuevo
+            // 
+            this.tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsNuevo.Image")));
+            this.tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsNuevo.Name = "tsNuevo";
+            this.tsNuevo.Size = new System.Drawing.Size(34, 28);
+            this.tsNuevo.Text = "toolStripButton1";
+            // 
+            // tsModificar
+            // 
+            this.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsModificar.Image")));
+            this.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsModificar.Name = "tsModificar";
+            this.tsModificar.Size = new System.Drawing.Size(34, 28);
+            this.tsModificar.Text = "toolStripButton2";
+            // 
+            // tsEliminar
+            // 
+            this.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsEliminar.Image")));
+            this.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEliminar.Name = "tsEliminar";
+            this.tsEliminar.Size = new System.Drawing.Size(34, 28);
+            this.tsEliminar.Text = "toolStripButton3";
             // 
             // Personas
             // 

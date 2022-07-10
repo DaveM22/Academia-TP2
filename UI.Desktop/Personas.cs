@@ -56,5 +56,11 @@ namespace UI.Desktop
             dgvPersonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonas.DataSource = PersonaList;
         }
+
+        private void dgvPersonas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var cell = (DataGridViewCell)sender;
+           
+        }
     }
 }

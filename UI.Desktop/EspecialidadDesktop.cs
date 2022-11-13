@@ -100,6 +100,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            //MasterForm.AbrirForm(new Especialidades());
             this.Close();
         }
 

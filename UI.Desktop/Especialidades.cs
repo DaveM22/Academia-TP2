@@ -25,8 +25,8 @@ namespace UI.Desktop
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {
-            this.tlEspecialidades.Controls.Clear();
-            this.tlEspecialidades.Controls.Add(this.Desktop);
+            var form = new EspecialidadDesktop(ModoForm.Alta);
+            Master.OpenForm(form);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -34,15 +34,11 @@ namespace UI.Desktop
             //dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void Form_Especialidad_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.tlEspecialidades.Controls.Clear();
-            this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill});
+            //this.tlEspecialidades.Controls.Clear();
+            //this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill});
         }
 
         private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -54,27 +50,11 @@ namespace UI.Desktop
 
         private void Especialidades_Load(object sender, EventArgs e)
         {
-
-            this.LoadDesktop(new dgvEspecialidadesList() { Dock = DockStyle.Fill },Back);
-            var especialidadForm = new EspecialidadFormControl();
-            especialidadForm.Visible = false;
-            this.Controls.Add(especialidadForm);
-            //dgvEspecialidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dgvEspecialidades.AutoGenerateColumns = false;
-            //dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
+            //dgvEspecialidadesList1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvEspecialidadesList1.AutoGenerateColumns = false;
+            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
-        private void LoadControls(ApplicationForm desktop)
-        {
-            this.tlEspecialidades.Controls.Clear();
-            this.tlEspecialidades.Controls.Add(desktop);
-        }
-
-        private void Back(object sender, EventArgs e)
-        {
-            this.tlEspecialidades.Controls.Clear();
-            this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill });
-        }
 
         private void tabEspecialidades_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -99,14 +79,10 @@ namespace UI.Desktop
             }
         }
 
-        private void dgvEspecialidadesList1_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            if (Id.HasValue)
-            {
-                var desktop = this.LoadEspecialidadDesktop(new EspecialidadDesktop(dgvEspecialidadesList1.Id.Value, ModoForm.Modificacion), Form_Especialidad_FormClosed);
-                LoadControls(desktop);
-                desktop.Show();
-            }
+
+            this.Close();
         }
     }
 }

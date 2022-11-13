@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Form
+    public partial class Comisiones : ApplicationForm
     {
         private ComisionLogic ComisionLogic => new();
+
         public Comisiones()
         {
             InitializeComponent();
@@ -35,16 +36,14 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
-            form.ShowDialog();
-            dgvComisiones.DataSource = ComisionLogic.GetAll();
+            Master.OpenForm(form);
         }
 
         private void tsEditar_Click(object sender, EventArgs e)
         {
             var row = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
             var form = new ComisionDesktop(row.Id, ApplicationForm.ModoForm.Modificacion);
-            form.ShowDialog();
-            dgvComisiones.DataSource = ComisionLogic.GetAll();
+            Master.OpenForm(form);
         }
 
         private void tsEliminar_Click(object sender, EventArgs e)
@@ -63,14 +62,12 @@ namespace UI.Desktop
                 case 4:
                     var rowEdit = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
                     var formEdit = new ComisionDesktop(rowEdit.Id, ApplicationForm.ModoForm.Modificacion);
-                    formEdit.ShowDialog();
-                    dgvComisiones.DataSource = ComisionLogic.GetAll();
+                    Master.OpenForm(formEdit);
                     break;
                 case 5:
                     var rowDelete = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
                     var formDelete = new ComisionDesktop(rowDelete.Id, ApplicationForm.ModoForm.Baja);
-                    formDelete.ShowDialog();
-                    dgvComisiones.DataSource = ComisionLogic.GetAll();
+                    Master.OpenForm(formDelete);
                     break;
             }
         }

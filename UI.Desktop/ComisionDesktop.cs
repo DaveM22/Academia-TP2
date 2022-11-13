@@ -14,7 +14,10 @@ namespace UI.Desktop
 {
     public partial class ComisionDesktop : ApplicationForm
     {
+
         private BindingSource dataSource;
+
+
 
         private PlanLogic PlanLogic => new();
 
@@ -75,6 +78,9 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 ComisionLogic.Save(Comision);
+                Master.OpenForm(new Comisiones());
+                string accion = Modo == ModoForm.Alta ? $"Se ha creado la comisión: {Comision.Descripcion}" : $"Se ha modificado la comisión: {Comision.Descripcion}";
+                MessageBox.Show(accion, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
             }
         }
@@ -115,7 +121,13 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Master.OpenForm(new Comisiones());
             this.Close();
+        }
+
+        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

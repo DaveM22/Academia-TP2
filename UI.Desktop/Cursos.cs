@@ -13,7 +13,7 @@ using static UI.Desktop.ApplicationForm;
 
 namespace UI.Desktop
 {
-    public partial class Cursos : Form
+    public partial class Cursos : ApplicationForm
     {
         private CursoLogic CursoLogic => new();
         public Cursos()
@@ -40,8 +40,7 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new CursoDesktop(ModoForm.Alta);
-            form.ShowDialog();
-            dgvCursos.DataSource = CursoLogic.GetAll();
+            Master.OpenForm(form);
         }
 
         private void tsModificacion_Click(object sender, EventArgs e)

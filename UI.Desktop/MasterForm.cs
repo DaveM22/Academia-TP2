@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MasterForm : Form
+    public partial class MasterForm : ApplicationForm
     {
         public MasterForm()
         {
@@ -28,25 +28,29 @@ namespace UI.Desktop
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new Cursos();
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            OpenForm(new Cursos());
         }
 
         private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(pnlMenu.Controls.Count > 0)
-            {
-                this.pnlMenu.Controls.RemoveAt(0);
-            }
-            Especialidades especialidades = new Especialidades();
-            especialidades.TopLevel = false;
-            especialidades.FormBorderStyle = FormBorderStyle.None;
-            especialidades.Dock = DockStyle.Fill;
-            this.pnlMenu.Controls.Add(especialidades);
-            this.pnlMenu.Tag = especialidades;
-            especialidades.Show();
+            OpenForm(new Especialidades());
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Comisiones());
+        }
+
+
+        public void OpenForm(ApplicationForm form)
+        {
+            form.TopLevel = false;
+            form.TopMost = true;
+            form.Dock = DockStyle.Fill;
+            form.FormBorderStyle = FormBorderStyle.None;
+            pnlMenu.Controls.Clear();
+            pnlMenu.Controls.Add(form);
+            form.Show();
         }
     }
 }

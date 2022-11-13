@@ -13,6 +13,7 @@ namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
+        protected MasterForm Master => (MasterForm)Application.OpenForms["MasterForm"];
         protected UserControl Desktop { get; set; }
         public ApplicationForm()
         {
@@ -28,13 +29,6 @@ namespace UI.Desktop
             Alta,Baja,Modificacion,Consulta
         }
 
-        public ApplicationForm LoadEspecialidadDesktop(ApplicationForm applicationForm, FormClosedEventHandler formClosedEvent)
-        {
-            applicationForm.TopLevel = false;
-            applicationForm.Dock = DockStyle.Fill;
-            applicationForm.FormClosed += formClosedEvent;
-            return applicationForm;
-        }
 
         public void LoadDesktop(UserControl desktop, EventHandler evento)
         {

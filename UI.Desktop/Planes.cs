@@ -12,9 +12,12 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Planes : Form
+    public partial class Planes : ApplicationForm
     {
         private PlanLogic PlanLogic => new PlanLogic();
+        private MasterForm MasterForm = Application.OpenForms["MasterForm"] as MasterForm;
+
+
         public Planes()
         {
             InitializeComponent();
@@ -25,8 +28,7 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new PlanDesktop(ApplicationForm.ModoForm.Alta);
-            form.ShowDialog();
-            dgvPlanes.DataSource = PlanLogic.GetAll();
+            //MasterForm.AbrirForm(form);
         }
 
         private void tsModificar_Click(object sender, EventArgs e)

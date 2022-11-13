@@ -162,7 +162,7 @@ namespace UI.Desktop
         private void btnGuardarMateria_Click(object sender, EventArgs e)
         {
             var materia = dataSourceMateria.Current as Materia;
-            var datasource = (dataSource.Current as Plan)?.Materias;
+            var datasource = (dataSource.Current as Plan)?.Materias ?? new List<Materia>();
             datasource.Add(materia);
             dgvMaterias.DataSource = datasource;
             dgvMaterias.Refresh();

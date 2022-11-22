@@ -16,6 +16,12 @@ namespace Business.Data
             return context.Comisiones.Include(x => x.Plan).ToList();
         }
 
+        public List<Comision> GetAllByPlan(int planId)
+        {
+            using var context = new AcademiaContext();
+            return context.Comisiones.Include(x => x.Plan).Where(x => x.PlanId == planId).ToList();
+        }
+
         public Comision GetOne(int id)
         {
             using var context = new AcademiaContext();

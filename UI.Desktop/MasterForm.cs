@@ -41,6 +41,11 @@ namespace UI.Desktop
             OpenForm(new Comisiones());
         }
 
+        private void inscripcionDeDocenteACursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DocenteCursos());
+        }
+
 
         public void OpenForm(ApplicationForm form)
         {
@@ -51,6 +56,11 @@ namespace UI.Desktop
             pnlMenu.Controls.Clear();
             pnlMenu.Controls.Add(form);
             form.Show();
+        }
+
+        private void planesYMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Planes());
         }
     }
 }

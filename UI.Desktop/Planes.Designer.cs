@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
             this.tscPlanes = new System.Windows.Forms.ToolStripContainer();
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPlanes = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsModificar = new System.Windows.Forms.ToolStripButton();
             this.Eliminar = new System.Windows.Forms.ToolStripButton();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reporte = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tscPlanes.ContentPanel.SuspendLayout();
             this.tscPlanes.TopToolStripPanel.SuspendLayout();
             this.tscPlanes.SuspendLayout();
@@ -89,11 +91,14 @@
             // 
             this.dgvPlanes.AllowUserToAddRows = false;
             this.dgvPlanes.AllowUserToDeleteRows = false;
+            this.dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.Descripcion,
             this.Especialidad,
-            this.Reporte});
+            this.Editar,
+            this.dataGridViewButtonColumn1});
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
@@ -103,24 +108,76 @@
             this.dgvPlanes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvPlanes.RowTemplate.Height = 33;
             this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanes.Size = new System.Drawing.Size(794, 371);
+            this.dgvPlanes.Size = new System.Drawing.Size(794, 360);
             this.dgvPlanes.TabIndex = 0;
+            this.dgvPlanes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanes_CellClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Plan";
+            this.Descripcion.MinimumWidth = 8;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.ToolTipText = "Nombre del plan";
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.DataPropertyName = "EspecialidadDescripcion";
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.MinimumWidth = 8;
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.ToolTipText = "Nombre de especialidad";
+            // 
+            // Editar
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Editar";
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Editar.HeaderText = "";
+            this.Editar.MinimumWidth = 8;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.dataGridViewButtonColumn1.HeaderText = "";
+            this.dataGridViewButtonColumn1.MinimumWidth = 8;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Eliminar";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(567, 380);
+            this.btnActualizar.Location = new System.Drawing.Point(567, 369);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(112, 34);
+            this.btnActualizar.Size = new System.Drawing.Size(112, 45);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(685, 380);
+            this.btnCancelar.Location = new System.Drawing.Point(685, 369);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 45);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -168,41 +225,6 @@
             this.Eliminar.Text = "Eliminar plan";
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Plan";
-            this.Descripcion.MinimumWidth = 8;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.ToolTipText = "Nombre del plan";
-            this.Descripcion.Width = 150;
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.DataPropertyName = "EspecialidadDescripcion";
-            this.Especialidad.Frozen = true;
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.MinimumWidth = 8;
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            this.Especialidad.ToolTipText = "Nombre de especialidad";
-            this.Especialidad.Width = 150;
-            // 
-            // Reporte
-            // 
-            dataGridViewCellStyle1.NullValue = "Editar";
-            this.Reporte.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Reporte.HeaderText = "";
-            this.Reporte.MinimumWidth = 8;
-            this.Reporte.Name = "Reporte";
-            this.Reporte.ReadOnly = true;
-            this.Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Reporte.Text = "Editar";
-            this.Reporte.Width = 150;
-            // 
             // Planes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -236,8 +258,10 @@
         private System.Windows.Forms.DataGridView dgvPlanes;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewLinkColumn Reporte;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
     }
 }

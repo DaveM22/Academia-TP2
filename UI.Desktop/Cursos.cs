@@ -43,20 +43,21 @@ namespace UI.Desktop
             Master.OpenForm(form);
         }
 
-        private void tsModificacion_Click(object sender, EventArgs e)
+        private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var row = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
-            var form = new CursoDesktop(row.Id,ModoForm.Modificacion);
-            form.ShowDialog();
-            dgvCursos.DataSource = CursoLogic.GetAll();
-        }
+            if (dgvCursos.CurrentCell.OwningColumn.Name == "Editar")
+            {
+                Curso curso = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
+                var form = new CursoDesktop(curso.Id, ModoForm.Modificacion);
+                Master.OpenForm(form);
+            }
 
-        private void tsEliminar_Click(object sender, EventArgs e)
-        {
-            var row = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
-            var form = new CursoDesktop(row.Id, ModoForm.Baja);
-            form.ShowDialog();
-            dgvCursos.DataSource = CursoLogic.GetAll();
+            if (dgvCursos.CurrentCell.OwningColumn.Name == "Eliminar")
+            {
+                Curso curso = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
+                var form = new CursoDesktop(curso.Id, ModoForm.Baja);
+                Master.OpenForm(form);
+            }
         }
     }
 }

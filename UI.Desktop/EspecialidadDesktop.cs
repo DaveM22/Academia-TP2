@@ -1,7 +1,7 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -54,7 +54,6 @@ namespace UI.Desktop
 
         private void EditDescription()
         {
-            lblTitulo.Text = "Modificar especialidad";
             Text = "Modificar especialidad";
         }
 
@@ -63,10 +62,16 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show("¿Desea guardar los cambios de la especialidad?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                EspecialidadLogic.Save(Especialidad);
-                MessageBox.Show($"Se ha creado la especialidad: {Especialidad.Descripcion}","Crear especialidad",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                try
+                {
+                    EspecialidadLogic.Save(Especialidad);
+                    MessageBox.Show($"Se ha creado la especialidad: {Especialidad.Descripcion}", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (EntityValidationException ex)
+                {
+                    MessageBox.Show(ex.Errors.ToString(),ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -80,18 +85,6 @@ namespace UI.Desktop
             }
         }
 
-        private List<string> Validate()
-        {
-            List<string> errors = new();
-            if(txtDescripcion.Text?.Length == 0)
-            {
-                errors.Add("Descripción");
-            }
-            return errors;
-        }
-
-
-
         private void EspecialidadDesktop_Load(object sender, EventArgs e)
         {
             dataSource = new BindingSource { Especialidad };
@@ -100,34 +93,24 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //MasterForm.AbrirForm(new Especialidades());
+            Master.OpenForm(new Especialidades());
             this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            var errors = Validate();
-            if(errors.Count == 0)
+            Especialidad = (Especialidad)dataSource.Current;
+            switch (Modo)
             {
-                Especialidad = (Especialidad)dataSource.Current;
-                switch (Modo)
-                {
-                    case ModoForm.Modificacion:
-                    case ModoForm.Alta:
-                        Save();
-                        break;
-                    case ModoForm.Baja:
-                        Delete();
-                        break;
-                }
-                this.Close();
-            }
-            else
-            {
-                string error = "Los siguientes campos son requeridos:";
-                errors.ForEach(x => error += "\n" + x);
-                MessageBox.Show(error, "Error al guardar especialidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                case ModoForm.Modificacion:
+                case ModoForm.Alta:
+                    Save();
+                    break;
+                case ModoForm.Baja:
+                    Delete();
+                    break;
             }
         }
+
     }
 }

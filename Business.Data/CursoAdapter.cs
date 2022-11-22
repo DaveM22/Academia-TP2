@@ -16,10 +16,16 @@ namespace Business.Data
             return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).ToList();
         }
 
+        public List<Curso> GetAllByPlan(int idPlan)
+        {
+            using var context = new AcademiaContext();
+            return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan).ToList();
+        }
+
         public Curso GetOne(int id)
         {
             using var context = new AcademiaContext();
-            return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).SingleOrDefault(x => x.Id == id);
+            return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).ThenInclude(x => x.Plan).SingleOrDefault(x => x.Id == id);
         }
 
         public Curso Save(Curso cur)

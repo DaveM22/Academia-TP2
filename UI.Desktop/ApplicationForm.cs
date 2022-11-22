@@ -36,5 +36,8 @@ namespace UI.Desktop
             Desktop.Dock = DockStyle.Fill;
             Desktop.Disposed += evento;
         }
+
+
+
     }
 }

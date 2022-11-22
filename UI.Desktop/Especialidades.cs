@@ -17,7 +17,7 @@ namespace UI.Desktop
     {
         EspecialidadLogic EspecialidadLogic => new();
 
-        public int? Id { get; set; }
+        public int IdEspecialidad { get; set; }
         public Especialidades()
         {
             InitializeComponent();
@@ -31,58 +31,35 @@ namespace UI.Desktop
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            //dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
-        }
-
-
-        private void Form_Especialidad_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //this.tlEspecialidades.Controls.Clear();
-            //this.tlEspecialidades.Controls.Add(new dgvEspecialidadesList() { Dock = DockStyle.Fill});
-        }
-
-        private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex > 0)
-            {
-            }
+            dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
         private void Especialidades_Load(object sender, EventArgs e)
         {
-            //dgvEspecialidadesList1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dgvEspecialidadesList1.AutoGenerateColumns = false;
             dgvEspecialidades.DataSource = EspecialidadLogic.GetAll();
         }
 
-
-        private void tabEspecialidades_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //if (tabEspecialidades.SelectedTab.Text == "Formulario")
-            //{
-            //    if (tabFormulario.Controls.Count == 0)
-            //    {
-            //        e.Cancel = true;
-            //    }
-            //}
-        }
-
-        private void dgvEspecialidades_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex > 0)
-            {
-
-                ////tabEspecialidades.SelectTab(nameof(tabFormulario));
-                ////tabFormulario.Controls.Clear();
-                //
-
-            }
-        }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
 
             this.Close();
+        }
+
+        private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvEspecialidades.CurrentCell.OwningColumn.Name == "Editar")
+            {
+                Especialidad esp = dgvEspecialidades.SelectedRows[0].DataBoundItem as Especialidad;
+                var form = new EspecialidadDesktop(esp.Id, ModoForm.Modificacion);
+                Master.OpenForm(form);
+            }
+            if (dgvEspecialidades.CurrentCell.OwningColumn.Name == "Eliminar")
+            {
+                Especialidad esp = dgvEspecialidades.SelectedRows[0].DataBoundItem as Especialidad;
+                var form = new EspecialidadDesktop(esp.Id, ModoForm.Modificacion);
+                Master.OpenForm(form);
+            }
         }
     }
 }

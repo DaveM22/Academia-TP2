@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace UI.Desktop
     {
 
         private BindingSource dataSource;
-
+        private Plan Plan { get; set; }
 
 
         private PlanLogic PlanLogic => new();
@@ -28,13 +29,13 @@ namespace UI.Desktop
         public ComisionDesktop()
         {
             InitializeComponent();
-            cmbPlanes.DataSource = PlanLogic.GetAll();
-            Comision = new();
+
         }
 
         public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            Comision = new();
             NewDescription();
         }
 
@@ -57,7 +58,6 @@ namespace UI.Desktop
         {
             btnAceptar.Text = "Eliminar";
             txtDescripcion.ReadOnly = true;
-            cmbPlanes.Enabled = false;
             nudAño.Enabled = false;
             Text = "Borrar comisión";
         }
@@ -77,11 +77,18 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show("¿Desea guardar los cambios de la comisión?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                ComisionLogic.Save(Comision);
-                Master.OpenForm(new Comisiones());
-                string accion = Modo == ModoForm.Alta ? $"Se ha creado la comisión: {Comision.Descripcion}" : $"Se ha modificado la comisión: {Comision.Descripcion}";
-                MessageBox.Show(accion, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Close();
+                try
+                {
+                    ComisionLogic.Save(Comision);
+                    Master.OpenForm(new Comisiones());
+                    string accion = Modo == ModoForm.Alta ? $"Se ha creado la comisión: {Comision.Descripcion}" : $"Se ha modificado la comisión: {Comision.Descripcion}";
+                    MessageBox.Show(accion, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
+                catch (EntityValidationException ex)
+                {
+                    MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -99,7 +106,6 @@ namespace UI.Desktop
         {
             dataSource = new BindingSource { Comision };
             txtDescripcion.DataBindings.Add("Text", dataSource, nameof(Comision.Descripcion));
-            cmbPlanes.DataBindings.Add("SelectedValue", dataSource, nameof(Comision.PlanId));
             nudAño.DataBindings.Add("Value", dataSource, nameof(Comision.AnioEspecialidad));
         }
 
@@ -116,7 +122,6 @@ namespace UI.Desktop
                     Delete();
                     break;
             }
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -128,6 +133,17 @@ namespace UI.Desktop
         private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSeleccionarPlan_Click(object sender, EventArgs e)
+        {
+            var form = new PlanSearchForm();
+            var result = form.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                Plan = form.PlanObj;
+                txtPlan.Text = Plan.Descripcion;
+            }
         }
     }
 }

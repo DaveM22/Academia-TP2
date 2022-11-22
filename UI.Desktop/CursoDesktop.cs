@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,13 @@ namespace UI.Desktop
 {
     public partial class CursoDesktop : ApplicationForm
     {
-        private BindingSource dataSource;
         private Curso Curso { get; set; }
+        private Plan Plan { get; set; }
+        private Materia Materia { get; set; }
+        private Comision Comision { get; set; }
         private CursoLogic CursoLogic => new();
-        private MateriaLogic MateriaLogic => new();
 
-        private ComisionLogic ComisionLogic => new();
+
 
         public CursoDesktop()
         {
@@ -30,13 +32,23 @@ namespace UI.Desktop
         {
             Modo = modo;
             Curso = new();
+            Comision = new();
+            Materia = new();
             NewDescription();
         }
 
         public CursoDesktop(int id, ModoForm modo) : this()
         {
-            Modo = Modo;
+            Modo = modo;
             Curso = CursoLogic.GetOne(id);
+            Materia = Curso.Materia;
+            Comision = Curso.Comision;
+            Plan = Materia.Plan;
+            txtMateria.Text = Materia.Descripcion;
+            txtComision.Text = Comision.Descripcion;
+            nudAnioCalendario.Value = Curso.AnioCalendario;
+            nudCupo.Value = Curso.Cupo;
+            txtPlan.Text = Curso.Materia.PlanDescripcion;
             switch (modo)
             {
                 case ModoForm.Modificacion:
@@ -50,7 +62,6 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Curso = dataSource.Current as Curso;
             switch (Modo)
             {
                 case ModoForm.Modificacion:
@@ -61,19 +72,17 @@ namespace UI.Desktop
                     Delete();
                     break;
             }
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Master.OpenForm(new Cursos());
             this.Close();
         }
 
         private void DeleteDescription()
         {
             btnAceptar.Text = "Eliminar";
-            cmbComision.Enabled = false;
-            cmbMateria.Enabled = false;
             nudAnioCalendario.Enabled = false;
             nudCupo.Enabled = false;
             Text = "Borrar curso";
@@ -91,11 +100,25 @@ namespace UI.Desktop
 
         private void Save()
         {
+            Curso.AnioCalendario = Convert.ToInt32(nudAnioCalendario.Value);
+            Curso.Cupo = Convert.ToInt32(nudCupo.Value);
+            Curso.ComisionId = Comision.Id;
+            Curso.MateriaId = Materia.Id;
+            Curso.Comision = Comision;
+            Curso.Materia = Materia;
             DialogResult result = MessageBox.Show("¿Desea guardar los cambios del cuso?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                CursoLogic.Save(Curso);
-                this.Close();
+                try
+                {
+                    CursoLogic.Save(Curso);
+                    Master.OpenForm(new Cursos());
+                    this.Close();
+                }
+                catch (EntityValidationException ex)
+                {
+                    MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -104,26 +127,76 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show("¿Desea borrar el curso?", "Eliminar curso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                ComisionLogic.Delete(Curso.Id);
+                CursoLogic.Delete(Curso.Id);
+                Master.OpenForm(new Cursos());
                 this.Close();
             }
         }
 
         private void CursoDesktop_Load(object sender, EventArgs e)
         {
-            cmbComision.DataSource = ComisionLogic.GetAll();
-            dataSource = new BindingSource { Curso };
-            cmbMateria.DataBindings.Add("SelectedValue", dataSource, nameof(Curso.MateriaId));
-            cmbComision.DataBindings.Add("SelectedValue", dataSource, nameof(Curso.ComisionId));
-            nudAnioCalendario.DataBindings.Add("Value", dataSource, nameof(Curso.AnioCalendario));
-            nudCupo.DataBindings.Add("Value", dataSource, nameof(Curso.Cupo));
+           
+
         }
 
-        private void cmbComision_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnPlan_Click(object sender, EventArgs e)
         {
-            var current = cmbComision.SelectedItem as Comision;
-            if(current != null)
-                cmbMateria.DataSource = MateriaLogic.GetAllByPlan(current.PlanId);
+            var form = new PlanSearchForm();
+            var result = form.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+
+                if(Plan.Id != form.PlanObj.Id)
+                {
+                    MessageBox.Show("Al cambiar de plan debera a volver seleccionar la comisión y la materia del curso", "Cambio de plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Plan = form.PlanObj;
+                    txtPlan.Text = Plan.Descripcion;
+                    txtComision.Text = string.Empty;
+                    txtMateria.Text = string.Empty;
+                    Comision = null;
+                    Materia = null;
+                }
+                else
+                {
+                    Plan = form.PlanObj;
+                }
+            }
+        }
+
+        private void btnComision_Click(object sender, EventArgs e)
+        {
+            if(Plan != null)
+            {
+                var form = new ComisionSearchForm(Plan);
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Comision = form.ComisionObj;
+                    txtComision.Text = Comision.Descripcion;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un plan","Error al seleccionar comisión",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnMateria_Click(object sender, EventArgs e)
+        {
+            if (Plan != null)
+            {
+                var form = new MateriaSearchForm(Plan);
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Materia = form.MateriaObj;
+                    txtMateria.Text = Materia.Descripcion;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un plan", "Error al seleccionar comisión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

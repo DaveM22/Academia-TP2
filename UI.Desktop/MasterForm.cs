@@ -12,18 +12,12 @@ namespace UI.Desktop
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new Personas(Business.Util.TipoPersonaEnum.ALUMNO);
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            OpenForm(new Personas(Business.Util.TipoPersonaEnum.ALUMNO));
         }
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new Personas(Business.Util.TipoPersonaEnum.PROFESOR);
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            OpenForm(new Personas(Business.Util.TipoPersonaEnum.PROFESOR));
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)

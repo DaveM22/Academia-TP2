@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Personas : Form
+    public partial class Personas : ApplicationForm
     {
         private List<Persona> PersonaList { get; set; }
 

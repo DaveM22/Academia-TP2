@@ -38,7 +38,7 @@ namespace UI.Web.Controllers
         // GET: EspecialidadController/Create
         public ActionResult Nuevo()
         {
-            return View();
+            return View(new EspecialidadViewModel());
         }
 
         // POST: EspecialidadController/Create

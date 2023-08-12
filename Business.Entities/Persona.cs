@@ -1,4 +1,4 @@
-﻿using Business.Util;
+﻿using Business.Entities.Enums;
 using System;
 
 namespace Business.Entities

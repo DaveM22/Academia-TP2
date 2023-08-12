@@ -1,6 +1,6 @@
 ﻿using Business.Data;
 using Business.Entities;
-using Business.Util;
+using Business.Entities.Enums;
 using System;
 using System.Collections.Generic;
 

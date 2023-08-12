@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace UI.Desktop
         private void DocenteSearchForm_Load(object sender, EventArgs e)
         {
             PersonaLogic = new PersonaLogic();
-            Docentes = PersonaLogic.GetPersonas(Business.Util.TipoPersonaEnum.PROFESOR);
+            Docentes = PersonaLogic.GetPersonas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR);
             dgvDocente.AutoGenerateColumns = false; 
             dgvDocente.DataSource = Docentes;
         }

@@ -1,6 +1,6 @@
 ﻿using Business.Entities;
+using Business.Entities.Enums;
 using Business.Logic;
-using Business.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -135,7 +135,7 @@ namespace UI.Desktop
 
         private void CursoDesktop_Load(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -143,10 +143,10 @@ namespace UI.Desktop
         {
             var form = new PlanSearchForm();
             var result = form.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
 
-                if(Plan.Id != form.PlanObj.Id)
+                if (Plan.Id != form.PlanObj.Id)
                 {
                     MessageBox.Show("Al cambiar de plan debera a volver seleccionar la comisión y la materia del curso", "Cambio de plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Plan = form.PlanObj;
@@ -165,7 +165,7 @@ namespace UI.Desktop
 
         private void btnComision_Click(object sender, EventArgs e)
         {
-            if(Plan != null)
+            if (Plan != null)
             {
                 var form = new ComisionSearchForm(Plan);
                 var result = form.ShowDialog();
@@ -177,7 +177,7 @@ namespace UI.Desktop
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un plan","Error al seleccionar comisión",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un plan", "Error al seleccionar comisión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

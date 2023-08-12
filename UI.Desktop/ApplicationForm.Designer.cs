@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace UI.Desktop
 {
     partial class ApplicationForm

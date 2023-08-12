@@ -3,40 +3,28 @@
 @{
     ViewData["Title"] = "Nuevo plan";
 }
+<h3 class="display-6 text-center">Nuevo plan</h3>
 
 <div class="row">
-    <div class="col-md-4">
+
          <partial for="@Model" name="_FormularioPlan" />
 
-    </div>
-
-    <div class="col-md-8">
-        <div class="container">
-            <div class="row">
-                 <h4>Materias</h4>
-                 <input type="button" value="Agregar materia" id="btnAgregarMateria" class="btn btn-primary ml-auto" />
-            </div>
-        </div>
-        <hr />
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a id="navMaterias" class="nav-link active" data-toggle="tab" href="#materias">Lista de materias</a>
-      </li>
-      <li class="nav-item">
-        <a id="navFormulario" class="nav-link disabled" data-toggle="tab" href="#formulario">Formulario</a>
-      </li>
-    </ul>
-
-
-        <div class="tab-content">
-            <hr />
-            <partial name="_MateriaPartialView" for="Materias">
-            <partial name="_MateriaFormularioViewModel" for="Materia">
-        </div>
-    </div>
 </div>
+    <div class="col-md-8">
+        <div class="col-md-12 mx-auto">
+            <button type="button" class="btn btn-primary btn-sm btn-lg" data-bs-toggle="modal" data-bs-target="#materiaForm">
+                  Agregar materia
+            </button>
+        </div>
+             
+                <partial name="_MateriaPartialView" for="Materias">
+    </div>
 
 
+<partial name="_materiaForm" for="Materia">
+
+    
+            
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/initDatatables.js"></script>
@@ -48,14 +36,34 @@
             { data: "hsTotales", title: "Horas totales" },
             { data: null, title:"Acciones", 
                render: function (data, type, full, meta) {
-                   return '<button onclick="'+hola(data)+'" class="btn btn-primary">Editar</button> <button class="btn btn-primary">Borrar</button>'
+                   return `<button onclick="${"hola(data.descripcion)"}" class="btn btn-primary btn-sm btn-lg">Editar</button> <button class="${"btn btn-primary btn-sm btn-lg"}">Borrar</button>`;
                }
             }
         ]
-        init(columns);
+            $(document).ready(function () {
 
-        function hola(data){
-            console.log(data);
+
+
+
+
+                $('#table').DataTable({
+                    language: {
+                        "emptyTable": "No hay materias cargadas en el plan"
+                    },
+                    scrollY: '300px',
+                    scrollCollapse: true,
+                    paging: false,
+                    lengthChange: false,
+                    info: false,
+                    columns: columns
+                    });
+
+                    
+
+            });
+                                    function hola(data){
+            console.log('asd');
         }
+
     </script>
 }

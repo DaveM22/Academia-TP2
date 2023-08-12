@@ -28,200 +28,119 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterForm));
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.planesYMateriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.inscripcionDeDocenteACursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.pnlMenu.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
+            tsmProfesores = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            especialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            tsmPlanes = new System.Windows.Forms.ToolStripMenuItem();
+            tsmAlumnado = new System.Windows.Forms.ToolStripMenuItem();
+            tsmComisiones = new System.Windows.Forms.ToolStripMenuItem();
+            tsmCursos = new System.Windows.Forms.ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
-            // toolStripContainer1
+            // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, tsmAlumnado });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new System.Drawing.Size(800, 33);
+            menuStrip1.TabIndex = 2;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripContainer1.ContentPanel
+            // toolStripMenuItem1
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.pnlMenu);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 416);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
+            toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmAlumnos, tsmProfesores });
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new System.Drawing.Size(98, 29);
+            toolStripMenuItem1.Text = "Personas";
             // 
-            // toolStripContainer1.TopToolStripPanel
+            // tsmAlumnos
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            tsmAlumnos.Name = "tsmAlumnos";
+            tsmAlumnos.Size = new System.Drawing.Size(198, 34);
+            tsmAlumnos.Text = "Alumnos";
             // 
-            // pnlMenu
+            // tsmProfesores
             // 
-            this.pnlMenu.Controls.Add(this.panel1);
-            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(800, 416);
-            this.pnlMenu.TabIndex = 0;
+            tsmProfesores.Name = "tsmProfesores";
+            tsmProfesores.Size = new System.Drawing.Size(198, 34);
+            tsmProfesores.Text = "Profesores";
+            tsmProfesores.Click += tsmProfesores_Click;
             // 
-            // panel1
+            // toolStripMenuItem2
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 416);
-            this.panel1.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
-            this.toolStripDropDownButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(380, 34);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.alumnosToolStripMenuItem,
-            this.profesoresToolStripMenuItem});
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(96, 29);
-            this.toolStripDropDownButton1.Text = "Personal";
-            // 
-            // alumnosToolStripMenuItem
-            // 
-            this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
-            this.alumnosToolStripMenuItem.Text = "Alumnos";
-            this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
-            // 
-            // profesoresToolStripMenuItem
-            // 
-            this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
-            this.profesoresToolStripMenuItem.Text = "Profesores";
-            this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
-            // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.planesYMateriasToolStripMenuItem,
-            this.especialidadesToolStripMenuItem,
-            this.comisionesToolStripMenuItem,
-            this.cursosToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(86, 29);
-            this.toolStripDropDownButton2.Text = "Carrera";
-            // 
-            // planesYMateriasToolStripMenuItem
-            // 
-            this.planesYMateriasToolStripMenuItem.Name = "planesYMateriasToolStripMenuItem";
-            this.planesYMateriasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.planesYMateriasToolStripMenuItem.Text = "Planes y Materias";
-            this.planesYMateriasToolStripMenuItem.Click += new System.EventHandler(this.planesYMateriasToolStripMenuItem_Click);
+            toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { especialidadesToolStripMenuItem, tsmPlanes });
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new System.Drawing.Size(84, 29);
+            toolStripMenuItem2.Text = "Carrera";
             // 
             // especialidadesToolStripMenuItem
             // 
-            this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.especialidadesToolStripMenuItem.Text = "Especialidades";
-            this.especialidadesToolStripMenuItem.Click += new System.EventHandler(this.especialidadesToolStripMenuItem_Click);
+            especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
+            especialidadesToolStripMenuItem.Size = new System.Drawing.Size(228, 34);
+            especialidadesToolStripMenuItem.Text = "Especialidades";
+            especialidadesToolStripMenuItem.Click += especialidadesToolStripMenuItem_Click_1;
             // 
-            // comisionesToolStripMenuItem
+            // tsmPlanes
             // 
-            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.comisionesToolStripMenuItem.Text = "Comisiones";
-            this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
+            tsmPlanes.Name = "tsmPlanes";
+            tsmPlanes.Size = new System.Drawing.Size(228, 34);
+            tsmPlanes.Text = "Planes";
+            tsmPlanes.Click += tsmPlanes_Click;
             // 
-            // cursosToolStripMenuItem
+            // tsmAlumnado
             // 
-            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.cursosToolStripMenuItem.Text = "Cursos";
-            this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
+            tsmAlumnado.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmComisiones, tsmCursos });
+            tsmAlumnado.Name = "tsmAlumnado";
+            tsmAlumnado.Size = new System.Drawing.Size(111, 29);
+            tsmAlumnado.Text = "Alumnado";
             // 
-            // toolStripDropDownButton3
+            // tsmComisiones
             // 
-            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inscripcionDeDocenteACursoToolStripMenuItem});
-            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(134, 29);
-            this.toolStripDropDownButton3.Text = "Asignaciones";
-            this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            tsmComisiones.Name = "tsmComisiones";
+            tsmComisiones.Size = new System.Drawing.Size(270, 34);
+            tsmComisiones.Text = "Comisiones";
+            tsmComisiones.Click += tsmComisiones_Click;
             // 
-            // inscripcionDeDocenteACursoToolStripMenuItem
+            // tsmCursos
             // 
-            this.inscripcionDeDocenteACursoToolStripMenuItem.Name = "inscripcionDeDocenteACursoToolStripMenuItem";
-            this.inscripcionDeDocenteACursoToolStripMenuItem.Size = new System.Drawing.Size(355, 34);
-            this.inscripcionDeDocenteACursoToolStripMenuItem.Text = "Inscripción de docente a curso";
-            this.inscripcionDeDocenteACursoToolStripMenuItem.Click += new System.EventHandler(this.inscripcionDeDocenteACursoToolStripMenuItem_Click);
+            tsmCursos.Name = "tsmCursos";
+            tsmCursos.Size = new System.Drawing.Size(270, 34);
+            tsmCursos.Text = "Cursos";
+            tsmCursos.Click += tsmCursos_Click;
             // 
             // MasterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Name = "MasterForm";
-            this.Text = "Academia";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
-            this.pnlMenu.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(menuStrip1);
+            IsMdiContainer = true;
+            MainMenuStrip = menuStrip1;
+            Name = "MasterForm";
+            Text = "Academia";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem planesYMateriasToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
-        private System.Windows.Forms.ToolStripMenuItem inscripcionDeDocenteACursoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmPlanes;
+        private System.Windows.Forms.ToolStripMenuItem tsmAlumnos;
+        private System.Windows.Forms.ToolStripMenuItem tsmProfesores;
+        private System.Windows.Forms.ToolStripMenuItem tsmAlumnado;
+        private System.Windows.Forms.ToolStripMenuItem tsmComisiones;
+        private System.Windows.Forms.ToolStripMenuItem tsmCursos;
     }
 }

@@ -28,7 +28,7 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new PlanDesktop(ApplicationForm.ModoForm.Alta);
-            Master.OpenForm(form);
+            MasterForm.OpenForm(form);
         }
 
         private void tsModificar_Click(object sender, EventArgs e)
@@ -53,7 +53,21 @@ namespace UI.Desktop
             {
                 Plan plan = dgvPlanes.SelectedRows[0].DataBoundItem as Plan;
                 var form = new PlanDesktop(plan.Id, ModoForm.Modificacion);
-                Master.OpenForm(form);
+                MasterForm.OpenForm(form);
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            dgvPlanes.DataSource = this.PlanLogic.GetAll();
+            niPlanes.ShowBalloonTip(1000, "Actualizar lista de planes", "Se ha actualizado la lista de planes", ToolTipIcon.Info);
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                niPlanes.ShowBalloonTip(1000, "Actualizar lista de planes", "No se puedo realizar la consulta de planes. Contacte con un administrador", ToolTipIcon.Error);
             }
         }
     }

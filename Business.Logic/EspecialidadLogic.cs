@@ -14,9 +14,11 @@ namespace Business.Logic
     {
         private StringBuilder Errors { get; set; }
         public EspecialidadAdapter EspecialidadData { get; }
+        public PlanAdapter PlanData { get; set; }
         public EspecialidadLogic()
         {
             EspecialidadData = new EspecialidadAdapter();
+            PlanData = new PlanAdapter();
             Errors = new StringBuilder();
         }
 
@@ -32,26 +34,17 @@ namespace Business.Logic
 
         public Especialidad Save(Especialidad esp)
         {
-            if (string.IsNullOrEmpty(esp.Descripcion))
-            {
-                Errors.AppendLine("El campo descripción es obligatorio");
-            }
-            try
-            {
-                if (Errors.Length > 0)
-                {
-                    throw new EntityValidationException("Error al guardar especialidad", Errors);
-                }
-                return EspecialidadData.Save(esp);
-            }
-            catch (EntityValidationException)
-            {
-                throw;
-            }
+
+  
+            return EspecialidadData.Save(esp);
         }
 
         public void Delete(int id)
         {
+            if (PlanData.ExistsEspecialidadEnAlgunPlan(id))
+            {
+                throw new DeleteCFReferenciadaException("La especialidad ingresada ya forma parte de un plan, borré todos sus planes vinculados e intente nuevamente");
+            }
             EspecialidadData.Delete(id);
         }
     }

@@ -1,23 +1,28 @@
-﻿using System;
+﻿using Business.Entities.Enums;
+using System;
 using System.Windows.Forms;
 
 namespace UI.Desktop
 {
     public partial class MasterForm : ApplicationForm
     {
+
+        private ApplicationForm Form { get; set; }
+
         public MasterForm()
         {
             InitializeComponent();
+            Master = this;
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenForm(new Personas(Business.Util.TipoPersonaEnum.ALUMNO));
+            OpenForm(new Personas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO));
         }
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenForm(new Personas(Business.Util.TipoPersonaEnum.PROFESOR));
+            OpenForm(new Personas(TipoPersonaEnum.PROFESOR));
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,18 +48,52 @@ namespace UI.Desktop
 
         public void OpenForm(ApplicationForm form)
         {
-            form.TopLevel = false;
-            form.TopMost = true;
-            form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
-            pnlMenu.Controls.Clear();
-            pnlMenu.Controls.Add(form);
-            form.Show();
+            if (Form != null)
+            {
+                Form.Close();
+            }
+
+            Form = form;
+            Form.MdiParent = this;
+            Form.FormBorderStyle = FormBorderStyle.None;
+            Form.Dock = DockStyle.Fill;
+            Form.Show();
         }
+
+
 
         private void planesYMateriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenForm(new Planes());
+        }
+
+        private void especialidadesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var form = new Especialidades();
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void tsmPlanes_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Planes());
+        }
+
+        private void tsmProfesores_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Personas(TipoPersonaEnum.PROFESOR));
+        }
+
+        private void tsmComisiones_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Comisiones());
+        }
+
+        private void tsmCursos_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Cursos());
         }
     }
 }

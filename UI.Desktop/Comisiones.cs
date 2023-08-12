@@ -16,6 +16,8 @@ namespace UI.Desktop
     {
         private ComisionLogic ComisionLogic => new();
 
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
+
         public Comisiones()
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
-            Master.OpenForm(form);
+            MasterForm.OpenForm(form);
         }
 
         private void tsEditar_Click(object sender, EventArgs e)
@@ -62,12 +64,12 @@ namespace UI.Desktop
                 case 4:
                     var rowEdit = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
                     var formEdit = new ComisionDesktop(rowEdit.Id, ApplicationForm.ModoForm.Modificacion);
-                    Master.OpenForm(formEdit);
+                    MasterForm.OpenForm(formEdit);
                     break;
                 case 5:
                     var rowDelete = dgvComisiones.SelectedRows[0].DataBoundItem as Comision;
                     var formDelete = new ComisionDesktop(rowDelete.Id, ApplicationForm.ModoForm.Baja);
-                    Master.OpenForm(formDelete);
+                    MasterForm.OpenForm(formDelete);
                     break;
             }
         }

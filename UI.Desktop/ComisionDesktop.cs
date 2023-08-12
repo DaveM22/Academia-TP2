@@ -19,12 +19,13 @@ namespace UI.Desktop
         private BindingSource dataSource;
         private Plan Plan { get; set; }
 
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
 
         private PlanLogic PlanLogic => new();
 
         private ComisionLogic ComisionLogic => new();
 
-        private Comision  Comision { get; set; }
+        private Comision Comision { get; set; }
 
         public ComisionDesktop()
         {
@@ -42,6 +43,8 @@ namespace UI.Desktop
         public ComisionDesktop(int id, ModoForm modo) : this()
         {
             Comision = ComisionLogic.GetOne(id);
+            txtPlan.Text = Comision.Plan.Descripcion;
+            Plan = Comision.Plan;
             Modo = modo;
             switch (modo)
             {
@@ -58,18 +61,24 @@ namespace UI.Desktop
         {
             btnAceptar.Text = "Eliminar";
             txtDescripcion.ReadOnly = true;
+            txtDescripcion.Enabled = false;
             nudAño.Enabled = false;
+            txtPlan.Enabled = false;
+            btnSeleccionarPlan.Enabled = false;
+            lblComision.Text = "Borrar comisión";
             Text = "Borrar comisión";
         }
 
         private void NewDescription()
         {
             Text = "Crear comisión";
+            lblComision.Text = "Crear comisión";
         }
 
         private void EditDescription()
         {
             Text = "Modificar comisión";
+            lblComision.Text = "Modificar comisión";
         }
 
         private void Save()
@@ -126,7 +135,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Master.OpenForm(new Comisiones());
+            this.MasterForm.OpenForm(new Comisiones());
             this.Close();
         }
 
@@ -139,11 +148,16 @@ namespace UI.Desktop
         {
             var form = new PlanSearchForm();
             var result = form.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 Plan = form.PlanObj;
                 txtPlan.Text = Plan.Descripcion;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

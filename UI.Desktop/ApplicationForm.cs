@@ -13,11 +13,12 @@ namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
-        protected MasterForm Master => (MasterForm)Application.OpenForms["MasterForm"];
+        protected MasterForm Master { get; set; }
         protected UserControl Desktop { get; set; }
         public ApplicationForm()
         {
             InitializeComponent();
+
         }
 
         public ModoForm Modo { get; set; }

@@ -1,5 +1,5 @@
 ﻿using Business.Entities;
-using Business.Util;
+using Business.Entities.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

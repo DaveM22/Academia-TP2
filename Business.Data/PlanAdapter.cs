@@ -36,5 +36,11 @@ namespace Business.Data
             var entity = context.Planes.Find(id);
             context.Planes.Remove(entity);
         }
+
+        public bool ExistsEspecialidadEnAlgunPlan(int idEspecialidad)
+        {
+            using var context = new AcademiaContext();
+            return context.Planes.Any(x => x.EspecialidadId == idEspecialidad);
+        }
     }
 }

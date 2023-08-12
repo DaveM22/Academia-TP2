@@ -119,13 +119,13 @@ namespace UI.Desktop
                 DocenteCurso = new DocenteCurso();
                 DocenteCurso.DocenteId = PersonaSeleccionada.Id;
                 DocenteCurso.CursoId = CursoSeleccionado.Id;
-                DocenteCurso.DocenteCargo = (DocenteCargoEnum)cbCargos.SelectedValue;
+                DocenteCurso.DocenteCargo = (Business.Entities.Enums.DocenteCargoEnum)(DocenteCargoEnum)cbCargos.SelectedValue;
             }
             else
             {
                 DocenteCurso.DocenteId = PersonaSeleccionada.Id;
                 DocenteCurso.CursoId = CursoSeleccionado.Id;
-                DocenteCurso.DocenteCargo = (DocenteCargoEnum)cbCargos.SelectedValue;
+                DocenteCurso.DocenteCargo = (Business.Entities.Enums.DocenteCargoEnum)(DocenteCargoEnum)cbCargos.SelectedValue;
             }
 
             DocenteCursoLogic.Save(DocenteCurso);

@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace UI.Desktop
         private PlanLogic PlanLogic { get; set; }
         private Especialidad Especialidad { get; set; }
         private Plan Plan { get; set; }
+
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
 
         private int Id { get; set; }
 
@@ -96,21 +99,31 @@ namespace UI.Desktop
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (Modo == ModoForm.Alta)
+            try
             {
-                Plan = new Plan();
+                if (Modo == ModoForm.Alta)
+                {
+                    Plan = new Plan();
+                }
+
+                Plan.Descripcion = txtDescripcion.Text;
+                Plan.Especialidad = Especialidad;
+                Plan.Materias = ((BindingList<Materia>)dgvMaterias.DataSource).ToList();
+                PlanLogic.Save(Plan);
+                MasterForm.OpenForm(new Planes());
             }
 
-            Plan.Descripcion = txtDescripcion.Text;
-            Plan.Especialidad = Especialidad;
-            Plan.Materias = ((BindingList<Materia>)dgvMaterias.DataSource).ToList();
-            PlanLogic.Save(Plan);
-            Master.OpenForm(new Planes());
+            catch (EntityValidationException ex)
+            {
+                MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Master.OpenForm(new Planes());
+            MasterForm.OpenForm(new Planes());
             this.Close();
         }
     }

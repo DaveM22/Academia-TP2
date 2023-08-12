@@ -28,130 +28,151 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspecialidadDesktop));
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            btnAceptar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            txtDescripcion = new UserControls.TextBoxConValidacion();
+            label2 = new System.Windows.Forms.Label();
+            txtTitulo = new System.Windows.Forms.Label();
+            errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.lblDescripcion, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 178);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblDescripcion.Location = new System.Drawing.Point(137, 58);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(104, 25);
-            this.lblDescripcion.TabIndex = 1;
-            this.lblDescripcion.Text = "Descripción";
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtDescripcion, 2);
-            this.txtDescripcion.Location = new System.Drawing.Point(248, 55);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(377, 31);
-            this.txtDescripcion.TabIndex = 0;
+            tableLayoutPanel1.BackColor = System.Drawing.Color.CornflowerBlue;
+            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(btnAceptar, 2, 4);
+            tableLayoutPanel1.Controls.Add(btnCancelar, 3, 4);
+            tableLayoutPanel1.Controls.Add(txtDescripcion, 2, 2);
+            tableLayoutPanel1.Controls.Add(label2, 1, 2);
+            tableLayoutPanel1.Controls.Add(txtTitulo, 1, 1);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(795, 313);
+            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.BackColor = System.Drawing.Color.Green;
-            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAceptar.Location = new System.Drawing.Point(390, 101);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(116, 35);
-            this.btnAceptar.TabIndex = 2;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnAceptar.BackColor = System.Drawing.Color.Green;
+            btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAceptar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnAceptar.Location = new System.Drawing.Point(435, 154);
+            btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new System.Drawing.Size(116, 35);
+            btnAceptar.TabIndex = 2;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCancelar.Location = new System.Drawing.Point(514, 101);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(111, 35);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(561, 154);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(109, 35);
+            btnCancelar.TabIndex = 3;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // label1
+            // txtDescripcion
             // 
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(135, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(489, 42);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Crear especialidad";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            tableLayoutPanel1.SetColumnSpan(txtDescripcion, 2);
+            txtDescripcion.Location = new System.Drawing.Point(246, 85);
+            txtDescripcion.Name = "txtDescripcion";
+            tableLayoutPanel1.SetRowSpan(txtDescripcion, 2);
+            txtDescripcion.Size = new System.Drawing.Size(423, 58);
+            txtDescripcion.TabIndex = 7;
+            txtDescripcion.Load += txtDescripcion_Load;
+            // 
+            // label2
+            // 
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            label2.Location = new System.Drawing.Point(132, 89);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(108, 25);
+            label2.TabIndex = 6;
+            label2.Text = "Descripción:";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtTitulo
+            // 
+            tableLayoutPanel1.SetColumnSpan(txtTitulo, 3);
+            txtTitulo.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txtTitulo.ForeColor = System.Drawing.SystemColors.HighlightText;
+            txtTitulo.Location = new System.Drawing.Point(125, 44);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new System.Drawing.Size(544, 35);
+            txtTitulo.TabIndex = 4;
+            txtTitulo.Text = "Crear especialidad";
+            txtTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "niFormularioEspecialidad";
+            notifyIcon1.Visible = true;
             // 
             // EspecialidadDesktop
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(759, 178);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "EspecialidadDesktop";
-            this.Text = "Especialidad";
-            this.Load += new System.EventHandler(this.EspecialidadDesktop_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            ClientSize = new System.Drawing.Size(795, 313);
+            ControlBox = false;
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Margin = new System.Windows.Forms.Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "EspecialidadDesktop";
+            Text = "Especialidad";
+            Load += EspecialidadDesktop_Load;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtTitulo;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private UserControls.TextBoxConValidacion txtDescripcion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

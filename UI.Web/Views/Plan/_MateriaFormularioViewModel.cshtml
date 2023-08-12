@@ -1,6 +1,6 @@
 ﻿@model UI.Web.Models.MateriaViewModel
 
-<div  id="formulario"  class="row container tab-pane fade">
+<div  id="formulario"  class="row container">
     <div class="col-md-4">
         <form id="formMateria" asp-action="_MateriaFormularioViewModel">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="HSSemanales" class="control-label"></label>
-                <input asp-for="HSSemanales" class="form-control" />
+                <input asp-for="HSSemanales" class="form-control form-control-sm" />
                 <span asp-validation-for="HSSemanales" class="text-danger"></span>
             </div>
             <div class="form-group">

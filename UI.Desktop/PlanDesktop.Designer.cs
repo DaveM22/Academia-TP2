@@ -28,396 +28,389 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.lblEspecialidad = new System.Windows.Forms.Label();
-            this.gbMaterias = new System.Windows.Forms.GroupBox();
-            this.dgvMaterias = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HsSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HorasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtEspecialidad = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregarMateria = new System.Windows.Forms.Button();
-            this.btnSeleccionarEspecialidad = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.IdMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tlpPlanes.SuspendLayout();
-            this.gbMaterias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).BeginInit();
-            this.SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
+            label1 = new System.Windows.Forms.Label();
+            lblDescripcion = new System.Windows.Forms.Label();
+            lblEspecialidad = new System.Windows.Forms.Label();
+            gbMaterias = new System.Windows.Forms.GroupBox();
+            dgvMaterias = new System.Windows.Forms.DataGridView();
+            dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            HsSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            HorasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            txtDescripcion = new System.Windows.Forms.TextBox();
+            txtEspecialidad = new System.Windows.Forms.TextBox();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnAgregarMateria = new System.Windows.Forms.Button();
+            btnSeleccionarEspecialidad = new System.Windows.Forms.Button();
+            btnGuardar = new System.Windows.Forms.Button();
+            IdMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tlpPlanes.SuspendLayout();
+            gbMaterias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMaterias).BeginInit();
+            SuspendLayout();
             // 
             // tlpPlanes
             // 
-            this.tlpPlanes.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tlpPlanes.ColumnCount = 7;
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 219F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpPlanes.Controls.Add(this.label1, 1, 0);
-            this.tlpPlanes.Controls.Add(this.lblDescripcion, 1, 1);
-            this.tlpPlanes.Controls.Add(this.lblEspecialidad, 1, 2);
-            this.tlpPlanes.Controls.Add(this.gbMaterias, 1, 4);
-            this.tlpPlanes.Controls.Add(this.txtDescripcion, 2, 1);
-            this.tlpPlanes.Controls.Add(this.txtEspecialidad, 2, 2);
-            this.tlpPlanes.Controls.Add(this.btnCancelar, 5, 5);
-            this.tlpPlanes.Controls.Add(this.btnAgregarMateria, 4, 3);
-            this.tlpPlanes.Controls.Add(this.btnSeleccionarEspecialidad, 4, 2);
-            this.tlpPlanes.Controls.Add(this.btnGuardar, 4, 5);
-            this.tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPlanes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlpPlanes.Location = new System.Drawing.Point(0, 0);
-            this.tlpPlanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tlpPlanes.Name = "tlpPlanes";
-            this.tlpPlanes.RowCount = 7;
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.70533F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.665622F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.62905F));
-            this.tlpPlanes.Size = new System.Drawing.Size(1143, 750);
-            this.tlpPlanes.TabIndex = 0;
-            this.tlpPlanes.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpPlanes_Paint_1);
+            tlpPlanes.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlpPlanes.ColumnCount = 7;
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 219F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlpPlanes.Controls.Add(label1, 1, 0);
+            tlpPlanes.Controls.Add(lblDescripcion, 1, 1);
+            tlpPlanes.Controls.Add(lblEspecialidad, 1, 2);
+            tlpPlanes.Controls.Add(gbMaterias, 1, 4);
+            tlpPlanes.Controls.Add(txtDescripcion, 2, 1);
+            tlpPlanes.Controls.Add(txtEspecialidad, 2, 2);
+            tlpPlanes.Controls.Add(btnCancelar, 5, 5);
+            tlpPlanes.Controls.Add(btnAgregarMateria, 4, 3);
+            tlpPlanes.Controls.Add(btnSeleccionarEspecialidad, 4, 2);
+            tlpPlanes.Controls.Add(btnGuardar, 4, 5);
+            tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlpPlanes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            tlpPlanes.Location = new System.Drawing.Point(0, 0);
+            tlpPlanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tlpPlanes.Name = "tlpPlanes";
+            tlpPlanes.RowCount = 7;
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.70533F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.665622F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.62905F));
+            tlpPlanes.Size = new System.Drawing.Size(1143, 750);
+            tlpPlanes.TabIndex = 0;
+            tlpPlanes.Paint += tlpPlanes_Paint_1;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.tlpPlanes.SetColumnSpan(this.label1, 5);
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(492, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Crear plan";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label1.AutoSize = true;
+            tlpPlanes.SetColumnSpan(label1, 5);
+            label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(492, 10);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(158, 34);
+            label1.TabIndex = 0;
+            label1.Text = "Crear plan";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescripcion
             // 
-            this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(142, 67);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(108, 25);
-            this.lblDescripcion.TabIndex = 1;
-            this.lblDescripcion.Text = "Descripción:";
+            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Location = new System.Drawing.Point(142, 67);
+            lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new System.Drawing.Size(108, 25);
+            lblDescripcion.TabIndex = 1;
+            lblDescripcion.Text = "Descripción:";
             // 
             // lblEspecialidad
             // 
-            this.lblEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(142, 118);
-            this.lblEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEspecialidad.Name = "lblEspecialidad";
-            this.lblEspecialidad.Size = new System.Drawing.Size(113, 25);
-            this.lblEspecialidad.TabIndex = 2;
-            this.lblEspecialidad.Text = "Especialidad:";
+            lblEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            lblEspecialidad.AutoSize = true;
+            lblEspecialidad.Location = new System.Drawing.Point(142, 118);
+            lblEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEspecialidad.Name = "lblEspecialidad";
+            lblEspecialidad.Size = new System.Drawing.Size(113, 25);
+            lblEspecialidad.TabIndex = 2;
+            lblEspecialidad.Text = "Especialidad:";
             // 
             // gbMaterias
             // 
-            this.gbMaterias.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tlpPlanes.SetColumnSpan(this.gbMaterias, 5);
-            this.gbMaterias.Controls.Add(this.dgvMaterias);
-            this.gbMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMaterias.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbMaterias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gbMaterias.Location = new System.Drawing.Point(142, 214);
-            this.gbMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbMaterias.Name = "gbMaterias";
-            this.gbMaterias.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbMaterias.Size = new System.Drawing.Size(858, 399);
-            this.gbMaterias.TabIndex = 3;
-            this.gbMaterias.TabStop = false;
-            this.gbMaterias.Text = "Materias";
+            gbMaterias.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlpPlanes.SetColumnSpan(gbMaterias, 5);
+            gbMaterias.Controls.Add(dgvMaterias);
+            gbMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
+            gbMaterias.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            gbMaterias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            gbMaterias.Location = new System.Drawing.Point(142, 214);
+            gbMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gbMaterias.Name = "gbMaterias";
+            gbMaterias.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gbMaterias.Size = new System.Drawing.Size(858, 399);
+            gbMaterias.TabIndex = 3;
+            gbMaterias.TabStop = false;
+            gbMaterias.Text = "Materias";
             // 
             // dgvMaterias
             // 
-            this.dgvMaterias.AllowUserToAddRows = false;
-            this.dgvMaterias.AllowUserToDeleteRows = false;
-            this.dgvMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMaterias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvMaterias.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.HsSemanales,
-            this.HorasTotales,
-            this.Editar,
-            this.Eliminar});
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterias.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMaterias.Location = new System.Drawing.Point(4, 43);
-            this.dgvMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvMaterias.Name = "dgvMaterias";
-            this.dgvMaterias.ReadOnly = true;
-            this.dgvMaterias.RowHeadersWidth = 62;
-            this.dgvMaterias.RowTemplate.Height = 25;
-            this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterias.Size = new System.Drawing.Size(850, 351);
-            this.dgvMaterias.TabIndex = 0;
-            this.dgvMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterias_CellClick);
+            dgvMaterias.AllowUserToAddRows = false;
+            dgvMaterias.AllowUserToDeleteRows = false;
+            dgvMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMaterias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dgvMaterias.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgvMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, HsSemanales, HorasTotales, Editar, Eliminar });
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dgvMaterias.DefaultCellStyle = dataGridViewCellStyle7;
+            dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvMaterias.Location = new System.Drawing.Point(4, 43);
+            dgvMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dgvMaterias.Name = "dgvMaterias";
+            dgvMaterias.ReadOnly = true;
+            dgvMaterias.RowHeadersWidth = 62;
+            dgvMaterias.RowTemplate.Height = 25;
+            dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvMaterias.Size = new System.Drawing.Size(850, 351);
+            dgvMaterias.TabIndex = 0;
+            dgvMaterias.CellClick += dgvMaterias_CellClick;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "IdMateria";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Visible = false;
+            dataGridViewTextBoxColumn6.DataPropertyName = "Id";
+            dataGridViewTextBoxColumn6.HeaderText = "IdMateria";
+            dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            dataGridViewTextBoxColumn6.Visible = false;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.DataPropertyName = "Descripcion";
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewTextBoxColumn7.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // HsSemanales
             // 
-            this.HsSemanales.DataPropertyName = "HSSemanales";
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.HsSemanales.DefaultCellStyle = dataGridViewCellStyle17;
-            this.HsSemanales.HeaderText = "Horas semanales";
-            this.HsSemanales.MinimumWidth = 8;
-            this.HsSemanales.Name = "HsSemanales";
-            this.HsSemanales.ReadOnly = true;
+            HsSemanales.DataPropertyName = "HSSemanales";
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            HsSemanales.DefaultCellStyle = dataGridViewCellStyle3;
+            HsSemanales.HeaderText = "Horas semanales";
+            HsSemanales.MinimumWidth = 8;
+            HsSemanales.Name = "HsSemanales";
+            HsSemanales.ReadOnly = true;
             // 
             // HorasTotales
             // 
-            this.HorasTotales.DataPropertyName = "HSTotales";
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.HorasTotales.DefaultCellStyle = dataGridViewCellStyle18;
-            this.HorasTotales.HeaderText = "Horas totales";
-            this.HorasTotales.MinimumWidth = 8;
-            this.HorasTotales.Name = "HorasTotales";
-            this.HorasTotales.ReadOnly = true;
+            HorasTotales.DataPropertyName = "HSTotales";
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            HorasTotales.DefaultCellStyle = dataGridViewCellStyle4;
+            HorasTotales.HeaderText = "Horas totales";
+            HorasTotales.MinimumWidth = 8;
+            HorasTotales.Name = "HorasTotales";
+            HorasTotales.ReadOnly = true;
             // 
             // Editar
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle19;
-            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editar.HeaderText = "";
-            this.Editar.MinimumWidth = 8;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            Editar.DefaultCellStyle = dataGridViewCellStyle5;
+            Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
             // 
             // Eliminar
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Salmon;
-            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.MinimumWidth = 8;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Salmon;
+            Eliminar.DefaultCellStyle = dataGridViewCellStyle6;
+            Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(269, 60);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(348, 31);
-            this.txtDescripcion.TabIndex = 5;
+            txtDescripcion.Location = new System.Drawing.Point(269, 60);
+            txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new System.Drawing.Size(348, 31);
+            txtDescripcion.TabIndex = 5;
             // 
             // txtEspecialidad
             // 
-            this.txtEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtEspecialidad.Location = new System.Drawing.Point(269, 115);
-            this.txtEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtEspecialidad.Name = "txtEspecialidad";
-            this.txtEspecialidad.Size = new System.Drawing.Size(348, 31);
-            this.txtEspecialidad.TabIndex = 6;
+            txtEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            txtEspecialidad.Location = new System.Drawing.Point(269, 115);
+            txtEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtEspecialidad.Name = "txtEspecialidad";
+            txtEspecialidad.Size = new System.Drawing.Size(348, 31);
+            txtEspecialidad.TabIndex = 6;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCancelar.Location = new System.Drawing.Point(891, 623);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(109, 42);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(891, 623);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(109, 42);
+            btnCancelar.TabIndex = 8;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnAgregarMateria
             // 
-            this.btnAgregarMateria.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlpPlanes.SetColumnSpan(this.btnAgregarMateria, 2);
-            this.btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarMateria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAgregarMateria.Location = new System.Drawing.Point(672, 162);
-            this.btnAgregarMateria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAgregarMateria.Name = "btnAgregarMateria";
-            this.btnAgregarMateria.Size = new System.Drawing.Size(237, 42);
-            this.btnAgregarMateria.TabIndex = 4;
-            this.btnAgregarMateria.Text = "Agregar materia";
-            this.btnAgregarMateria.UseVisualStyleBackColor = false;
-            this.btnAgregarMateria.Click += new System.EventHandler(this.btnAgregarMateria_Click);
+            btnAgregarMateria.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            tlpPlanes.SetColumnSpan(btnAgregarMateria, 2);
+            btnAgregarMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAgregarMateria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            btnAgregarMateria.Location = new System.Drawing.Point(672, 162);
+            btnAgregarMateria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnAgregarMateria.Name = "btnAgregarMateria";
+            btnAgregarMateria.Size = new System.Drawing.Size(237, 42);
+            btnAgregarMateria.TabIndex = 4;
+            btnAgregarMateria.Text = "Agregar materia";
+            btnAgregarMateria.UseVisualStyleBackColor = false;
+            btnAgregarMateria.Click += btnAgregarMateria_Click;
             // 
             // btnSeleccionarEspecialidad
             // 
-            this.btnSeleccionarEspecialidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlpPlanes.SetColumnSpan(this.btnSeleccionarEspecialidad, 3);
-            this.btnSeleccionarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionarEspecialidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSeleccionarEspecialidad.Location = new System.Drawing.Point(672, 110);
-            this.btnSeleccionarEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSeleccionarEspecialidad.Name = "btnSeleccionarEspecialidad";
-            this.btnSeleccionarEspecialidad.Size = new System.Drawing.Size(237, 42);
-            this.btnSeleccionarEspecialidad.TabIndex = 9;
-            this.btnSeleccionarEspecialidad.Text = "Seleccionar especialidad";
-            this.btnSeleccionarEspecialidad.UseVisualStyleBackColor = false;
-            this.btnSeleccionarEspecialidad.Click += new System.EventHandler(this.btnSeleccionarEspecialidad_Click);
+            btnSeleccionarEspecialidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            tlpPlanes.SetColumnSpan(btnSeleccionarEspecialidad, 3);
+            btnSeleccionarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSeleccionarEspecialidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            btnSeleccionarEspecialidad.Location = new System.Drawing.Point(672, 110);
+            btnSeleccionarEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnSeleccionarEspecialidad.Name = "btnSeleccionarEspecialidad";
+            btnSeleccionarEspecialidad.Size = new System.Drawing.Size(237, 42);
+            btnSeleccionarEspecialidad.TabIndex = 9;
+            btnSeleccionarEspecialidad.Text = "Seleccionar especialidad";
+            btnSeleccionarEspecialidad.UseVisualStyleBackColor = false;
+            btnSeleccionarEspecialidad.Click += btnSeleccionarEspecialidad_Click;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.BackColor = System.Drawing.Color.Green;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGuardar.Location = new System.Drawing.Point(776, 623);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(107, 42);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnGuardar.BackColor = System.Drawing.Color.Green;
+            btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(255, 255, 128);
+            btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            btnGuardar.Location = new System.Drawing.Point(776, 623);
+            btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new System.Drawing.Size(107, 42);
+            btnGuardar.TabIndex = 7;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // IdMateria
             // 
-            this.IdMateria.HeaderText = "IdMateria";
-            this.IdMateria.MinimumWidth = 8;
-            this.IdMateria.Name = "IdMateria";
-            this.IdMateria.ReadOnly = true;
-            this.IdMateria.Width = 150;
+            IdMateria.HeaderText = "IdMateria";
+            IdMateria.MinimumWidth = 8;
+            IdMateria.Name = "IdMateria";
+            IdMateria.ReadOnly = true;
+            IdMateria.Width = 150;
             // 
             // Nombre
             // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 8;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 150;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "IdMateria";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            dataGridViewTextBoxColumn1.HeaderText = "IdMateria";
+            dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "IdMateria";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            dataGridViewTextBoxColumn3.HeaderText = "IdMateria";
+            dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Visible = false;
+            dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
+            dataGridViewTextBoxColumn4.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "IdMateria";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            this.dataGridViewTextBoxColumn5.Width = 150;
+            dataGridViewTextBoxColumn5.HeaderText = "IdMateria";
+            dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.Visible = false;
+            dataGridViewTextBoxColumn5.Width = 150;
             // 
             // PlanDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 750);
-            this.Controls.Add(this.tlpPlanes);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "PlanDesktop";
-            this.Text = "PlanDesktop";
-            this.Load += new System.EventHandler(this.PlanDesktop_Load);
-            this.tlpPlanes.ResumeLayout(false);
-            this.tlpPlanes.PerformLayout();
-            this.gbMaterias.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1143, 750);
+            Controls.Add(tlpPlanes);
+            ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Name = "PlanDesktop";
+            Text = "PlanDesktop";
+            Load += PlanDesktop_Load;
+            tlpPlanes.ResumeLayout(false);
+            tlpPlanes.PerformLayout();
+            gbMaterias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvMaterias).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

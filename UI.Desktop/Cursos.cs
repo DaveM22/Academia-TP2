@@ -16,6 +16,8 @@ namespace UI.Desktop
     public partial class Cursos : ApplicationForm
     {
         private CursoLogic CursoLogic => new();
+
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
         public Cursos()
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new CursoDesktop(ModoForm.Alta);
-            Master.OpenForm(form);
+            MasterForm.OpenForm(form);
         }
 
         private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)

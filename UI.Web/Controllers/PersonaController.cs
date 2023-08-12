@@ -24,19 +24,19 @@ namespace UI.Web.Controllers
 
         public ActionResult Alumnos()
         {
-            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.ALUMNO));
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO));
             return View(vms);
         }
 
         public ActionResult Profesores()
         {
-            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.PROFESOR));
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR));
             return View(vms);
         }
 
         public ActionResult Administradores()
         {
-            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas(TipoPersonaEnum.ALUMNO));
+            var vms = _mapper.Map<List<PersonaViewModel>>(PersonaLogic.GetPersonas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO));
             return View(vms);
         }
 
@@ -54,10 +54,10 @@ namespace UI.Web.Controllers
             PersonaLogic.Save(entity);
             switch (entity.TipoPersona)
             {
-                case TipoPersonaEnum.ALUMNO:
+                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
                     _notyfService.Success("Se ha creado el nuevo alumno");
                     return RedirectToAction(nameof(Alumnos));
-                case TipoPersonaEnum.PROFESOR:
+                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
                     _notyfService.Success("Se ha creado el nuevo profesor");
                     return RedirectToAction(nameof(Profesores));
                 default:
@@ -83,10 +83,10 @@ namespace UI.Web.Controllers
             PersonaLogic.Save(entity);
             switch (entity.TipoPersona)
             {
-                case TipoPersonaEnum.ALUMNO:
+                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
                     _notyfService.Success("Se han guardado los cambios del alumno",3);
                     return RedirectToAction(nameof(Alumnos));
-                case TipoPersonaEnum.PROFESOR:
+                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
                     _notyfService.Success("Se han guardado los cambios del profesor", 3);
                     return RedirectToAction(nameof(Profesores));
                 default:
@@ -114,10 +114,10 @@ namespace UI.Web.Controllers
                 PersonaLogic.Delete(entity);
                 switch (entity.TipoPersona)
                 {
-                    case TipoPersonaEnum.ALUMNO:
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
                         _notyfService.Success("Se ha borrado el alumno con exito", 3);
                         return RedirectToAction(nameof(Alumnos));
-                    case TipoPersonaEnum.PROFESOR:
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
                         _notyfService.Success("Se ha borrado el profesor con exito", 3);
                         return RedirectToAction(nameof(Profesores));
                     default:

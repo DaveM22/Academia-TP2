@@ -5,19 +5,19 @@
 }
 
 
-<h3>@curso curso</h3>
+<h3 class="text-center display-6">@curso curso</h3>
 <hr />
 
         <form asp-action="@curso">
             <div class="row">
-                    <div class="col-md-6">
+        <div class="col-md-4 col-12 col-lg-6 mx-auto">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
+            <div class="mb-3 col-lg-4">
                 <label asp-for="AnioCalendario" class="form-label"></label>
                 <input asp-for="AnioCalendario" class="form-control form-control-md" />
                 <span asp-validation-for="AnioCalendario" class="text-danger"></span>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-lg-4">
                 <label asp-for="Cupo" class="form-label"></label>
                 <input asp-for="Cupo" class="form-control form-control-md" />
                 <span asp-validation-for="Cupo" class="text-danger"></span>
@@ -27,8 +27,7 @@
             <input asp-for="ComisionId" hidden /> 
             <input asp-for="Id" hidden />
  
-                </div>
-                <div class="col-md-6">
+  
                               <div class="mb-3">
                 <label asp-for="ComisionDescripcion" class="form-label"></label>      
                   <div class="input-group">
@@ -53,22 +52,24 @@
                   </div>
                 <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
             </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="@curso" class="btn btn-success  w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a class="btn btn-danger w-100 mb-3" asp-action="Index">Volver a cursos</a>
                 </div>
 
             </div>
-            <div class="container">
-                <div class="row">
-                                <div class="col-lg-12 d-flex justify-content-between align-items-center">
-                            <div class="mb-3">
-                <input type="submit" value="@curso" class="btn btn-success" />
-                <a class="btn btn-danger" asp-action="Index">Volver a cursos</a>
-            </div>
-            </div>
-                </div>
+
             </div>
 
 
+
+    </div>
         </form>
+
+
 
 
 @section Scripts {

@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using FastReport.Export.PdfSimple;
+using FastReport.Web;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UI.Web.Models;
 
 namespace UI.Web.Controllers
@@ -12,14 +16,16 @@ namespace UI.Web.Controllers
     public class PlanController : Controller
     {
         private readonly IMapper mapper;
+        private readonly IWebHostEnvironment webHostEnviroment;
 
         private PlanLogic PlanLogic => new();
 
         private EspecialidadLogic EspecialidadLogic => new();
 
-        public PlanController(IMapper mapper)
+        public PlanController(IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             this.mapper = mapper;
+            this.webHostEnviroment = webHostEnvironment;
         }
 
 
@@ -42,6 +48,8 @@ namespace UI.Web.Controllers
         {
             var vm = new PlanViewModel();
             vm.Especialidades = mapper.Map<List<EspecialidadViewModel>>(EspecialidadLogic.GetAll());
+
+
             vm.Materias = new();
             vm.Materia = new();
             return View(vm);
@@ -49,8 +57,8 @@ namespace UI.Web.Controllers
 
         // POST: PlanController/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Nuevo(PlanViewModel planViewModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult Guardar(PlanViewModel planViewModel)
         {
             try
             {
@@ -69,15 +77,23 @@ namespace UI.Web.Controllers
         }
 
         // GET: PlanController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            return View();
+            var plan = this.PlanLogic.GetOne(id);
+            var vm = new PlanViewModel();
+            vm.Id = plan.Id;
+            vm.Descripcion = plan.Descripcion;
+            vm.EspecialidadId = plan.EspecialidadId;
+            vm.Especialidades = mapper.Map<List<EspecialidadViewModel>>(EspecialidadLogic.GetAll());
+            vm.Materias = new();
+            vm.Materia = new();
+            return View(vm);
         }
 
         // POST: PlanController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Editar(int id, IFormCollection collection)
         {
             try
             {
@@ -90,24 +106,52 @@ namespace UI.Web.Controllers
         }
 
         // GET: PlanController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Borrar(int id)
         {
-            return View();
+            var plan = this.PlanLogic.GetOne(id);
+            var vm = new PlanViewModel();
+            vm.Id = plan.Id;
+            vm.Descripcion = plan.Descripcion;
+            vm.EspecialidadId = plan.EspecialidadId;
+            vm.EspecialidadDescripcion = plan.Especialidad.Descripcion;
+            return View(vm);
         }
 
         // POST: PlanController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Borrar(PlanViewModel plan)
         {
             try
             {
+                PlanLogic.Delete(plan.Id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(plan);
             }
+        }
+
+        [HttpPost]
+        public JsonResult PlanesByEspecialidad(int id)
+        {
+            var results = PlanLogic.PlanesByEspecialidad(id);
+            return Json(results);
+        }
+
+
+        public IActionResult Reporte(int id)
+        {
+            var plan = PlanLogic.GetOne(id);
+            WebReport webReport = new WebReport();
+            var path = $"{this.webHostEnviroment.WebRootPath}\\Reportes\\Test.frx";
+            webReport.Report.Load(path);
+            webReport.Report.Prepare();
+            Stream stream = new MemoryStream();
+            webReport.Report.Export(new PDFSimpleExport(), stream);
+            stream.Position = 0;
+            return File(stream, "application/pdf", "Plan_" + plan.Descripcion+".pdf");
         }
     }
 }

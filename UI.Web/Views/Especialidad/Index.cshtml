@@ -43,11 +43,23 @@
            $(document).ready(function() {
             $('#table').DataTable( {
                 responsive: true,
+                dom: 'Bfrtip',
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
                     { responsivePriority: 2, targets: 1 },
                     { responsivePriority: 1, targets: 2 }
                 ],
+                buttons: {
+                    buttons: [
+                        {
+                            extend: 'copy', className: 'btn btn-primary', action: function (e, dt, node, config) {
+                                alert('Button activated');
+                            }
+                        }
+                    ]
+                },
+                scrollCollapse: true,
+                scrollY: '300px',
                 language: {
                 "emptyTable": "No hay especialidades registradas",
                 "search": "Buscar",

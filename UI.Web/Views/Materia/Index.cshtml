@@ -1,0 +1,45 @@
+﻿@model PlanViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-center">Materias del plan: @Model.Descripcion</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Materia" asp-action="Nuevo" asp-route-id="@Model.Id" class="btn btn-primary">Crear Materia</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th hidden></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Materias)
+            {
+                <tr>
+                    <td hidden>
+                        @Html.HiddenFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-primary btn-sm" title="Editar materia" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-sm" title="Borrar borrar" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

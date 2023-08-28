@@ -4,4 +4,14 @@
     ViewData["Title"] = "Editar";
 }
 
+<h3 class="display-6 text-center">Editar comisión</h3>
 <partial for="@Model" name="_FormularioComision" ></partial>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/js/Comisiones/formulario.js"></script>
+}

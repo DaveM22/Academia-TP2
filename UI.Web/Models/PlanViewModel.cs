@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace UI.Web.Models
 {
@@ -7,6 +8,7 @@ namespace UI.Web.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "El campo Descripción es requerido")]
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
 
@@ -15,10 +17,10 @@ namespace UI.Web.Models
 
         public string EspecialidadDescripcion { get; set; }
 
-        public List<MateriaViewModel> Materias { get; set; }
+        public List<MateriaModel> Materias { get; set; }
 
         public List<EspecialidadViewModel> Especialidades { get; set; }
 
-        public MateriaViewModel Materia { get; set; }
+        public MateriaModel Materia { get; set; }
     }
 }

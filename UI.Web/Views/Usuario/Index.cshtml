@@ -1,0 +1,82 @@
+﻿@model List<UsuarioViewModel>
+@{
+    var tuple = ("Usuarios", "Usuario");
+}
+<partial for="@tuple" name="_HeaderGeneric" />
+<table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Nombre de usuario
+            </th>
+            <th>
+                Clave
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Habilitado
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clave)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Habilitado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" title="Editar usuario" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger btn-sm" title="Borrar usuario" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+
+    <script>
+        $("#table").DataTable({
+            responsive: true,
+            language: {
+                "emptyTable": "No hay usuarios registrados",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            lengthChange: false,
+            info: false,
+        })
+    </script>
+}

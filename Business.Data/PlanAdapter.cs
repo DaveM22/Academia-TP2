@@ -35,12 +35,19 @@ namespace Business.Data
             using var context = new AcademiaContext();
             var entity = context.Planes.Find(id);
             context.Planes.Remove(entity);
+            context.SaveChanges();
         }
 
         public bool ExistsEspecialidadEnAlgunPlan(int idEspecialidad)
         {
             using var context = new AcademiaContext();
             return context.Planes.Any(x => x.EspecialidadId == idEspecialidad);
+        }
+
+        public List<Plan> PlanesByEspecialidad(int idEspecialidad)
+        {
+            using var context = new AcademiaContext();
+            return context.Planes.Where(x => x.EspecialidadId == idEspecialidad).ToList();
         }
     }
 }

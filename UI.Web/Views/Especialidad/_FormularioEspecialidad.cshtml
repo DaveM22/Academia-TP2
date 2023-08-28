@@ -8,7 +8,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4 col-12 col-lg-6 mx-auto">
-        <form asp-action="@accion">
+        <form id="form" asp-action="@accion">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="Descripcion" class="form-label col-form-label-lg"></label>
@@ -30,4 +30,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }

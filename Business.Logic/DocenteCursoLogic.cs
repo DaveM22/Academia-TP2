@@ -19,6 +19,11 @@ namespace Business.Logic
             _docenteCursoData = new DocenteCursoAdapter();
         }
 
+        public List<DocenteCurso> DocenteCursoByCurso(int cursoId)
+        {
+            return _docenteCursoData.GetByCurso(cursoId);
+        }
+
         public List<DocenteCurso> GetDocenteCursos()
         {
             return _docenteCursoData.GetDocenteCursos();

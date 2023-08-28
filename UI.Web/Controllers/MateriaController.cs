@@ -1,6 +1,9 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
+using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
@@ -9,28 +12,87 @@ namespace UI.Web.Controllers
     public class MateriaController : Controller
     {
         private IMapper mapper;
+        private readonly INotyfService notyf;
 
         private MateriaLogic MateriaLogic => new();
 
-        public MateriaController(IMapper mapper)
+        private PlanLogic PlanLogic => new();
+
+        public MateriaController(IMapper mapper, INotyfService notyf)
         {
             this.mapper = mapper;
+            this.notyf = notyf;
+        }
+
+        public IActionResult Index(int id)
+        {
+            var plan = PlanLogic.GetOne(id);
+            var model = mapper.Map<PlanViewModel>(plan);
+            return View(model);
+        }
+
+        public IActionResult Nuevo(int id)
+        {
+            var plan = PlanLogic.GetOne(id);
+            var model = new MateriaModel()
+            {
+                PlanDescripcion = plan.Descripcion,
+                PlanId = plan.Id
+            };
+            return View(model);
+        }
+
+        public IActionResult Editar(int id)
+        {
+            var mat = this.MateriaLogic.GetOne(id);
+            var model = mapper.Map<MateriaModel>(mat);
+            return View(model);
         }
 
         [HttpPost]
-        public JsonResult Nuevo(MateriaViewModel materiaViewModel)
+        public IActionResult Editar(MateriaModel model) 
         {
             if (ModelState.IsValid)
             {
-                return Json(materiaViewModel);
+                var materia = mapper.Map<Materia>(model);
+                this.MateriaLogic.Guardar(materia);
+                this.notyf.Success("Se han guardado los cambios de la materia");
+                return RedirectToAction("Index", new { id = materia.PlanId });
             }
-            return null;
+            return View(model);
         }
 
-        [HttpGet]
-        public JsonResult Lista()
+        [HttpPost]
+        public IActionResult Nuevo(MateriaModel model)
         {
-            var entities = mapper.Map<List<MateriaViewModel>>(MateriaLogic.GetAll());
+            if (ModelState.IsValid)
+            {
+                var materia = mapper.Map<Materia>(model);
+                this.MateriaLogic.Guardar(materia);
+                this.notyf.Success("Se han guardado los cambios de la materia");
+                return RedirectToAction("Index", new { id = materia.PlanId });
+            }
+            return View(model);
+        }
+
+        public IActionResult Borrar(int id)
+        {
+            var materia = this.MateriaLogic.GetOne(id);
+            var model = this.mapper.Map<MateriaModel>(materia);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Borrar(MateriaModel materia)
+        {
+            this.MateriaLogic.Borrar(materia.Id);
+            return RedirectToAction("Index", new { id = materia.PlanId});
+        }
+
+        [HttpPost]
+        public JsonResult Lista(int id)
+        {
+            var entities = mapper.Map<List<MateriaModel>>(MateriaLogic.GetAllByPlan(id));
             return Json(entities);
         }
     }

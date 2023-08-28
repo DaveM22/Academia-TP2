@@ -1,10 +1,10 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using Business.Entities;
+using Business.Entities.Enums;
 using Business.Logic;
-using Business.Util;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
@@ -92,6 +92,21 @@ namespace UI.Web.Controllers
                 default:
                     _notyfService.Success("Se han guardado los cambios del administrador",3);
                     return Redirect(nameof(Administradores));
+            }
+        }
+
+        public ActionResult PersonaByTipoPersona(int id)
+        {
+            if (Enum.IsDefined(typeof(TipoPersonaEnum), id))
+            {
+                var valueEnum = (TipoPersonaEnum)id;
+                var personas = PersonaLogic.GetPersonasForUsuarios(valueEnum);
+                var models = this._mapper.Map<List<PersonaViewModel>>(personas);
+                return Json(models);
+            }
+            else
+            {
+                return Json(new List<PersonaViewModel>());
             }
         }
 

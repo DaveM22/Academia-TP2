@@ -16,5 +16,7 @@ namespace Business.Entities
         public string MateriaDescripcion => Materia.Descripcion;
         public Comision Comision { get; set; }
         public Materia Materia { get; set; }
+
+        public List<DocenteCurso> DocenteCursos { get; set; }
     }
 }

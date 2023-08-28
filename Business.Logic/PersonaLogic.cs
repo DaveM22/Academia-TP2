@@ -20,6 +20,11 @@ namespace Business.Logic
             return PersonaData.GetOne(id);
         }
 
+        public List<Persona> GetPersonasForUsuarios(TipoPersonaEnum tipoPersona)
+        {
+            return PersonaData.GetPersonasForUsuarios(tipoPersona);
+        }
+
         public Persona Save(Persona persona)
         {
             return PersonaData.Save(persona);
@@ -28,6 +33,11 @@ namespace Business.Logic
         public void Delete(Persona persona)
         {
             PersonaData.Delete(persona);
+        }
+
+        public List<Persona> DocentesByPlanForCurso(List<int> idsProfesor)
+        {
+            return PersonaData.DocentesByPlanForCurso(idsProfesor);
         }
     }
 }

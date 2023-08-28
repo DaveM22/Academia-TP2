@@ -49,8 +49,9 @@ namespace UI.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+           
             app.UseRouting();
+            app.UseFastReport();
 
             app.UseAuthorization();
 

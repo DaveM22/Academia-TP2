@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Http;
@@ -10,14 +11,16 @@ namespace UI.Web.Controllers
 {
     public class ComisionController : Controller
     {
+        private readonly INotyfService notyf;
         private readonly IMapper mapper;
 
         private ComisionLogic ComisionLogic => new();
 
         private PlanLogic PlanLogic => new();
 
-        public ComisionController(IMapper mapper)
+        public ComisionController(IMapper mapper, INotyfService notyf)
         {
+            this.notyf = notyf;
             this.mapper = mapper;
         }
 
@@ -44,7 +47,6 @@ namespace UI.Web.Controllers
         public ActionResult Nuevo()
         {
             var vm = new ComisionViewModel();
-            vm.Planes = mapper.Map<List<PlanViewModel>>(PlanLogic.GetAll());
             return View(vm);
         }
 
@@ -59,6 +61,7 @@ namespace UI.Web.Controllers
                 {
                     var entity = mapper.Map<Comision>(comisionViewModel);
                     ComisionLogic.Save(entity);
+                    this.notyf.Success("Se ha creado la comisión de manera exitosa", 6000);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(comisionViewModel);
@@ -73,7 +76,6 @@ namespace UI.Web.Controllers
         public ActionResult Editar(int id)
         {
             var vm = mapper.Map<ComisionViewModel>(ComisionLogic.GetOne(id));
-            vm.Planes = mapper.Map<List<PlanViewModel>>(PlanLogic.GetAll());
             return View(vm);
         }
 
@@ -88,6 +90,7 @@ namespace UI.Web.Controllers
                 {
                     var entity = mapper.Map<Comision>(comisionViewModel);
                     ComisionLogic.Save(entity);
+                    this.notyf.Success("Se han guardado los cambios de la comisión de manera exitosa", 6000);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(comisionViewModel);
@@ -101,7 +104,9 @@ namespace UI.Web.Controllers
         // GET: ComisionController/Delete/5
         public ActionResult Borrar(int id)
         {
-            return View();
+            var entity = ComisionLogic.GetOne(id);
+            ComisionViewModel model = this.mapper.Map<ComisionViewModel>(entity);
+            return View(model);
         }
 
         // POST: ComisionController/Delete/5
@@ -111,12 +116,22 @@ namespace UI.Web.Controllers
         {
             try
             {
+                this.ComisionLogic.Delete(id);
+                this.notyf.Success("Se ha borrado la comisión de manera exitosa", 6000);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public JsonResult ComisionesByPlan(int id)
+        {
+            var entities = this.ComisionLogic.GetAllByPlan(id);
+            var result = this.mapper.Map<List<ComisionViewModel>>(entities);
+            return Json(result);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Business.Data.Mapping
             builder.Property(x => x.ComisionId).HasColumnName("id_comision");
             builder.Property(x => x.AnioCalendario).HasColumnName("anio_calendario");
             builder.Property(x => x.Cupo).HasColumnName("cupo");
+            builder.HasMany(x => x.DocenteCursos).WithOne(x => x.Curso).HasForeignKey(x => x.CursoId);
         }
     }
 }

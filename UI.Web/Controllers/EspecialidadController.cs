@@ -2,8 +2,10 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
@@ -35,6 +37,11 @@ namespace UI.Web.Controllers
             return View();
         }
 
+        public JsonResult Especialidades()
+        {
+            return Json(EspecialidadLogic.GetAll());
+        }
+
         // GET: EspecialidadController/Create
         public ActionResult Nuevo()
         {
@@ -57,9 +64,10 @@ namespace UI.Web.Controllers
                 }
                 return View(especialidadViewModel);
             }
-            catch
+            catch(DeleteCFReferenciadaException ex)
             {
-                return View();
+                this.notyf.Error(ex.Message);
+                return View(especialidadViewModel);
             }
         }
 
@@ -110,9 +118,10 @@ namespace UI.Web.Controllers
                 notyf.Success("Se ha borrado la especialidad");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (DeleteCFReferenciadaException ex)
             {
-                return View(especialidadViewModel);
+                this.notyf.Error(ex.Message);
+                return RedirectToAction(nameof(Borrar),new { id = especialidadViewModel.Id });
             }
         }
     }

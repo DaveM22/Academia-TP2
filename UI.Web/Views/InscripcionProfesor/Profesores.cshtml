@@ -1,0 +1,31 @@
+﻿@model CursoViewModel
+
+
+<h3>Profesores del curso @Model.MateriaDescripcion  - @Model.ComisionDescripcion - @Model.AnioCalendario</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a  asp-action="AsignarProfesor" asp-route-id="@Model.Id" class="btn btn-primary">Asignar nuevo profesor</a>
+        </div>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(DocenteCursoViewModel cur in Model.DocenteCursos)
+        {
+            <tr>
+                <td>@cur.Docente.Apellido</td>
+                <td>@cur.Docente.Nombre</td>
+                <td>@cur.DocenteCargo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

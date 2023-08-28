@@ -1,0 +1,81 @@
+﻿@model UsuarioViewModel
+
+@{
+    var accion = Model.Id == 0 ? "Nuevo" : "Editar";
+}
+
+<div class="row">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+        <form id="form" asp-action="@accion">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="NombreUsuario" class="form-label">Nombre de usuario:</label>
+                <input asp-for="NombreUsuario" class="form-control form-control-sm" maxlength="4" type="number" min="0" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Clave" class="form-label">Clave:</label>
+                <input asp-for="Clave" class="form-control form-control-sm" maxlength="60" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Habilitado" class="form-check-label">Habilitado:</label>
+                <input asp-for="Habilitado" class="form-check-input" maxlength="60" />
+                <span asp-validation-for="Habilitado" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="PersonaId" type="hidden" />
+                <label class="form-label">Persona:</label>
+                <div class="input-group">
+                    <input  readonly class="form-control form-control-md" maxlength="60" />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Seleccionar persona
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="PersonaId" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="@accion" class="btn btn-success w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a asp-action="Index" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:black" id="staticBackdropLabel">Seleccione una materia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3 col-md-8">
+                    <label style="color:black" for="selectTipoPersona" class="form-label">Tipo persona:</label>
+                    <select id="selectTipoPersona" class="form-select form-control-sm">
+                        <option value="">Seleccione tipo de persona</option>
+                        <option value="1">PROFESOR</option>
+                        <option value="2">ALUMNO</option>
+                    </select>
+                </div>
+                <table id="table" class="table">
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

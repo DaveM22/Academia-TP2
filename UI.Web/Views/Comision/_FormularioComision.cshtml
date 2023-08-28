@@ -4,37 +4,75 @@
     var accion = Model.Id == 0 ? "Nuevo" : "Editar"; 
 }
 
-<h3>@accion comisión</h3>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="@accion">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+        <form id="form" asp-action="@accion">
+            @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="AnioEspecialidad" class="form-label"></label>
-                <input asp-for="AnioEspecialidad" class="form-control form-control-sm" />
+                <input asp-for="AnioEspecialidad" class="form-control form-control-sm" maxlength="4" type="number" min="0" />
                 <span asp-validation-for="AnioEspecialidad" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Descripcion" class="form-label"></label>
-                <input asp-for="Descripcion" class="form-control form-control-sm" />
+                <input asp-for="Descripcion" class="form-control form-control-sm" maxlength="60" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="PlanId" class="form-label"></label>
-                <select asp-for="PlanId" class="form-control form-control-sm" asp-items="@(new SelectList(Model.Planes, "Id", "Descripcion"))">
-                    <option value="">Seleccione una materia</option>
-                </select>
+                <input asp-for="PlanId" type="hidden" />
+                <label asp-for="PlanDescripcion" class="form-label"></label>
+                <div class="input-group">
+                    <input asp-for="PlanDescripcion" readonly class="form-control form-control-md" maxlength="60" />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Seleccionar plan
+                        </button>
+                    </div>
+                </div>
                 <span asp-validation-for="PlanId" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <input type="submit" value="@accion" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-danger">Volver a comisiones</a>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="@accion" class="btn btn-success w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a asp-action="Index" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                </div>
+
             </div>
         </form>
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="color:black">Seleccionar plan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label style="color:black" for="selectEspecialidades" class="form-label">Especialidades:</label>
+                    <select id="selectEspecialidades" class="form-control form-control-sm">
+                        <option value="">Seleccione una especialidad</option>
+                    </select>
+                </div>
+                <table id="table" class="table" width="100%">
+   
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

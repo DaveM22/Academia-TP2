@@ -45,7 +45,7 @@ namespace UI.Web.Controllers
         public ActionResult Nuevo()
         {
             var vm = new CursoViewModel();
-            vm.Materias = mapper.Map<List<MateriaViewModel>>(MateriaLogic.GetAll());
+            vm.Materias = mapper.Map<List<MateriaModel>>(MateriaLogic.GetAll());
             vm.Comisiones = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
             return View(vm);
         }
@@ -76,7 +76,7 @@ namespace UI.Web.Controllers
         public ActionResult Editar(int id)
         {
             var vm = mapper.Map<CursoViewModel>(CursoLogic.GetOne(id));
-            vm.Materias = mapper.Map<List<MateriaViewModel>>(MateriaLogic.GetAll());
+            vm.Materias = mapper.Map<List<MateriaModel>>(MateriaLogic.GetAll());
             vm.Comisiones = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
             return View(vm);
         }

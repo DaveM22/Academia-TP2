@@ -1,0 +1,81 @@
+﻿@using Business.Entities.Enums;
+@model InscripcionProfesorViewModel
+<h3 class="display-6 text-center">Seleccione un profesor</h3>
+
+<div class="row">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+        <form id="form" asp-action="AsignarDocente">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <input asp-for="@Model.DocenteCurso.DocenteId" type="hidden" />
+                <label for="Docente" class="form-label">Docente</label>
+                <div class="input-group">
+                    <input name="Docente" readonly class="form-control form-control-md" maxlength="60" />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDocente">
+                            Seleccionar docente
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="@Model.DocenteCurso.DocenteId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Especialidad" class="form-label">Cargo</label>
+                <select asp-for="@Model.DocenteCurso.DocenteCargo" class="form-select">
+                    @foreach (var tipo in Enum.GetValues(typeof(DocenteCargoEnum)))
+                    {
+                        <option value="@tipo">@tipo</option>
+                    }
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="Guardar" class="btn btn-success w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a asp-action="Index" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalDocente" tabindex="-1" role="dialog" aria-labelledby="docenteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg container-fluid" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="color:black">Seleccionar profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table id="tableDocente" class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(PersonaViewModel persona in Model.Docentes)
+                        {
+                            <tr>
+                                <td>@persona.Nombre</td>
+                                <td>@persona.Apellido</td>
+                                <td><button class="btn btn-primary">Seleccionar</button></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

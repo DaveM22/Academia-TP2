@@ -26,6 +26,8 @@ namespace UI.Web.Models
         [DisplayName("Comisiones")]
         public List<ComisionViewModel> Comisiones { get; set; }
         [DisplayName("Materias")]
-        public List<MateriaViewModel> Materias { get; set; }
+        public List<MateriaModel> Materias { get; set; }
+
+        public List<DocenteCursoViewModel> DocenteCursos { get; set; }
     }
 }

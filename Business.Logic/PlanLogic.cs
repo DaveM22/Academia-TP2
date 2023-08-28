@@ -69,5 +69,10 @@ namespace Business.Logic
         {
             PlanAdapter.Delete(id);
         }
+
+        public List<Plan> PlanesByEspecialidad(int idEspecialidad)
+        {
+            return PlanAdapter.PlanesByEspecialidad(idEspecialidad);
+        }
     }
 }

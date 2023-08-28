@@ -1,0 +1,20 @@
+﻿@model UI.Web.Models.PlanViewModel
+
+@{
+    ViewData["Title"] = "Editar plan";
+}
+<h3 class="display-6 text-center">Editar plan</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-12 pb-3 pb-md-0  mx-auto">
+            <partial for="@Model" name="_FormularioPlan" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

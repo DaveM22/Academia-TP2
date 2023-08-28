@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 
 namespace Business.Data
 {
@@ -13,6 +14,12 @@ namespace Business.Data
         {
             using var context = new AcademiaContext();
             return context.Personas.Include(x => x.Plan).Where(x => x.TipoPersona == tipoPersona).ToList();
+        }
+
+        public List<Persona> GetPersonasForUsuarios(TipoPersonaEnum tipoPersona)
+        {
+            using var context = new AcademiaContext();
+            return context.Personas.Include(x => x.Plan).Include(x => x.Usuario).Where(x => x.TipoPersona == tipoPersona && x.Usuario == null).ToList();
         }
 
         public Persona GetOne(int id)
@@ -34,6 +41,14 @@ namespace Business.Data
             using var context = new AcademiaContext();
             context.Remove(persona);
             context.SaveChanges();
+        }
+
+
+        //Devuelve los profesores que no esten inscriptos en el curso y que sean del mismo plan
+        public List<Persona> DocentesByPlanForCurso(List<int> idsProfesor) 
+        {
+            using var context = new AcademiaContext();
+            return context.Personas.Where(x => TipoPersonaEnum.PROFESOR == x.TipoPersona && !idsProfesor.Contains(x.Id)).ToList();
         }
     }
 }

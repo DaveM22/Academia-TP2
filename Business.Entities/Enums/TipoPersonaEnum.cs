@@ -8,7 +8,6 @@ namespace Business.Entities.Enums
 {
     public enum TipoPersonaEnum
     {
-        ADMIN = 0,
         PROFESOR = 1,
         ALUMNO = 2
     }

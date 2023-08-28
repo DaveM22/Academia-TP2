@@ -5,65 +5,14 @@
 }
 <h3 class="display-6 text-center">Nuevo plan</h3>
 
-<div class="row">
-
-         <partial for="@Model" name="_FormularioPlan" />
-
-</div>
-    <div class="col-md-8">
-        <div class="col-md-12 mx-auto">
-            <button type="button" class="btn btn-primary btn-sm btn-lg" data-bs-toggle="modal" data-bs-target="#materiaForm">
-                  Agregar materia
-            </button>
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-md-6 col-12 pb-3 pb-md-0  mx-auto">
+            <partial for="@Model" name="_FormularioPlan" />
         </div>
-             
-                <partial name="_MateriaPartialView" for="Materias">
-    </div>
-
-
-<partial name="_materiaForm" for="Materia">
-
-    
-            
+  </div>
+</div>
+          
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript" src="~/js/initDatatables.js"></script>
-    <script type="text/javascript" src="~/js/PlanesScripts.js"></script>
-    <script type="text/javascript">
-        let columns = [
-            { data: "descripcion", title: "Descripción" },
-            { data: "hsSemanales", title: "Horas semanales" },
-            { data: "hsTotales", title: "Horas totales" },
-            { data: null, title:"Acciones", 
-               render: function (data, type, full, meta) {
-                   return `<button onclick="${"hola(data.descripcion)"}" class="btn btn-primary btn-sm btn-lg">Editar</button> <button class="${"btn btn-primary btn-sm btn-lg"}">Borrar</button>`;
-               }
-            }
-        ]
-            $(document).ready(function () {
-
-
-
-
-
-                $('#table').DataTable({
-                    language: {
-                        "emptyTable": "No hay materias cargadas en el plan"
-                    },
-                    scrollY: '300px',
-                    scrollCollapse: true,
-                    paging: false,
-                    lengthChange: false,
-                    info: false,
-                    columns: columns
-                    });
-
-                    
-
-            });
-                                    function hola(data){
-            console.log('asd');
-        }
-
-    </script>
 }

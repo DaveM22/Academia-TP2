@@ -7,22 +7,7 @@
         $("#navFormulario").addClass("active");
     })
 
-    $("#submitMateria").click(function (e) {
-        e.preventDefault();
-        let descripcion = $("#Materia_Descripcion").val();
-        let hsSemanales = $("#Materia_HSSemanales").val();
-        let hsTotales = $("#Materia_HSTotales").val();
-        let obj = { Descripcion: descripcion, HSSemanales: hsSemanales, HSTotales: hsTotales };
-        $.post("/Materia/Nuevo", obj, function (data) {
-            let dt = $('#table').DataTable();
-            dt.rows.add([data]).draw();
-        });
-        $("#materias").addClass("active show");
-        $("#formulario").removeClass("active");
-        $("#navFormulario").removeClass("active")
-        $("#navMaterias").addClass("active");
-    });
-
+ 
     $("#submitPlan").click(function (e) {
         e.preventDefault();
         let descripcion = $("#Descripcion").val();

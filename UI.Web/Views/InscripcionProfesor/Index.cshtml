@@ -1,0 +1,128 @@
+﻿@model List<CursoViewModel>;
+<h3 class="display-6 text-center">Inscripción de profesor a curso</h3>
+
+
+<div class="container row">
+
+        <div class="mb-3 col-md-4">
+            <label style="color:black" for="selectEspecialidades" class="form-label">Especialidades:</label>
+            <select id="selectEspecialidades" class="form-select form-control form-control-sm">
+                <option value="">Seleccione una especialidad</option>
+            </select>
+        </div>
+        <div class="mb-3 col-md-4">
+            <label style="color:black" for="selectPlan" class="form-label">Planes:</label>
+        <select id="selectPlanes" class="form-select form-control form-control-sm">
+                <option value="">Seleccione un plan</option>
+            </select>
+        </div>
+        <div class="mb-3 col-md-4">
+            <label style="color:black" for="selectComisiones" class="form-label">Comisiones:</label>
+        <select id="selectComisiones" class="form-select form-control form-control-sm">
+                <option value="">Seleccione una comisión</option>
+            </select>
+        </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Año calendario</th>
+                    <th>Materia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(CursoViewModel cur in Model)
+                {
+                    <tr>
+                        <td>@cur.AnioCalendario</td>
+                        <td>@cur.MateriaDescripcion</td>
+                        <td><a class="btn btn-primary btn-sm" title="Asignar" asp-action="Profesores" asp-route-id="@cur.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+  
+            var tableCursos = $('#table').DataTable({
+                responsive: true,
+                columns: comumns,
+                language: {
+                    "emptyTable": "No hay cursos con los filtros ingresados",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            });
+
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Especialidad/Especialidades",
+                success: function (response) {
+                    $.each(response, function (index, opcion) {
+                        $("#selectEspecialidades").append(
+                            $("<option>", {
+                                value: opcion.id,
+                                text: opcion.descripcion
+                            })
+                        )
+                    })
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            $("#selectEspecialidades").change(function () {
+                var selectedValue = $(this).val();
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Plan/PlanesByEspecialidad",
+                    data: { id: selectedValue },
+                    success: function (response) {
+                        $("#selectPlanes option").not(":first").remove();
+                        $.each(response, function (index, opcion) {
+                            $("#selectPlanes").append(
+                                $("<option>", {
+                                    value: opcion.id,
+                                    text: opcion.descripcion
+                                })
+                            )
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+
+
+
+
+        });
+    </script>
+}

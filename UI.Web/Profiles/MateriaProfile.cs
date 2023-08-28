@@ -8,7 +8,7 @@ namespace UI.Web.Profiles
     {
         public MateriaProfile()
         {
-            CreateMap<Materia, MateriaViewModel>().ReverseMap();
+            CreateMap<Materia, MateriaModel>().ReverseMap();
         }
     }
 }

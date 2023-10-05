@@ -28,79 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUsuario = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.lblClave = new System.Windows.Forms.Label();
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.btnIngresar = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            lblUsuario = new System.Windows.Forms.Label();
+            txtUsuario = new System.Windows.Forms.MaskedTextBox();
+            lblClave = new System.Windows.Forms.Label();
+            txtClave = new System.Windows.Forms.TextBox();
+            btnIngresar = new System.Windows.Forms.Button();
+            SuspendLayout();
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Location = new System.Drawing.Point(76, 47);
+            lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new System.Drawing.Size(47, 15);
+            lblUsuario.TabIndex = 0;
+            lblUsuario.Text = "Usuario";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.AutoSize = true;
-            this.txtUsuario.Location = new System.Drawing.Point(109, 79);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(72, 25);
-            this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.Text = "Usuario";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(201, 76);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(210, 31);
-            this.maskedTextBox1.TabIndex = 1;
+            txtUsuario.Location = new System.Drawing.Point(141, 46);
+            txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new System.Drawing.Size(148, 23);
+            txtUsuario.TabIndex = 1;
             // 
             // lblClave
             // 
-            this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(109, 145);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(54, 25);
-            this.lblClave.TabIndex = 2;
-            this.lblClave.Text = "Clave";
+            lblClave.AutoSize = true;
+            lblClave.Location = new System.Drawing.Point(76, 87);
+            lblClave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblClave.Name = "lblClave";
+            lblClave.Size = new System.Drawing.Size(36, 15);
+            lblClave.TabIndex = 2;
+            lblClave.Text = "Clave";
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(201, 139);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
-            this.txtClave.Size = new System.Drawing.Size(210, 31);
-            this.txtClave.TabIndex = 3;
+            txtClave.Location = new System.Drawing.Point(141, 83);
+            txtClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txtClave.Name = "txtClave";
+            txtClave.PasswordChar = '*';
+            txtClave.Size = new System.Drawing.Size(148, 23);
+            txtClave.TabIndex = 3;
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(214, 207);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(112, 34);
-            this.btnIngresar.TabIndex = 4;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
+            btnIngresar.Location = new System.Drawing.Point(150, 124);
+            btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Size = new System.Drawing.Size(78, 26);
+            btnIngresar.TabIndex = 4;
+            btnIngresar.Text = "Ingresar";
+            btnIngresar.UseVisualStyleBackColor = true;
+            btnIngresar.Click += BtnIngresar_Click;
             // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(525, 350);
-            this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.txtClave);
-            this.Controls.Add(this.lblClave);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.txtUsuario);
-            this.Name = "formLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ingresar al sistema";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new System.Drawing.Size(368, 210);
+            Controls.Add(btnIngresar);
+            Controls.Add(txtClave);
+            Controls.Add(lblClave);
+            Controls.Add(txtUsuario);
+            Controls.Add(lblUsuario);
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Name = "formLogin";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Ingresar al sistema";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Label txtUsuario;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.MaskedTextBox txtUsuario;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnIngresar;

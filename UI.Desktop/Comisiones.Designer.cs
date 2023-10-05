@@ -34,220 +34,212 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comisiones));
-            this.tscComisiones = new System.Windows.Forms.ToolStripContainer();
-            this.tlComisiones = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvComisiones = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tscComisiones.ContentPanel.SuspendLayout();
-            this.tscComisiones.TopToolStripPanel.SuspendLayout();
-            this.tscComisiones.SuspendLayout();
-            this.tlComisiones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
+            tscComisiones = new System.Windows.Forms.ToolStripContainer();
+            tlComisiones = new System.Windows.Forms.TableLayoutPanel();
+            dgvComisiones = new System.Windows.Forms.DataGridView();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnSalir = new System.Windows.Forms.Button();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tsNuevo = new System.Windows.Forms.ToolStripButton();
+            tscComisiones.ContentPanel.SuspendLayout();
+            tscComisiones.TopToolStripPanel.SuspendLayout();
+            tscComisiones.SuspendLayout();
+            tlComisiones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvComisiones).BeginInit();
+            toolStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // tscComisiones
             // 
             // 
             // tscComisiones.ContentPanel
             // 
-            this.tscComisiones.ContentPanel.Controls.Add(this.tlComisiones);
-            this.tscComisiones.ContentPanel.Size = new System.Drawing.Size(824, 474);
-            this.tscComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tscComisiones.Location = new System.Drawing.Point(0, 0);
-            this.tscComisiones.Name = "tscComisiones";
-            this.tscComisiones.Size = new System.Drawing.Size(824, 508);
-            this.tscComisiones.TabIndex = 0;
-            this.tscComisiones.Text = "toolStripContainer1";
+            tscComisiones.ContentPanel.Controls.Add(tlComisiones);
+            tscComisiones.ContentPanel.Size = new System.Drawing.Size(824, 474);
+            tscComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            tscComisiones.Location = new System.Drawing.Point(0, 0);
+            tscComisiones.Name = "tscComisiones";
+            tscComisiones.Size = new System.Drawing.Size(824, 508);
+            tscComisiones.TabIndex = 0;
+            tscComisiones.Text = "toolStripContainer1";
             // 
             // tscComisiones.TopToolStripPanel
             // 
-            this.tscComisiones.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            tscComisiones.TopToolStripPanel.Controls.Add(toolStrip1);
             // 
             // tlComisiones
             // 
-            this.tlComisiones.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tlComisiones.ColumnCount = 2;
-            this.tlComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlComisiones.Controls.Add(this.dgvComisiones, 0, 0);
-            this.tlComisiones.Controls.Add(this.btnActualizar, 0, 1);
-            this.tlComisiones.Controls.Add(this.btnSalir, 1, 1);
-            this.tlComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlComisiones.Location = new System.Drawing.Point(0, 0);
-            this.tlComisiones.Name = "tlComisiones";
-            this.tlComisiones.RowCount = 2;
-            this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlComisiones.Size = new System.Drawing.Size(824, 474);
-            this.tlComisiones.TabIndex = 0;
+            tlComisiones.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlComisiones.ColumnCount = 2;
+            tlComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            tlComisiones.Controls.Add(dgvComisiones, 0, 0);
+            tlComisiones.Controls.Add(btnActualizar, 0, 1);
+            tlComisiones.Controls.Add(btnSalir, 1, 1);
+            tlComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlComisiones.Location = new System.Drawing.Point(0, 0);
+            tlComisiones.Name = "tlComisiones";
+            tlComisiones.RowCount = 2;
+            tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tlComisiones.Size = new System.Drawing.Size(824, 474);
+            tlComisiones.TabIndex = 0;
             // 
             // dgvComisiones
             // 
-            this.dgvComisiones.AllowUserToAddRows = false;
-            this.dgvComisiones.AllowUserToDeleteRows = false;
-            this.dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Descripcion,
-            this.AnioEspecialidad,
-            this.Plan,
-            this.Editar,
-            this.Borrar});
-            this.tlComisiones.SetColumnSpan(this.dgvComisiones, 2);
-            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
-            this.dgvComisiones.MultiSelect = false;
-            this.dgvComisiones.Name = "dgvComisiones";
-            this.dgvComisiones.ReadOnly = true;
-            this.dgvComisiones.RowHeadersWidth = 62;
-            this.dgvComisiones.RowTemplate.Height = 33;
-            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.Size = new System.Drawing.Size(818, 414);
-            this.dgvComisiones.TabIndex = 0;
-            this.dgvComisiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComisiones_CellContentClick);
+            dgvComisiones.AllowUserToAddRows = false;
+            dgvComisiones.AllowUserToDeleteRows = false;
+            dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, AnioEspecialidad, Plan, Editar, Borrar });
+            tlComisiones.SetColumnSpan(dgvComisiones, 2);
+            dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvComisiones.Location = new System.Drawing.Point(3, 3);
+            dgvComisiones.MultiSelect = false;
+            dgvComisiones.Name = "dgvComisiones";
+            dgvComisiones.ReadOnly = true;
+            dgvComisiones.RowHeadersWidth = 62;
+            dgvComisiones.RowTemplate.Height = 33;
+            dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvComisiones.Size = new System.Drawing.Size(818, 414);
+            dgvComisiones.TabIndex = 0;
+            dgvComisiones.CellContentClick += dgvComisiones_CellContentClick;
             // 
             // Id
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
             // 
             // Descripcion
             // 
-            this.Descripcion.DataPropertyName = "Descripcion";
+            Descripcion.DataPropertyName = "Descripcion";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.MinimumWidth = 8;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
+            Descripcion.DefaultCellStyle = dataGridViewCellStyle1;
+            Descripcion.HeaderText = "Descripcion";
+            Descripcion.MinimumWidth = 8;
+            Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
             // 
             // AnioEspecialidad
             // 
-            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AnioEspecialidad.DefaultCellStyle = dataGridViewCellStyle2;
-            this.AnioEspecialidad.HeaderText = "Año Especialidad";
-            this.AnioEspecialidad.MinimumWidth = 8;
-            this.AnioEspecialidad.Name = "AnioEspecialidad";
-            this.AnioEspecialidad.ReadOnly = true;
+            AnioEspecialidad.DefaultCellStyle = dataGridViewCellStyle2;
+            AnioEspecialidad.HeaderText = "Año Especialidad";
+            AnioEspecialidad.MinimumWidth = 8;
+            AnioEspecialidad.Name = "AnioEspecialidad";
+            AnioEspecialidad.ReadOnly = true;
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "PlanDescripcion";
+            Plan.DataPropertyName = "PlanDescripcion";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Plan.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 8;
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            Plan.DefaultCellStyle = dataGridViewCellStyle3;
+            Plan.HeaderText = "Plan";
+            Plan.MinimumWidth = 8;
+            Plan.Name = "Plan";
+            Plan.ReadOnly = true;
             // 
             // Editar
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.NullValue = "Editar";
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Editar.HeaderText = "";
-            this.Editar.MinimumWidth = 8;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
+            Editar.DefaultCellStyle = dataGridViewCellStyle4;
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Text = "Editar";
             // 
             // Borrar
             // 
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.NullValue = "Borrar";
-            this.Borrar.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Borrar.HeaderText = "";
-            this.Borrar.MinimumWidth = 8;
-            this.Borrar.Name = "Borrar";
-            this.Borrar.ReadOnly = true;
+            Borrar.DefaultCellStyle = dataGridViewCellStyle5;
+            Borrar.HeaderText = "";
+            Borrar.MinimumWidth = 8;
+            Borrar.Name = "Borrar";
+            Borrar.ReadOnly = true;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackColor = System.Drawing.Color.Green;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(593, 423);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(111, 48);
-            this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnActualizar.BackColor = System.Drawing.Color.Green;
+            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnActualizar.Location = new System.Drawing.Point(593, 423);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new System.Drawing.Size(111, 48);
+            btnActualizar.TabIndex = 1;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnSalir
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.Firebrick;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSalir.Location = new System.Drawing.Point(710, 423);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(111, 48);
-            this.btnSalir.TabIndex = 2;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            btnSalir.BackColor = System.Drawing.Color.Firebrick;
+            btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSalir.Location = new System.Drawing.Point(710, 423);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new System.Drawing.Size(111, 48);
+            btnSalir.TabIndex = 2;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsNuevo});
-            this.toolStrip1.Location = new System.Drawing.Point(4, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(161, 34);
-            this.toolStrip1.TabIndex = 0;
+            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
+            toolStrip1.Location = new System.Drawing.Point(4, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(161, 34);
+            toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
             // 
-            this.tsNuevo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsNuevo.Image")));
-            this.tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsNuevo.Name = "tsNuevo";
-            this.tsNuevo.Size = new System.Drawing.Size(143, 29);
-            this.tsNuevo.Text = "Nueva comisión";
-            this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
+            tsNuevo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tsNuevo.Image = (System.Drawing.Image)resources.GetObject("tsNuevo.Image");
+            tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tsNuevo.Name = "tsNuevo";
+            tsNuevo.Size = new System.Drawing.Size(143, 29);
+            tsNuevo.Text = "Nueva comisión";
+            tsNuevo.Click += tsNuevo_Click;
             // 
             // Comisiones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 508);
-            this.ControlBox = false;
-            this.Controls.Add(this.tscComisiones);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Comisiones";
-            this.Text = "Comisiones";
-            this.tscComisiones.ContentPanel.ResumeLayout(false);
-            this.tscComisiones.TopToolStripPanel.ResumeLayout(false);
-            this.tscComisiones.TopToolStripPanel.PerformLayout();
-            this.tscComisiones.ResumeLayout(false);
-            this.tscComisiones.PerformLayout();
-            this.tlComisiones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(824, 508);
+            ControlBox = false;
+            Controls.Add(tscComisiones);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            Name = "Comisiones";
+            Text = "Comisiones";
+            tscComisiones.ContentPanel.ResumeLayout(false);
+            tscComisiones.TopToolStripPanel.ResumeLayout(false);
+            tscComisiones.TopToolStripPanel.PerformLayout();
+            tscComisiones.ResumeLayout(false);
+            tscComisiones.PerformLayout();
+            tlComisiones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvComisiones).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

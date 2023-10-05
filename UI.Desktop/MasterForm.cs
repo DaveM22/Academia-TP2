@@ -1,4 +1,5 @@
-﻿using Business.Entities.Enums;
+﻿using Business.Entities;
+using Business.Entities.Enums;
 using System;
 using System.Windows.Forms;
 
@@ -13,6 +14,13 @@ namespace UI.Desktop
         {
             InitializeComponent();
             Master = this;
+        }
+
+        public MasterForm(Usuario usuario) : base()
+        {
+            InitializeComponent();
+            Master = this;
+            UsuarioActual = usuario;
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +53,6 @@ namespace UI.Desktop
             OpenForm(new DocenteCursos());
         }
 
-
         public void OpenForm(ApplicationForm form)
         {
             if (Form != null)
@@ -59,8 +66,6 @@ namespace UI.Desktop
             Form.Dock = DockStyle.Fill;
             Form.Show();
         }
-
-
 
         private void planesYMateriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -94,6 +99,11 @@ namespace UI.Desktop
         private void tsmCursos_Click(object sender, EventArgs e)
         {
             this.OpenForm(new Cursos());
+        }
+
+        private void tsmAlumnos_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Personas(TipoPersonaEnum.ALUMNO));
         }
     }
 }

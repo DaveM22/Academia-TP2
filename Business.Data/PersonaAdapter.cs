@@ -25,7 +25,7 @@ namespace Business.Data
         public Persona GetOne(int id)
         {
             using var context = new AcademiaContext();
-            return context.Personas.SingleOrDefault(x => x.Id == id);
+            return context.Personas.Include(x => x.Plan).SingleOrDefault(x => x.Id == id);
         }
 
         public Persona Save(Persona persona)

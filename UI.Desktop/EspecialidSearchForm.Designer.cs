@@ -28,124 +28,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tscEspecialidades = new System.Windows.Forms.ToolStripContainer();
-            this.tlpEspecialidades = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.IdEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.tscEspecialidades.ContentPanel.SuspendLayout();
-            this.tscEspecialidades.SuspendLayout();
-            this.tlpEspecialidades.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
-            this.SuspendLayout();
+            tscEspecialidades = new System.Windows.Forms.ToolStripContainer();
+            tlpEspecialidades = new System.Windows.Forms.TableLayoutPanel();
+            dgvEspecialidades = new System.Windows.Forms.DataGridView();
+            IdEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            btnSeleccionar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            tscEspecialidades.ContentPanel.SuspendLayout();
+            tscEspecialidades.SuspendLayout();
+            tlpEspecialidades.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEspecialidades).BeginInit();
+            SuspendLayout();
             // 
             // tscEspecialidades
             // 
             // 
             // tscEspecialidades.ContentPanel
             // 
-            this.tscEspecialidades.ContentPanel.Controls.Add(this.tlpEspecialidades);
-            this.tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(800, 425);
-            this.tscEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tscEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tscEspecialidades.Name = "tscEspecialidades";
-            this.tscEspecialidades.Size = new System.Drawing.Size(800, 450);
-            this.tscEspecialidades.TabIndex = 0;
-            this.tscEspecialidades.Text = "toolStripContainer1";
+            tscEspecialidades.ContentPanel.Controls.Add(tlpEspecialidades);
+            tscEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(731, 245);
+            tscEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
+            tscEspecialidades.Location = new System.Drawing.Point(0, 0);
+            tscEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            tscEspecialidades.Name = "tscEspecialidades";
+            tscEspecialidades.Size = new System.Drawing.Size(731, 270);
+            tscEspecialidades.TabIndex = 0;
+            tscEspecialidades.Text = "toolStripContainer1";
             // 
             // tlpEspecialidades
             // 
-            this.tlpEspecialidades.ColumnCount = 2;
-            this.tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.75F));
-            this.tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.25F));
-            this.tlpEspecialidades.Controls.Add(this.dgvEspecialidades, 0, 0);
-            this.tlpEspecialidades.Controls.Add(this.btnSeleccionar, 0, 1);
-            this.tlpEspecialidades.Controls.Add(this.btnCancelar, 1, 1);
-            this.tlpEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tlpEspecialidades.Name = "tlpEspecialidades";
-            this.tlpEspecialidades.RowCount = 2;
-            this.tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpEspecialidades.Size = new System.Drawing.Size(800, 425);
-            this.tlpEspecialidades.TabIndex = 0;
+            tlpEspecialidades.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlpEspecialidades.ColumnCount = 2;
+            tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.75F));
+            tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.25F));
+            tlpEspecialidades.Controls.Add(dgvEspecialidades, 0, 0);
+            tlpEspecialidades.Controls.Add(btnSeleccionar, 0, 1);
+            tlpEspecialidades.Controls.Add(btnCancelar, 1, 1);
+            tlpEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlpEspecialidades.Location = new System.Drawing.Point(0, 0);
+            tlpEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            tlpEspecialidades.Name = "tlpEspecialidades";
+            tlpEspecialidades.RowCount = 2;
+            tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlpEspecialidades.Size = new System.Drawing.Size(731, 245);
+            tlpEspecialidades.TabIndex = 0;
             // 
             // dgvEspecialidades
             // 
-            this.dgvEspecialidades.AllowUserToAddRows = false;
-            this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdEspecialidad,
-            this.Descripcion});
-            this.tlpEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
-            this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
-            this.dgvEspecialidades.MultiSelect = false;
-            this.dgvEspecialidades.Name = "dgvEspecialidades";
-            this.dgvEspecialidades.ReadOnly = true;
-            this.dgvEspecialidades.RowHeadersWidth = 62;
-            this.dgvEspecialidades.RowTemplate.Height = 33;
-            this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(794, 368);
-            this.dgvEspecialidades.TabIndex = 0;
+            dgvEspecialidades.AllowUserToAddRows = false;
+            dgvEspecialidades.AllowUserToDeleteRows = false;
+            dgvEspecialidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { IdEspecialidad, Descripcion });
+            tlpEspecialidades.SetColumnSpan(dgvEspecialidades, 2);
+            dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvEspecialidades.Location = new System.Drawing.Point(2, 2);
+            dgvEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            dgvEspecialidades.MultiSelect = false;
+            dgvEspecialidades.Name = "dgvEspecialidades";
+            dgvEspecialidades.ReadOnly = true;
+            dgvEspecialidades.RowHeadersWidth = 62;
+            dgvEspecialidades.RowTemplate.Height = 33;
+            dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvEspecialidades.Size = new System.Drawing.Size(727, 210);
+            dgvEspecialidades.TabIndex = 0;
             // 
             // IdEspecialidad
             // 
-            this.IdEspecialidad.DataPropertyName = "Id";
-            this.IdEspecialidad.HeaderText = "Id";
-            this.IdEspecialidad.MinimumWidth = 8;
-            this.IdEspecialidad.Name = "IdEspecialidad";
-            this.IdEspecialidad.ReadOnly = true;
+            IdEspecialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            IdEspecialidad.DataPropertyName = "Id";
+            IdEspecialidad.FillWeight = 10F;
+            IdEspecialidad.Frozen = true;
+            IdEspecialidad.HeaderText = "Id";
+            IdEspecialidad.MinimumWidth = 8;
+            IdEspecialidad.Name = "IdEspecialidad";
+            IdEspecialidad.ReadOnly = true;
+            IdEspecialidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            IdEspecialidad.Visible = false;
             // 
             // Descripcion
             // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.MinimumWidth = 8;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
+            Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            Descripcion.DataPropertyName = "Descripcion";
+            Descripcion.HeaderText = "Descripción";
+            Descripcion.MinimumWidth = 94;
+            Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
+            Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(571, 377);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(112, 45);
-            this.btnSeleccionar.TabIndex = 1;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            btnSeleccionar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSeleccionar.BackColor = System.Drawing.Color.Green;
+            btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSeleccionar.Location = new System.Drawing.Point(546, 216);
+            btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Size = new System.Drawing.Size(78, 27);
+            btnSeleccionar.TabIndex = 1;
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.UseVisualStyleBackColor = false;
+            btnSeleccionar.Click += btnSeleccionar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(689, 377);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(108, 45);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(628, 216);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(76, 27);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // EspecialidadSearchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tscEspecialidades);
-            this.Name = "EspecialidadSearchForm";
-            this.Text = "Seleccione una especialidad";
-            this.Load += new System.EventHandler(this.EspecialidSearchForm_Load);
-            this.tscEspecialidades.ContentPanel.ResumeLayout(false);
-            this.tscEspecialidades.ResumeLayout(false);
-            this.tscEspecialidades.PerformLayout();
-            this.tlpEspecialidades.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(560, 270);
+            Controls.Add(tscEspecialidades);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Margin = new System.Windows.Forms.Padding(2);
+            MaximizeBox = false;
+            Name = "EspecialidadSearchForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Seleccione una especialidad";
+            Load += EspecialidSearchForm_Load;
+            tscEspecialidades.ContentPanel.ResumeLayout(false);
+            tscEspecialidades.ResumeLayout(false);
+            tscEspecialidades.PerformLayout();
+            tlpEspecialidades.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvEspecialidades).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

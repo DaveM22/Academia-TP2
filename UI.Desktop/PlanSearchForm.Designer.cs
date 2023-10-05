@@ -28,143 +28,195 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tscPlan = new System.Windows.Forms.ToolStripContainer();
-            this.tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.dgvPlanes = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tscPlan.ContentPanel.SuspendLayout();
-            this.tscPlan.SuspendLayout();
-            this.tlpPlanes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).BeginInit();
-            this.SuspendLayout();
+            tscPlan = new System.Windows.Forms.ToolStripContainer();
+            tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
+            dgvPlanes = new System.Windows.Forms.DataGridView();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PlanDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnSeleccionar = new System.Windows.Forms.Button();
+            cbEspecialides = new System.Windows.Forms.ComboBox();
+            lblEspecialidades = new System.Windows.Forms.Label();
+            Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            tscPlan.ContentPanel.SuspendLayout();
+            tscPlan.SuspendLayout();
+            tlpPlanes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvPlanes).BeginInit();
+            SuspendLayout();
             // 
             // tscPlan
             // 
             // 
             // tscPlan.ContentPanel
             // 
-            this.tscPlan.ContentPanel.Controls.Add(this.tlpPlanes);
-            this.tscPlan.ContentPanel.Size = new System.Drawing.Size(800, 425);
-            this.tscPlan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tscPlan.Location = new System.Drawing.Point(0, 0);
-            this.tscPlan.Name = "tscPlan";
-            this.tscPlan.Size = new System.Drawing.Size(800, 450);
-            this.tscPlan.TabIndex = 0;
-            this.tscPlan.Text = "toolStripContainer1";
+            tscPlan.ContentPanel.Controls.Add(tlpPlanes);
+            tscPlan.ContentPanel.Size = new System.Drawing.Size(1040, 435);
+            tscPlan.Dock = System.Windows.Forms.DockStyle.Fill;
+            tscPlan.Location = new System.Drawing.Point(0, 0);
+            tscPlan.Name = "tscPlan";
+            tscPlan.Size = new System.Drawing.Size(1040, 460);
+            tscPlan.TabIndex = 0;
+            tscPlan.Text = "toolStripContainer1";
             // 
             // tlpPlanes
             // 
-            this.tlpPlanes.ColumnCount = 2;
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.875F));
-            this.tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.125F));
-            this.tlpPlanes.Controls.Add(this.btnSeleccionar, 0, 1);
-            this.tlpPlanes.Controls.Add(this.btnCancelar, 1, 1);
-            this.tlpPlanes.Controls.Add(this.dgvPlanes, 0, 0);
-            this.tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPlanes.Location = new System.Drawing.Point(0, 0);
-            this.tlpPlanes.Name = "tlpPlanes";
-            this.tlpPlanes.RowCount = 2;
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpPlanes.Size = new System.Drawing.Size(800, 425);
-            this.tlpPlanes.TabIndex = 0;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeleccionar.BackColor = System.Drawing.Color.Green;
-            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSeleccionar.Location = new System.Drawing.Point(564, 378);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(112, 44);
-            this.btnSeleccionar.TabIndex = 0;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = false;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCancelar.Location = new System.Drawing.Point(682, 378);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 44);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            tlpPlanes.ColumnCount = 4;
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.48148F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.5185184F));
+            tlpPlanes.Controls.Add(dgvPlanes, 2, 1);
+            tlpPlanes.Controls.Add(btnCancelar, 3, 3);
+            tlpPlanes.Controls.Add(btnSeleccionar, 2, 3);
+            tlpPlanes.Controls.Add(cbEspecialides, 2, 0);
+            tlpPlanes.Controls.Add(lblEspecialidades, 1, 0);
+            tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlpPlanes.Location = new System.Drawing.Point(0, 0);
+            tlpPlanes.Name = "tlpPlanes";
+            tlpPlanes.RowCount = 3;
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            tlpPlanes.Size = new System.Drawing.Size(1040, 435);
+            tlpPlanes.TabIndex = 0;
             // 
             // dgvPlanes
             // 
-            this.dgvPlanes.AllowUserToAddRows = false;
-            this.dgvPlanes.AllowUserToDeleteRows = false;
-            this.dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Plan,
-            this.Especialidad});
-            this.tlpPlanes.SetColumnSpan(this.dgvPlanes, 2);
-            this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
-            this.dgvPlanes.MultiSelect = false;
-            this.dgvPlanes.Name = "dgvPlanes";
-            this.dgvPlanes.ReadOnly = true;
-            this.dgvPlanes.RowHeadersWidth = 62;
-            this.dgvPlanes.RowTemplate.Height = 33;
-            this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanes.Size = new System.Drawing.Size(794, 369);
-            this.dgvPlanes.TabIndex = 2;
+            dgvPlanes.AllowUserToAddRows = false;
+            dgvPlanes.AllowUserToDeleteRows = false;
+            dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, PlanDescripcion });
+            tlpPlanes.SetColumnSpan(dgvPlanes, 4);
+            dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvPlanes.Location = new System.Drawing.Point(3, 64);
+            dgvPlanes.MultiSelect = false;
+            dgvPlanes.Name = "dgvPlanes";
+            dgvPlanes.ReadOnly = true;
+            dgvPlanes.RowHeadersWidth = 62;
+            dgvPlanes.RowTemplate.Height = 33;
+            dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvPlanes.Size = new System.Drawing.Size(1034, 317);
+            dgvPlanes.TabIndex = 2;
             // 
             // Id
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // PlanDescripcion
+            // 
+            PlanDescripcion.DataPropertyName = "Descripcion";
+            PlanDescripcion.HeaderText = "Plan";
+            PlanDescripcion.MinimumWidth = 8;
+            PlanDescripcion.Name = "PlanDescripcion";
+            PlanDescripcion.ReadOnly = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(919, 387);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(111, 43);
+            btnCancelar.TabIndex = 1;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSeleccionar.BackColor = System.Drawing.Color.Green;
+            btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSeleccionar.Location = new System.Drawing.Point(802, 387);
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Size = new System.Drawing.Size(111, 43);
+            btnSeleccionar.TabIndex = 0;
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.UseVisualStyleBackColor = false;
+            btnSeleccionar.Click += btnSeleccionar_Click;
+            // 
+            // cbEspecialides
+            // 
+            cbEspecialides.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            cbEspecialides.FormattingEnabled = true;
+            cbEspecialides.Location = new System.Drawing.Point(375, 14);
+            cbEspecialides.Name = "cbEspecialides";
+            cbEspecialides.Size = new System.Drawing.Size(341, 33);
+            cbEspecialides.TabIndex = 3;
+            cbEspecialides.SelectionChangeCommitted += cbEspecialides_SelectionChangeCommitted;
+            cbEspecialides.ValueMemberChanged += cbEspecialides_ValueMemberChanged;
+            // 
+            // lblEspecialidades
+            // 
+            lblEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            lblEspecialidades.AutoSize = true;
+            lblEspecialidades.Location = new System.Drawing.Point(239, 18);
+            lblEspecialidades.Name = "lblEspecialidades";
+            lblEspecialidades.Size = new System.Drawing.Size(130, 25);
+            lblEspecialidades.TabIndex = 4;
+            lblEspecialidades.Text = "Especialidades:";
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "Descripcion";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 8;
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            Plan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            Plan.DataPropertyName = "Descripcion";
+            Plan.Frozen = true;
+            Plan.HeaderText = "Plan";
+            Plan.MinimumWidth = 8;
+            Plan.Name = "Plan";
+            Plan.Width = 342;
             // 
             // Especialidad
             // 
-            this.Especialidad.DataPropertyName = "EspecialidadDescripcion";
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.MinimumWidth = 8;
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
+            Especialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            Especialidad.DataPropertyName = "EspecialidadDescripcion";
+            Especialidad.Frozen = true;
+            Especialidad.HeaderText = "Especialidad";
+            Especialidad.MinimumWidth = 8;
+            Especialidad.Name = "Especialidad";
+            Especialidad.Width = 342;
+            // 
+            // Acciones
+            // 
+            Acciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            Acciones.Frozen = true;
+            Acciones.HeaderText = "";
+            Acciones.MinimumWidth = 8;
+            Acciones.Name = "Acciones";
+            Acciones.ReadOnly = true;
+            Acciones.Text = "Seleccionar";
+            Acciones.Width = 150;
             // 
             // PlanSearchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tscPlan);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "PlanSearchForm";
-            this.Text = "Seleccione un plan";
-            this.Load += new System.EventHandler(this.PlanSearchForm_Load);
-            this.tscPlan.ContentPanel.ResumeLayout(false);
-            this.tscPlan.ResumeLayout(false);
-            this.tscPlan.PerformLayout();
-            this.tlpPlanes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.CornflowerBlue;
+            ClientSize = new System.Drawing.Size(1040, 460);
+            Controls.Add(tscPlan);
+            ForeColor = System.Drawing.SystemColors.ControlText;
+            MaximizeBox = false;
+            Name = "PlanSearchForm";
+            Text = "Seleccione un plan";
+            Load += PlanSearchForm_Load;
+            tscPlan.ContentPanel.ResumeLayout(false);
+            tscPlan.ResumeLayout(false);
+            tscPlan.PerformLayout();
+            tlpPlanes.ResumeLayout(false);
+            tlpPlanes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvPlanes).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -174,8 +226,12 @@
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvPlanes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.ComboBox cbEspecialides;
+        private System.Windows.Forms.Label lblEspecialidades;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewButtonColumn Acciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlanDescripcion;
     }
 }

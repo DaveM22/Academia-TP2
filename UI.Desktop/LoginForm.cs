@@ -25,7 +25,8 @@ namespace UI.Desktop
             try
             {
                 var user = UsuarioLogic.GetOne(txtUsuario.Text, txtClave.Text);
-                UsuarioActual = user ?? UsuarioActual;
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {

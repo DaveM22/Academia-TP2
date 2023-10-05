@@ -61,13 +61,14 @@
             // tsmAlumnos
             // 
             tsmAlumnos.Name = "tsmAlumnos";
-            tsmAlumnos.Size = new System.Drawing.Size(198, 34);
+            tsmAlumnos.Size = new System.Drawing.Size(270, 34);
             tsmAlumnos.Text = "Alumnos";
+            tsmAlumnos.Click += tsmAlumnos_Click;
             // 
             // tsmProfesores
             // 
             tsmProfesores.Name = "tsmProfesores";
-            tsmProfesores.Size = new System.Drawing.Size(198, 34);
+            tsmProfesores.Size = new System.Drawing.Size(270, 34);
             tsmProfesores.Text = "Profesores";
             tsmProfesores.Click += tsmProfesores_Click;
             // 
@@ -102,14 +103,14 @@
             // tsmComisiones
             // 
             tsmComisiones.Name = "tsmComisiones";
-            tsmComisiones.Size = new System.Drawing.Size(270, 34);
+            tsmComisiones.Size = new System.Drawing.Size(206, 34);
             tsmComisiones.Text = "Comisiones";
             tsmComisiones.Click += tsmComisiones_Click;
             // 
             // tsmCursos
             // 
             tsmCursos.Name = "tsmCursos";
-            tsmCursos.Size = new System.Drawing.Size(270, 34);
+            tsmCursos.Size = new System.Drawing.Size(206, 34);
             tsmCursos.Text = "Cursos";
             tsmCursos.Click += tsmCursos_Click;
             // 

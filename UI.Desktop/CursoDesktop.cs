@@ -20,9 +20,7 @@ namespace UI.Desktop
         private Materia Materia { get; set; }
         private Comision Comision { get; set; }
         private CursoLogic CursoLogic => new();
-
-
-
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
         public CursoDesktop()
         {
             InitializeComponent();
@@ -76,7 +74,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Master.OpenForm(new Cursos());
+            MasterForm.OpenForm(new Cursos());
             this.Close();
         }
 
@@ -112,7 +110,7 @@ namespace UI.Desktop
                 try
                 {
                     CursoLogic.Save(Curso);
-                    Master.OpenForm(new Cursos());
+                    MasterForm.OpenForm(new Cursos());
                     this.Close();
                 }
                 catch (EntityValidationException ex)
@@ -128,7 +126,7 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 CursoLogic.Delete(Curso.Id);
-                Master.OpenForm(new Cursos());
+                MasterForm.OpenForm(new Cursos());
                 this.Close();
             }
         }

@@ -37,8 +37,9 @@
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Materias = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             btnActualizar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -58,11 +59,11 @@
             // tscPlanes.ContentPanel
             // 
             tscPlanes.ContentPanel.Controls.Add(tlPlanes);
-            tscPlanes.ContentPanel.Size = new System.Drawing.Size(1072, 416);
+            tscPlanes.ContentPanel.Size = new System.Drawing.Size(1071, 425);
             tscPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             tscPlanes.Location = new System.Drawing.Point(0, 0);
             tscPlanes.Name = "tscPlanes";
-            tscPlanes.Size = new System.Drawing.Size(1072, 450);
+            tscPlanes.Size = new System.Drawing.Size(1071, 450);
             tscPlanes.TabIndex = 0;
             tscPlanes.Text = "tscPlanes";
             // 
@@ -85,7 +86,7 @@
             tlPlanes.RowCount = 2;
             tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlPlanes.Size = new System.Drawing.Size(1072, 416);
+            tlPlanes.Size = new System.Drawing.Size(1071, 425);
             tlPlanes.TabIndex = 0;
             // 
             // dgvPlanes
@@ -94,7 +95,7 @@
             dgvPlanes.AllowUserToDeleteRows = false;
             dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, Especialidad, Editar, dataGridViewButtonColumn1 });
+            dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, Especialidad, Materias, Editar, Eliminar });
             tlPlanes.SetColumnSpan(dgvPlanes, 2);
             dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvPlanes.Location = new System.Drawing.Point(3, 3);
@@ -104,7 +105,7 @@
             dgvPlanes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPlanes.RowTemplate.Height = 33;
             dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvPlanes.Size = new System.Drawing.Size(1066, 359);
+            dgvPlanes.Size = new System.Drawing.Size(1065, 368);
             dgvPlanes.TabIndex = 0;
             dgvPlanes.CellClick += dgvPlanes_CellClick;
             // 
@@ -137,6 +138,17 @@
             Especialidad.ReadOnly = true;
             Especialidad.ToolTipText = "Nombre de especialidad";
             // 
+            // Materias
+            // 
+            Materias.FillWeight = 10F;
+            Materias.HeaderText = "Ver materias";
+            Materias.MinimumWidth = 10;
+            Materias.Name = "Materias";
+            Materias.ReadOnly = true;
+            Materias.Text = "Ver materias";
+            Materias.ToolTipText = "Muestra las materias del plan";
+            Materias.UseColumnTextForButtonValue = true;
+            // 
             // Editar
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -153,36 +165,39 @@
             Editar.Text = "Editar";
             Editar.UseColumnTextForButtonValue = true;
             // 
-            // dataGridViewButtonColumn1
+            // Eliminar
             // 
-            dataGridViewButtonColumn1.FillWeight = 8F;
-            dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            dataGridViewButtonColumn1.HeaderText = "";
-            dataGridViewButtonColumn1.MinimumWidth = 8;
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Text = "Eliminar";
-            dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            Eliminar.FillWeight = 8F;
+            Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // btnActualizar
             // 
             btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnActualizar.Location = new System.Drawing.Point(839, 368);
+            btnActualizar.BackColor = System.Drawing.Color.Green;
+            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnActualizar.Location = new System.Drawing.Point(840, 377);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(112, 45);
+            btnActualizar.Size = new System.Drawing.Size(111, 45);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(957, 368);
+            btnCancelar.Location = new System.Drawing.Point(957, 377);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(112, 45);
+            btnCancelar.Size = new System.Drawing.Size(111, 45);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -194,7 +209,7 @@
             toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
             toolStrip1.Location = new System.Drawing.Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(160, 34);
+            toolStrip1.Size = new System.Drawing.Size(83, 25);
             toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
@@ -203,7 +218,7 @@
             tsNuevo.Image = (System.Drawing.Image)resources.GetObject("tsNuevo.Image");
             tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsNuevo.Name = "tsNuevo";
-            tsNuevo.Size = new System.Drawing.Size(96, 29);
+            tsNuevo.Size = new System.Drawing.Size(65, 20);
             tsNuevo.Text = "Crear plan";
             tsNuevo.Click += tsNuevo_Click;
             // 
@@ -215,7 +230,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1072, 450);
+            ClientSize = new System.Drawing.Size(1071, 450);
             Controls.Add(tscPlanes);
             Name = "Planes";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -241,11 +256,12 @@
         private System.Windows.Forms.DataGridView dgvPlanes;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NotifyIcon niPlanes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewButtonColumn Materias;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.NotifyIcon niPlanes;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

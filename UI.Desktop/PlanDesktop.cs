@@ -1,8 +1,10 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
+using Business.Util.ValidatorsDesktop;
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,7 +15,7 @@ namespace UI.Desktop
         private PlanLogic PlanLogic { get; set; }
         private Especialidad Especialidad { get; set; }
         private Plan Plan { get; set; }
-
+        PlanValidator validator => new PlanValidator();
         private MasterForm MasterForm => this.MdiParent as MasterForm;
 
         private int Id { get; set; }
@@ -32,59 +34,34 @@ namespace UI.Desktop
         {
             Modo = modo;
             Id = id;
-        }
-
-        private void tlpPlanes_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
-        private void btnAgregarMateria_Click(object sender, EventArgs e)
-        {
-            var form = new MateriaDesktop();
-            var result = form.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                var lista = (BindingList<Materia>)dgvMaterias.DataSource;
-                lista.Add(form.Materia);
-                this.dgvMaterias.DataSource = lista;
-                this.dgvMaterias.Update();
-            }
-        }
+
 
         private void PlanDesktop_Load(object sender, EventArgs e)
         {
             PlanLogic = new PlanLogic();
-            dgvMaterias.AutoGenerateColumns = false;
-            if (Modo == ModoForm.Alta)
+            txtEspecialidad.TextBox.ReadOnly = true;
+            if (Modo == ModoForm.Modificacion || Modo == ModoForm.Baja)
             {
-                this.dgvMaterias.DataSource = new BindingList<Materia>();
+                CargarDatos(Id, Modo);
             }
             else
             {
-                Plan = PlanLogic.GetOne(Id);
-                txtDescripcion.Text = Plan.Descripcion;
-                Especialidad = Plan.Especialidad;
-                txtEspecialidad.Text = Especialidad.Descripcion;
-                dgvMaterias.DataSource = new BindingList<Materia>(Plan.Materias);
+                Plan = new Plan();
             }
         }
 
-        private void dgvMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void CargarDatos(int id, ModoForm modo)
         {
-            if (dgvMaterias.CurrentCell.OwningColumn.Name == "Editar")
-            {
-                Materia materia = dgvMaterias.SelectedRows[0].DataBoundItem as Materia;
-                var form = new MateriaDesktop(materia, ModoForm.Modificacion);
-                form.ShowDialog();
-                dgvMaterias.Refresh();
-            }
+            Plan = PlanLogic.GetOne(id);
+            txtDescripcion.TextBox.Text = Plan.Descripcion;
+            Especialidad = Plan.Especialidad;
+            txtEspecialidad.TextBox.Text = Especialidad.Descripcion;
         }
 
-        private void tlpPlanes_Paint_1(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void btnSeleccionarEspecialidad_Click(object sender, EventArgs e)
         {
@@ -93,7 +70,7 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 Especialidad = form.Especialidad;
-                txtEspecialidad.Text = Especialidad.Descripcion;
+                txtEspecialidad.TextBox.Text = Especialidad.Descripcion;
             }
         }
 
@@ -106,13 +83,10 @@ namespace UI.Desktop
                     Plan = new Plan();
                 }
 
-                Plan.Descripcion = txtDescripcion.Text;
+                Plan.Descripcion = txtDescripcion.TextBox.Text;
                 Plan.Especialidad = Especialidad;
-                Plan.Materias = ((BindingList<Materia>)dgvMaterias.DataSource).ToList();
-                PlanLogic.Save(Plan);
-                MasterForm.OpenForm(new Planes());
+                Guardar();
             }
-
             catch (EntityValidationException ex)
             {
                 MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,6 +94,43 @@ namespace UI.Desktop
 
         }
 
+
+        private void Guardar()
+        {
+            DialogResult result = MessageBox.Show("¿Desea guardar los cambios de la especialidad?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                var resultValidation = validator.Validate(Plan);
+                if (resultValidation.IsValid)
+                {
+                    PlanLogic.Save(Plan);
+                    if(Modo == ModoForm.Modificacion)
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Guardar plan", $"El plan {Plan.Descripcion} se ha creado correctamente", ToolTipIcon.Info);
+                    }
+                    else
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Editar plan", $"Se han guardado los cambios de plan correctamente", ToolTipIcon.Info);
+                    }
+                    
+                    MasterForm.OpenForm(new Planes());
+                }
+                else
+                {
+                    foreach (var error in resultValidation.Errors)
+                    {
+                        if (error.PropertyName == nameof(Plan.Descripcion))
+                        {
+                            this.txtDescripcion.LabelError.Text = error.ErrorMessage;
+                        }
+                        if (error.PropertyName == nameof(Plan.EspecialidadId))
+                        {
+                            this.txtEspecialidad.LabelError.Text = error.ErrorMessage;
+                        }
+                    }
+                }
+            }
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

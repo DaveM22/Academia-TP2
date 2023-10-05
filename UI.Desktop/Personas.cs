@@ -21,6 +21,8 @@ namespace UI.Desktop
 
         private TipoPersonaEnum TipoPersona { get; set; }
 
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
+
         public Personas()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace UI.Desktop
         {
             TipoPersona = tipoPersona;
             PersonaList = PersonaLogic.GetPersonas(TipoPersona);
-            if(TipoPersona == TipoPersonaEnum.PROFESOR)
+            if (TipoPersona == TipoPersonaEnum.PROFESOR)
             {
                 this.Text = "Profesores";
             }
@@ -52,15 +54,39 @@ namespace UI.Desktop
 
         private void Personas_Load(object sender, EventArgs e)
         {
+            if (this.TipoPersona == TipoPersonaEnum.ALUMNO)
+            {
+                this.tsNuevo.Text = "Nuevo alumno";
+            }
+            else
+            {
+                this.tsNuevo.Text = "Nuevo profesor";
+            }
             dgvPersonas.AutoGenerateColumns = false;
             dgvPersonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonas.DataSource = PersonaList;
         }
 
-        private void dgvPersonas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var cell = (DataGridViewCell)sender;
-           
+            if (dgvPersonas.CurrentCell.OwningColumn.Name == "Editar")
+            {
+                Persona persona = dgvPersonas.SelectedRows[0].DataBoundItem as Persona;
+                var form = new PersonaDesktop(persona.Id, ModoForm.Modificacion, TipoPersona);
+                this.MasterForm.OpenForm(form);
+            }
+            else if (dgvPersonas.CurrentCell.OwningColumn.Name == "Eliminar")
+            {
+                Persona persona = dgvPersonas.SelectedRows[0].DataBoundItem as Persona;
+                var form = new PersonaDesktop(persona.Id, ModoForm.Baja, TipoPersona);
+                MasterForm.OpenForm(form);
+            }
+        }
+
+        private void tsNuevo_Click(object sender, EventArgs e)
+        {
+            PersonaDesktop form = new(ModoForm.Alta, TipoPersonaEnum.ALUMNO);
+            this.MasterForm.OpenForm(form);
         }
     }
 }

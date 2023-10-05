@@ -55,15 +55,26 @@ namespace UI.Desktop
                 var form = new PlanDesktop(plan.Id, ModoForm.Modificacion);
                 MasterForm.OpenForm(form);
             }
+            else if (dgvPlanes.CurrentCell.OwningColumn.Name == "Eliminar")
+            {
+                Plan plan = dgvPlanes.SelectedRows[0].DataBoundItem as Plan;
+                var form = new PlanDesktop(plan.Id, ModoForm.Baja);
+                MasterForm.OpenForm(form);
+            }
+            else if (dgvPlanes.CurrentCell.OwningColumn.Name == "Materias")
+            {
+                Plan plan = dgvPlanes.SelectedRows[0].DataBoundItem as Plan;
+                var form = new Materias(plan.Id);
+                MasterForm.OpenForm(form);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            dgvPlanes.DataSource = this.PlanLogic.GetAll();
-            niPlanes.ShowBalloonTip(1000, "Actualizar lista de planes", "Se ha actualizado la lista de planes", ToolTipIcon.Info);
             try
             {
-
+                dgvPlanes.DataSource = this.PlanLogic.GetAll();
+                niPlanes.ShowBalloonTip(1000, "Actualizar lista de planes", "Se ha actualizado la lista de planes", ToolTipIcon.Info);
             }
             catch (Exception)
             {

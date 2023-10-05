@@ -88,8 +88,9 @@ namespace UI.Desktop
             {
                 try
                 {
+                    this.Comision.PlanId = this.Plan.Id;
                     ComisionLogic.Save(Comision);
-                    Master.OpenForm(new Comisiones());
+                    MasterForm.OpenForm(new Comisiones());
                     string accion = Modo == ModoForm.Alta ? $"Se ha creado la comisión: {Comision.Descripcion}" : $"Se ha modificado la comisión: {Comision.Descripcion}";
                     MessageBox.Show(accion, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();

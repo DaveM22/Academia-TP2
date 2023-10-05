@@ -18,6 +18,14 @@ namespace UI.Desktop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //formLogin loginForm = new formLogin();
+
+            //// Mostrar el formulario de login
+            //if (loginForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    // Una vez que se haya iniciado sesión correctamente, abre el formulario principal
+
+            //}
             Application.Run(new MasterForm());
         }
     }

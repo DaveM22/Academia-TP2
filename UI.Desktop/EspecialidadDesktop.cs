@@ -13,6 +13,7 @@ namespace UI.Desktop
         private BindingSource dataSource;
         private EspecialidadLogic EspecialidadLogic => new();
         private MasterForm masterForm => this.MdiParent as MasterForm;
+
         EspecialidadValidator validator => new EspecialidadValidator();
 
         public Especialidad Especialidad { get; set; }
@@ -68,14 +69,33 @@ namespace UI.Desktop
 
         private void Save()
         {
-            DialogResult result = MessageBox.Show("¿Desea guardar los cambios de la especialidad?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            string mensajeAlerta;
+
+            if (Modo == ModoForm.Alta)
+            {
+                mensajeAlerta = "¿Desea guardar los cambios de la especialidad?";
+            }
+            else
+            {
+                mensajeAlerta = "¿Desea guardar los cambios de la especialidad?";
+            }
+
+            DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
                 var resultValidation = validator.Validate(Especialidad);
                 if (resultValidation.IsValid)
                 {
                     EspecialidadLogic.Save(Especialidad);
-                    MessageBox.Show($"Se ha creado la especialidad: {Especialidad.Descripcion}", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Modo == ModoForm.Alta)
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Crear especialidad", $"Se ha creado la especialidad correctamente", ToolTipIcon.Info);
+                    }
+                    else
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Editar especialidad", $"Se han guardado los cambios correctamente", ToolTipIcon.Info);
+                    }
+                    this.masterForm.OpenForm(new Especialidades());
                     this.Close();
                 }
                 else
@@ -88,19 +108,18 @@ namespace UI.Desktop
                         }
                     }
                 }
-
-
             }
         }
 
         private void Delete()
         {
-            DialogResult result = MessageBox.Show("¿Desea borrar la especialidad?", "Eliminar especialidad", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            DialogResult result = MessageBox.Show("¿Desea borrar la especialidad?", "Borrar especialidad", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
                 try
                 {
                     EspecialidadLogic.Delete(Especialidad.Id);
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar especialidad", "Se ha borrado la especialidad correctamente", ToolTipIcon.Info);
                     masterForm.OpenForm(new Especialidades());
                     this.Close();
                 }
@@ -140,14 +159,5 @@ namespace UI.Desktop
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtDescripcion_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

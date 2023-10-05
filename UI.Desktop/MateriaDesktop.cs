@@ -22,20 +22,34 @@ namespace UI.Desktop
 
         public MateriaValidator Validator => new MateriaValidator();
 
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
+
+
+        private int PlanId { get; set; }
+
         public MateriaDesktop()
         {
             InitializeComponent();
         }
 
-        public MateriaDesktop(ModoForm modo)
+        public MateriaDesktop(ModoForm modo, int planId) : this()
         {
             Modo = modo;
+            this.PlanId = planId;
         }
 
         public MateriaDesktop(Materia materia, ModoForm modo) : this()
         {
             Modo = modo;
             Materia = materia;
+            if(Modo == ModoForm.Modificacion)
+            {
+                this.lblTitulo.Text = "Modificar materia";
+            }
+            else
+            {
+                this.lblTitulo.Text = "Eliminar materia";
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -46,14 +60,14 @@ namespace UI.Desktop
                 Materia = new Materia();
                 Materia.Descripcion = txtMateria.TextBox.Text;
                 Materia.HSSemanales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
-                Materia.HSTotales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);           
+                Materia.HSTotales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
             }
             else
             {
                 Materia.Descripcion = txtMateria.Text;
                 Materia.HSSemanales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
                 Materia.HSTotales = Convert.ToInt32(this.nudHsTotales.NumericUpDown.Value);
-               
+
             }
 
             var resultValidation = Validator.Validate(Materia);
@@ -67,20 +81,25 @@ namespace UI.Desktop
                 this.MapearErrores(resultValidation);
             }
 
- 
+
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.MasterForm.OpenForm(new Materias(PlanId));
+            this.Close();
         }
 
         private void MateriaDesktop_Load(object sender, EventArgs e)
         {
+            if(Modo == ModoForm.Alta)
+            {
+                this.lblTitulo.Text = "Crear materia";
+            }
             if (Modo == ModoForm.Modificacion)
             {
-                txtMateria.Text = Materia.Descripcion;
+                txtMateria.TextBox.Text = Materia.Descripcion;
                 nudHsSemanales.NumericUpDown.Value = Materia.HSSemanales;
                 nudHsTotales.NumericUpDown.Value = Materia.HSTotales;
             }

@@ -56,7 +56,7 @@
             tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 319F));
-            tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             tlCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlCursos.Controls.Add(lblMateria, 1, 3);
             tlCursos.Controls.Add(nudAnioCalendario, 2, 4);
@@ -79,20 +79,20 @@
             tlCursos.Margin = new System.Windows.Forms.Padding(2);
             tlCursos.Name = "tlCursos";
             tlCursos.RowCount = 7;
-            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            tlCursos.Size = new System.Drawing.Size(695, 232);
+            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            tlCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            tlCursos.Size = new System.Drawing.Size(695, 360);
             tlCursos.TabIndex = 0;
             // 
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Location = new System.Drawing.Point(56, 122);
+            lblMateria.Location = new System.Drawing.Point(58, 126);
             lblMateria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblMateria.Name = "lblMateria";
             lblMateria.Size = new System.Drawing.Size(47, 15);
@@ -101,7 +101,7 @@
             // 
             // nudAnioCalendario
             // 
-            nudAnioCalendario.Location = new System.Drawing.Point(164, 150);
+            nudAnioCalendario.Location = new System.Drawing.Point(166, 175);
             nudAnioCalendario.Margin = new System.Windows.Forms.Padding(2);
             nudAnioCalendario.Maximum = new decimal(new int[] { 2999, 0, 0, 0 });
             nudAnioCalendario.Name = "nudAnioCalendario";
@@ -111,7 +111,7 @@
             // lblAnioCalendario
             // 
             lblAnioCalendario.AutoSize = true;
-            lblAnioCalendario.Location = new System.Drawing.Point(56, 148);
+            lblAnioCalendario.Location = new System.Drawing.Point(58, 173);
             lblAnioCalendario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblAnioCalendario.Name = "lblAnioCalendario";
             lblAnioCalendario.Size = new System.Drawing.Size(89, 15);
@@ -120,7 +120,7 @@
             // 
             // nudCupo
             // 
-            nudCupo.Location = new System.Drawing.Point(164, 175);
+            nudCupo.Location = new System.Drawing.Point(166, 221);
             nudCupo.Margin = new System.Windows.Forms.Padding(2);
             nudCupo.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
             nudCupo.Name = "nudCupo";
@@ -130,7 +130,7 @@
             // lblCupo
             // 
             lblCupo.AutoSize = true;
-            lblCupo.Location = new System.Drawing.Point(56, 173);
+            lblCupo.Location = new System.Drawing.Point(58, 219);
             lblCupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblCupo.Name = "lblCupo";
             lblCupo.Size = new System.Drawing.Size(36, 15);
@@ -142,7 +142,7 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(483, 199);
+            btnCancelar.Location = new System.Drawing.Point(485, 269);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new System.Drawing.Size(78, 27);
@@ -157,7 +157,7 @@
             btnAceptar.BackColor = System.Drawing.Color.Green;
             btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAceptar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnAceptar.Location = new System.Drawing.Point(401, 199);
+            btnAceptar.Location = new System.Drawing.Point(403, 269);
             btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new System.Drawing.Size(78, 27);
@@ -169,7 +169,7 @@
             // lblComision
             // 
             lblComision.AutoSize = true;
-            lblComision.Location = new System.Drawing.Point(56, 91);
+            lblComision.Location = new System.Drawing.Point(58, 79);
             lblComision.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblComision.Name = "lblComision";
             lblComision.Size = new System.Drawing.Size(58, 15);
@@ -179,7 +179,7 @@
             // lblPlan
             // 
             lblPlan.AutoSize = true;
-            lblPlan.Location = new System.Drawing.Point(56, 59);
+            lblPlan.Location = new System.Drawing.Point(58, 32);
             lblPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPlan.Name = "lblPlan";
             lblPlan.Size = new System.Drawing.Size(33, 15);
@@ -188,7 +188,7 @@
             // 
             // txtPlan
             // 
-            txtPlan.Location = new System.Drawing.Point(164, 61);
+            txtPlan.Location = new System.Drawing.Point(166, 34);
             txtPlan.Margin = new System.Windows.Forms.Padding(2);
             txtPlan.Name = "txtPlan";
             txtPlan.Size = new System.Drawing.Size(306, 23);
@@ -198,10 +198,10 @@
             // 
             btnPlan.BackColor = System.Drawing.SystemColors.ControlLightLight;
             btnPlan.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnPlan.Location = new System.Drawing.Point(483, 61);
+            btnPlan.Location = new System.Drawing.Point(485, 34);
             btnPlan.Margin = new System.Windows.Forms.Padding(2);
             btnPlan.Name = "btnPlan";
-            btnPlan.Size = new System.Drawing.Size(155, 20);
+            btnPlan.Size = new System.Drawing.Size(151, 23);
             btnPlan.TabIndex = 12;
             btnPlan.Text = "Seleccionar Plan";
             btnPlan.UseVisualStyleBackColor = false;
@@ -209,7 +209,7 @@
             // 
             // txtComision
             // 
-            txtComision.Location = new System.Drawing.Point(164, 93);
+            txtComision.Location = new System.Drawing.Point(166, 81);
             txtComision.Margin = new System.Windows.Forms.Padding(2);
             txtComision.Name = "txtComision";
             txtComision.Size = new System.Drawing.Size(306, 23);
@@ -217,7 +217,7 @@
             // 
             // txtMateria
             // 
-            txtMateria.Location = new System.Drawing.Point(164, 124);
+            txtMateria.Location = new System.Drawing.Point(166, 128);
             txtMateria.Margin = new System.Windows.Forms.Padding(2);
             txtMateria.Name = "txtMateria";
             txtMateria.Size = new System.Drawing.Size(306, 23);
@@ -227,10 +227,10 @@
             // 
             btnMateria.BackColor = System.Drawing.SystemColors.ControlLightLight;
             btnMateria.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnMateria.Location = new System.Drawing.Point(483, 124);
+            btnMateria.Location = new System.Drawing.Point(485, 128);
             btnMateria.Margin = new System.Windows.Forms.Padding(2);
             btnMateria.Name = "btnMateria";
-            btnMateria.Size = new System.Drawing.Size(155, 20);
+            btnMateria.Size = new System.Drawing.Size(151, 23);
             btnMateria.TabIndex = 16;
             btnMateria.Text = "Seleccionar Materia";
             btnMateria.UseVisualStyleBackColor = false;
@@ -253,10 +253,10 @@
             // 
             btnComision.BackColor = System.Drawing.SystemColors.ControlLightLight;
             btnComision.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnComision.Location = new System.Drawing.Point(483, 93);
+            btnComision.Location = new System.Drawing.Point(485, 81);
             btnComision.Margin = new System.Windows.Forms.Padding(2);
             btnComision.Name = "btnComision";
-            btnComision.Size = new System.Drawing.Size(155, 20);
+            btnComision.Size = new System.Drawing.Size(151, 23);
             btnComision.TabIndex = 15;
             btnComision.Text = "Seleccionar comisión";
             btnComision.UseVisualStyleBackColor = false;
@@ -267,7 +267,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.CornflowerBlue;
-            ClientSize = new System.Drawing.Size(695, 232);
+            ClientSize = new System.Drawing.Size(695, 360);
             Controls.Add(tlCursos);
             ForeColor = System.Drawing.SystemColors.HighlightText;
             Margin = new System.Windows.Forms.Padding(2);

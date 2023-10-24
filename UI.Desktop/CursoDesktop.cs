@@ -81,6 +81,9 @@ namespace UI.Desktop
         private void DeleteDescription()
         {
             btnAceptar.Text = "Eliminar";
+            txtMateria.ReadOnly = true;
+            txtComision.ReadOnly = true;
+            txtPlan.ReadOnly = true;
             nudAnioCalendario.Enabled = false;
             nudCupo.Enabled = false;
             Text = "Borrar curso";

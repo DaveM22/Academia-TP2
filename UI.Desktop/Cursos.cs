@@ -51,14 +51,14 @@ namespace UI.Desktop
             {
                 Curso curso = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
                 var form = new CursoDesktop(curso.Id, ModoForm.Modificacion);
-                Master.OpenForm(form);
+                this.MasterForm.OpenForm(form);
             }
 
-            if (dgvCursos.CurrentCell.OwningColumn.Name == "Eliminar")
+            else if (dgvCursos.CurrentCell.OwningColumn.Name == "Eliminar")
             {
                 Curso curso = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
                 var form = new CursoDesktop(curso.Id, ModoForm.Baja);
-                Master.OpenForm(form);
+                this.MasterForm.OpenForm(form);
             }
         }
     }

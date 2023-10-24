@@ -43,6 +43,7 @@ namespace UI.Desktop
         {
             PlanLogic = new PlanLogic();
             txtEspecialidad.TextBox.ReadOnly = true;
+            Titulo();
             if (Modo == ModoForm.Modificacion || Modo == ModoForm.Baja)
             {
                 CargarDatos(Id, Modo);
@@ -52,6 +53,27 @@ namespace UI.Desktop
                 Plan = new Plan();
             }
         }
+
+
+        public void Titulo()
+        {
+            if (Modo == ModoForm.Baja)
+            {
+                lblTitulo.Text = "Borrar plan";
+                btnGuardar.Text = "Borrar";
+            }
+            if (Modo == ModoForm.Modificacion)
+            {
+                lblTitulo.Text = "Editar plan";
+                btnGuardar.Text = "Guardar";
+            }
+            if (Modo == ModoForm.Alta)
+            {
+                lblTitulo.Text = "Crear plan";
+                btnGuardar.Text = "Crear";
+            }
+        }
+
 
         public void CargarDatos(int id, ModoForm modo)
         {
@@ -78,14 +100,22 @@ namespace UI.Desktop
         {
             try
             {
-                if (Modo == ModoForm.Alta)
+                if(Modo == ModoForm.Baja)
                 {
-                    Plan = new Plan();
+                    Borrar();
+                }
+                else
+                {
+                    if (Modo == ModoForm.Alta)
+                    {
+                        Plan = new Plan();
+                    }
+
+                    Plan.Descripcion = txtDescripcion.TextBox.Text;
+                    Plan.Especialidad = Especialidad;
+                    Guardar();
                 }
 
-                Plan.Descripcion = txtDescripcion.TextBox.Text;
-                Plan.Especialidad = Especialidad;
-                Guardar();
             }
             catch (EntityValidationException ex)
             {
@@ -104,7 +134,7 @@ namespace UI.Desktop
                 if (resultValidation.IsValid)
                 {
                     PlanLogic.Save(Plan);
-                    if(Modo == ModoForm.Modificacion)
+                    if (Modo == ModoForm.Alta)
                     {
                         notifyIcon1.ShowBalloonTip(1000, "Guardar plan", $"El plan {Plan.Descripcion} se ha creado correctamente", ToolTipIcon.Info);
                     }
@@ -112,7 +142,7 @@ namespace UI.Desktop
                     {
                         notifyIcon1.ShowBalloonTip(1000, "Editar plan", $"Se han guardado los cambios de plan correctamente", ToolTipIcon.Info);
                     }
-                    
+
                     MasterForm.OpenForm(new Planes());
                 }
                 else
@@ -130,6 +160,13 @@ namespace UI.Desktop
                     }
                 }
             }
+        }
+
+        private void Borrar()
+        {
+            PlanLogic.Delete(Plan.Id);
+            notifyIcon1.ShowBalloonTip(1000, "Borrar plan", $"Se ha borrado el plan: " + Plan.Descripcion, ToolTipIcon.Info);
+            MasterForm.OpenForm(new Planes());
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

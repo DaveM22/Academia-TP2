@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanDesktop));
             tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
-            label1 = new System.Windows.Forms.Label();
+            lblTitulo = new System.Windows.Forms.Label();
             lblDescripcion = new System.Windows.Forms.Label();
             txtDescripcion = new UserControls.TextBoxConValidacion();
             btnGuardar = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tlpPlanes.Controls.Add(label1, 1, 0);
+            tlpPlanes.Controls.Add(lblTitulo, 1, 0);
             tlpPlanes.Controls.Add(lblDescripcion, 1, 1);
             tlpPlanes.Controls.Add(txtDescripcion, 2, 1);
             tlpPlanes.Controls.Add(btnGuardar, 2, 4);
@@ -80,18 +80,18 @@
             tlpPlanes.Size = new System.Drawing.Size(771, 184);
             tlpPlanes.TabIndex = 0;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            label1.AutoSize = true;
-            tlpPlanes.SetColumnSpan(label1, 3);
-            label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(61, 3);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(649, 22);
-            label1.TabIndex = 0;
-            label1.Text = "Crear plan";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblTitulo.AutoSize = true;
+            tlpPlanes.SetColumnSpan(lblTitulo, 3);
+            lblTitulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTitulo.Location = new System.Drawing.Point(61, 3);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(649, 22);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Crear plan";
+            lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescripcion
             // 
@@ -256,7 +256,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpPlanes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Button btnSeleccionarEspecialidad;

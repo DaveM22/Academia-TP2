@@ -1,9 +1,11 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
+using Business.Util.ValidatorsDesktop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -25,7 +27,11 @@ namespace UI.Desktop
 
         private ComisionLogic ComisionLogic => new();
 
+        private MasterForm masterForm => this.MdiParent as MasterForm;
+
         private Comision Comision { get; set; }
+
+        ComisionValidator validator => new ComisionValidator();
 
         public ComisionDesktop()
         {
@@ -60,8 +66,8 @@ namespace UI.Desktop
         private void DeleteDescription()
         {
             btnAceptar.Text = "Eliminar";
-            txtDescripcion.ReadOnly = true;
-            txtDescripcion.Enabled = false;
+            txtDescripcion.TextBox.ReadOnly = true;
+            txtDescripcion.TextBox.Enabled = false;
             nudAño.Enabled = false;
             txtPlan.Enabled = false;
             btnSeleccionarPlan.Enabled = false;
@@ -83,23 +89,50 @@ namespace UI.Desktop
 
         private void Save()
         {
-            DialogResult result = MessageBox.Show("¿Desea guardar los cambios de la comisión?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+
+            string mensajeAlerta;
+
+            if (Modo == ModoForm.Alta)
+            {
+                mensajeAlerta = "¿Desea confirmar la creación comisión?";
+            }
+            else
+            {
+                mensajeAlerta = "¿Desea guardar los cambios de la comisión?";
+            }
+
+            DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                try
+                Comision.PlanId = Plan.Id;
+                var resultValidation = validator.Validate(Comision);
+                if (resultValidation.IsValid)
                 {
-                    this.Comision.PlanId = this.Plan.Id;
                     ComisionLogic.Save(Comision);
-                    MasterForm.OpenForm(new Comisiones());
-                    string accion = Modo == ModoForm.Alta ? $"Se ha creado la comisión: {Comision.Descripcion}" : $"Se ha modificado la comisión: {Comision.Descripcion}";
-                    MessageBox.Show(accion, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (Modo == ModoForm.Alta)
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Crear especialidad", $"Se ha creado la especialidad correctamente", ToolTipIcon.Info);
+                    }
+                    else
+                    {
+                        notifyIcon1.ShowBalloonTip(1000, "Editar especialidad", $"Se han guardado los cambios correctamente", ToolTipIcon.Info);
+                    }
+                    this.masterForm.OpenForm(new Comisiones());
                     this.Close();
                 }
-                catch (EntityValidationException ex)
+                else
                 {
-                    MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    foreach (var error in resultValidation.Errors)
+                    {
+                        if (error.PropertyName == nameof(Especialidad.Descripcion))
+                        {
+                            this.txtDescripcion.LabelError.Text = error.ErrorMessage;
+                        }
+                    }
                 }
             }
+
         }
 
         private void Delete()
@@ -108,6 +141,8 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 ComisionLogic.Delete(Comision.Id);
+                notifyIcon1.ShowBalloonTip(1000, "Borrar comisión", "Se ha borrado la comisión correctamente", ToolTipIcon.Info);
+                masterForm.OpenForm(new Comisiones());
                 this.Close();
             }
         }
@@ -115,7 +150,8 @@ namespace UI.Desktop
         private void ComisionDesktop_Load(object sender, EventArgs e)
         {
             dataSource = new BindingSource { Comision };
-            txtDescripcion.DataBindings.Add("Text", dataSource, nameof(Comision.Descripcion));
+            txtDescripcion.TextBox.DataBindings.Add("Text", dataSource, nameof(Comision.Descripcion));
+            txtPlan.ReadOnly = true;
             nudAño.DataBindings.Add("Value", dataSource, nameof(Comision.AnioEspecialidad));
         }
 
@@ -140,10 +176,7 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnSeleccionarPlan_Click(object sender, EventArgs e)
         {
@@ -156,9 +189,6 @@ namespace UI.Desktop
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

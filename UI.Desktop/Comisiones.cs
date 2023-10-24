@@ -28,6 +28,7 @@ namespace UI.Desktop
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             dgvComisiones.DataSource = ComisionLogic.GetAll();
+            notifyIcon1.ShowBalloonTip(1000, "Actualizar lista", "Se ha actualizado la lista de comisiones correctamente", ToolTipIcon.Info);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

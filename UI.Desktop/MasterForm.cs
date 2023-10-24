@@ -105,5 +105,10 @@ namespace UI.Desktop
         {
             this.OpenForm(new Personas(TipoPersonaEnum.ALUMNO));
         }
+
+        private void tsInscripciones_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new AlumnoInscripciones());
+        }
     }
 }

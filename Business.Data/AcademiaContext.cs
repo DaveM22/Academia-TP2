@@ -36,5 +36,7 @@ namespace Business.Data
         public DbSet<Persona> Personas { get; set; }
 
         public DbSet<DocenteCurso> DocenteCursos { get; set;}
+
+        public DbSet<AlumnoInscripcion> AlumnoInscripciones { get; set; }
     }
 }

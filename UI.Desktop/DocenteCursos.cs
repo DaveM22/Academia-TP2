@@ -15,6 +15,7 @@ namespace UI.Desktop
     {
         private DocenteCursoLogic DocenteCursoLogic { get; set; }
 
+        public MasterForm Mast => this.MdiParent as MasterForm;
         public DocenteCursos()
         {
             InitializeComponent();
@@ -30,16 +31,16 @@ namespace UI.Desktop
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             var form = new DocenteCursoDesktop(ModoForm.Alta);
-            Master.OpenForm(form);
+            Mast.OpenForm(form);
         }
 
         private void dgvDocenteCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Editar")
+            if (dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Editar")
             {
                 int id = (int)dgvDocenteCursos.CurrentRow.Cells[0].Value;
                 var form = new DocenteCursoDesktop(id, ModoForm.Modificacion);
-                Master.OpenForm(form);
+                Mast.OpenForm(form);
             }
         }
     }

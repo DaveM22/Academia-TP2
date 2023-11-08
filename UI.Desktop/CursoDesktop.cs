@@ -146,7 +146,7 @@ namespace UI.Desktop
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
-
+                Plan ??= new(); 
                 if (Plan.Id != form.PlanObj.Id)
                 {
                     MessageBox.Show("Al cambiar de plan debera a volver seleccionar la comisión y la materia del curso", "Cambio de plan", MessageBoxButtons.OK, MessageBoxIcon.Information);

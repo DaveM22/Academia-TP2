@@ -110,5 +110,10 @@ namespace UI.Desktop
         {
             this.OpenForm(new AlumnoInscripciones());
         }
+
+        private void tsProfesoresCursos_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new DocenteCursos());
+        }
     }
 }

@@ -19,8 +19,8 @@ namespace UI.Desktop
         private Persona PersonaSeleccionada { get; set; }
         private Curso CursoSeleccionado { get; set; }
         private DocenteCurso DocenteCurso { get; set; }
-
         private DocenteCursoLogic DocenteCursoLogic { get; set; }
+        private MasterForm Mast => this.MdiParent as MasterForm;
 
         private int IdDocenteCurso { get; set; }
         public DocenteCursoDesktop()
@@ -43,7 +43,7 @@ namespace UI.Desktop
         {
             var form = new DocenteSearchForm();
             var result = form.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 PersonaSeleccionada = form.DocenteSeleccionado;
                 txtDocente.Text = $"{PersonaSeleccionada.Legajo} - {PersonaSeleccionada.Apellido}, {PersonaSeleccionada.Nombre}";
@@ -105,16 +105,16 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("¿Desea realmente salir sin guardar los cambios?", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                Master.OpenForm(new DocenteCursos());
+                Mast.OpenForm(new DocenteCursos());
                 this.Dispose();
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(DocenteCurso == null)
+            if (DocenteCurso == null)
             {
                 DocenteCurso = new DocenteCurso();
                 DocenteCurso.DocenteId = PersonaSeleccionada.Id;

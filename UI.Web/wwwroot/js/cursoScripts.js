@@ -10,7 +10,7 @@ $(document).ready(function () {
         {
             data: null, title: "Acciones",
             render: function (data, type, full, meta) {
-                return '<button class="btn btn-primary" data-dismiss="modal">Seleccionar</button>'
+                return '<button class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>'
             }
         }
     ]
@@ -22,7 +22,7 @@ $(document).ready(function () {
         {
             data: null, title: "Acciones",
             render: function (data, type, full, meta) {
-                return '<button class="btn btn-primary" data-dismiss="modal">Seleccionar</button>'
+                return '<button class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>'
             }
         }
     ]

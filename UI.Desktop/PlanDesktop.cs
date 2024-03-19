@@ -92,6 +92,7 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 Especialidad = form.Especialidad;
+                this.Plan.EspecialidadId = Especialidad.Id;
                 txtEspecialidad.TextBox.Text = Especialidad.Descripcion;
             }
         }
@@ -112,6 +113,7 @@ namespace UI.Desktop
                     }
 
                     Plan.Descripcion = txtDescripcion.TextBox.Text;
+                    Plan.EspecialidadId = Especialidad.Id;
                     Plan.Especialidad = Especialidad;
                     Guardar();
                 }

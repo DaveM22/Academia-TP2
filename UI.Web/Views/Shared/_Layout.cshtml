@@ -1,36 +1,50 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Http.Extensions;
+@using Microsoft.Extensions.DependencyInjection;
+<!DOCTYPE html>
+<html lang="en" >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UI.Web</title>
+@*     <link rel="stylesheet" href="~/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css">
+    <style>
+        table.table.dataTable > :not(caption)>*>*
+        {
 
+        }
+    </style>
 </head>
-<body style="background-color:#6495ed; color: white;">
-    <header>
+
+@{
+    string basePath = Context.Request.PathBase;
+    string path = Context.Request.Path;
+
+    // Combina basePath y path para obtener la URL sin localhost
+    string urlWithoutHost = basePath + path;
+}
+
+
+<body style="background-color:#6495ED">
+    @if (@urlWithoutHost != "/login")
+    {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Academia</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarTogglerDemo02">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Persona" asp-action="Alumnos">Alumnos</a></li>
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Persona" asp-action="Profesores">Profesores</a></li>
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a></li>
-                             </ul>                           
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripciones</a>
@@ -39,45 +53,44 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Carrera</a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Carrera</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Especialidades</a></li>
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Plan" asp-action="Index">Planes y Materias</a></li>
                                 <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li> 
-                            </ul>                          
+                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
+    }
+
+
+
+
     <div class="container" >
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" >
+    <footer class="col-md-12 col-lg-12 col-sm-12" >
         <div class="container" style="color: white">
             &copy; 2022 - UTN Frro - Academia
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+@*     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js">
-    
 
-    </script>
+     *@
 
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js">
-        </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <script src="~/DataTables/datatables.min.js"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
 </body>

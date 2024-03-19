@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\NewFolder\**" />
+    <Content Remove="Views\NewFolder\**" />
+    <EmbeddedResource Remove="Views\NewFolder\**" />
+    <None Remove="Views\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -25,8 +32,48 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\NewFolder\" />
     <Folder Include="wwwroot\Reportes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap5.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bootstrap5.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bulma.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.bulma.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.dataTables.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.dataTables.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.foundation.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.foundation.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.min.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.semanticui.js" />
+    <None Include="wwwroot\DataTables\DataTables-2.0.2\js\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\DataTables\datatables.js" />
+    <None Include="wwwroot\DataTables\datatables.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\dataTables.responsive.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\dataTables.responsive.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap4.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap4.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap5.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bootstrap5.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bulma.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.bulma.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.dataTables.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.dataTables.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.foundation.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.foundation.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.jqueryui.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.jqueryui.min.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.semanticui.js" />
+    <None Include="wwwroot\DataTables\Responsive-3.0.0\js\responsive.semanticui.min.js" />
   </ItemGroup>
 
   <ItemGroup>

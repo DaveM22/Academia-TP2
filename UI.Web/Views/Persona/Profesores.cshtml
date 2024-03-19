@@ -76,9 +76,25 @@
 <script type="text/javascript" src="~/js/initDatatables.js">
 </script>
 <script>
-    let columns = 
-    [{}]
-    init();
+        $(document).ready(function () {
+            let table = new DataTable('#table', {
+                language: {
+                    "emptyTable": "No existen profesores registrados",
+                    "search": "Buscar: ",
+                    "zeroRecords": "No se han encontrado profesores en la busqueda",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                responsive: true,
+                pageLength: 5,
+                lengthChange: false,
+                info: false,
+            });
+        });
 </script>
 }
 

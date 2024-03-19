@@ -1,6 +1,10 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Notyf;
+using AutoMapper;
+using Business.Entities;
 using Business.Logic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UI.Web.Models;
@@ -19,6 +23,7 @@ namespace UI.Web.Controllers
         {
             this.CursoLogic = new CursoLogic();
             this.PersonaLogic = new PersonaLogic();
+            this.DocenteCursoLogic = new DocenteCursoLogic();
             this.mapper = mapper;
         }
 
@@ -50,6 +55,22 @@ namespace UI.Web.Controllers
                 DocenteCurso = docenteCurso
             };
             return View(model);
+        }
+
+        // POST: CursoController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AsignarDocente(InscripcionProfesorViewModel model)
+        {
+            try
+            {
+                this.DocenteCursoLogic.Save(new DocenteCurso() { CursoId = model.Curso.Id, DocenteId = model.DocenteCurso.DocenteId, DocenteCargo = model.DocenteCurso.DocenteCargo });
+                return RedirectToAction("Profesores", new { id = model.Curso.Id });
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
 
     }

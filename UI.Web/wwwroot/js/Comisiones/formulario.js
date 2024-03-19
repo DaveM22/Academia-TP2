@@ -6,12 +6,12 @@ $(document).ready(function () {
 
 
 
-    var table = $('#table').DataTable({
+    var table = new DataTable('#table',{
         responsive: true,
         "columns": [
             { "data": "id", "name": "Id", "title": "Id", "autoWidth": true, "class": "read_only", "visible": false, },
             { "data": "descripcion", "name": "Descripcion", "title": "Descripción", "autoWidth": true },
-            { "data": null, "defaultContent": '<button id="select" class="btn btn-primary">Seleccionar</button>', "name": "Descripcion", "title": "", "autoWidth": true },
+            { "data": null, "defaultContent": '<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>', "name": "Descripcion", "title": "", "autoWidth": true },
         ],
         language: {
             "emptyTable": "No se han encontrado planes registrados",
@@ -26,6 +26,8 @@ $(document).ready(function () {
         lengthChange: false,
         info: false,
     })
+
+
 
 
     $.ajax({
@@ -51,8 +53,8 @@ $(document).ready(function () {
         let data = table.row(e.target.closest('tr')).data();
         $("#PlanDescripcion").val(data.descripcion)
         $("#PlanId").val(data.id);
-        $('#staticBackdrop').modal('toggle');
-        $('#form').valid();
+        $('#staticBackdrop').modal('hide');
+
     });
 
 

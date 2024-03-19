@@ -1,7 +1,7 @@
 ﻿@model CursoViewModel
 
 
-<h3>Profesores del curso @Model.MateriaDescripcion  - @Model.ComisionDescripcion - @Model.AnioCalendario</h3>
+<h3 class="text-center display-6">Profesores del curso @Model.MateriaDescripcion  - @Model.ComisionDescripcion - @Model.AnioCalendario</h3>
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center text-md-left p-2">
@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<table>
+<table id="table" class="table table-dark table-striped  nowrap " style="width:100%;">
     <thead>
         <tr>
             <th>Apellido</th>
@@ -29,3 +29,24 @@
     </tbody>
 </table>
 
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                responsive: true,
+                language: {
+                    "emptyTable": "No hay profesores asignados a este curso",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            });
+        });
+    </script>
+}

@@ -13,8 +13,7 @@
 <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
     <thead>
         <tr>
-            <th hidden>
-            </th>
+
             <th>
                 Descripción
             </th>
@@ -27,9 +26,6 @@
     <tbody>
         @foreach (var item in Model) {
                 <tr>
-                    <td>
-                        @Html.HiddenFor(modelItem => item.Id)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
@@ -54,11 +50,10 @@
         <script>
             $(document).ready(function() {
             $('#table').DataTable( {
-                responsive: true,
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
                     { responsivePriority: 1, targets: 1 },
-                    { responsivePriority: 1, targets: 3 }
+                    { responsivePriority: 1, targets: 2 }
                 ],
                 language: {
                 "emptyTable": "No hay planes registrados",

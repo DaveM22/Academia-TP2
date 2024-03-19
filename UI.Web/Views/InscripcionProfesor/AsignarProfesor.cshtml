@@ -4,14 +4,15 @@
 
 <div class="row">
     <div class="col-md-4 col-12 col-lg-6 mx-auto">
-        <form id="form" asp-action="AsignarDocente">
+        <form id="form" asp-action="AsignarDocente" method="post">
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
+                <input asp-for="@Model.Curso.Id" type="hidden" />
                 <input asp-for="@Model.DocenteCurso.DocenteId" type="hidden" />
                 <label for="Docente" class="form-label">Docente</label>
                 <div class="input-group">
-                    <input name="Docente" readonly class="form-control form-control-md" maxlength="60" />
+                    <input id="Docente" name="Docente" readonly class="form-control form-control-md" maxlength="60" />
 
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDocente">
@@ -53,9 +54,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table id="tableDocente" class="table">
+                <table id="table" class="table">
                     <thead>
                         <tr>
+                            <th class="hidden">Id</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Plan</th>
@@ -65,9 +67,10 @@
                         @foreach(PersonaViewModel persona in Model.Docentes)
                         {
                             <tr>
+                                <td class="hidden">@persona.Id</td>
                                 <td>@persona.Nombre</td>
                                 <td>@persona.Apellido</td>
-                                <td><button class="btn btn-primary">Seleccionar</button></td>
+                                <td><button class="btn btn-primary" data-bs-dismiss="modal" on>Seleccionar</button></td>
                             </tr>
                         }
                     </tbody>
@@ -79,3 +82,65 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+
+    <script>
+        $(document).ready( function () {
+            var table = new DataTable('#table', {
+                columnDefs: [
+                    {
+                        target: 0,
+                        visible: false,
+                        searchable: false
+                    }
+                ],
+                responsive: true,
+                language: {
+                    "emptyTable": "No se han encontrado profsores",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            })
+
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Especialidad/Especialidades",
+                success: function (response) {
+                    console.log(response)
+                    $.each(response, function (index, opcion) {
+                        $("#selectEspecialidades").append(
+                            $("<option>", {
+                                value: opcion.id,
+                                text: opcion.descripcion
+                            })
+                        )
+                    })
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            table.on('click', 'button', function (e) {
+                let data = table.row(e.target.closest('tr')).data();
+                console.log(data[0])
+                $("#Docente").val(data[2] + ' ' + data[1])
+                $("#DocenteCurso_DocenteId").val(data[0]);
+                $('#staticBackdrop').modal('hide');
+
+            });
+        })
+        
+    </script>
+        }

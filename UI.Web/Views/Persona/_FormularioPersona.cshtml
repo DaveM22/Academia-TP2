@@ -22,13 +22,13 @@
     default:
             break;
      }
-
 <div class="row">
+    <div class="col-md-10 col-12 col-lg-10 mx-auto">
         <form asp-action="@accion" method="post">
-    <div class="col-md-12">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                  <div class="col-md-6">
+            <div class="col-md-12 col-lg-12">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label asp-for="Legajo" class="form-label"></label>
                             <input asp-for="Legajo" class="form-control form-control-md" />
@@ -49,47 +49,73 @@
                             <input asp-for="FechaNacimiento" class="form-control form-control-md" />
                             <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
                         </div>
-                      </div>
-                  <div class="col-md-6">
-                                <div class="mb-3">
-                <label asp-for="Direccion" class="form-label"></label>
-                <input asp-for="Direccion" class="form-control form-control-md" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Telefono" class="form-label"></label>
-                <input asp-for="Telefono" class="form-control form-control-md" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control form-control-md" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="PlanId" class="form-label"></label>
-                <input asp-for="PlanId" class="form-control form-control-md" />
-                <span asp-validation-for="PlanId" class="text-danger"></span>
-            </div>
-                <input asp-for="TipoPersona" hidden="hidden" />
-                <input asp-for="Id" hidden="hidden" />
-                  </div>
-            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Direccion" class="form-label"></label>
+                            <input asp-for="Direccion" class="form-control form-control-md" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Telefono" class="form-label"></label>
+                            <input asp-for="Telefono" class="form-control form-control-md" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control form-control-md" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="PlanId" class="form-label"></label>
+                            <input asp-for="PlanId" class="form-control form-control-md" />
+                            <span asp-validation-for="PlanId" class="text-danger"></span>
+                        </div>
+                        <input asp-for="TipoPersona" hidden="hidden" />
+                        <input asp-for="Id" hidden="hidden" />
+                    </div>
+          
+
+                </div>
  
 
 
-    </div>
-          <div class="mb-3">
-                    <div>
-                         <input type="submit" value="@accion" class="btn btn-primary" />
-                    </div>
-                                
-                    <div>
-                        <a asp-action="@redirect" class="btn btn-danger">Volver al listado</a>
-                    </div>
+
+
             </div>
+
+
+                <div class="col-lg-12">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-3  pl-3">
+                        <input type="submit" value="@accion" class="btn btn-primary  w-100 mb-3" />
+                    </div>
+                    <div class="col-lg-3  pr-3">
+                        <a asp-action="@redirect" class="btn btn-danger  w-100 mb-3">Volver al listado</a>
+                    </div>
+                    </div>
+      
+                    
+                </div>
+    
+  
+
+
+     
         </form>
-</div>
+        </div>
+        </div>
+@* <div class="col-md-10 col-12 col-lg-10 mx-auto">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
+            
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
+           
+        </div>
+
+    </div>
+</div> *@
 
 
 

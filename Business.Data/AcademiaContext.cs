@@ -13,7 +13,7 @@ namespace Business.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-ME5L0JN\SQLEXPRESS;Initial Catalog=Academia;User Id=net; Password=net;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-22FB5O9F\SQLEXPRESS;Initial Catalog=Academia;User Id=net; Password=net;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

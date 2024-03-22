@@ -40,5 +40,10 @@ namespace Business.Logic
             }
             return new Usuario() { Id = usuario.Id, NombreUsuario = usuario.NombreUsuario };
         }
+
+        public Usuario Save(Usuario usuario)
+        {
+            return this.UsuarioAdapter.Save(usuario);
+        }
     }
 }

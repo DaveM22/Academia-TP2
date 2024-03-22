@@ -9,9 +9,7 @@ namespace UI.Web.Profiles
         public UsuarioProfile() 
         {
             CreateMap<Usuario, UsuarioViewModel>()
-            .ForMember(x => x.Nombre, opt => opt.MapFrom(x => x.Persona.Nombre))
-            .ForMember(x => x.Apellido, opt => opt.MapFrom(x => x.Persona.Apellido))
-            .ForMember(x => x.Email, opt => opt.MapFrom(x => x.Persona.Email))
+            .ForMember(x => x.NombreUsuario, opt => opt.MapFrom(x => x.NombreUsuario))
             .ReverseMap();
         }
     }

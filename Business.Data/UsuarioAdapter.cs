@@ -23,5 +23,12 @@ namespace Business.Data
             return context.Usuarios.SingleOrDefault(x => x.NombreUsuario == nombreUsuario);
         }
 
+        public override Usuario Save(Usuario entity)
+        {
+            using var context = new AcademiaContext();
+            context.Usuarios.Update(entity);
+            context.SaveChanges();
+            return entity;
+        }
     }
 }

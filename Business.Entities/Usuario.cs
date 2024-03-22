@@ -13,8 +13,8 @@ namespace Business.Entities
         public int? PersonaId { get; set; }
         public Persona Persona { get; set; }
         public bool Habilitado { get; set; }
-        public string Nombre => Persona.Nombre;
-        public string Apellido => Persona.Apellido;
-        public string Email => Persona.Email;
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Email { get; set; }
     }
 }

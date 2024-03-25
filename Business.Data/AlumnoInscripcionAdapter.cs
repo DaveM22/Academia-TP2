@@ -10,10 +10,20 @@ namespace Business.Data
 {
     public class AlumnoInscripcionAdapter
     {
-        public List<AlumnoInscripcion> GetAll()
+        public List<AlumnoInscripcion> GetAll(int personaId)
         {
             using var context = new AcademiaContext();
-            return context.AlumnoInscripciones.ToList();
+            return context.AlumnoInscripciones.Include(x => x.Alumno)
+                .Include(x => x.Curso).ThenInclude(x => x.Comision)
+                .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.AlumnoId == personaId).ToList();
+        }
+
+        public List<AlumnoInscripcion> GetAllByCurso(int cursoId)
+        {
+            using var context = new AcademiaContext();
+            return context.AlumnoInscripciones.Include(x => x.Alumno)
+                .Include(x => x.Curso).ThenInclude(x => x.Comision)
+                .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.CursoId == cursoId).ToList();
         }
     }
 }

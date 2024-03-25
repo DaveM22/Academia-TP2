@@ -3,6 +3,7 @@ using Business.Entities;
 using Business.Logic;
 using FastReport.Export.PdfSimple;
 using FastReport.Web;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,9 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+
+
+
     public class PlanController : Controller
     {
         private readonly IMapper mapper;
@@ -31,8 +35,13 @@ namespace UI.Web.Controllers
 
 
         // GET: PlanController
+        [Authorize(Policy = "Planes")]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var claims = User.Claims;
+            }
             var vms = mapper.Map<List<PlanViewModel>>(PlanLogic.GetAll());
             return View(vms);
         }

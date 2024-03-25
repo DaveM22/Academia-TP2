@@ -2,12 +2,14 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize(Policy = "Planes")]
     public class UsuarioController : Controller
     {
         private readonly IMapper _mapper;

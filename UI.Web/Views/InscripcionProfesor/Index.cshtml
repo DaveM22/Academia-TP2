@@ -26,21 +26,22 @@
 </div>
 <div class="row">
     <div class="container">
-        <table id="table" class="table table-dark table-striped" style="width:100%">
+
+        <table id="table" class="display responsive nowrap table table-dark table-striped" style="width:100%;">
             <thead>
                 <tr>
-                    <th>Año calendario</th>
-                    <th>Materia</th>
-                    <th>Acciones</th>
+                    <th class="text-center">Año calendario</th>
+                    <th class="text-center">Materia</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach(CursoViewModel cur in Model)
+                @foreach (CursoViewModel cur in Model)
                 {
                     <tr>
-                        <td>@cur.AnioCalendario</td>
-                        <td>@cur.MateriaDescripcion</td>
-                        <td><a class="btn btn-primary btn-sm" title="Asignar" asp-action="Profesores" asp-route-id="@cur.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a></td>
+                        <td class="text-center">@cur.AnioCalendario</td>
+                        <td class="text-center">@cur.MateriaDescripcion</td>
+                        <td class="text-center"><a class="btn btn-primary btn-sm" title="Asignar" asp-action="Profesores" asp-route-id="@cur.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a></td>
                     </tr>
                 }
             </tbody>
@@ -56,8 +57,7 @@
     <script>
         $(document).ready(function () {
   
-            var tableCursos = $('#table').DataTable({
-                responsive: true,
+            var tableCursos = new DataTable('#table',{
                 language: {
                     "emptyTable": "No hay cursos con los filtros ingresados",
                     "search": "Buscar",
@@ -68,6 +68,8 @@
                         "previous": "Anterior"
                     }
                 },
+                responsive: true,
+                pageLength: 5,
                 lengthChange: false,
                 info: false,
             });
@@ -105,6 +107,32 @@
                         $("#selectPlanes option").not(":first").remove();
                         $.each(response, function (index, opcion) {
                             $("#selectPlanes").append(
+                                $("<option>", {
+                                    value: opcion.id,
+                                    text: opcion.descripcion
+                                })
+                            )
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+
+            $("#selectPlanes").change(function () {
+                var selectedValue = $(this).val();
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Comision/ComisionesByPlan",
+                    data: { id: selectedValue },
+                    success: function (response) {
+                        $("#selectComisiones option").not(":first").remove();
+                        $.each(response, function (index, opcion) {
+                            $("#selectComisiones").append(
                                 $("<option>", {
                                     value: opcion.id,
                                     text: opcion.descripcion

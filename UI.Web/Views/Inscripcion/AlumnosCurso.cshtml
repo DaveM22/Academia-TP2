@@ -1,0 +1,72 @@
+﻿@model UI.Web.Models.AlumnoInscripcionHeadViewModel
+
+@{
+    ViewData["Title"] = "Catedras";
+}
+
+@{
+    var tuple = ("Catedras", "Plan");
+}
+<h2 class="display-6 text-center">Alumnos - @Model.Comision</h2>
+
+
+<div class="container">
+
+    <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Legajo
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <td>
+                    Nombre
+                </td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AlumnoInscripciones)
+            {
+                <tr>
+                    <td>
+                        @item.Alumno.Legajo
+                    </td>
+                    <td>
+                        @item.Alumno.Apellido
+                    </td>
+                    <td>
+                         @item.Alumno.Nombre
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 1, targets: 1 }
+                ],
+                language: {
+                    "emptyTable": "No hay inscripciones registrados",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            });
+        });
+    </script>
+}

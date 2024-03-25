@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+    <div class="col-md-4 col-12 col-lg-5 mx-auto">
         <form id="form" asp-action="@accion">
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -23,6 +23,21 @@
                 <label asp-for="Habilitado" class="form-check-label">Habilitado:</label>
                 <input asp-for="Habilitado" class="form-check-input" maxlength="60" />
                 <span asp-validation-for="Habilitado" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label">Nombre:</label>
+                <input asp-for="Nombre" class="form-control form-control-sm" maxlength="60" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Apellido" class="form-labe">Apellido:</label>
+                <input asp-for="Apellido" class="form-control form-control-sm" maxlength="60" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email:</label>
+                <input asp-for="Email" class="form-control form-control-sm" maxlength="60" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <input asp-for="PersonaId" type="hidden" />

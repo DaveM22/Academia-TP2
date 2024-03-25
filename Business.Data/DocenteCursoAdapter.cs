@@ -19,6 +19,16 @@ namespace Business.Data
                 .Include(x => x.Docente).ToList();
         }
 
+        public List<DocenteCurso> GetDocenteCursos(int idProfesor)
+        {
+            using var context = new AcademiaContext();
+            return context.DocenteCursos
+                .Include(x => x.Curso).ThenInclude(x => x.Comision)
+                .Include(x => x.Curso).ThenInclude(x => x.Materia)
+                .Include(x => x.Docente)
+                .Where(x => x.DocenteId == idProfesor).ToList();
+        }
+
         public List<DocenteCurso> GetByCurso(int idCurso)
         {
             using var context = new AcademiaContext();

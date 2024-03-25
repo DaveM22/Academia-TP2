@@ -30,7 +30,24 @@ namespace UI.Web
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
                 options.LoginPath = "/Login";
-            
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                options.AccessDeniedPath = "/Home/Privacy";
+                
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Planes.Crear", policy =>
+                   policy.RequireClaim("Modulo", "Plan.Crear"));
+
+                options.AddPolicy("Planes.Modificar", policy =>
+               policy.RequireClaim("Modulo", "Plan.Modificar"));
+
+                options.AddPolicy("Planes.Eliminar", policy =>
+            policy.RequireClaim("Modulo", "Plan.Eliminar"));
+
+                options.AddPolicy("Planes.Consulta", policy =>
+       policy.RequireClaim("Modulo", "Plan.Consulta"));
             });
         }
 
@@ -52,7 +69,7 @@ namespace UI.Web
            
             app.UseRouting();
             app.UseFastReport();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -61,6 +78,8 @@ namespace UI.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }

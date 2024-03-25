@@ -118,7 +118,7 @@ namespace UI.Desktop
             {
                 try
                 {
-                    EspecialidadLogic.Delete(Especialidad.Id);
+                    EspecialidadLogic.Delete((int)Especialidad.Id);
                     notifyIcon1.ShowBalloonTip(1000, "Borrar especialidad", "Se ha borrado la especialidad correctamente", ToolTipIcon.Info);
                     masterForm.OpenForm(new Especialidades());
                     this.Close();

@@ -16,5 +16,7 @@ namespace Business.Entities
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Email { get; set; }
+
+        public List<ModuloUsuario> Modulos { get; set; }
     }
 }

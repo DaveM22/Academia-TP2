@@ -13,6 +13,5 @@ namespace Business.Entities
         public int HSTotales { get; set; }
         public int PlanId { get; set; }
         public Plan Plan { get; set; }
-        public string PlanDescripcion => Plan.Descripcion;
     }
 }

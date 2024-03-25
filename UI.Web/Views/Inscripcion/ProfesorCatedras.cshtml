@@ -1,0 +1,74 @@
+﻿@model IEnumerable<UI.Web.Models.DocenteCursoViewModel>
+
+@{
+    ViewData["Title"] = "Catedras";
+}
+
+
+<h2 class="display-6 text-center">Catedras</h2>
+
+
+<div class="container">
+
+    <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Año catedra</th>
+                <th>
+                    Descripción
+                </th>
+                <th>
+                    Comisión
+                </th>
+                <td>
+                    Acciones
+                </td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Curso.Comision.AnioEspecialidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Curso.MateriaDescripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Curso.Comision.Descripcion)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" title="Alumnos" asp-action="AlumnosCurso" asp-route-cursoId="@item.Curso.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 1, targets: 1 }
+                ],
+                language: {
+                    "emptyTable": "No hay inscripciones registrados",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            });
+        });
+    </script>
+}

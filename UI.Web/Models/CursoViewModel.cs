@@ -17,6 +17,10 @@ namespace UI.Web.Models
         [Required]
         [DisplayName("Materia")]
         public int MateriaId { get; set; }
+
+        public MateriaModel Materia { get; set; }
+
+        public ComisionViewModel Comision { get; set; } 
         [DisplayName("Comisión")]
         [Required]
         public string ComisionDescripcion { get; set; }
@@ -25,6 +29,7 @@ namespace UI.Web.Models
         public string MateriaDescripcion { get; set; }
         [DisplayName("Comisiones")]
         public List<ComisionViewModel> Comisiones { get; set; }
+
         [DisplayName("Materias")]
         public List<MateriaModel> Materias { get; set; }
 

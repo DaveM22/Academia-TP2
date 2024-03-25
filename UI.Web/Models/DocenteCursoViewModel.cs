@@ -8,6 +8,7 @@ namespace UI.Web.Models
         public int Id { get; set; }
         public int CursoId { get; set; }
         public int DocenteId { get; set; }
+        public CursoViewModel Curso { get; set; }
         public DocenteCargoEnum DocenteCargo { get; set; }
         public PersonaViewModel Docente { get; set; }
     }

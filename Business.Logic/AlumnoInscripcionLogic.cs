@@ -12,9 +12,14 @@ namespace Business.Logic
     {
         AlumnoInscripcionAdapter adapter => new();
 
-        public List<AlumnoInscripcion> GetAll()
+        public List<AlumnoInscripcion> GetAll(int personaId)
         {
-            return adapter.GetAll();
+            return adapter.GetAll(personaId);
+        }
+
+        public List<AlumnoInscripcion> GetAllByCurso(int cursoId)
+        {
+            return adapter.GetAllByCurso(cursoId);
         }
     }
 }

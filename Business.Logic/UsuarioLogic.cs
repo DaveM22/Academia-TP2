@@ -45,5 +45,10 @@ namespace Business.Logic
         {
             return this.UsuarioAdapter.Save(usuario);
         }
+
+        public Usuario GetByCredenciales(string nombreUsuario, string clave)
+        {
+            return this.UsuarioAdapter.GetByCredenciales(nombreUsuario, clave);
+        }
     }
 }

@@ -23,10 +23,16 @@ namespace Business.Data
             return context.Usuarios.SingleOrDefault(x => x.NombreUsuario == nombreUsuario);
         }
 
+        public Usuario GetOne(int id)
+        {
+            using var context = new AcademiaContext();
+            return context.Usuarios.Include(x => x.Persona).SingleOrDefault(x => x.Id == id);
+        }
+
         public Usuario GetByCredenciales(string nombreUsuario, string clave)
         {
             using var context = new AcademiaContext();
-            return context.Usuarios.Include(x => x.Modulos).ThenInclude(x => x.Modulo).SingleOrDefault(x => x.NombreUsuario == nombreUsuario && x.Clave == clave);
+            return context.Usuarios.Include(x => x.Persona).Include(x => x.Modulos).ThenInclude(x => x.Modulo).SingleOrDefault(x => x.NombreUsuario == nombreUsuario && x.Clave == clave);
         }
 
         public override Usuario Save(Usuario entity)

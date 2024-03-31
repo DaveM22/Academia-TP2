@@ -1,15 +1,12 @@
 using AspNetCoreHero.ToastNotification;
+using Business.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UI.Web
 {
@@ -28,26 +25,32 @@ namespace UI.Web
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
                 options.LoginPath = "/Login";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.AccessDeniedPath = "/Home/Privacy";
-                
+
+
             });
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Planes.Crear", policy =>
-                   policy.RequireClaim("Modulo", "Plan.Crear"));
+                using var Context = new AcademiaContext();
+                foreach (var item in Context.Modulos)
+                {
+                    options.AddPolicy($"{item.Ejecuta}.Alta", policy =>
+                       policy.RequireClaim("Modulo", $"{item.Ejecuta}.Alta"));
 
-                options.AddPolicy("Planes.Modificar", policy =>
-               policy.RequireClaim("Modulo", "Plan.Modificar"));
+                    options.AddPolicy($"{item.Ejecuta}.Modificacion", policy =>
+                   policy.RequireClaim("Modulo", $"{item.Ejecuta}.Modificacion"));
 
-                options.AddPolicy("Planes.Eliminar", policy =>
-            policy.RequireClaim("Modulo", "Plan.Eliminar"));
+                    options.AddPolicy($"{item.Ejecuta}.Baja", policy =>
+                        policy.RequireClaim("Modulo", $"{item.Ejecuta}.Baja"));
 
-                options.AddPolicy("Planes.Consulta", policy =>
-       policy.RequireClaim("Modulo", "Plan.Consulta"));
+                    options.AddPolicy($"{item.Ejecuta}.Consulta", policy =>
+                       policy.RequireClaim("Modulo", $"{item.Ejecuta}.Consulta"));
+                }
             });
         }
 
@@ -60,13 +63,14 @@ namespace UI.Web
             }
             else
             {
+                
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-           
+
             app.UseRouting();
             app.UseFastReport();
             app.UseAuthentication();
@@ -76,7 +80,7 @@ namespace UI.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
 
 

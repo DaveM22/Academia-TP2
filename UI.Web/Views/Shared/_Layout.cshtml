@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @using Microsoft.AspNetCore.Http.Extensions;
 @using Microsoft.Extensions.DependencyInjection;
+@using System.Security.Claims
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UI.Web</title>
 @*     <link rel="stylesheet" href="~/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/DataTables/datatables.min.css">
     <style>
@@ -25,45 +27,20 @@
 
 
 <body style="background-color:#6495ED">
-    @if (@urlWithoutHost != "/login")
+    @if (User.Identity.IsAuthenticated)
     {
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Academia</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Persona" asp-action="Alumnos">Alumnos</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Persona" asp-action="Profesores">Profesores</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripciones</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="InscripcionProfesor" asp-action="Index">Profesor</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="Index">Inscripciones</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="ProfesorCatedras">Docentes notas</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Carrera</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Especialidades</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Plan" asp-action="Index">Planes y Materias</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                                <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        var personaId = @User.Claims.FirstOrDefault(x => x.Type == "tipoPersona").Value;
+        switch (personaId)
+        {
+            case "0":
+                <partial name="_navbarAdmin" />
+                break;
+            case "2":
+                <partial name="_navbarAlumno" />
+                break;
+        };
+
+
     }
 
 

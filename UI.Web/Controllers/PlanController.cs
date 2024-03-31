@@ -16,7 +16,7 @@ namespace UI.Web.Controllers
 {
 
 
-
+    [Authorize]
     public class PlanController : Controller
     {
         private readonly IMapper mapper;
@@ -35,7 +35,7 @@ namespace UI.Web.Controllers
 
 
         // GET: PlanController
-        [Authorize(Policy = "Planes")]
+        [Authorize(Policy = "Planes.Consulta")]
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -53,6 +53,7 @@ namespace UI.Web.Controllers
         }
 
         // GET: PlanController/Create
+        [Authorize(Policy = "Planes.Alta")]
         public ActionResult Nuevo()
         {
             var vm = new PlanViewModel();
@@ -65,6 +66,7 @@ namespace UI.Web.Controllers
         }
 
         // POST: PlanController/Create
+        [Authorize(Policy = "Planes.Alta")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Guardar(PlanViewModel planViewModel)
@@ -86,6 +88,7 @@ namespace UI.Web.Controllers
         }
 
         // GET: PlanController/Edit/5
+        [Authorize(Policy = "Planes.Modificacion")]
         public ActionResult Editar(int id)
         {
             var plan = this.PlanLogic.GetOne(id);
@@ -101,6 +104,7 @@ namespace UI.Web.Controllers
 
         // POST: PlanController/Edit/5
         [HttpPost]
+        [Authorize(Policy = "Planes.Modificacion")]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(int id, IFormCollection collection)
         {
@@ -115,6 +119,7 @@ namespace UI.Web.Controllers
         }
 
         // GET: PlanController/Delete/5
+        [Authorize(Policy = "Planes.Baja")]
         public ActionResult Borrar(int id)
         {
             var plan = this.PlanLogic.GetOne(id);
@@ -128,6 +133,7 @@ namespace UI.Web.Controllers
 
         // POST: PlanController/Delete/5
         [HttpPost]
+        [Authorize(Policy = "Planes.Baja")]
         [ValidateAntiForgeryToken]
         public ActionResult Borrar(PlanViewModel plan)
         {
@@ -143,13 +149,14 @@ namespace UI.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public JsonResult PlanesByEspecialidad(int id)
         {
             var results = PlanLogic.PlanesByEspecialidad(id);
             return Json(results);
         }
 
-
+        [Authorize]
         public IActionResult Reporte(int id)
         {
             var plan = PlanLogic.GetOne(id);

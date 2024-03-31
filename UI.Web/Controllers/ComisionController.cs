@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize]
     public class ComisionController : Controller
     {
         private readonly INotyfService notyf;
@@ -24,7 +26,8 @@ namespace UI.Web.Controllers
             this.mapper = mapper;
         }
 
-        // GET: ComisionController
+
+        [Authorize(Policy = "Comisiones.Consulta")]
         public ActionResult Index()
         {
             var vm = mapper.Map<List<ComisionViewModel>>(ComisionLogic.GetAll());
@@ -37,22 +40,20 @@ namespace UI.Web.Controllers
             return Json(entities);
         }
 
-        // GET: ComisionController/Details/5
-        public ActionResult Detalle(int id)
-        {
-            return View();
-        }
 
-        // GET: ComisionController/Create
+
+
+        [Authorize(Policy = "Comisiones.Alta")]
         public ActionResult Nuevo()
         {
             var vm = new ComisionViewModel();
             return View(vm);
         }
 
-        // POST: ComisionController/Create
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Comisiones.Alta")]
         public ActionResult Nuevo(ComisionViewModel comisionViewModel)
         {
             try
@@ -72,7 +73,7 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: ComisionController/Edit/5
+        [Authorize(Policy = "Comisiones.Modificacion")]
         public ActionResult Editar(int id)
         {
             var vm = mapper.Map<ComisionViewModel>(ComisionLogic.GetOne(id));
@@ -82,6 +83,7 @@ namespace UI.Web.Controllers
         // POST: ComisionController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Comisiones.Modificacion")]
         public ActionResult Editar(ComisionViewModel comisionViewModel)
         {
             try
@@ -101,7 +103,7 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: ComisionController/Delete/5
+        [Authorize(Policy = "Comisiones.Baja")]
         public ActionResult Borrar(int id)
         {
             var entity = ComisionLogic.GetOne(id);
@@ -109,9 +111,9 @@ namespace UI.Web.Controllers
             return View(model);
         }
 
-        // POST: ComisionController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Comisiones.Baja")]
         public ActionResult Borrar(int id, IFormCollection collection)
         {
             try

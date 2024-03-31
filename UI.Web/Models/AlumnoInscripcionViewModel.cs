@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using Business.Util;
 
 namespace UI.Web.Models
 {
@@ -11,5 +12,7 @@ namespace UI.Web.Models
         public int CursoId { get; set; }
         public PersonaViewModel Alumno { get; set; }
         public CursoViewModel Curso { get; set; }
+
+        public CondicionEnum CondicionEnum { get; set; }
     }
 }

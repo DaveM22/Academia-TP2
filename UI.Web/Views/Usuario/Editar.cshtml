@@ -1,5 +1,76 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model UI.Web.Models.UsuarioViewModel
+
 @{
+    ViewData["Title"] = "Editar";
+}
+
+<partial name="_formularioUsuario" for="@Model" />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+
+
+
+
+            var table = $('#table').DataTable({
+                responsive: true,
+                "columns": [
+                    { "data": "id", "name": "Id", "title": "Id", "autoWidth": true, "class": "read_only", "visible": false, },
+                    { "data": "legajo", "name": "Legajo", "title": "Legajo", "autoWidth": true },
+                    { "data": "apellido", "name": "Apellido", "title": "Apellido", "autoWidth": true },
+                    { "data": "nombre", "name": "Nombre", "title": "Nombre", "autoWidth": true },
+                    { "data": null, "name": "Acciones", "defaultContent": '<button id="select" class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>', "name": "Descripcion", "title": "", "autoWidth": true },
+                ],
+                language: {
+                    "emptyTable": "No se han encontrado personas",
+                    "search": "Buscar",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                lengthChange: false,
+                info: false,
+            })
+
+            $("#selectTipoPersona").change(function () {
+                var selectedValue = $(this).val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Persona/PersonaByTipoPersona",
+                    data: { id: selectedValue },
+                    success: function (response) {
+                        console.log(response)
+                        let list = []
+                        $.each(response, function (index, persona) {
+                            list.push({ id: persona.id, legajo: persona.legajo, apellido: persona.apellido, nombre: persona.nombre })
+                        })
+                        table.clear().rows.add(list).draw();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+            table.on('click', 'button', function (e) {
+                let data = table.row(e.target.closest('tr')).data();
+                $("#PersonaIdentidad").val("(" + data.legajo + ") " + data.apellido + " " + data.nombre)
+                $("#PersonaId").val(data.id);
+                $('#staticBackdrop').modal('dispose');
+
+
+            });
+
+
+        })
+    </script>
 }

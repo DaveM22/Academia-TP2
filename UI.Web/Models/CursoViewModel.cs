@@ -11,10 +11,10 @@ namespace UI.Web.Models
         public int AnioCalendario { get; set; }
         [DisplayName("Cupo")]
         public int Cupo { get; set; }
-        [Required]
+        [Required(ErrorMessage = "El campo plan es requerido, debe seleccionar uno")]
         [DisplayName("Comisión")]
         public int ComisionId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "El campo plan es requerido, debe seleccionar uno")]
         [DisplayName("Materia")]
         public int MateriaId { get; set; }
 

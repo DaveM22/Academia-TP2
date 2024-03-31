@@ -13,17 +13,20 @@
 <div class="container">
 
     <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>
+        <thead >
+            <tr >
+                <th class="text-center">
                     Legajo
                 </th>
-                <th>
+                <th class="text-center">
                     Apellido
                 </th>
-                <td>
+                <th class="text-center">
                     Nombre
-                </td>
+                </th class="text-center">
+                <th class="text-center">
+                    Acciones
+                </th>
 
             </tr>
         </thead>
@@ -31,15 +34,19 @@
             @foreach (var item in Model.AlumnoInscripciones)
             {
                 <tr>
-                    <td>
+                    <td class="text-center">
                         @item.Alumno.Legajo
                     </td>
-                    <td>
+                    <td class="text-center">
                         @item.Alumno.Apellido
                     </td>
-                    <td>
+                    <td class="text-center">
                          @item.Alumno.Nombre
                     </td>
+
+
+                    <td class="text-center"><a class="btn btn-primary btn-sm" title="Asignar" asp-action="ActualizarInscripcion" asp-route-id="@item.Id">Actualizar</a></td>
+        
                 </tr>
             }
         </tbody>

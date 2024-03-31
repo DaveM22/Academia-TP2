@@ -1,0 +1,51 @@
+﻿@using Business.Util
+@model UI.Web.Models.AlumnoInscripcionViewModel
+
+
+
+<div class="card bg-secondary p-2">
+
+    <h3 class="display-6 text-center">Actualizar estado de inscripción</h3>
+
+    <div class="row">
+        <div class="col-md-4 col-12 col-lg-4 mx-auto">
+            <div class="mb-3">
+                <label for="descripcion" class="form-label col-form-label-lg">Legajo</label>
+                <input id="descripcion" readonly value="@Model.Alumno.Legajo" class="form-control form-control-md " disabled />
+            </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label col-form-label-lg">Nombre</label>
+                <input id="descripcion" readonly value="@Model.Alumno.Nombre" class="form-control form-control-md " disabled />
+                </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label col-form-label-lg">Apellido</label>
+                <input id="descripcion" readonly value="@Model.Alumno.Apellido" class="form-control form-control-md " disabled />
+            </div>
+            <form id="form" asp-action="ActualizarInscripcion">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label col-form-label-lg">Condición</label>
+                    <select asp-for="@Model.CondicionEnum" class="form-control">
+                        @foreach (var option in Enum.GetValues(typeof(CondicionEnum)).Cast<CondicionEnum>())
+                        {
+                            <option value="@option">@option</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label col-form-label-lg">Nota</label>
+                    <input id="descripcion" type="number" min="0" max="10" value="@Model.Nota" class="form-control form-control-md" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <input type="submit" value="Guardar" class="btn btn-success w-100 mb-3" />
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <a asp-action="Index" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

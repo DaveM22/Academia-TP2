@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-md-4 col-12 col-lg-5 mx-auto">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
         <form id="form" asp-action="@accion">
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -43,7 +43,7 @@
                 <input asp-for="PersonaId" type="hidden" />
                 <label class="form-label">Persona:</label>
                 <div class="input-group">
-                    <input  readonly class="form-control form-control-md" maxlength="60" />
+                    <input asp-for="@Model.PersonaIdentidad" readonly class="form-control form-control-md" maxlength="60" />
 
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -84,7 +84,7 @@
                         <option value="2">ALUMNO</option>
                     </select>
                 </div>
-                <table id="table" class="table">
+                <table id="table" class="table" style="width:100%;">
                 </table>
             </div>
             <div class="modal-footer">

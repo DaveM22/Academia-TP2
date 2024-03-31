@@ -14,11 +14,10 @@
     </div>
 </div>
 
-<div class="container">
-    <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+<div class="container-fluid">
+    <table id="table" class="table table-dark table-striped" style="width:100%">
         <thead>
             <tr>
-                <th hidden></th>
                 <th>
                     @Html.DisplayNameFor(model => model.Descripcion)
                 </th>
@@ -29,9 +28,6 @@
             @foreach (var item in Model.Materias)
             {
                 <tr>
-                    <td hidden>
-                        @Html.HiddenFor(modelItem => item.Id)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
@@ -44,3 +40,27 @@
         </tbody>
     </table>
 </div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            let table = new DataTable('#table', {
+                language: {
+                    "emptyTable": "No existen materias registrados en el plan",
+                    "search": "Buscar: ",
+                    "zeroRecords": "No se han encontrado especialidades en la búsqueda",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                responsive: true,
+                pageLength: 5,
+                lengthChange: false,
+                info: false,
+            });
+        });
+    </script>
+}

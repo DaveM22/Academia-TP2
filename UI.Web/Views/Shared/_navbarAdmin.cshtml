@@ -1,11 +1,10 @@
 ﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
     <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Academia</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarTogglerDemo02">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
@@ -18,19 +17,53 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripciones</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                         <li><a class="nav-item dropdown-item" asp-area="" asp-controller="InscripcionProfesor" asp-action="Index">Profesor</a></li>
+                        @if (User.HasClaim("tipoPersona", "2"))
+                        {
+                            <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="MisCatedras">Inscripciones</a></li>
+
+                        }
+                        else
+                        {
+                            <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="AlumnosCatedras">Inscripciones</a></li>
+                        }
+
+
+                        <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="ProfesorCatedras">Docentes notas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Carrera</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Especialidad" asp-action="Index">Especialidades</a></li>
+
                         <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Plan" asp-action="Index">Planes y Materias</a></li>
-                        <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                        <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li>
+                        @if (User.HasClaim("Modulo", "Cursos.Consulta"))
+                        {
+                            <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
+                        }
+                        @if (User.HasClaim("Modulo", "Comisiones.Consulta"))
+                        {
+                            <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Comision" asp-action="Index">Comisiones</a></li>
+                        }
+
                     </ul>
                 </li>
             </ul>
+            <span class="navbar-text">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var nombre = User.Claims.FirstOrDefault(x => x.Type == "Name").Value;
+                    var surname = User.Claims.FirstOrDefault(x => x.Type == "Surname").Value;
+                    @string.Format("{0} {1}", nombre, surname)
+                    ;
+                    <a href="Login/Loginout">Salir</a>
+                }
+
+
+            </span>
         </div>
     </div>
 </nav>

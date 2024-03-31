@@ -6,9 +6,12 @@
     <div class="row">
         <div class="col-md-12 text-center text-md-left p-2">
             <a  asp-action="AsignarProfesor" asp-route-id="@Model.Id" class="btn btn-primary">Asignar nuevo profesor</a>
+            <a asp-controller="InscripcionProfesor" asp-action="Index" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 </div>
+
+
 <table id="table" class="table table-dark table-striped  nowrap " style="width:100%;">
     <thead>
         <tr>

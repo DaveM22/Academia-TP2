@@ -5,28 +5,38 @@
 }
 
 
-<div class="row mt-5">
-    <h1 class="text-center">Login</h1>
+<div class="row">
+    <h1 class="text-center">Ingreso</h1>
 
-    <h4 class="text-center">Por favor ingrese sus credenciales para acceder a la página</h4>
     <hr />
-    <div class="col-md-4 col-12 col-lg-3 mx-auto">
-        <form id="form" asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
-                <label asp-for="NombreUsuario" class="form-label col-form-label-sm"></label>
-                <input asp-for="NombreUsuario" class="form-control form-control-sm" />
+    <div class="col-md-4 col-12 col-lg-12">
+        <div class="row">
+            <div class="col-lg-4" style="background-color:black">
+                <form id="form" asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="NombreUsuario" class="form-label col-form-label-sm text-white"></label>
+                        <input asp-for="NombreUsuario" class="form-control form-control-sm" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Clave" class="form-label col-form-label-sm text-white"></label>
+                        <input asp-for="Clave" class="form-control form-control-sm" />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-12">
+                            <input type="submit" value="Ingresar" class="btn btn-primary  w-100 mb-3" />
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label asp-for="Clave" class="form-label col-form-label-sm"></label>
-                <input asp-for="Clave" class="form-control form-control-sm" />
+            <div class="col-lg-8 order-sm-first" style="background-color:white">
+                
+             
+                    <img alt="utn_logo" class="rounded mx-auto d-block img-fluid" style="height:22em; !important;" src="~/utn.png" />
+       
+
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-12">
-                    <input type="submit" value="Ingresar" class="btn btn-primary  w-100 mb-3" />
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

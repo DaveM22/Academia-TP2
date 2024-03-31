@@ -23,11 +23,12 @@
                 <span asp-validation-for="@Model.DocenteCurso.DocenteId" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label for="Especialidad" class="form-label">Cargo</label>
+                <label for="DocenteCargo" class="form-label">Cargo</label>
                 <select asp-for="@Model.DocenteCurso.DocenteCargo" class="form-select">
+                    <option value="-1" selected="selected">Seleccione cargo</option>
                     @foreach (var tipo in Enum.GetValues(typeof(DocenteCargoEnum)))
                     {
-                        <option value="@tipo">@tipo</option>
+                        <option value="@((int)tipo)">@tipo</option>
                     }
                 </select>
             </div>
@@ -54,13 +55,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table id="table" class="table">
+                <table id="table" class="table" style="width:100%">
                     <thead>
                         <tr>
                             <th class="hidden">Id</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>Plan</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +98,7 @@
                 ],
                 responsive: true,
                 language: {
-                    "emptyTable": "No se han encontrado profsores",
+                    "emptyTable": "No se han encontrado profesores",
                     "search": "Buscar",
                     "paginate": {
                         "first": "Primero",

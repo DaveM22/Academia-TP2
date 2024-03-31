@@ -23,25 +23,43 @@ namespace UI.Web.Controllers
         {
             TempData["url"] = returnUrl;
 
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
+        }
+
+
+        public async Task<ActionResult> Loginout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("Index");
         }
 
         public async Task<ActionResult> Login(string nombreUsuario, string clave, string returnUrl)
         {
             var user = this.usuarioLogic.GetByCredenciales(nombreUsuario, clave);
+            
             if (user != null)
             {
                 var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Nombre),
-                new Claim(ClaimTypes.Surname, user.Apellido),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim("Name", user.Nombre),
+                new Claim("Surname", user.Apellido),
+                new Claim("Email", user.Email),
+                new Claim("personaId", user.PersonaId.HasValue ? user.PersonaId.ToString() : "0"),
+                new Claim("tipoPersona", user.Persona != null ? ((int)user.Persona.TipoPersona).ToString() : "0")
             };
+
+
+
                 foreach (var mod in user.Modulos)
                 {
                     if (mod.Consulta)
                     {
-                        claims.Add(new Claim("Modulo", $"{mod.Modulo.Descripcion}" + "Consulta"));
+                        claims.Add(new Claim("Modulo", $"{mod.Modulo.Descripcion}" + ".Consulta"));
                     }
                     if (mod.Alta)
                     {
@@ -64,7 +82,7 @@ namespace UI.Web.Controllers
                 await HttpContext.SignInAsync(principal);
             };
 
-            return Redirect(TempData["url"].ToString());
+            return Redirect("/Home");
 
         }
 

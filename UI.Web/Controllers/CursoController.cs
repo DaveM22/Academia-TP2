@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize()]
     public class CursoController : Controller
     {
         private readonly IMapper mapper;
@@ -28,20 +30,16 @@ namespace UI.Web.Controllers
         }
 
 
-        // GET: CursoController
+        [Authorize(Policy = "Cursos.Consulta")]
         public ActionResult Index()
         {
             var vms = mapper.Map<List<CursoViewModel>>(CursoLogic.GetAll());
             return View(vms);
         }
 
-        // GET: CursoController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: CursoController/Create
+
+        [Authorize(Policy = "Cursos.Alta")]
         public ActionResult Nuevo()
         {
             var vm = new CursoViewModel();
@@ -50,8 +48,9 @@ namespace UI.Web.Controllers
             return View(vm);
         }
 
-        // POST: CursoController/Create
+
         [HttpPost]
+        [Authorize(Policy = "Cursos.Alta")]
         [ValidateAntiForgeryToken]
         public ActionResult Nuevo(CursoViewModel cursoViewModel)
         {
@@ -72,7 +71,7 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: CursoController/Edit/5
+        [Authorize(Policy = "Cursos.Modificacion")]
         public ActionResult Editar(int id)
         {
             var vm = mapper.Map<CursoViewModel>(CursoLogic.GetOne(id));
@@ -81,8 +80,8 @@ namespace UI.Web.Controllers
             return View(vm);
         }
 
-        // POST: CursoController/Edit/5
         [HttpPost]
+        [Authorize(Policy = "Cursos.Modificacion")]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(CursoViewModel cursoViewModel)
         {
@@ -103,15 +102,18 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: CursoController/Delete/5
+
+        [Authorize(Policy = "Cursos.Baja")]
         public ActionResult Borrar(int id)
         {
             var vm = mapper.Map<CursoViewModel>(CursoLogic.GetOne(id));
             return View(vm);
         }
 
-        // POST: CursoController/Delete/5
+ 
         [HttpPost]
+
+        [Authorize(Policy = "Cursos.Baja")]
         [ValidateAntiForgeryToken]
         public ActionResult Borrar(CursoViewModel cursoViewModel)
         {

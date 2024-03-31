@@ -22,10 +22,9 @@
                 "columns": [
                     { "data": "id", "name": "Id", "title": "Id", "autoWidth": true, "class": "read_only", "visible": false, },
                     { "data": "legajo", "name": "Legajo", "title": "Legajo", "autoWidth": true },
-                    { "data": "dni", "name": "Dni", "title": "Dni", "autoWidth": true },
                     { "data": "apellido", "name": "Apellido", "title": "Apellido", "autoWidth": true },
                     { "data": "nombre", "name": "Nombre", "title": "Nombre", "autoWidth": true },
-                    { "data": null, "defaultContent": '<button id="select" class="btn btn-primary">Seleccionar</button>', "name": "Descripcion", "title": "", "autoWidth": true },
+                    { "data": null, "name": "Acciones", "defaultContent": '<button id="select" class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>', "name": "Descripcion", "title": "", "autoWidth": true },
                 ],
                 language: {
                     "emptyTable": "No se han encontrado personas",
@@ -52,7 +51,7 @@
                         console.log(response)
                         let list = []
                         $.each(response, function (index, persona) {
-                            list.push({ id: persona.id, legajo: persona.legajo, dni: persona.dni, apellido:persona.apellido, nombre:persona.nombre })
+                            list.push({ id: persona.id, legajo: persona.legajo, apellido:persona.apellido, nombre:persona.nombre })
                         })
                         table.clear().rows.add(list).draw();
                     },
@@ -60,6 +59,15 @@
                         console.log(error);
                     }
                 });
+            });
+
+            table.on('click', 'button', function (e) {
+                let data = table.row(e.target.closest('tr')).data();
+                $("#PersonaIdentidad").val("(" + data.legajo + ") " + data.apellido + " " + data.nombre)
+                $("#PersonaId").val(data.id);
+                $('#staticBackdrop').modal('dispose');
+
+
             });
 
 

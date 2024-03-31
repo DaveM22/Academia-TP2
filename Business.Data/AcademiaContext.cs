@@ -13,7 +13,7 @@ namespace Business.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-ME5L0JN\SQLEXPRESS;Initial Catalog=Academia;User Id=net; Password=net;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-22FB5O9F\SQLEXPRESS;Initial Catalog=Academia;User Id=net; Password=net;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,5 +38,7 @@ namespace Business.Data
         public DbSet<DocenteCurso> DocenteCursos { get; set;}
 
         public DbSet<AlumnoInscripcion> AlumnoInscripciones { get; set; }
+
+        public DbSet<Modulo> Modulos { get; set; }
     }
 }

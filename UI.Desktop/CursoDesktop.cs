@@ -46,7 +46,7 @@ namespace UI.Desktop
             txtComision.Text = Comision.Descripcion;
             nudAnioCalendario.Value = Curso.AnioCalendario;
             nudCupo.Value = Curso.Cupo;
-            txtPlan.Text = Curso.Materia.PlanDescripcion;
+            txtPlan.Text = Curso.Materia.Plan.Descripcion;
             switch (modo)
             {
                 case ModoForm.Modificacion:

@@ -17,9 +17,19 @@ namespace Business.Logic
             return adapter.GetAll(personaId);
         }
 
+        public AlumnoInscripcion GetOne(int inscripcionId)
+        {
+            return adapter.GetOne(inscripcionId);
+        }
+
         public List<AlumnoInscripcion> GetAllByCurso(int cursoId)
         {
             return adapter.GetAllByCurso(cursoId);
+        }
+
+        public void Save(AlumnoInscripcion insc) 
+        { 
+            adapter.Save(insc);
         }
     }
 }

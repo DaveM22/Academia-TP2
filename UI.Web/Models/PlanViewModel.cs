@@ -16,7 +16,7 @@ namespace UI.Web.Models
 
         [Required(ErrorMessage = "El campo Especialidad es requerido")]
         public int EspecialidadId { get; set; }
-
+        [DisplayName("Especialidad")]
         public string EspecialidadDescripcion { get; set; }
 
         public List<MateriaModel> Materias { get; set; }

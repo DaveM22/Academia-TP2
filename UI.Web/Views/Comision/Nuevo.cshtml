@@ -4,6 +4,12 @@
     ViewData["Title"] = "Nuevo";
 }
 
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
 <h3 class="display-6 text-center">Crear comisión</h3>
 <partial for="@Model" name="_FormularioComision" />
 

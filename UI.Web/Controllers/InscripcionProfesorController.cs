@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System;
@@ -11,6 +12,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize]
     public class InscripcionProfesorController : Controller
     {
         private CursoLogic CursoLogic { get; set; }
@@ -27,6 +29,8 @@ namespace UI.Web.Controllers
             this.mapper = mapper;
         }
 
+
+        [Authorize(Policy = "InscripcionProfesor.Consulta")]
         public IActionResult Index()
         {
             var cursos = CursoLogic.GetAll();
@@ -34,6 +38,7 @@ namespace UI.Web.Controllers
             return View(models.OrderBy(x => x.AnioCalendario).ThenBy(x => x.MateriaDescripcion).ToList());
         }
 
+        [Authorize(Policy = "InscripcionProfesor.Consulta")]
         public IActionResult Profesores(int id)
         {
             var curso = CursoLogic.GetOne(id);
@@ -41,35 +46,51 @@ namespace UI.Web.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "InscripcionProfesor.Alta")]
         public IActionResult AsignarProfesor(int id) 
         {
-            var curso = CursoLogic.GetOne(id);
-            var profesores = this.PersonaLogic.DocentesByPlanForCurso(curso.DocenteCursos.Select(x => x.DocenteId).ToList());
-            var modelCurso = mapper.Map<CursoViewModel>(curso);
-            var modelProfesores = mapper.Map<List<PersonaViewModel>>(profesores);
-            var docenteCurso = new DocenteCursoViewModel();
-            var model = new InscripcionProfesorViewModel()
-            {
-                Curso = modelCurso,
-                Docentes = modelProfesores,
-                DocenteCurso = docenteCurso
-            };
+            var model = new InscripcionProfesorViewModel() {  CursoId = id};
             return View(model);
         }
 
-        // POST: CursoController/Edit/5
+        [Authorize(Policy = "InscripcionProfesor.Modificacion")]
+        public IActionResult EditarAsignacionProfesor(int id)
+        {
+            var docenteCurso = DocenteCursoLogic.GetOne(id);
+            var model = this.mapper.Map<InscripcionProfesorViewModel>(docenteCurso);
+            return View(model);
+        }
+
+
+        [Authorize(Policy = "InscripcionProfesor.Modificacion")]
+        public JsonResult GetProfesoresEnCurso(int id)
+        {
+            var curso = CursoLogic.GetOne(id);
+            var profesores = this.PersonaLogic.DocentesByPlanForCurso(curso.DocenteCursos.Select(x => x.DocenteId).ToList());
+            var models = this.mapper.Map<List<PersonaViewModel>>(profesores);
+            return Json(profesores);
+        }
+
         [HttpPost]
+        [Authorize(Policy = "InscripcionProfesor.Alta")]
         [ValidateAntiForgeryToken]
-        public IActionResult AsignarDocente(InscripcionProfesorViewModel model)
+        public IActionResult AsignarProfesor(InscripcionProfesorViewModel model)
         {
             try
             {
-                this.DocenteCursoLogic.Save(new DocenteCurso() { CursoId = model.Curso.Id, DocenteId = model.DocenteCurso.DocenteId, DocenteCargo = model.DocenteCurso.DocenteCargo });
-                return RedirectToAction("Profesores", new { id = model.Curso.Id });
+                if (ModelState.IsValid) 
+                {
+                    this.DocenteCursoLogic.Save(new DocenteCurso() { CursoId = model.CursoId, DocenteId = model.DocenteId.Value, DocenteCargo = model.DocenteCargo });
+                    return RedirectToAction("Profesores", new { id = model.CursoId });
+                }
+                return View(model);
+
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return View();
+                TempData["Error"] = "Ocurrió un error al borrar el plan. Por favor, contacta al administrador del sistema";
+                return View(model);
             }
         }
 

@@ -95,6 +95,13 @@ namespace UI.Web.Controllers
             }
         }
 
+        public JsonResult PersonaByPlan(List<int> ids)
+        {
+            var personas = this.PersonaLogic.DocentesByPlanForCurso(ids);
+            var models = this._mapper.Map<PersonaViewModel>(personas);
+            return Json(models);
+        }
+
         public ActionResult PersonaByTipoPersona(int id)
         {
             if (Enum.IsDefined(typeof(TipoPersonaEnum), id))

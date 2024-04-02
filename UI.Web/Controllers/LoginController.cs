@@ -35,7 +35,7 @@ namespace UI.Web.Controllers
         public async Task<ActionResult> Loginout()
         {
             await HttpContext.SignOutAsync();
-            return Redirect("Index");
+            return Redirect("/Login");
         }
 
         public async Task<ActionResult> Login(string nombreUsuario, string clave, string returnUrl)

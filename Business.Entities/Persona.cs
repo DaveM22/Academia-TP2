@@ -26,7 +26,5 @@ namespace Business.Entities
         public Usuario Usuario { get; set; }
 
         public Plan Plan { get; set; }
-
-        public string PlanDescripcion => Plan.Descripcion;
     }
 }

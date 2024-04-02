@@ -7,6 +7,7 @@ namespace UI.Web.Models
     public class DocenteCursoViewModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "El campo curso es requerido, debe seleccionar uno")]
         public int CursoId { get; set; }
         [Required(ErrorMessage = "El campo Profesor es requerido, debe seleccionar uno")]
         public int DocenteId { get; set; }

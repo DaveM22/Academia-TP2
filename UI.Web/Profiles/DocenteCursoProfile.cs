@@ -9,6 +9,7 @@ namespace UI.Web.Profiles
         public DocenteCursoProfile() 
         {
             CreateMap<DocenteCurso, DocenteCursoViewModel>().ReverseMap();
+            CreateMap<DocenteCurso, InscripcionProfesorViewModel>();
         }
     }
 }

@@ -5,7 +5,17 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarTogglerDemo02">
-            <ul class="navbar-nav flex-grow-1"></ul>
+            <ul class="navbar-nav flex-grow-1">
+                @if (User.HasClaim("tipoPersona", "2"))
+                {
+                    <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="MisCatedras">Inscripciones</a></li>
+
+                }
+                else
+                {
+                    <li><a class="nav-item dropdown-item" asp-area="" asp-controller="Inscripcion" asp-action="AlumnosCatedras">Inscripciones</a></li>
+                }
+            </ul>
             <span class="navbar-text">
 
                 @if (User.Identity.IsAuthenticated)
@@ -14,7 +24,7 @@
                     var surname = User.Claims.FirstOrDefault(x => x.Type == "Surname").Value;
                     @string.Format("{0} {1}", nombre, surname)
                     ;
-                    <a href="Login/Loginout">Salir</a>
+                    <a href="/Login/Loginout">Salir</a>
                 }
 
 

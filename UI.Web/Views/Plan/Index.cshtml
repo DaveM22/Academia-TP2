@@ -10,7 +10,7 @@
 
 <div class="container">
 
-<table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+<table id="table" class="display responsive nowrap table table-striped" style="width:100%">
     <thead>
         <tr>
 
@@ -50,6 +50,9 @@
         <script>
             $(document).ready(function() {
             $('#table').DataTable( {
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [2] }
+                ],
                 columnDefs: [
                     { responsivePriority: 1, targets: 0 },
                     { responsivePriority: 1, targets: 1 },

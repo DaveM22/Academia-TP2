@@ -2,10 +2,11 @@
 @model InscripcionProfesorViewModel
 
 <partial for="@Model" name="_formularioAsignacionProfesor"></partial>
+
 @section scripts {
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function () {
             var table = new DataTable('#table', {
                 "columns": [
                     { "data": "id", "name": "Id", "title": "Id", "autoWidth": true, "class": "read_only", "visible": false, },
@@ -19,10 +20,6 @@
                         target: 0,
                         visible: false,
                         searchable: false
-                    }, 
-                    {
-                        target: 4,
-                        className:"text-center"
                     }
                 ],
                 responsive: true,
@@ -48,7 +45,7 @@
                 success: function (response) {
                     let list = []
                     $.each(response, function (index, profe) {
-                        list.push({ id: profe.id,legajo:profe.legajo, nombre: profe.nombre, apellido: profe.apellido })
+                        list.push({ id: profe.id, legajo: profe.legajo, nombre: profe.nombre, apellido: profe.apellido })
                     })
                     table.clear().rows.add(list).draw();
                 },
@@ -66,6 +63,6 @@
 
             });
         })
-        
+
     </script>
         }

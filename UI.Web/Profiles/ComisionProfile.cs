@@ -8,7 +8,9 @@ namespace UI.Web.Profiles
     {
         public ComisionProfile()
         {
-            CreateMap<Comision, ComisionViewModel>().ReverseMap();
+            CreateMap<Comision, ComisionViewModel>();
+            CreateMap<ComisionViewModel, Comision>()
+                .ForMember(x => x.Plan, opt => opt.Ignore());
         }
     }
 }

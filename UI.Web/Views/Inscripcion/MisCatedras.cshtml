@@ -7,9 +7,14 @@
 @{
     var tuple = ("Catedras", "Plan");
 }
-<h2 class="display-6 text-center">Catedras</h2>
-
-
+<h2 class="display-6 text-center">Catedras del alumno</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="AlumnoInscripcion" asp-action="Nuevo" class="btn btn-primary">Asignar nueva inscripción</a>
+        </div>
+    </div>
+</div>
 <div class="container">
 
     <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">

@@ -69,7 +69,8 @@ namespace UI.Web.Controllers
             }
             catch
             {
-                return View();
+                TempData["Error"] = "Hubo un error al crear la comisión. Contacte con un administrador para mas información";
+                return RedirectToAction("Nuevo");
             }
         }
 

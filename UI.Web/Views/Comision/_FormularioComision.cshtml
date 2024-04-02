@@ -23,7 +23,7 @@
                 <input asp-for="PlanId" type="hidden" />
                 <label asp-for="PlanDescripcion" class="form-label"></label>
                 <div class="input-group">
-                    <input asp-for="PlanDescripcion" readonly class="form-control form-control-md" maxlength="60" />
+                    <input asp-for="PlanDescripcion" readonly disabled class="form-control form-control-md" maxlength="60" style="caret-color:transparent;" />
 
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

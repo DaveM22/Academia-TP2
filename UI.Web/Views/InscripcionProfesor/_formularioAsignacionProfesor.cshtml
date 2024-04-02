@@ -1,0 +1,71 @@
+﻿@using Business.Entities.Enums;
+@model InscripcionProfesorViewModel
+@{
+    var accion = Model.Id == 0 ? "AsignarProfesor" : "EditarAsignacionProfesor";
+    var nombreProfesor = Model.Docente == null ? string.Empty : string.Format("{0} {1}", Model.Docente.Apellido, Model.Docente.Nombre);
+}
+<h3 class="display-6 text-center">Seleccione un profesor</h3>
+
+<div class="row">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+        <form id="form" asp-action="AsignarProfesor" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <input asp-for="@Model.Id" type="hidden" />
+                <input asp-for="@Model.CursoId" type="hidden" />
+                <input asp-for="@Model.DocenteId" type="hidden" />
+                <label for="Docente" class="form-label">Docente</label>
+                <div class="input-group">
+                    <input id="Docente" name="Docente" readonly disabled class="form-control form-control-md" maxlength="60" value="@nombreProfesor" style="caret-color:transparent;" />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDocente">
+                            Seleccionar docente
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="@Model.DocenteId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="DocenteCargo" class="form-label">Cargo</label>
+                <select asp-for="@Model.DocenteCargo" class="form-select">
+                    <option value="-1" selected="selected">Seleccione cargo</option>
+                    @foreach (var tipo in Enum.GetValues(typeof(DocenteCargoEnum)))
+                    {
+                        <option value="@((int)tipo)">@tipo</option>
+                    }
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="Guardar" class="btn btn-success w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a asp-action="Profesores" asp-route-id="@Model.CursoId" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalDocente" tabindex="-1" role="dialog" aria-labelledby="docenteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg container-fluid" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="color:black">Seleccionar profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table id="table" class="table" style="width:100%">
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

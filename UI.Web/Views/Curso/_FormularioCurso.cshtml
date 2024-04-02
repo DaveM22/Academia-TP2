@@ -29,30 +29,30 @@
                               <div class="mb-3">
                 <label asp-for="ComisionDescripcion" class="form-label"></label>      
                   <div class="input-group">
-                    <input asp-for="ComisionDescripcion" readonly class="form-control form-control-md" />
+                    <input asp-for="ComisionDescripcion" readonly disabled class="form-control form-control-md" style="caret-color:transparent;" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalComision">
                           Seleccionar comisión
                         </button>
                     </div>
                   </div>
-                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+                <span asp-validation-for="ComisionId" class="text-danger"></span> 
             </div>
             <div class="mb-3">
                 <label asp-for="MateriaDescripcion" class="form-label"></label>      
                   <div class="input-group">
-                    <input asp-for="MateriaDescripcion" readonly class="form-control form-control-sm" />
+                    <input asp-for="MateriaDescripcion" readonly disabled class="form-control form-control-sm" style="caret-color:transparent;" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Seleccionar materia
                         </button>
                     </div>
                   </div>
-                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
+                <span asp-validation-for="MateriaId" class="text-danger"></span> 
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-6">
-                    <input type="submit" value="@curso" class="btn btn-success  w-100 mb-3" />
+                    <input type="submit" value="@curso"  class="btn btn-success  w-100 mb-3" />
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <a class="btn btn-danger w-100 mb-3" asp-action="Index">Volver a cursos</a>

@@ -135,16 +135,17 @@ namespace UI.Web.Controllers
         [HttpPost]
         [Authorize(Policy = "Planes.Baja")]
         [ValidateAntiForgeryToken]
-        public ActionResult Borrar(PlanViewModel plan)
+        public ActionResult Borrar(PlanViewModel model)
         {
             try
             {
-                PlanLogic.Delete(plan.Id);
+                PlanLogic.Delete(model.Id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View(plan);
+                TempData["Error"] = "Ocurrió un error al borrar el plan. Por favor, contacta al administrador del sistema";
+                return RedirectToAction("Borrar", new { id = model.Id });
             }
         }
 

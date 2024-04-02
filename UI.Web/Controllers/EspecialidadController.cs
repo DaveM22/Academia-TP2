@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util;
 using Business.Util.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

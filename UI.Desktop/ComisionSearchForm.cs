@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Accord.Controls;
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -41,15 +42,16 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
+            this.Close();
         }
 
         private void ComisionSearchForm_Load(object sender, EventArgs e)
         {
+            dgvComisiones.AllowNestedProperties(true);
             ComisionLogic = new ComisionLogic();
             dgvComisiones.AutoGenerateColumns = false;
             dgvComisiones.DataSource = ComisionLogic.GetAllByPlan(PlanObj.Id);
-            if(dgvComisiones.RowCount == 0)
+            if (dgvComisiones.RowCount == 0)
             {
                 btnSeleccionar.Enabled = false;
             }

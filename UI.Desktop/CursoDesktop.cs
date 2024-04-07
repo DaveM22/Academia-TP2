@@ -105,8 +105,6 @@ namespace UI.Desktop
             Curso.Cupo = Convert.ToInt32(nudCupo.Value);
             Curso.ComisionId = Comision.Id;
             Curso.MateriaId = Materia.Id;
-            Curso.Comision = Comision;
-            Curso.Materia = Materia;
             DialogResult result = MessageBox.Show("¿Desea guardar los cambios del cuso?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
@@ -146,7 +144,7 @@ namespace UI.Desktop
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Plan ??= new(); 
+                Plan ??= new();
                 if (Plan.Id != form.PlanObj.Id)
                 {
                     MessageBox.Show("Al cambiar de plan debera a volver seleccionar la comisión y la materia del curso", "Cambio de plan", MessageBoxButtons.OK, MessageBoxIcon.Information);

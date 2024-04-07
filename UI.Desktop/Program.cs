@@ -1,3 +1,4 @@
+using Business.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace UI.Desktop
             //    // Una vez que se haya iniciado sesión correctamente, abre el formulario principal
 
             //}
+            Adapter.SetContext(new AcademiaContext());
             Application.Run(new MasterForm());
         }
     }

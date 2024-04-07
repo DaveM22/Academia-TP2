@@ -12,25 +12,25 @@ namespace Business.Data
     {
         public List<Materia> GetAllByPlan(int idPlan)
         {
-            using var context = new AcademiaContext();
-            return context.Materias.Include(x => x.Plan).Where(x => x.PlanId == idPlan).ToList();
+            var context = Adapter.dbContext;
+            return context.Materias.Include(x => x.Plan).AsNoTracking().Where(x => x.PlanId == idPlan).ToList();
         }
 
         public List<Materia> GetAll()
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Materias.Include(x => x.Plan).ToList();
         }
 
         public Materia GetOne(int id)
         {
-            using var context = new AcademiaContext();
-            return context.Materias.Include(x => x.Plan).Single(x => x.Id == id);
+            var context = Adapter.dbContext;
+            return context.Materias.AsNoTracking().Include(x => x.Plan).Single(x => x.Id == id);
         }
 
         public void Delete(int id)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             var materia = context.Materias.Single(x => x.Id == id);
             context.Materias.Remove(materia);
             context.SaveChanges();
@@ -38,7 +38,7 @@ namespace Business.Data
 
         public void Guardar(Materia materia)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             context.Update(materia);
             context.SaveChanges();
         }

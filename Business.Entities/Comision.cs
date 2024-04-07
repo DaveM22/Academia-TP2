@@ -11,6 +11,6 @@ namespace Business.Entities
         public int AnioEspecialidad { get; set; }
         public string Descripcion { get; set; }
         public int PlanId { get; set; }
-        public Plan Plan { get; set; }
+        public  Plan Plan { get; set; }
     }
 }

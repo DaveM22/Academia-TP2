@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace Business.Data
 {
-    public abstract class Adapter<T>
+    public static class Adapter
     {
-        public abstract List<T> GetAll();
+        public static AcademiaContext dbContext;
 
-        public abstract T GetOneByString(string userName);
 
-        public abstract T Save(T entity);
+
+
+        public static void SetContext(AcademiaContext dbContextt)
+        {
+            dbContext = dbContextt;
+        }
     }
 }

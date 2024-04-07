@@ -30,7 +30,7 @@
         {
             tlpIncripcion = new System.Windows.Forms.TableLayoutPanel();
             lblAlumno = new System.Windows.Forms.Label();
-            textBoxConValidacion1 = new UserControls.TextBoxConValidacion();
+            txtAlumno = new UserControls.TextBoxConValidacion();
             label1 = new System.Windows.Forms.Label();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             lblTitulo = new System.Windows.Forms.Label();
@@ -50,12 +50,12 @@
             tlpIncripcion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             tlpIncripcion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlpIncripcion.Controls.Add(lblAlumno, 1, 2);
-            tlpIncripcion.Controls.Add(textBoxConValidacion1, 2, 2);
+            tlpIncripcion.Controls.Add(txtAlumno, 2, 2);
             tlpIncripcion.Controls.Add(label1, 1, 3);
             tlpIncripcion.Controls.Add(dataGridView1, 1, 4);
             tlpIncripcion.Controls.Add(lblTitulo, 2, 0);
-            tlpIncripcion.Controls.Add(btnSeleccionarAlumno, 3, 2);
             tlpIncripcion.Controls.Add(btnCancelar, 3, 5);
+            tlpIncripcion.Controls.Add(btnSeleccionarAlumno, 3, 3);
             tlpIncripcion.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpIncripcion.Location = new System.Drawing.Point(0, 0);
             tlpIncripcion.Name = "tlpIncripcion";
@@ -63,8 +63,8 @@
             tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 384F));
+            tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 371F));
             tlpIncripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpIncripcion.Size = new System.Drawing.Size(812, 561);
             tlpIncripcion.TabIndex = 0;
@@ -80,21 +80,21 @@
             lblAlumno.TabIndex = 1;
             lblAlumno.Text = "Alumno:";
             // 
-            // textBoxConValidacion1
+            // txtAlumno
             // 
-            textBoxConValidacion1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            textBoxConValidacion1.Location = new System.Drawing.Point(254, 59);
-            textBoxConValidacion1.Margin = new System.Windows.Forms.Padding(2);
-            textBoxConValidacion1.Name = "textBoxConValidacion1";
-            textBoxConValidacion1.Size = new System.Drawing.Size(254, 25);
-            textBoxConValidacion1.TabIndex = 0;
+            txtAlumno.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            txtAlumno.Location = new System.Drawing.Point(254, 59);
+            txtAlumno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txtAlumno.Name = "txtAlumno";
+            txtAlumno.Size = new System.Drawing.Size(254, 25);
+            txtAlumno.TabIndex = 0;
             // 
             // label1
             // 
             label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             label1.AutoSize = true;
             label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            label1.Location = new System.Drawing.Point(128, 93);
+            label1.Location = new System.Drawing.Point(128, 99);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(100, 15);
             label1.TabIndex = 4;
@@ -107,11 +107,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tlpIncripcion.SetColumnSpan(dataGridView1, 3);
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView1.Location = new System.Drawing.Point(128, 115);
+            dataGridView1.Location = new System.Drawing.Point(128, 128);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new System.Drawing.Size(555, 378);
+            dataGridView1.Size = new System.Drawing.Size(555, 365);
             dataGridView1.TabIndex = 5;
             // 
             // lblTitulo
@@ -131,7 +131,7 @@
             // btnSeleccionarAlumno
             // 
             btnSeleccionarAlumno.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            btnSeleccionarAlumno.Location = new System.Drawing.Point(513, 58);
+            btnSeleccionarAlumno.Location = new System.Drawing.Point(513, 92);
             btnSeleccionarAlumno.Name = "btnSeleccionarAlumno";
             btnSeleccionarAlumno.Size = new System.Drawing.Size(170, 28);
             btnSeleccionarAlumno.TabIndex = 3;
@@ -171,7 +171,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpIncripcion;
         private System.Windows.Forms.Label lblAlumno;
-        private UserControls.TextBoxConValidacion textBoxConValidacion1;
+        private UserControls.TextBoxConValidacion txtAlumno;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnSeleccionarAlumno;
         private System.Windows.Forms.Label label1;

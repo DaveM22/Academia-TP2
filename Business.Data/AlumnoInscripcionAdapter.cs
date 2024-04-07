@@ -36,9 +36,27 @@ namespace Business.Data
 
         public void Save(AlumnoInscripcion insc)
         {
-            using var context = new AcademiaContext();
-            context.AlumnoInscripciones.Update(insc);
-            context.SaveChanges();
+            using (var dbContext = new AcademiaContext())
+            {
+                using (var transaction = dbContext.Database.BeginTransaction())
+                {
+                    try
+                    {
+                       
+                       dbContext.AlumnoInscripciones.Update(insc);
+                       var curso = dbContext.Cursos.Single(x => x.Id == insc.CursoId);
+                       curso.Cupo -= 1;
+                       dbContext.Cursos.Update(curso);
+                       dbContext.SaveChanges();
+                       dbContext.Database.CommitTransaction();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
         }
     }
 }

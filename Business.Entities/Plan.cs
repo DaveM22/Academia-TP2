@@ -10,8 +10,8 @@ namespace Business.Entities
     {
         public string Descripcion { get; set; }
         public int EspecialidadId { get; set; }
-        public virtual Especialidad Especialidad { get; set; }
-        public string EspecialidadDescripcion => Especialidad == null ? "" : Especialidad.Descripcion;
+        public Especialidad Especialidad { get; set; }
         public List<Materia> Materias { get; set; }
+        public List<Comision> Comisiones { get; set; }
     }
 }

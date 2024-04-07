@@ -42,6 +42,12 @@ namespace UI.Desktop
                 var form = new DocenteCursoDesktop(id, ModoForm.Modificacion);
                 Mast.OpenForm(form);
             }
+            else if (dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Borrar")
+            {
+                int id = (int)dgvDocenteCursos.CurrentRow.Cells[0].Value;
+                var form = new DocenteCursoDesktop(id, ModoForm.Baja);
+                Mast.OpenForm(form);
+            }
         }
     }
 }

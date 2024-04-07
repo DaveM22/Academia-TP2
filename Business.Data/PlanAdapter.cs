@@ -12,19 +12,19 @@ namespace Business.Data
     {
         public List<Plan> GetAll()
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Planes.Include(x => x.Especialidad).Include(x => x.Materias).ToList();
         }
 
         public Plan GetOne(int id)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Planes.Include(x => x.Especialidad).Include(x => x.Materias).FirstOrDefault(x => x.Id == id);
         }
 
         public Plan Save(Plan plan)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             context.Planes.Update(plan);
             context.SaveChanges();
             return plan;
@@ -32,7 +32,7 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             var entity = context.Planes.Find(id);
             context.Planes.Remove(entity);
             context.SaveChanges();
@@ -40,13 +40,13 @@ namespace Business.Data
 
         public bool ExistsEspecialidadEnAlgunPlan(int idEspecialidad)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Planes.Any(x => x.EspecialidadId == idEspecialidad);
         }
 
         public List<Plan> PlanesByEspecialidad(int idEspecialidad)
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Planes.Where(x => x.EspecialidadId == idEspecialidad).ToList();
         }
     }

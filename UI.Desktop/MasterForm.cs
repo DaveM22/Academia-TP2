@@ -108,7 +108,7 @@ namespace UI.Desktop
 
         private void tsInscripciones_Click(object sender, EventArgs e)
         {
-            this.OpenForm(new AlumnoInscripciones());
+            this.OpenForm(new Inscripciones());
         }
 
         private void tsProfesoresCursos_Click(object sender, EventArgs e)

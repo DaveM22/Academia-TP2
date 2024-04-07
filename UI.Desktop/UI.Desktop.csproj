@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Accord.Controls" Version="3.8.0" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.18" />
   </ItemGroup>
 

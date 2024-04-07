@@ -11,19 +11,19 @@ namespace Business.Data
     {
         public List<Especialidad> GetAll()
         {
-            using var context = new AcademiaContext();
+            var context = Adapter.dbContext;
             return context.Especialidades.ToList();
         }
 
         public Especialidad GetOne(int id)
         {
-            using var context = new AcademiaContext();
+            using var context = Adapter.dbContext;
             return context.Especialidades.Find(id);
         }
 
         public Especialidad Save(Especialidad esp)
         {
-            using var context = new AcademiaContext();
+            using var context = Adapter.dbContext;
             context.Especialidades.Update(esp);
             context.SaveChanges();
             return esp;
@@ -31,7 +31,7 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            using var context = new AcademiaContext();
+            using var context = Adapter.dbContext;
             var entity = context.Especialidades.Find(id);
             context.Especialidades.Remove(entity);
             context.SaveChanges();

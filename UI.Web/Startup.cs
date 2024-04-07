@@ -1,4 +1,5 @@
 using AspNetCoreHero.ToastNotification;
+using AutoMapper;
 using Business.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,7 @@ namespace UI.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Adapter.SetContext(new AcademiaContext());
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });

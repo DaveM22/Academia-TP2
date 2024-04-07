@@ -17,6 +17,8 @@ namespace UI.Desktop
 
         private CursoLogic CursoLogic { get; set; }
 
+        public Curso Curso { get; set; }
+
         private List<Curso> Cursos { get; set; }
 
         public int IdPlan { get; set; }
@@ -26,9 +28,10 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        public CursosSearchForm(int idPlan) : this()
+        public CursosSearchForm(int idPlan, bool cargaMultiple = false) : this()
         {
             IdPlan = idPlan;
+            this.dgvCursos.MultiSelect = cargaMultiple;
         }
 
         private void CursosSearchForm_Load(object sender, EventArgs e)
@@ -37,6 +40,28 @@ namespace UI.Desktop
             Cursos = CursoLogic.GetAllByPlan(IdPlan);
             dgvCursos.AutoGenerateColumns = false;
             dgvCursos.DataSource = Cursos;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (!this.dgvCursos.MultiSelect)
+            {
+                DialogResult = DialogResult.OK;
+                Curso = dgvCursos.SelectedRows[0].DataBoundItem as Curso;
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
+                Cursos = dgvCursos.SelectedRows.Cast<Curso>().ToList();
+            }
+ 
+            this.Close();
         }
     }
 }

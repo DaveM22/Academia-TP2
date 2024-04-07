@@ -28,152 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tscComisiones = new System.Windows.Forms.ToolStripContainer();
-            this.tlpComisiones = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.dgvComisiones = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tscComisiones.ContentPanel.SuspendLayout();
-            this.tscComisiones.SuspendLayout();
-            this.tlpComisiones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
-            this.SuspendLayout();
+            tscComisiones = new System.Windows.Forms.ToolStripContainer();
+            tlpComisiones = new System.Windows.Forms.TableLayoutPanel();
+            btnSeleccionar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            dgvComisiones = new System.Windows.Forms.DataGridView();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tscComisiones.ContentPanel.SuspendLayout();
+            tscComisiones.SuspendLayout();
+            tlpComisiones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvComisiones).BeginInit();
+            SuspendLayout();
             // 
             // tscComisiones
             // 
             // 
             // tscComisiones.ContentPanel
             // 
-            this.tscComisiones.ContentPanel.Controls.Add(this.tlpComisiones);
-            this.tscComisiones.ContentPanel.Size = new System.Drawing.Size(800, 425);
-            this.tscComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tscComisiones.Location = new System.Drawing.Point(0, 0);
-            this.tscComisiones.Name = "tscComisiones";
-            this.tscComisiones.Size = new System.Drawing.Size(800, 450);
-            this.tscComisiones.TabIndex = 0;
-            this.tscComisiones.Text = "toolStripContainer1";
+            tscComisiones.ContentPanel.Controls.Add(tlpComisiones);
+            tscComisiones.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscComisiones.ContentPanel.Size = new System.Drawing.Size(560, 255);
+            tscComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            tscComisiones.Location = new System.Drawing.Point(0, 0);
+            tscComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscComisiones.Name = "tscComisiones";
+            tscComisiones.Size = new System.Drawing.Size(560, 270);
+            tscComisiones.TabIndex = 0;
+            tscComisiones.Text = "toolStripContainer1";
             // 
             // tlpComisiones
             // 
-            this.tlpComisiones.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tlpComisiones.ColumnCount = 2;
-            this.tlpComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.25F));
-            this.tlpComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.75F));
-            this.tlpComisiones.Controls.Add(this.btnSeleccionar, 0, 1);
-            this.tlpComisiones.Controls.Add(this.btnCancelar, 1, 1);
-            this.tlpComisiones.Controls.Add(this.dgvComisiones, 0, 0);
-            this.tlpComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpComisiones.Location = new System.Drawing.Point(0, 0);
-            this.tlpComisiones.Name = "tlpComisiones";
-            this.tlpComisiones.RowCount = 2;
-            this.tlpComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpComisiones.Size = new System.Drawing.Size(800, 425);
-            this.tlpComisiones.TabIndex = 0;
+            tlpComisiones.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlpComisiones.ColumnCount = 2;
+            tlpComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.25F));
+            tlpComisiones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.75F));
+            tlpComisiones.Controls.Add(btnSeleccionar, 0, 1);
+            tlpComisiones.Controls.Add(btnCancelar, 1, 1);
+            tlpComisiones.Controls.Add(dgvComisiones, 0, 0);
+            tlpComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlpComisiones.Location = new System.Drawing.Point(0, 0);
+            tlpComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tlpComisiones.Name = "tlpComisiones";
+            tlpComisiones.RowCount = 2;
+            tlpComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlpComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlpComisiones.Size = new System.Drawing.Size(560, 255);
+            tlpComisiones.TabIndex = 0;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeleccionar.BackColor = System.Drawing.Color.Green;
-            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSeleccionar.Location = new System.Drawing.Point(567, 374);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(112, 48);
-            this.btnSeleccionar.TabIndex = 0;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = false;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            btnSeleccionar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSeleccionar.BackColor = System.Drawing.Color.Green;
+            btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSeleccionar.Location = new System.Drawing.Point(397, 224);
+            btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Size = new System.Drawing.Size(78, 29);
+            btnSeleccionar.TabIndex = 0;
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.UseVisualStyleBackColor = false;
+            btnSeleccionar.Click += btnSeleccionar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCancelar.Location = new System.Drawing.Point(685, 374);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 48);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(479, 224);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(78, 29);
+            btnCancelar.TabIndex = 1;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // dgvComisiones
             // 
-            this.dgvComisiones.AllowUserToAddRows = false;
-            this.dgvComisiones.AllowUserToDeleteRows = false;
-            this.dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Comision,
-            this.AnioEspecialidad,
-            this.Plan});
-            this.tlpComisiones.SetColumnSpan(this.dgvComisiones, 2);
-            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
-            this.dgvComisiones.MultiSelect = false;
-            this.dgvComisiones.Name = "dgvComisiones";
-            this.dgvComisiones.ReadOnly = true;
-            this.dgvComisiones.RowHeadersWidth = 62;
-            this.dgvComisiones.RowTemplate.Height = 33;
-            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.Size = new System.Drawing.Size(794, 365);
-            this.dgvComisiones.TabIndex = 2;
+            dgvComisiones.AllowUserToAddRows = false;
+            dgvComisiones.AllowUserToDeleteRows = false;
+            dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Comision, AnioEspecialidad, Plan });
+            tlpComisiones.SetColumnSpan(dgvComisiones, 2);
+            dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvComisiones.Location = new System.Drawing.Point(2, 2);
+            dgvComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dgvComisiones.MultiSelect = false;
+            dgvComisiones.Name = "dgvComisiones";
+            dgvComisiones.ReadOnly = true;
+            dgvComisiones.RowHeadersWidth = 62;
+            dgvComisiones.RowTemplate.Height = 33;
+            dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvComisiones.Size = new System.Drawing.Size(556, 218);
+            dgvComisiones.TabIndex = 2;
             // 
             // Id
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
             // 
             // Comision
             // 
-            this.Comision.DataPropertyName = "Descripcion";
-            this.Comision.HeaderText = "Comisión";
-            this.Comision.MinimumWidth = 8;
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
+            Comision.DataPropertyName = "Descripcion";
+            Comision.HeaderText = "Comisión";
+            Comision.MinimumWidth = 8;
+            Comision.Name = "Comision";
+            Comision.ReadOnly = true;
             // 
             // AnioEspecialidad
             // 
-            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
-            this.AnioEspecialidad.HeaderText = "Año especialidad";
-            this.AnioEspecialidad.MinimumWidth = 8;
-            this.AnioEspecialidad.Name = "AnioEspecialidad";
-            this.AnioEspecialidad.ReadOnly = true;
+            AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            AnioEspecialidad.HeaderText = "Año especialidad";
+            AnioEspecialidad.MinimumWidth = 8;
+            AnioEspecialidad.Name = "AnioEspecialidad";
+            AnioEspecialidad.ReadOnly = true;
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "PlanDescripcion";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 8;
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            Plan.DataPropertyName = "Plan.Descripcion";
+            Plan.HeaderText = "Plan";
+            Plan.MinimumWidth = 8;
+            Plan.Name = "Plan";
+            Plan.ReadOnly = true;
             // 
             // ComisionSearchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tscComisiones);
-            this.Name = "ComisionSearchForm";
-            this.Text = "ComisionSearchForm";
-            this.Load += new System.EventHandler(this.ComisionSearchForm_Load);
-            this.tscComisiones.ContentPanel.ResumeLayout(false);
-            this.tscComisiones.ResumeLayout(false);
-            this.tscComisiones.PerformLayout();
-            this.tlpComisiones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(560, 270);
+            Controls.Add(tscComisiones);
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Name = "ComisionSearchForm";
+            Text = "ComisionSearchForm";
+            Load += ComisionSearchForm_Load;
+            tscComisiones.ContentPanel.ResumeLayout(false);
+            tscComisiones.ResumeLayout(false);
+            tscComisiones.PerformLayout();
+            tlpComisiones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvComisiones).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

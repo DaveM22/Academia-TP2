@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Accord.Controls;
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,8 @@ namespace UI.Desktop
         public Planes()
         {
             InitializeComponent();
-            dgvPlanes.AutoGenerateColumns = false;
+            this.dgvPlanes.AutoGenerateColumns = false;
+            this.dgvPlanes.AllowNestedProperties(true);
 
         }
 
@@ -59,7 +61,7 @@ namespace UI.Desktop
         {
             try
             {
-                dgvPlanes.DataSource = this.PlanLogic.GetAll();
+                dgvPlanes.DataSource = new BindingSource() { DataSource = this.PlanLogic.GetAll() };
                 niPlanes.ShowBalloonTip(1000, "Actualizar lista de planes", "Se ha actualizado la lista de planes", ToolTipIcon.Info);
             }
             catch (Exception)
@@ -76,7 +78,7 @@ namespace UI.Desktop
             cbEspecialidades.DisplayMember = "Descripcion";
             cbEspecialidades.ValueMember = "Id";
             cbEspecialidades.SelectedIndex = -1;
-            dgvPlanes.DataSource = PlanesLista;
+            dgvPlanes.DataSource = new BindingSource() { DataSource = this.PlanLogic.GetAll() };
         }
 
         private void cbEspecialidades_SelectedIndexChanged(object sender, EventArgs e)

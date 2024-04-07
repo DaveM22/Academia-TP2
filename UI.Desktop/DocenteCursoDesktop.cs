@@ -37,6 +37,12 @@ namespace UI.Desktop
         {
             IdDocenteCurso = id;
             Modo = modo;
+            if(Modo == ModoForm.Baja)
+            {
+                btnDocente.Visible = false;
+                btnCursos.Visible = false;
+                btnGuardar.Text = "Borrar";
+            }
         }
 
         private void btnDocente_Click(object sender, EventArgs e)
@@ -52,11 +58,12 @@ namespace UI.Desktop
 
         private void btnCursos_Click(object sender, EventArgs e)
         {
-            var form = new CursosSearchForm();
+            var form = new CursosSearchForm(this.PersonaSeleccionada.PlanId);
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
-
+                this.CursoSeleccionado = form.Curso;
+                this.txtCurso.Text = $"{CursoSeleccionado.Comision.Descripcion} - {CursoSeleccionado.Materia.Descripcion}";
             }
         }
 
@@ -88,7 +95,7 @@ namespace UI.Desktop
                 CursoSeleccionado = DocenteCurso.Curso;
                 cbCargos.SelectedItem = DocenteCurso.DocenteCargo;
                 txtDocente.Text = $"{PersonaSeleccionada.Legajo} - {PersonaSeleccionada.Apellido}, {PersonaSeleccionada.Nombre}";
-                textBox2.Text = $"{CursoSeleccionado.ComisionDescripcion} - {CursoSeleccionado.MateriaDescripcion}";
+                txtCurso.Text = $"{CursoSeleccionado.ComisionDescripcion} - {CursoSeleccionado.MateriaDescripcion}";
             }
 
 
@@ -129,7 +136,7 @@ namespace UI.Desktop
             }
 
             DocenteCursoLogic.Save(DocenteCurso);
-            Master.OpenForm(new DocenteCursos());
+            Mast.OpenForm(new DocenteCursos());
             this.Dispose();
         }
     }

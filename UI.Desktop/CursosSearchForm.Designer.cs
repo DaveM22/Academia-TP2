@@ -87,6 +87,7 @@
             btnSeleccionar.TabIndex = 0;
             btnSeleccionar.Text = "Seleccionar";
             btnSeleccionar.UseVisualStyleBackColor = false;
+            btnSeleccionar.Click += btnSeleccionar_Click;
             // 
             // dgvCursos
             // 
@@ -102,6 +103,7 @@
             dgvCursos.Name = "dgvCursos";
             dgvCursos.ReadOnly = true;
             dgvCursos.RowTemplate.Height = 25;
+            dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvCursos.Size = new System.Drawing.Size(794, 404);
             dgvCursos.TabIndex = 2;
             // 
@@ -116,6 +118,7 @@
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // IdCurso
             // 
@@ -155,6 +158,7 @@
             // Cupo
             // 
             Cupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            Cupo.DataPropertyName = "Cupo";
             Cupo.FillWeight = 10F;
             Cupo.HeaderText = "Cupo";
             Cupo.Name = "Cupo";

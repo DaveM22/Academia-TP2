@@ -21,6 +21,25 @@ namespace Business.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UsuarioConfiguration).Assembly);
         }
 
+
+        private static AcademiaContext instance;
+
+
+        public AcademiaContext() { }
+
+        private AcademiaContext(DbContextOptions<AcademiaContext> options) : base(options)
+        {
+        }
+
+        public static AcademiaContext GetInstance(DbContextOptions<AcademiaContext> options)
+        {
+            if (instance == null)
+            {
+                instance = new AcademiaContext(options);
+            }
+            return instance;
+        }
+
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Especialidad> Especialidades { get; set; }

@@ -19,6 +19,7 @@ namespace Business.Data.Mapping
             builder.Property(x => x.AnioEspecialidad).HasColumnName("anio_especialidad");
             builder.Property(x => x.PlanId).HasColumnName("id_plan");
             builder.HasOne(x => x.Plan).WithMany().HasForeignKey(x => x.PlanId);
+
         }
     }
 }

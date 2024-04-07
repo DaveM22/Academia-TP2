@@ -37,11 +37,13 @@ namespace UI.Desktop
         {
             IdDocenteCurso = id;
             Modo = modo;
-            if(Modo == ModoForm.Baja)
+            if (Modo == ModoForm.Baja)
             {
                 btnDocente.Visible = false;
                 btnCursos.Visible = false;
                 btnGuardar.Text = "Borrar";
+                cbCargos.Enabled = false;
+                lblTitulo.Text = "Borrar asignación de curso";
             }
         }
 
@@ -121,6 +123,9 @@ namespace UI.Desktop
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+
+
             if (DocenteCurso == null)
             {
                 DocenteCurso = new DocenteCurso();
@@ -130,14 +135,27 @@ namespace UI.Desktop
             }
             else
             {
+
                 DocenteCurso.DocenteId = PersonaSeleccionada.Id;
                 DocenteCurso.CursoId = CursoSeleccionado.Id;
                 DocenteCurso.DocenteCargo = (Business.Entities.Enums.DocenteCargoEnum)(DocenteCargoEnum)cbCargos.SelectedValue;
             }
 
-            DocenteCursoLogic.Save(DocenteCurso);
-            Mast.OpenForm(new DocenteCursos());
-            this.Dispose();
+            if (Modo == ModoForm.Baja)
+            {
+                DocenteCursoLogic.Delete(DocenteCurso.Id);
+            }
+            else
+            {
+                DocenteCursoLogic.Save(DocenteCurso);
+            }
+
+            this.Mast.OpenForm(new DocenteCursos());
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -29,214 +29,223 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.tsUsuarios = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.tlUsuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            this.tsUsuarios.SuspendLayout();
-            this.SuspendLayout();
+            toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
+            dgvUsuarios = new System.Windows.Forms.DataGridView();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            tsUsuarios = new System.Windows.Forms.ToolStrip();
+            toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            toolStripContainer1.ContentPanel.SuspendLayout();
+            toolStripContainer1.TopToolStripPanel.SuspendLayout();
+            toolStripContainer1.SuspendLayout();
+            tlUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            tsUsuarios.SuspendLayout();
+            SuspendLayout();
             // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 417);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "tscUsuarios";
+            toolStripContainer1.ContentPanel.Controls.Add(tlUsuarios);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 462);
+            toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            toolStripContainer1.Name = "toolStripContainer1";
+            toolStripContainer1.Size = new System.Drawing.Size(800, 495);
+            toolStripContainer1.TabIndex = 0;
+            toolStripContainer1.Text = "tscUsuarios";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tsUsuarios);
+            toolStripContainer1.TopToolStripPanel.Controls.Add(tsUsuarios);
             // 
             // tlUsuarios
             // 
-            this.tlUsuarios.ColumnCount = 2;
-            this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlUsuarios.Controls.Add(this.dgvUsuarios, 0, 0);
-            this.tlUsuarios.Controls.Add(this.btnActualizar, 0, 1);
-            this.tlUsuarios.Controls.Add(this.btnCancelar, 1, 1);
-            this.tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tlUsuarios.Name = "tlUsuarios";
-            this.tlUsuarios.RowCount = 2;
-            this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlUsuarios.Size = new System.Drawing.Size(800, 417);
-            this.tlUsuarios.TabIndex = 0;
+            tlUsuarios.ColumnCount = 2;
+            tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            tlUsuarios.Controls.Add(dgvUsuarios, 0, 0);
+            tlUsuarios.Controls.Add(btnActualizar, 0, 1);
+            tlUsuarios.Controls.Add(btnCancelar, 1, 1);
+            tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlUsuarios.Location = new System.Drawing.Point(0, 0);
+            tlUsuarios.Name = "tlUsuarios";
+            tlUsuarios.RowCount = 2;
+            tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlUsuarios.Size = new System.Drawing.Size(800, 462);
+            tlUsuarios.TabIndex = 0;
             // 
             // dgvUsuarios
             // 
-            this.dgvUsuarios.AllowUserToAddRows = false;
-            this.dgvUsuarios.AllowUserToDeleteRows = false;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.NombreUsuario,
-            this.Email,
-            this.Apellido,
-            this.Nombre});
-            this.tlUsuarios.SetColumnSpan(this.dgvUsuarios, 2);
-            this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsuarios.Location = new System.Drawing.Point(3, 3);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.ReadOnly = true;
-            this.dgvUsuarios.RowHeadersWidth = 62;
-            this.dgvUsuarios.RowTemplate.Height = 33;
-            this.dgvUsuarios.Size = new System.Drawing.Size(794, 371);
-            this.dgvUsuarios.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Id.Visible = false;
-            this.Id.Width = 150;
-            // 
-            // NombreUsuario
-            // 
-            this.NombreUsuario.DataPropertyName = "NombreUsuario";
-            this.NombreUsuario.Frozen = true;
-            this.NombreUsuario.HeaderText = "Usuario";
-            this.NombreUsuario.MinimumWidth = 8;
-            this.NombreUsuario.Name = "NombreUsuario";
-            this.NombreUsuario.ReadOnly = true;
-            this.NombreUsuario.Width = 150;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.Frozen = true;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 150;
-            // 
-            // Apellido
-            // 
-            this.Apellido.DataPropertyName = "Apellido";
-            this.Apellido.Frozen = true;
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.MinimumWidth = 8;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            this.Apellido.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.AllowUserToDeleteRows = false;
+            dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, NombreUsuario, Email, Apellido, Nombre, Editar, Eliminar });
+            tlUsuarios.SetColumnSpan(dgvUsuarios, 2);
+            dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvUsuarios.Location = new System.Drawing.Point(3, 3);
+            dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.ReadOnly = true;
+            dgvUsuarios.RowHeadersWidth = 62;
+            dgvUsuarios.RowTemplate.Height = 33;
+            dgvUsuarios.Size = new System.Drawing.Size(794, 409);
+            dgvUsuarios.TabIndex = 0;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(567, 380);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(112, 34);
-            this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnActualizar.BackColor = System.Drawing.Color.Green;
+            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnActualizar.Location = new System.Drawing.Point(567, 418);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new System.Drawing.Size(112, 41);
+            btnActualizar.TabIndex = 1;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(685, 380);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 34);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(685, 418);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(112, 41);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // tsUsuarios
             // 
-            this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsUsuarios.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.tsUsuarios.Location = new System.Drawing.Point(4, 0);
-            this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(120, 33);
-            this.tsUsuarios.TabIndex = 0;
+            tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
+            tsUsuarios.ImageScalingSize = new System.Drawing.Size(24, 24);
+            tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
+            tsUsuarios.Location = new System.Drawing.Point(4, 0);
+            tsUsuarios.Name = "tsUsuarios";
+            tsUsuarios.Size = new System.Drawing.Size(120, 33);
+            tsUsuarios.TabIndex = 0;
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (System.Drawing.Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new System.Drawing.Size(34, 28);
+            toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
+            toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (System.Drawing.Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new System.Drawing.Size(34, 28);
+            toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(34, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
+            toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = (System.Drawing.Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new System.Drawing.Size(34, 28);
+            toolStripButton3.Text = "toolStripButton3";
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            Id.Visible = false;
+            // 
+            // NombreUsuario
+            // 
+            NombreUsuario.DataPropertyName = "NombreUsuario";
+            NombreUsuario.HeaderText = "Usuario";
+            NombreUsuario.MinimumWidth = 8;
+            NombreUsuario.Name = "NombreUsuario";
+            NombreUsuario.ReadOnly = true;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 8;
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            Apellido.DataPropertyName = "Apellido";
+            Apellido.HeaderText = "Apellido";
+            Apellido.MinimumWidth = 8;
+            Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 8;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // Usuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Name = "Usuarios";
-            this.Text = "Usuarios";
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
-            this.tlUsuarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            this.tsUsuarios.ResumeLayout(false);
-            this.tsUsuarios.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 495);
+            ControlBox = false;
+            Controls.Add(toolStripContainer1);
+            Name = "Usuarios";
+            Text = "Usuarios";
+            toolStripContainer1.ContentPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.PerformLayout();
+            toolStripContainer1.ResumeLayout(false);
+            toolStripContainer1.PerformLayout();
+            tlUsuarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            tsUsuarios.ResumeLayout(false);
+            tsUsuarios.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -255,5 +264,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

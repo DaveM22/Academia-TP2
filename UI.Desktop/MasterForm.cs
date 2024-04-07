@@ -115,5 +115,10 @@ namespace UI.Desktop
         {
             this.OpenForm(new DocenteCursos());
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Usuarios());
+        }
     }
 }

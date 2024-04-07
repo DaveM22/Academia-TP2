@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : ApplicationForm
     {
         private UsuarioLogic UsuarioLogic => new();
         public Usuarios()

@@ -40,6 +40,11 @@ namespace Business.Logic
             return _docenteCursoData.GetOne(id);
         }
 
+        public void Delete(int id)
+        {
+            _docenteCursoData.Delete(id);
+        }
+
         public DocenteCurso Save(DocenteCurso docenteCurso)
         {
             return _docenteCursoData.Save(docenteCurso);

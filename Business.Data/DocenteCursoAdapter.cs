@@ -47,6 +47,14 @@ namespace Business.Data
                 .Include(x => x.Docente).Single(x => x.Id == id);
         }
 
+        public void Delete(int id)
+        {
+            var context = Adapter.dbContext;
+            var doc = context.DocenteCursos.Single(x => x.Id == id);
+            context.DocenteCursos.Remove(doc);
+            context.SaveChanges();
+        }
+
         public DocenteCurso Save(DocenteCurso docenteCurso)
         {
             using var context = new AcademiaContext();

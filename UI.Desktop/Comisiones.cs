@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Accord.Controls;
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             dgvComisiones.AutoGenerateColumns = false;
+            dgvComisiones.AllowNestedProperties(true);
             dgvComisiones.DataSource = ComisionLogic.GetAll();
         }
 

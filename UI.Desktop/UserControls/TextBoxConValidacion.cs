@@ -18,14 +18,14 @@ namespace UI.Desktop.UserControls
         }
 
         [RefreshProperties(System.ComponentModel.RefreshProperties.All)]
-        public TextBox TextBox { get => this.textBox1; set { this.textBox1 = value; } }
+        public TextBox TextBox { get => this.txtData; set { this.txtData = value; } }
 
-        public Label LabelError => this.label1;
+        public Label LabelError => this.lblError;
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            label1.Text = string.Empty;
+            lblError.Text = string.Empty;
         }
     }
 }

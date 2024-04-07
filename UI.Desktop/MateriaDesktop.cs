@@ -1,4 +1,6 @@
-﻿using Business.Entities;
+﻿using Accord.IO;
+using Business.Entities;
+using Business.Logic;
 using Business.Util.Exceptions;
 using Business.Util.ValidatorsDesktop;
 using FluentValidation.Results;
@@ -22,8 +24,16 @@ namespace UI.Desktop
 
         public MateriaValidator Validator => new MateriaValidator();
 
+        public MateriaLogic MateriaLogic => new MateriaLogic();
+
         private MasterForm MasterForm => this.MdiParent as MasterForm;
 
+
+        private string MENSAJE_EXITO_CREAR(string materia) => $"Se ha creado la materia: {materia}";
+
+        private string MENSAJE_EXITO_EDITAR(string materia) => $"Se han guardado los cambios de la materia: {materia}";
+
+        private string MENSAJE_EXITO_BORRAR(string materia) => $"Se ha eliminado la materia: {materia}"; 
 
         private int PlanId { get; set; }
 
@@ -42,13 +52,16 @@ namespace UI.Desktop
         {
             Modo = modo;
             Materia = materia;
-            if(Modo == ModoForm.Modificacion)
+            this.PlanId = this.Materia.PlanId;
+            
+            if (Modo == ModoForm.Modificacion)
             {
                 this.lblTitulo.Text = "Modificar materia";
             }
             else
             {
                 this.lblTitulo.Text = "Eliminar materia";
+                this.btnGuardar.Text = "Eliminar";
             }
         }
 
@@ -62,24 +75,47 @@ namespace UI.Desktop
                 Materia.HSSemanales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
                 Materia.HSTotales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
             }
-            else
+            else if (Modo == ModoForm.Modificacion)
             {
-                Materia.Descripcion = txtMateria.Text;
+                Materia.Descripcion = txtMateria.TextBox.Text;
                 Materia.HSSemanales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
                 Materia.HSTotales = Convert.ToInt32(this.nudHsTotales.NumericUpDown.Value);
 
             }
 
-            var resultValidation = Validator.Validate(Materia);
-            if (resultValidation.IsValid)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
-                DialogResult = DialogResult.OK;
-                this.Close();
+                var resultValidation = Validator.Validate(Materia);
+                if (resultValidation.IsValid)
+                {
+
+                    this.MateriaLogic.Guardar(Materia);
+                    if(Modo == ModoForm.Alta)
+                    {
+                        niAlerta.ShowBalloonTip(1000, lblTitulo.Text, MENSAJE_EXITO_CREAR(Materia.Descripcion), ToolTipIcon.Info);
+                    }
+                    else
+                    {
+                        niAlerta.ShowBalloonTip(1000, lblTitulo.Text, MENSAJE_EXITO_EDITAR(Materia.Descripcion), ToolTipIcon.Info);
+                    }
+
+                    this.MasterForm.OpenForm(new Materias(PlanId));
+                    this.Close();
+                }
+                else
+                {
+                    this.MapearErrores(resultValidation);
+                }
             }
             else
             {
-                this.MapearErrores(resultValidation);
+
+                this.MateriaLogic.Borrar(Materia.Id);
+                niAlerta.ShowBalloonTip(1000, lblTitulo.Text, MENSAJE_EXITO_BORRAR(Materia.Descripcion), ToolTipIcon.Info);
+                this.MasterForm.OpenForm(new Materias(PlanId));
+                this.Close();
             }
+
 
 
 
@@ -93,7 +129,7 @@ namespace UI.Desktop
 
         private void MateriaDesktop_Load(object sender, EventArgs e)
         {
-            if(Modo == ModoForm.Alta)
+            if (Modo == ModoForm.Alta)
             {
                 this.lblTitulo.Text = "Crear materia";
             }
@@ -102,6 +138,15 @@ namespace UI.Desktop
                 txtMateria.TextBox.Text = Materia.Descripcion;
                 nudHsSemanales.NumericUpDown.Value = Materia.HSSemanales;
                 nudHsTotales.NumericUpDown.Value = Materia.HSTotales;
+            }
+            if (Modo == ModoForm.Baja)
+            {
+                txtMateria.TextBox.Text = Materia.Descripcion;
+                nudHsSemanales.NumericUpDown.Value = Materia.HSSemanales;
+                nudHsTotales.NumericUpDown.Value = Materia.HSTotales;
+                txtMateria.TextBox.Enabled = false;
+                nudHsSemanales.NumericUpDown.Enabled = false;
+                nudHsTotales.NumericUpDown.Enabled = false;
             }
         }
 
@@ -125,6 +170,11 @@ namespace UI.Desktop
                     this.nudHsTotales.LabelError.Text = error.ErrorMessage;
                 }
             }
+        }
+
+        private void tlpMateria_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

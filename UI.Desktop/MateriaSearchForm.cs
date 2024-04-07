@@ -46,5 +46,10 @@ namespace UI.Desktop
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        public void EstablecerPermisos()
+        {
+
+        }
     }
 }

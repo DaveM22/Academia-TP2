@@ -10,7 +10,7 @@ namespace UI.Desktop
 {
     public partial class EspecialidadDesktop : ApplicationForm
     {
-        private BindingSource dataSource;
+
         private EspecialidadLogic EspecialidadLogic => new();
         private MasterForm masterForm => this.MdiParent as MasterForm;
 
@@ -48,6 +48,7 @@ namespace UI.Desktop
 
         private void DeleteDescription()
         {
+            this.txtDescripcion.TextBox.Text = this.Especialidad.Descripcion;
             btnAceptar.Text = "Eliminar";
             txtDescripcion.TextBox.ReadOnly = true;
             Text = "Borrar especialidad";
@@ -65,11 +66,14 @@ namespace UI.Desktop
         {
             Text = "Modificar especialidad";
             txtTitulo.Text = "Modificar especialidad";
+            this.txtDescripcion.TextBox.Text = this.Especialidad.Descripcion;
         }
 
         private void Save()
         {
             string mensajeAlerta;
+
+            this.Especialidad.Descripcion = this.txtDescripcion.TextBox.Text;
 
             if (Modo == ModoForm.Alta)
             {
@@ -133,9 +137,7 @@ namespace UI.Desktop
         private void EspecialidadDesktop_Load(object sender, EventArgs e)
         {
             Especialidad ??= new Especialidad();
-            dataSource = new BindingSource { Especialidad };
-
-            txtDescripcion.TextBox.DataBindings.Add("Text", dataSource, nameof(Especialidad.Descripcion));
+        
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -146,7 +148,6 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Especialidad = (Especialidad)dataSource.Current;
             switch (Modo)
             {
                 case ModoForm.Modificacion:

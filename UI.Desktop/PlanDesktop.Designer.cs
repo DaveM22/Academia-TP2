@@ -33,12 +33,12 @@
             tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
             lblTitulo = new System.Windows.Forms.Label();
             lblDescripcion = new System.Windows.Forms.Label();
-            txtDescripcion = new UserControls.TextBoxConValidacion();
-            btnGuardar = new System.Windows.Forms.Button();
-            btnCancelar = new System.Windows.Forms.Button();
-            txtEspecialidad = new UserControls.TextBoxConValidacion();
             btnSeleccionarEspecialidad = new System.Windows.Forms.Button();
             lblEspecialidad = new System.Windows.Forms.Label();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnGuardar = new System.Windows.Forms.Button();
+            txtDescripcion = new UserControls.TextBoxConValidacion();
+            txtEspecialidad = new UserControls.TextBoxConValidacion();
             IdMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,32 +52,32 @@
             // 
             // tlpPlanes
             // 
-            tlpPlanes.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlpPlanes.BackColor = System.Drawing.Color.Transparent;
             tlpPlanes.ColumnCount = 5;
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
-            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 405F));
+            tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
             tlpPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlpPlanes.Controls.Add(lblTitulo, 1, 0);
             tlpPlanes.Controls.Add(lblDescripcion, 1, 1);
+            tlpPlanes.Controls.Add(btnSeleccionarEspecialidad, 3, 2);
+            tlpPlanes.Controls.Add(lblEspecialidad, 1, 2);
+            tlpPlanes.Controls.Add(btnCancelar, 3, 3);
+            tlpPlanes.Controls.Add(btnGuardar, 2, 3);
             tlpPlanes.Controls.Add(txtDescripcion, 2, 1);
-            tlpPlanes.Controls.Add(btnGuardar, 2, 4);
-            tlpPlanes.Controls.Add(btnCancelar, 3, 4);
-            tlpPlanes.Controls.Add(txtEspecialidad, 2, 3);
-            tlpPlanes.Controls.Add(btnSeleccionarEspecialidad, 3, 3);
-            tlpPlanes.Controls.Add(lblEspecialidad, 1, 3);
+            tlpPlanes.Controls.Add(txtEspecialidad, 2, 2);
             tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpPlanes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             tlpPlanes.Location = new System.Drawing.Point(0, 0);
             tlpPlanes.Name = "tlpPlanes";
-            tlpPlanes.RowCount = 5;
-            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            tlpPlanes.Size = new System.Drawing.Size(771, 184);
+            tlpPlanes.RowCount = 3;
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tlpPlanes.Size = new System.Drawing.Size(771, 310);
             tlpPlanes.TabIndex = 0;
             // 
             // lblTitulo
@@ -86,32 +86,62 @@
             lblTitulo.AutoSize = true;
             tlpPlanes.SetColumnSpan(lblTitulo, 3);
             lblTitulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTitulo.Location = new System.Drawing.Point(61, 3);
+            lblTitulo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            lblTitulo.Location = new System.Drawing.Point(86, 38);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new System.Drawing.Size(649, 22);
+            lblTitulo.Size = new System.Drawing.Size(599, 22);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Crear plan";
             lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescripcion
             // 
-            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new System.Drawing.Point(61, 31);
+            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            lblDescripcion.ForeColor = System.Drawing.SystemColors.ControlText;
+            lblDescripcion.Location = new System.Drawing.Point(86, 106);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new System.Drawing.Size(72, 15);
+            lblDescripcion.Size = new System.Drawing.Size(87, 36);
             lblDescripcion.TabIndex = 1;
             lblDescripcion.Text = "Descripción:";
+            lblDescripcion.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtDescripcion
+            // btnSeleccionarEspecialidad
             // 
-            txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtDescripcion.Location = new System.Drawing.Point(152, 29);
-            txtDescripcion.Margin = new System.Windows.Forms.Padding(1);
-            txtDescripcion.Name = "txtDescripcion";
-            tlpPlanes.SetRowSpan(txtDescripcion, 2);
-            txtDescripcion.Size = new System.Drawing.Size(371, 52);
-            txtDescripcion.TabIndex = 10;
+            btnSeleccionarEspecialidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            tlpPlanes.SetColumnSpan(btnSeleccionarEspecialidad, 2);
+            btnSeleccionarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSeleccionarEspecialidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            btnSeleccionarEspecialidad.Location = new System.Drawing.Point(584, 153);
+            btnSeleccionarEspecialidad.Name = "btnSeleccionarEspecialidad";
+            btnSeleccionarEspecialidad.Size = new System.Drawing.Size(183, 27);
+            btnSeleccionarEspecialidad.TabIndex = 9;
+            btnSeleccionarEspecialidad.Text = "Seleccionar especialidad";
+            btnSeleccionarEspecialidad.UseVisualStyleBackColor = false;
+            btnSeleccionarEspecialidad.Click += btnSeleccionarEspecialidad_Click;
+            // 
+            // lblEspecialidad
+            // 
+            lblEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            lblEspecialidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            lblEspecialidad.Location = new System.Drawing.Point(86, 155);
+            lblEspecialidad.Name = "lblEspecialidad";
+            lblEspecialidad.Size = new System.Drawing.Size(87, 38);
+            lblEspecialidad.TabIndex = 2;
+            lblEspecialidad.Text = "Especialidad:";
+            lblEspecialidad.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(584, 201);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(76, 29);
+            btnCancelar.TabIndex = 8;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -121,7 +151,7 @@
             btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(255, 255, 128);
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            btnGuardar.Location = new System.Drawing.Point(446, 135);
+            btnGuardar.Location = new System.Drawing.Point(503, 201);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new System.Drawing.Size(75, 29);
             btnGuardar.TabIndex = 7;
@@ -129,50 +159,27 @@
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // btnCancelar
+            // txtDescripcion
             // 
-            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(527, 135);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(76, 29);
-            btnCancelar.TabIndex = 8;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            txtDescripcion.BackColor = System.Drawing.Color.Transparent;
+            txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtDescripcion.Location = new System.Drawing.Point(177, 99);
+            txtDescripcion.Margin = new System.Windows.Forms.Padding(1);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new System.Drawing.Size(403, 50);
+            txtDescripcion.TabIndex = 10;
+            txtDescripcion.Load += txtDescripcion_Load;
             // 
             // txtEspecialidad
             // 
+            txtEspecialidad.BackColor = System.Drawing.Color.Transparent;
             txtEspecialidad.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtEspecialidad.Location = new System.Drawing.Point(152, 83);
+            txtEspecialidad.Location = new System.Drawing.Point(177, 151);
             txtEspecialidad.Margin = new System.Windows.Forms.Padding(1);
             txtEspecialidad.Name = "txtEspecialidad";
-            txtEspecialidad.Size = new System.Drawing.Size(371, 48);
+            txtEspecialidad.Size = new System.Drawing.Size(403, 46);
             txtEspecialidad.TabIndex = 11;
-            // 
-            // btnSeleccionarEspecialidad
-            // 
-            btnSeleccionarEspecialidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            tlpPlanes.SetColumnSpan(btnSeleccionarEspecialidad, 2);
-            btnSeleccionarEspecialidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSeleccionarEspecialidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            btnSeleccionarEspecialidad.Location = new System.Drawing.Point(527, 85);
-            btnSeleccionarEspecialidad.Name = "btnSeleccionarEspecialidad";
-            btnSeleccionarEspecialidad.Size = new System.Drawing.Size(183, 25);
-            btnSeleccionarEspecialidad.TabIndex = 9;
-            btnSeleccionarEspecialidad.Text = "Seleccionar especialidad";
-            btnSeleccionarEspecialidad.UseVisualStyleBackColor = false;
-            btnSeleccionarEspecialidad.Click += btnSeleccionarEspecialidad_Click;
-            // 
-            // lblEspecialidad
-            // 
-            lblEspecialidad.AutoSize = true;
-            lblEspecialidad.Location = new System.Drawing.Point(61, 82);
-            lblEspecialidad.Name = "lblEspecialidad";
-            lblEspecialidad.Size = new System.Drawing.Size(75, 15);
-            lblEspecialidad.TabIndex = 2;
-            lblEspecialidad.Text = "Especialidad:";
+            txtEspecialidad.Load += txtEspecialidad_Load;
             // 
             // IdMateria
             // 
@@ -242,7 +249,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(771, 184);
+            ClientSize = new System.Drawing.Size(771, 310);
             Controls.Add(tlpPlanes);
             ForeColor = System.Drawing.SystemColors.ActiveCaption;
             Name = "PlanDesktop";
@@ -260,8 +267,6 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Button btnSeleccionarEspecialidad;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMateria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -269,8 +274,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private UserControls.TextBoxConValidacion txtDescripcion;
-        private UserControls.TextBoxConValidacion txtEspecialidad;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button btnCancelar;
+        private UserControls.TextBoxConValidacion txtEspecialidad;
+        private UserControls.TextBoxConValidacion txtDescripcion;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

@@ -28,7 +28,7 @@ namespace UI.Desktop
 
             //}
             Adapter.SetContext(new AcademiaContext());
-            Application.Run(new MasterForm());
+            Application.Run(new formLogin());
         }
     }
 }

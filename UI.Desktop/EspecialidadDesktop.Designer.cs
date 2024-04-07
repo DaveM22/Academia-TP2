@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspecialidadDesktop));
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            label2 = new System.Windows.Forms.Label();
+            lblDescripcion = new System.Windows.Forms.Label();
             txtTitulo = new System.Windows.Forms.Label();
             btnAceptar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
@@ -48,14 +48,14 @@
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 234F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 563F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 454F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(label2, 1, 2);
             tableLayoutPanel1.Controls.Add(txtTitulo, 1, 1);
             tableLayoutPanel1.Controls.Add(btnAceptar, 2, 3);
             tableLayoutPanel1.Controls.Add(btnCancelar, 3, 3);
             tableLayoutPanel1.Controls.Add(txtDescripcion, 2, 2);
+            tableLayoutPanel1.Controls.Add(lblDescripcion, 1, 2);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -63,24 +63,23 @@
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             tableLayoutPanel1.Size = new System.Drawing.Size(1791, 887);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // label2
+            // lblDescripcion
             // 
-            label2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            label2.Location = new System.Drawing.Point(401, 96);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(214, 48);
-            label2.TabIndex = 6;
-            label2.Text = "Descripción:";
-            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblDescripcion.ForeColor = System.Drawing.SystemColors.HighlightText;
+            lblDescripcion.Location = new System.Drawing.Point(647, 96);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new System.Drawing.Size(72, 28);
+            lblDescripcion.TabIndex = 6;
+            lblDescripcion.Text = "Descripción:";
+            lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtTitulo
             // 
@@ -101,10 +100,10 @@
             btnAceptar.BackColor = System.Drawing.Color.Green;
             btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAceptar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnAceptar.Location = new System.Drawing.Point(953, 243);
+            btnAceptar.Location = new System.Drawing.Point(1060, 152);
             btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new System.Drawing.Size(226, 68);
+            btnAceptar.Size = new System.Drawing.Size(114, 33);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
@@ -116,10 +115,10 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(1183, 243);
+            btnCancelar.Location = new System.Drawing.Point(1178, 152);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(221, 68);
+            btnCancelar.Size = new System.Drawing.Size(122, 33);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -127,12 +126,11 @@
             // 
             // txtDescripcion
             // 
-            tableLayoutPanel1.SetColumnSpan(txtDescripcion, 2);
-            txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtDescripcion.Location = new System.Drawing.Point(620, 98);
+            txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtDescripcion.Location = new System.Drawing.Point(724, 98);
             txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new System.Drawing.Size(784, 141);
+            txtDescripcion.Size = new System.Drawing.Size(450, 50);
             txtDescripcion.TabIndex = 7;
             // 
             // errorProvider1
@@ -159,7 +157,6 @@
             Text = "Especialidad";
             Load += EspecialidadDesktop_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
@@ -171,8 +168,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label txtTitulo;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private UserControls.TextBoxConValidacion txtDescripcion;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private UserControls.TextBoxConValidacion txtDescripcion;
     }
 }

@@ -26,7 +26,10 @@ namespace UI.Desktop
             {
                 var user = UsuarioLogic.GetOne(txtUsuario.Text, txtClave.Text);
                 DialogResult = DialogResult.OK;
-                this.Close();
+                this.Hide();
+                var form = new MasterForm(user);
+                form.Show();
+           
             }
             catch (Exception ex)
             {

@@ -1,6 +1,9 @@
-﻿using Business.Entities;
+﻿using Business.Data;
+using Business.Entities;
 using Business.Entities.Enums;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -10,10 +13,13 @@ namespace UI.Desktop
 
         private ApplicationForm Form { get; set; }
 
+        private List<string> Autorizacion { get; set; }
+
         public MasterForm()
         {
             InitializeComponent();
             Master = this;
+         
         }
 
         public MasterForm(Usuario usuario) : base()
@@ -21,6 +27,8 @@ namespace UI.Desktop
             InitializeComponent();
             Master = this;
             UsuarioActual = usuario;
+            this.Autorizacion = new List<string>();
+            Permisos();
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +127,23 @@ namespace UI.Desktop
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.OpenForm(new Usuarios());
+        }
+
+        private void Permisos()
+        {
+            foreach (var item in UsuarioActual.Modulos)
+            {
+                Autorizacion.Add(item.Modulo.Ejecuta);
+            }
+
+
+        }
+
+
+
+        private void MasterForm_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

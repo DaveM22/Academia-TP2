@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
+            txtData = new System.Windows.Forms.TextBox();
+            lblError = new System.Windows.Forms.Label();
             SuspendLayout();
             // 
-            // textBox1
+            // txtData
             // 
-            textBox1.Location = new System.Drawing.Point(6, 6);
-            textBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            textBox1.MaxLength = 50;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(953, 55);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtData.Location = new System.Drawing.Point(2, 2);
+            txtData.Margin = new System.Windows.Forms.Padding(2);
+            txtData.MaxLength = 50;
+            txtData.Name = "txtData";
+            txtData.Size = new System.Drawing.Size(336, 23);
+            txtData.TabIndex = 0;
+            txtData.TextChanged += textBox1_TextChanged;
             // 
-            // label1
+            // lblError
             // 
-            label1.AutoSize = true;
-            label1.ForeColor = System.Drawing.Color.Red;
-            label1.Location = new System.Drawing.Point(16, 67);
-            label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(0, 48);
-            label1.TabIndex = 1;
+            lblError.AutoSize = true;
+            lblError.ForeColor = System.Drawing.Color.Red;
+            lblError.Location = new System.Drawing.Point(2, 27);
+            lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblError.Name = "lblError";
+            lblError.Size = new System.Drawing.Size(0, 15);
+            lblError.TabIndex = 1;
             // 
             // TextBoxConValidacion
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            Controls.Add(lblError);
+            Controls.Add(txtData);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "TextBoxConValidacion";
-            Size = new System.Drawing.Size(971, 127);
+            Size = new System.Drawing.Size(340, 47);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.Label lblError;
     }
 }

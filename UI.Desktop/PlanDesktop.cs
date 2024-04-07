@@ -61,6 +61,9 @@ namespace UI.Desktop
             {
                 lblTitulo.Text = "Borrar plan";
                 btnGuardar.Text = "Borrar";
+                txtDescripcion.Enabled = false;
+                txtEspecialidad.Enabled = false;
+                btnSeleccionarEspecialidad.Visible = false;
             }
             if (Modo == ModoForm.Modificacion)
             {
@@ -71,6 +74,7 @@ namespace UI.Desktop
             {
                 lblTitulo.Text = "Crear plan";
                 btnGuardar.Text = "Crear";
+
             }
         }
 
@@ -101,20 +105,15 @@ namespace UI.Desktop
         {
             try
             {
-                if(Modo == ModoForm.Baja)
+                if (Modo == ModoForm.Baja)
                 {
                     Borrar();
                 }
                 else
                 {
-                    if (Modo == ModoForm.Alta)
-                    {
-                        Plan = new Plan();
-                    }
+
 
                     Plan.Descripcion = txtDescripcion.TextBox.Text;
-                    Plan.EspecialidadId = Especialidad.Id;
-                    Plan.Especialidad = Especialidad;
                     Guardar();
                 }
 
@@ -175,6 +174,16 @@ namespace UI.Desktop
         {
             MasterForm.OpenForm(new Planes());
             this.Close();
+        }
+
+        private void txtEspecialidad_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescripcion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

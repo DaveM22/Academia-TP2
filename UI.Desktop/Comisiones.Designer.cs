@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comisiones));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comisiones));
             tscComisiones = new System.Windows.Forms.ToolStripContainer();
             tlComisiones = new System.Windows.Forms.TableLayoutPanel();
             dgvComisiones = new System.Windows.Forms.DataGridView();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnSalir = new System.Windows.Forms.Button();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tsNuevo = new System.Windows.Forms.ToolStripButton();
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
-            btnActualizar = new System.Windows.Forms.Button();
-            btnSalir = new System.Windows.Forms.Button();
-            toolStrip1 = new System.Windows.Forms.ToolStrip();
-            tsNuevo = new System.Windows.Forms.ToolStripButton();
-            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tscComisiones.ContentPanel.SuspendLayout();
             tscComisiones.TopToolStripPanel.SuspendLayout();
             tscComisiones.SuspendLayout();
@@ -63,11 +63,11 @@
             // tscComisiones.ContentPanel
             // 
             tscComisiones.ContentPanel.Controls.Add(tlComisiones);
-            tscComisiones.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscComisiones.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             tscComisiones.ContentPanel.Size = new System.Drawing.Size(883, 280);
             tscComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             tscComisiones.Location = new System.Drawing.Point(0, 0);
-            tscComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscComisiones.Margin = new System.Windows.Forms.Padding(2);
             tscComisiones.Name = "tscComisiones";
             tscComisiones.Size = new System.Drawing.Size(883, 305);
             tscComisiones.TabIndex = 0;
@@ -88,7 +88,7 @@
             tlComisiones.Controls.Add(btnSalir, 1, 1);
             tlComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             tlComisiones.Location = new System.Drawing.Point(0, 0);
-            tlComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tlComisiones.Margin = new System.Windows.Forms.Padding(2);
             tlComisiones.Name = "tlComisiones";
             tlComisiones.RowCount = 2;
             tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -107,7 +107,7 @@
             tlComisiones.SetColumnSpan(dgvComisiones, 2);
             dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvComisiones.Location = new System.Drawing.Point(2, 2);
-            dgvComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dgvComisiones.Margin = new System.Windows.Forms.Padding(2);
             dgvComisiones.MultiSelect = false;
             dgvComisiones.Name = "dgvComisiones";
             dgvComisiones.ReadOnly = true;
@@ -117,6 +117,62 @@
             dgvComisiones.Size = new System.Drawing.Size(879, 243);
             dgvComisiones.TabIndex = 0;
             dgvComisiones.CellContentClick += dgvComisiones_CellContentClick;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnActualizar.BackColor = System.Drawing.Color.Green;
+            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnActualizar.Location = new System.Drawing.Point(721, 249);
+            btnActualizar.Margin = new System.Windows.Forms.Padding(2);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new System.Drawing.Size(78, 29);
+            btnActualizar.TabIndex = 1;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.BackColor = System.Drawing.Color.Firebrick;
+            btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSalir.Location = new System.Drawing.Point(803, 249);
+            btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new System.Drawing.Size(78, 29);
+            btnSalir.TabIndex = 2;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
+            toolStrip1.Location = new System.Drawing.Point(4, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(109, 25);
+            toolStrip1.TabIndex = 0;
+            // 
+            // tsNuevo
+            // 
+            tsNuevo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tsNuevo.Image = (System.Drawing.Image)resources.GetObject("tsNuevo.Image");
+            tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tsNuevo.Name = "tsNuevo";
+            tsNuevo.Size = new System.Drawing.Size(97, 22);
+            tsNuevo.Text = "Nueva comisión";
+            tsNuevo.Click += tsNuevo_Click;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
             // 
             // Id
             // 
@@ -139,7 +195,7 @@
             // 
             // Plan
             // 
-            Plan.DataPropertyName = "PlanDescripcion";
+            Plan.DataPropertyName = "Plan.Descripcion";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             Plan.DefaultCellStyle = dataGridViewCellStyle2;
             Plan.FillWeight = 30F;
@@ -183,62 +239,6 @@
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
             // 
-            // btnActualizar
-            // 
-            btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnActualizar.BackColor = System.Drawing.Color.Green;
-            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(721, 249);
-            btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(78, 29);
-            btnActualizar.TabIndex = 1;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnSalir
-            // 
-            btnSalir.BackColor = System.Drawing.Color.Firebrick;
-            btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnSalir.Location = new System.Drawing.Point(803, 249);
-            btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new System.Drawing.Size(78, 29);
-            btnSalir.TabIndex = 2;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = false;
-            btnSalir.Click += btnSalir_Click;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
-            toolStrip1.Location = new System.Drawing.Point(4, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(109, 25);
-            toolStrip1.TabIndex = 0;
-            // 
-            // tsNuevo
-            // 
-            tsNuevo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            tsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            tsNuevo.Image = (System.Drawing.Image)resources.GetObject("tsNuevo.Image");
-            tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            tsNuevo.Name = "tsNuevo";
-            tsNuevo.Size = new System.Drawing.Size(97, 22);
-            tsNuevo.Text = "Nueva comisión";
-            tsNuevo.Click += tsNuevo_Click;
-            // 
-            // notifyIcon1
-            // 
-            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
-            notifyIcon1.Text = "notifyIcon1";
-            notifyIcon1.Visible = true;
-            // 
             // Comisiones
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -247,7 +247,7 @@
             ControlBox = false;
             Controls.Add(tscComisiones);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Comisiones";
             Text = "Comisiones";
             tscComisiones.ContentPanel.ResumeLayout(false);

@@ -18,7 +18,7 @@ namespace UI.Desktop
         private List<Materia> ListaMaterias { get; set; }
         private PlanLogic PlanLogic { get; set; }
         private Plan Plan { get; set; }
-        private MasterForm MasterForm = Application.OpenForms["MasterForm"] as MasterForm;
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
 
         public Materias()
         {
@@ -59,6 +59,12 @@ namespace UI.Desktop
         private void tslCrearMateria_Click(object sender, EventArgs e)
         {
             var form = new MateriaDesktop(ModoForm.Alta, Plan.Id);
+            MasterForm.OpenForm(form);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            var form = new Planes();
             MasterForm.OpenForm(form);
         }
     }

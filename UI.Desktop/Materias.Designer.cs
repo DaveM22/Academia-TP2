@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Materias));
             tscMaterias = new System.Windows.Forms.ToolStripContainer();
             tlpMaterias = new System.Windows.Forms.TableLayoutPanel();
             button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
+            btnCerrar = new System.Windows.Forms.Button();
             dgvMaterias = new System.Windows.Forms.DataGridView();
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,7 @@
             lblTituloMaterias = new System.Windows.Forms.Label();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             tslCrearMateria = new System.Windows.Forms.ToolStripButton();
+            niAlerta = new System.Windows.Forms.NotifyIcon(components);
             tscMaterias.ContentPanel.SuspendLayout();
             tscMaterias.TopToolStripPanel.SuspendLayout();
             tscMaterias.SuspendLayout();
@@ -57,11 +59,13 @@
             // tscMaterias.ContentPanel
             // 
             tscMaterias.ContentPanel.Controls.Add(tlpMaterias);
-            tscMaterias.ContentPanel.Size = new System.Drawing.Size(1098, 416);
+            tscMaterias.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            tscMaterias.ContentPanel.Size = new System.Drawing.Size(769, 245);
             tscMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             tscMaterias.Location = new System.Drawing.Point(0, 0);
+            tscMaterias.Margin = new System.Windows.Forms.Padding(2);
             tscMaterias.Name = "tscMaterias";
-            tscMaterias.Size = new System.Drawing.Size(1098, 450);
+            tscMaterias.Size = new System.Drawing.Size(769, 270);
             tscMaterias.TabIndex = 0;
             tscMaterias.Text = "toolStripContainer1";
             // 
@@ -76,17 +80,18 @@
             tlpMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpMaterias.Controls.Add(button1, 0, 2);
-            tlpMaterias.Controls.Add(button2, 1, 2);
+            tlpMaterias.Controls.Add(btnCerrar, 1, 2);
             tlpMaterias.Controls.Add(dgvMaterias, 0, 1);
             tlpMaterias.Controls.Add(lblTituloMaterias, 0, 0);
             tlpMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpMaterias.Location = new System.Drawing.Point(0, 0);
+            tlpMaterias.Margin = new System.Windows.Forms.Padding(2);
             tlpMaterias.Name = "tlpMaterias";
             tlpMaterias.RowCount = 3;
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpMaterias.Size = new System.Drawing.Size(1098, 416);
+            tlpMaterias.Size = new System.Drawing.Size(769, 245);
             tlpMaterias.TabIndex = 0;
             // 
             // button1
@@ -95,24 +100,27 @@
             button1.BackColor = System.Drawing.Color.Green;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button1.Location = new System.Drawing.Point(872, 368);
+            button1.Location = new System.Drawing.Point(611, 216);
+            button1.Margin = new System.Windows.Forms.Padding(2);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(112, 45);
+            button1.Size = new System.Drawing.Size(78, 27);
             button1.TabIndex = 1;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCerrar
             // 
-            button2.BackColor = System.Drawing.Color.Firebrick;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button2.Location = new System.Drawing.Point(990, 368);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(105, 45);
-            button2.TabIndex = 2;
-            button2.Text = "Cerrar";
-            button2.UseVisualStyleBackColor = false;
+            btnCerrar.BackColor = System.Drawing.Color.Firebrick;
+            btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCerrar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCerrar.Location = new System.Drawing.Point(693, 216);
+            btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new System.Drawing.Size(74, 27);
+            btnCerrar.TabIndex = 2;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // dgvMaterias
             // 
@@ -122,14 +130,15 @@
             dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, HsSemanales, HsTotales, Editar, Eliminar });
             tlpMaterias.SetColumnSpan(dgvMaterias, 2);
             dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvMaterias.Location = new System.Drawing.Point(3, 40);
+            dgvMaterias.Location = new System.Drawing.Point(2, 28);
+            dgvMaterias.Margin = new System.Windows.Forms.Padding(2);
             dgvMaterias.MultiSelect = false;
             dgvMaterias.Name = "dgvMaterias";
             dgvMaterias.ReadOnly = true;
             dgvMaterias.RowHeadersWidth = 62;
             dgvMaterias.RowTemplate.Height = 33;
             dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvMaterias.Size = new System.Drawing.Size(1092, 322);
+            dgvMaterias.Size = new System.Drawing.Size(765, 184);
             dgvMaterias.TabIndex = 0;
             dgvMaterias.CellClick += dgvMaterias_CellClick;
             // 
@@ -207,9 +216,10 @@
             tlpMaterias.SetColumnSpan(lblTituloMaterias, 2);
             lblTituloMaterias.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTituloMaterias.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblTituloMaterias.Location = new System.Drawing.Point(3, 0);
+            lblTituloMaterias.Location = new System.Drawing.Point(2, 0);
+            lblTituloMaterias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblTituloMaterias.Name = "lblTituloMaterias";
-            lblTituloMaterias.Size = new System.Drawing.Size(1092, 37);
+            lblTituloMaterias.Size = new System.Drawing.Size(765, 26);
             lblTituloMaterias.TabIndex = 3;
             lblTituloMaterias.Text = "Materias del plan ";
             lblTituloMaterias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,7 +231,7 @@
             toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tslCrearMateria });
             toolStrip1.Location = new System.Drawing.Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(185, 34);
+            toolStrip1.Size = new System.Drawing.Size(94, 25);
             toolStrip1.TabIndex = 0;
             // 
             // tslCrearMateria
@@ -230,16 +240,22 @@
             tslCrearMateria.Image = (System.Drawing.Image)resources.GetObject("tslCrearMateria.Image");
             tslCrearMateria.ImageTransparentColor = System.Drawing.Color.Magenta;
             tslCrearMateria.Name = "tslCrearMateria";
-            tslCrearMateria.Size = new System.Drawing.Size(121, 29);
+            tslCrearMateria.Size = new System.Drawing.Size(82, 22);
             tslCrearMateria.Text = "Crear materia";
             tslCrearMateria.Click += tslCrearMateria_Click;
             // 
+            // niAlerta
+            // 
+            niAlerta.Icon = (System.Drawing.Icon)resources.GetObject("niAlerta.Icon");
+            niAlerta.Visible = true;
+            // 
             // Materias
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1098, 450);
+            ClientSize = new System.Drawing.Size(769, 270);
             Controls.Add(tscMaterias);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Materias";
             Text = "Materias";
             Load += Materias_Load;
@@ -262,7 +278,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpMaterias;
         private System.Windows.Forms.DataGridView dgvMaterias;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Label lblTituloMaterias;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
@@ -272,5 +288,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.ToolStripButton tslCrearMateria;
+        private System.Windows.Forms.NotifyIcon niAlerta;
     }
 }

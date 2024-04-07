@@ -18,7 +18,6 @@ namespace UI.Desktop
     public partial class ComisionDesktop : ApplicationForm
     {
 
-        private BindingSource dataSource;
         private Plan Plan { get; set; }
 
         private MasterForm MasterForm => this.MdiParent as MasterForm;
@@ -55,9 +54,11 @@ namespace UI.Desktop
             switch (modo)
             {
                 case ModoForm.Modificacion:
+                    this.Comision = this.ComisionLogic.GetOne(id);
                     EditDescription();
                     break;
                 case ModoForm.Baja:
+                    this.Comision = this.ComisionLogic.GetOne(id);
                     DeleteDescription();
                     break;
             }
@@ -73,6 +74,9 @@ namespace UI.Desktop
             btnSeleccionarPlan.Enabled = false;
             lblComision.Text = "Borrar comisión";
             Text = "Borrar comisión";
+            this.txtDescripcion.TextBox.Text = Comision.Descripcion;
+            this.nudAño.NumericUpDown.Value = Comision.AnioEspecialidad;
+            this.txtPlan.TextBox.Text = Comision.Plan.Descripcion;
         }
 
         private void NewDescription()
@@ -85,12 +89,15 @@ namespace UI.Desktop
         {
             Text = "Modificar comisión";
             lblComision.Text = "Modificar comisión";
+            this.txtDescripcion.TextBox.Text = Comision.Descripcion;
+            this.nudAño.NumericUpDown.Value = Comision.AnioEspecialidad;
+            this.txtPlan.TextBox.Text = Comision.Plan.Descripcion;      
         }
 
         private void Save()
         {
-
-
+            this.Comision.Descripcion = txtDescripcion.TextBox.Text;
+            this.Comision.AnioEspecialidad = (int)nudAño.NumericUpDown.Value;
             string mensajeAlerta;
 
             if (Modo == ModoForm.Alta)
@@ -105,7 +112,7 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                Comision.PlanId = Plan.Id;
+
                 var resultValidation = validator.Validate(Comision);
                 if (resultValidation.IsValid)
                 {
@@ -125,9 +132,19 @@ namespace UI.Desktop
                 {
                     foreach (var error in resultValidation.Errors)
                     {
-                        if (error.PropertyName == nameof(Especialidad.Descripcion))
+                        if (error.PropertyName == nameof(Comision.PlanId))
+                        {
+                            this.txtPlan.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Comision.Descripcion))
                         {
                             this.txtDescripcion.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Comision.AnioEspecialidad))
+                        {
+                            this.nudAño.LabelError.Text = error.ErrorMessage;
                         }
                     }
                 }
@@ -149,15 +166,13 @@ namespace UI.Desktop
 
         private void ComisionDesktop_Load(object sender, EventArgs e)
         {
-            dataSource = new BindingSource { Comision };
-            txtDescripcion.TextBox.DataBindings.Add("Text", dataSource, nameof(Comision.Descripcion));
-            txtPlan.ReadOnly = true;
-            nudAño.DataBindings.Add("Value", dataSource, nameof(Comision.AnioEspecialidad));
+
+            txtPlan.TextBox.ReadOnly = true;
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Comision = dataSource.Current as Comision;
             switch (Modo)
             {
                 case ModoForm.Modificacion:
@@ -185,10 +200,14 @@ namespace UI.Desktop
             if (result == DialogResult.OK)
             {
                 Plan = form.PlanObj;
-                txtPlan.Text = Plan.Descripcion;
+                Comision.PlanId = Plan.Id;
+                txtPlan.TextBox.Text = Plan.Descripcion;
             }
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

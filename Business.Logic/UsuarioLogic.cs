@@ -26,7 +26,7 @@ namespace Business.Logic
         public Usuario GetOne(string nombreUsario, string clave)
         {
             List<string> errors = new List<string>();
-            var usuario = UsuarioAdapter.GetOneByString(nombreUsario);
+            var usuario = UsuarioAdapter.GetByCredenciales(nombreUsario, clave);
             if (usuario == null)
             {
                 throw new Exception("No existe el cliente con el nombre de usuario ingresado");
@@ -38,7 +38,7 @@ namespace Business.Logic
                     throw new Exception("La clave ingresada es incorrecta");
                 }
             }
-            return new Usuario() { Id = usuario.Id, NombreUsuario = usuario.NombreUsuario };
+            return usuario;
         }
 
         public Usuario Save(Usuario usuario)

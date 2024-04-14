@@ -13,13 +13,13 @@ namespace UI.Desktop
 
         private ApplicationForm Form { get; set; }
 
-        private List<string> Autorizacion { get; set; }
+        public List<string> Autorizacion { get; set; }
 
         public MasterForm()
         {
             InitializeComponent();
             Master = this;
-         
+
         }
 
         public MasterForm(Usuario usuario) : base()
@@ -29,6 +29,7 @@ namespace UI.Desktop
             UsuarioActual = usuario;
             this.Autorizacion = new List<string>();
             Permisos();
+            this.OpenForm(new Inicio());
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,7 +144,12 @@ namespace UI.Desktop
 
         private void MasterForm_Load(object sender, EventArgs e)
         {
-           
+            
+        }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(new Inicio());
         }
     }
 }

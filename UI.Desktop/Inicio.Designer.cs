@@ -45,17 +45,18 @@
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 425F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 298F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 1);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.86667F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.1333351F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(1143, 750);
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.53384F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.4661655F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(800, 592);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -69,16 +70,18 @@
             flowLayoutPanel1.Controls.Add(btnUsuarios);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new System.Drawing.Point(362, 103);
+            flowLayoutPanel1.Location = new System.Drawing.Point(253, 62);
+            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(419, 435);
+            flowLayoutPanel1.Size = new System.Drawing.Size(294, 467);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // btnEspecialidades
             // 
-            btnEspecialidades.Location = new System.Drawing.Point(3, 3);
+            btnEspecialidades.Location = new System.Drawing.Point(2, 2);
+            btnEspecialidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnEspecialidades.Name = "btnEspecialidades";
-            btnEspecialidades.Size = new System.Drawing.Size(416, 34);
+            btnEspecialidades.Size = new System.Drawing.Size(291, 61);
             btnEspecialidades.TabIndex = 0;
             btnEspecialidades.Text = "Especialidades";
             btnEspecialidades.UseVisualStyleBackColor = true;
@@ -86,9 +89,10 @@
             // 
             // btnPlanes
             // 
-            btnPlanes.Location = new System.Drawing.Point(3, 43);
+            btnPlanes.Location = new System.Drawing.Point(2, 67);
+            btnPlanes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnPlanes.Name = "btnPlanes";
-            btnPlanes.Size = new System.Drawing.Size(416, 34);
+            btnPlanes.Size = new System.Drawing.Size(291, 57);
             btnPlanes.TabIndex = 1;
             btnPlanes.Text = "Planes";
             btnPlanes.UseVisualStyleBackColor = true;
@@ -97,9 +101,10 @@
             // 
             // btnCursos
             // 
-            btnCursos.Location = new System.Drawing.Point(3, 83);
+            btnCursos.Location = new System.Drawing.Point(2, 128);
+            btnCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnCursos.Name = "btnCursos";
-            btnCursos.Size = new System.Drawing.Size(416, 34);
+            btnCursos.Size = new System.Drawing.Size(291, 60);
             btnCursos.TabIndex = 2;
             btnCursos.Text = "Cursos";
             btnCursos.UseVisualStyleBackColor = true;
@@ -107,9 +112,10 @@
             // 
             // btnComisiones
             // 
-            btnComisiones.Location = new System.Drawing.Point(3, 123);
+            btnComisiones.Location = new System.Drawing.Point(2, 192);
+            btnComisiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnComisiones.Name = "btnComisiones";
-            btnComisiones.Size = new System.Drawing.Size(416, 34);
+            btnComisiones.Size = new System.Drawing.Size(291, 57);
             btnComisiones.TabIndex = 3;
             btnComisiones.Text = "Comisiones";
             btnComisiones.UseVisualStyleBackColor = true;
@@ -117,9 +123,10 @@
             // 
             // btnProfesores
             // 
-            btnProfesores.Location = new System.Drawing.Point(3, 163);
+            btnProfesores.Location = new System.Drawing.Point(2, 253);
+            btnProfesores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnProfesores.Name = "btnProfesores";
-            btnProfesores.Size = new System.Drawing.Size(416, 34);
+            btnProfesores.Size = new System.Drawing.Size(291, 60);
             btnProfesores.TabIndex = 4;
             btnProfesores.Text = "Profesores";
             btnProfesores.UseVisualStyleBackColor = true;
@@ -127,9 +134,10 @@
             // 
             // btnAlumnos
             // 
-            btnAlumnos.Location = new System.Drawing.Point(3, 203);
+            btnAlumnos.Location = new System.Drawing.Point(2, 317);
+            btnAlumnos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnAlumnos.Name = "btnAlumnos";
-            btnAlumnos.Size = new System.Drawing.Size(416, 34);
+            btnAlumnos.Size = new System.Drawing.Size(291, 61);
             btnAlumnos.TabIndex = 5;
             btnAlumnos.Text = "Alumnos";
             btnAlumnos.UseVisualStyleBackColor = true;
@@ -137,9 +145,10 @@
             // 
             // btnUsuarios
             // 
-            btnUsuarios.Location = new System.Drawing.Point(3, 243);
+            btnUsuarios.Location = new System.Drawing.Point(2, 382);
+            btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new System.Drawing.Size(416, 34);
+            btnUsuarios.Size = new System.Drawing.Size(291, 61);
             btnUsuarios.TabIndex = 6;
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.UseVisualStyleBackColor = true;
@@ -147,11 +156,10 @@
             // 
             // Inicio
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1143, 750);
+            ClientSize = new System.Drawing.Size(800, 592);
             Controls.Add(tableLayoutPanel1);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "Inicio";
             Text = "Inicio";
             Load += Inicio_Load;

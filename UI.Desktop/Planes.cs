@@ -16,7 +16,7 @@ namespace UI.Desktop
     public partial class Planes : ApplicationForm
     {
         private PlanLogic PlanLogic => new PlanLogic();
-        private MasterForm MasterForm = Application.OpenForms["MasterForm"] as MasterForm;
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
         private List<Especialidad> EspecialidadLista = new List<Especialidad>();
         private List<Plan> PlanesLista = new List<Plan>();
         private EspecialidadLogic EspecialidadLogic => new EspecialidadLogic();
@@ -91,6 +91,11 @@ namespace UI.Desktop
         {
             dgvPlanes.DataSource = PlanesLista.Where(x => x.EspecialidadId == (int)cbEspecialidades.SelectedValue).ToList();
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.MasterForm.OpenForm(new Inicio());
         }
     }
 }

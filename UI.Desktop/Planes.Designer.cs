@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             tscPlanes = new System.Windows.Forms.ToolStripContainer();
             tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             btnActualizar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
             dgvPlanes = new System.Windows.Forms.DataGridView();
-            lblEspecialidades = new System.Windows.Forms.Label();
-            cbEspecialidades = new System.Windows.Forms.ComboBox();
-            toolStrip1 = new System.Windows.Forms.ToolStrip();
-            tsNuevo = new System.Windows.Forms.ToolStripButton();
-            niPlanes = new System.Windows.Forms.NotifyIcon(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Materias = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            lblEspecialidades = new System.Windows.Forms.Label();
+            cbEspecialidades = new System.Windows.Forms.ComboBox();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tsNuevo = new System.Windows.Forms.ToolStripButton();
+            niPlanes = new System.Windows.Forms.NotifyIcon(components);
             tscPlanes.ContentPanel.SuspendLayout();
             tscPlanes.TopToolStripPanel.SuspendLayout();
             tscPlanes.SuspendLayout();
@@ -104,7 +104,7 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(588, 437);
+            btnActualizar.Location = new System.Drawing.Point(531, 437);
             btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new System.Drawing.Size(78, 27);
@@ -118,13 +118,14 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(670, 437);
+            btnCancelar.Location = new System.Drawing.Point(613, 437);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(78, 27);
+            btnCancelar.Size = new System.Drawing.Size(135, 27);
             btnCancelar.TabIndex = 2;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Volver al inicio";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // dgvPlanes
             // 
@@ -146,6 +147,74 @@
             dgvPlanes.Size = new System.Drawing.Size(746, 402);
             dgvPlanes.TabIndex = 0;
             dgvPlanes.CellClick += dgvPlanes_CellClick;
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.FillWeight = 4F;
+            Id.HeaderText = "ID";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // Descripcion
+            // 
+            Descripcion.DataPropertyName = "Descripcion";
+            Descripcion.FillWeight = 40F;
+            Descripcion.HeaderText = "Plan";
+            Descripcion.MinimumWidth = 8;
+            Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
+            Descripcion.ToolTipText = "Nombre del plan";
+            // 
+            // Especialidad
+            // 
+            Especialidad.DataPropertyName = "Especialidad.Descripcion";
+            Especialidad.FillWeight = 40F;
+            Especialidad.HeaderText = "Especialidad";
+            Especialidad.MinimumWidth = 8;
+            Especialidad.Name = "Especialidad";
+            Especialidad.ReadOnly = true;
+            Especialidad.ToolTipText = "Nombre de especialidad";
+            // 
+            // Materias
+            // 
+            Materias.FillWeight = 10F;
+            Materias.HeaderText = "Ver materias";
+            Materias.MinimumWidth = 10;
+            Materias.Name = "Materias";
+            Materias.ReadOnly = true;
+            Materias.Text = "Ver materias";
+            Materias.ToolTipText = "Muestra las materias del plan";
+            Materias.UseColumnTextForButtonValue = true;
+            // 
+            // Editar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Editar";
+            Editar.DefaultCellStyle = dataGridViewCellStyle2;
+            Editar.FillWeight = 8F;
+            Editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.FillWeight = 8F;
+            Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // lblEspecialidades
             // 
@@ -191,74 +260,6 @@
             // niPlanes
             // 
             niPlanes.Visible = true;
-            // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.FillWeight = 4F;
-            Id.HeaderText = "ID";
-            Id.MinimumWidth = 8;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // Descripcion
-            // 
-            Descripcion.DataPropertyName = "Descripcion";
-            Descripcion.FillWeight = 40F;
-            Descripcion.HeaderText = "Plan";
-            Descripcion.MinimumWidth = 8;
-            Descripcion.Name = "Descripcion";
-            Descripcion.ReadOnly = true;
-            Descripcion.ToolTipText = "Nombre del plan";
-            // 
-            // Especialidad
-            // 
-            Especialidad.DataPropertyName = "Especialidad.Descripcion";
-            Especialidad.FillWeight = 40F;
-            Especialidad.HeaderText = "Especialidad";
-            Especialidad.MinimumWidth = 8;
-            Especialidad.Name = "Especialidad";
-            Especialidad.ReadOnly = true;
-            Especialidad.ToolTipText = "Nombre de especialidad";
-            // 
-            // Materias
-            // 
-            Materias.FillWeight = 10F;
-            Materias.HeaderText = "Ver materias";
-            Materias.MinimumWidth = 10;
-            Materias.Name = "Materias";
-            Materias.ReadOnly = true;
-            Materias.Text = "Ver materias";
-            Materias.ToolTipText = "Muestra las materias del plan";
-            Materias.UseColumnTextForButtonValue = true;
-            // 
-            // Editar
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "Editar";
-            Editar.DefaultCellStyle = dataGridViewCellStyle1;
-            Editar.FillWeight = 8F;
-            Editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            Editar.HeaderText = "";
-            Editar.MinimumWidth = 8;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            Editar.Text = "Editar";
-            Editar.UseColumnTextForButtonValue = true;
-            // 
-            // Eliminar
-            // 
-            Eliminar.FillWeight = 8F;
-            Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            Eliminar.HeaderText = "";
-            Eliminar.MinimumWidth = 8;
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
-            Eliminar.Text = "Eliminar";
-            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // Planes
             // 

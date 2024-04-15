@@ -186,7 +186,7 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(721, 458);
+            btnActualizar.Location = new System.Drawing.Point(689, 458);
             btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new System.Drawing.Size(78, 31);
@@ -200,12 +200,12 @@
             btnSalir.BackColor = System.Drawing.Color.Firebrick;
             btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnSalir.Location = new System.Drawing.Point(803, 458);
+            btnSalir.Location = new System.Drawing.Point(771, 458);
             btnSalir.Margin = new System.Windows.Forms.Padding(2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new System.Drawing.Size(78, 31);
+            btnSalir.Size = new System.Drawing.Size(110, 31);
             btnSalir.TabIndex = 2;
-            btnSalir.Text = "Salir";
+            btnSalir.Text = "Volver al inicio";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 

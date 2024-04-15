@@ -35,7 +35,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.MasterForm.OpenForm(new Inicio());
         }
 
         private void tsNuevo_Click(object sender, EventArgs e)

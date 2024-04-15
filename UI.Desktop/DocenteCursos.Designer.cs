@@ -44,7 +44,7 @@
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
+            btnSalir = new System.Windows.Forms.Button();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             tsNuevo = new System.Windows.Forms.ToolStripButton();
             Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,13 +66,11 @@
             // tscDocenteCursos.ContentPanel
             // 
             tscDocenteCursos.ContentPanel.Controls.Add(tlpDocenteCursos);
-            tscDocenteCursos.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            tscDocenteCursos.ContentPanel.Size = new System.Drawing.Size(1143, 716);
+            tscDocenteCursos.ContentPanel.Size = new System.Drawing.Size(800, 425);
             tscDocenteCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             tscDocenteCursos.Location = new System.Drawing.Point(0, 0);
-            tscDocenteCursos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tscDocenteCursos.Name = "tscDocenteCursos";
-            tscDocenteCursos.Size = new System.Drawing.Size(1143, 750);
+            tscDocenteCursos.Size = new System.Drawing.Size(800, 450);
             tscDocenteCursos.TabIndex = 0;
             tscDocenteCursos.Text = "toolStripContainer1";
             // 
@@ -88,15 +86,14 @@
             tlpDocenteCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpDocenteCursos.Controls.Add(dgvDocenteCursos, 0, 0);
             tlpDocenteCursos.Controls.Add(button1, 0, 1);
-            tlpDocenteCursos.Controls.Add(button2, 1, 1);
+            tlpDocenteCursos.Controls.Add(btnSalir, 1, 1);
             tlpDocenteCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpDocenteCursos.Location = new System.Drawing.Point(0, 0);
-            tlpDocenteCursos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tlpDocenteCursos.Name = "tlpDocenteCursos";
             tlpDocenteCursos.RowCount = 2;
             tlpDocenteCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpDocenteCursos.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpDocenteCursos.Size = new System.Drawing.Size(1143, 716);
+            tlpDocenteCursos.Size = new System.Drawing.Size(800, 425);
             tlpDocenteCursos.TabIndex = 0;
             // 
             // dgvDocenteCursos
@@ -109,14 +106,13 @@
             dgvDocenteCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Comision, Column3, LegajoDocente, ApellidoDocente, NombreDocente, dataGridViewTextBoxColumn1, Editar, Borrar });
             tlpDocenteCursos.SetColumnSpan(dgvDocenteCursos, 2);
             dgvDocenteCursos.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvDocenteCursos.Location = new System.Drawing.Point(4, 5);
-            dgvDocenteCursos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dgvDocenteCursos.Location = new System.Drawing.Point(3, 3);
             dgvDocenteCursos.MultiSelect = false;
             dgvDocenteCursos.Name = "dgvDocenteCursos";
             dgvDocenteCursos.ReadOnly = true;
             dgvDocenteCursos.RowHeadersWidth = 62;
             dgvDocenteCursos.RowTemplate.Height = 25;
-            dgvDocenteCursos.Size = new System.Drawing.Size(1135, 641);
+            dgvDocenteCursos.Size = new System.Drawing.Size(794, 380);
             dgvDocenteCursos.TabIndex = 0;
             dgvDocenteCursos.CellContentClick += dgvDocenteCursos_CellContentClick;
             // 
@@ -207,27 +203,25 @@
             button1.BackColor = System.Drawing.Color.Green;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button1.Location = new System.Drawing.Point(894, 656);
-            button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            button1.Location = new System.Drawing.Point(596, 389);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(117, 55);
+            button1.Size = new System.Drawing.Size(82, 33);
             button1.TabIndex = 1;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnSalir
             // 
-            button2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            button2.BackColor = System.Drawing.Color.Firebrick;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button2.Location = new System.Drawing.Point(1019, 656);
-            button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(120, 55);
-            button2.TabIndex = 2;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
+            btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSalir.BackColor = System.Drawing.Color.Firebrick;
+            btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnSalir.Location = new System.Drawing.Point(684, 389);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new System.Drawing.Size(113, 33);
+            btnSalir.TabIndex = 2;
+            btnSalir.Text = "Volver al inicio";
+            btnSalir.UseVisualStyleBackColor = false;
             // 
             // toolStrip1
             // 
@@ -236,7 +230,7 @@
             toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
             toolStrip1.Location = new System.Drawing.Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(173, 34);
+            toolStrip1.Size = new System.Drawing.Size(117, 25);
             toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
@@ -245,7 +239,7 @@
             tsNuevo.Image = (System.Drawing.Image)resources.GetObject("tsNuevo.Image");
             tsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsNuevo.Name = "tsNuevo";
-            tsNuevo.Size = new System.Drawing.Size(155, 29);
+            tsNuevo.Size = new System.Drawing.Size(105, 22);
             tsNuevo.Text = "Nueva asignación";
             tsNuevo.Click += tsNuevo_Click;
             // 
@@ -293,11 +287,10 @@
             // 
             // DocenteCursos
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1143, 750);
+            ClientSize = new System.Drawing.Size(800, 450);
             Controls.Add(tscDocenteCursos);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "DocenteCursos";
             Text = "DocenteCursos";
             Load += DocenteCursos_Load;
@@ -319,7 +312,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpDocenteCursos;
         private System.Windows.Forms.DataGridView dgvDocenteCursos;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsNuevo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Curso;

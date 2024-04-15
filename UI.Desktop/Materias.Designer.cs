@@ -60,12 +60,12 @@
             // 
             tscMaterias.ContentPanel.Controls.Add(tlpMaterias);
             tscMaterias.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            tscMaterias.ContentPanel.Size = new System.Drawing.Size(769, 245);
+            tscMaterias.ContentPanel.Size = new System.Drawing.Size(769, 259);
             tscMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             tscMaterias.Location = new System.Drawing.Point(0, 0);
             tscMaterias.Margin = new System.Windows.Forms.Padding(2);
             tscMaterias.Name = "tscMaterias";
-            tscMaterias.Size = new System.Drawing.Size(769, 270);
+            tscMaterias.Size = new System.Drawing.Size(769, 284);
             tscMaterias.TabIndex = 0;
             tscMaterias.Text = "toolStripContainer1";
             // 
@@ -91,7 +91,7 @@
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpMaterias.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpMaterias.Size = new System.Drawing.Size(769, 245);
+            tlpMaterias.Size = new System.Drawing.Size(769, 259);
             tlpMaterias.TabIndex = 0;
             // 
             // button1
@@ -100,10 +100,10 @@
             button1.BackColor = System.Drawing.Color.Green;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button1.Location = new System.Drawing.Point(611, 216);
+            button1.Location = new System.Drawing.Point(564, 218);
             button1.Margin = new System.Windows.Forms.Padding(2);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(78, 27);
+            button1.Size = new System.Drawing.Size(78, 39);
             button1.TabIndex = 1;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = false;
@@ -113,12 +113,12 @@
             btnCerrar.BackColor = System.Drawing.Color.Firebrick;
             btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCerrar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCerrar.Location = new System.Drawing.Point(693, 216);
+            btnCerrar.Location = new System.Drawing.Point(646, 218);
             btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new System.Drawing.Size(74, 27);
+            btnCerrar.Size = new System.Drawing.Size(121, 39);
             btnCerrar.TabIndex = 2;
-            btnCerrar.Text = "Cerrar";
+            btnCerrar.Text = "Volver a planes";
             btnCerrar.UseVisualStyleBackColor = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
@@ -138,7 +138,7 @@
             dgvMaterias.RowHeadersWidth = 62;
             dgvMaterias.RowTemplate.Height = 33;
             dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvMaterias.Size = new System.Drawing.Size(765, 184);
+            dgvMaterias.Size = new System.Drawing.Size(765, 186);
             dgvMaterias.TabIndex = 0;
             dgvMaterias.CellClick += dgvMaterias_CellClick;
             // 
@@ -253,7 +253,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(769, 270);
+            ClientSize = new System.Drawing.Size(769, 284);
             Controls.Add(tscMaterias);
             Margin = new System.Windows.Forms.Padding(2);
             Name = "Materias";

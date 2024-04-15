@@ -49,7 +49,7 @@ namespace UI.Desktop
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.MasterForm.OpenForm(new Inicio());
         }
 
         private void Personas_Load(object sender, EventArgs e)

@@ -42,6 +42,8 @@ namespace UI.Desktop
 
             this.lblAlumno.Text = $"{Alumno.Legajo} - {Alumno.Apellido} {Alumno.Nombre}";
             this.lblPlan.Text = $"{Alumno.Plan.Descripcion}";
+
+            this.tsNuevaAsignacion.Visible = !this.MasterForm.Autorizacion.Contains("AlumnoInscripcionAlumno");
         }
 
         private void dgvAlumnoInscripciones_CellContentClick(object sender, DataGridViewCellEventArgs e)

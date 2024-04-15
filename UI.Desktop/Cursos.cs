@@ -30,7 +30,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.MasterForm.OpenForm(new Inicio());
         }
 
         private void Cursos_Load(object sender, EventArgs e)

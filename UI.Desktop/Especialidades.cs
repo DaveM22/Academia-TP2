@@ -53,7 +53,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Mast.OpenForm(new Inicio());
         }
 
         private void btnActualizar_Click_1(object sender, EventArgs e)

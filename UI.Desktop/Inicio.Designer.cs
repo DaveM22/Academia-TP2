@@ -48,18 +48,17 @@
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 298F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 426F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 1);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.2477F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.75229359F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(800, 714);
+            tableLayoutPanel1.Size = new System.Drawing.Size(1206, 1050);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -72,22 +71,20 @@
             flowLayoutPanel1.Controls.Add(btnAlumnos);
             flowLayoutPanel1.Controls.Add(btnUsuarios);
             flowLayoutPanel1.Controls.Add(btnCatedras);
-            flowLayoutPanel1.Controls.Add(btnInscribirse);
             flowLayoutPanel1.Controls.Add(btnInscripciones);
+            flowLayoutPanel1.Controls.Add(btnInscribirse);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new System.Drawing.Point(253, 62);
-            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            flowLayoutPanel1.Location = new System.Drawing.Point(393, 70);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(294, 632);
+            flowLayoutPanel1.Size = new System.Drawing.Size(420, 949);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // btnEspecialidades
             // 
-            btnEspecialidades.Location = new System.Drawing.Point(2, 2);
-            btnEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            btnEspecialidades.Location = new System.Drawing.Point(3, 3);
             btnEspecialidades.Name = "btnEspecialidades";
-            btnEspecialidades.Size = new System.Drawing.Size(291, 61);
+            btnEspecialidades.Size = new System.Drawing.Size(416, 102);
             btnEspecialidades.TabIndex = 0;
             btnEspecialidades.Text = "Especialidades";
             btnEspecialidades.UseVisualStyleBackColor = true;
@@ -95,10 +92,9 @@
             // 
             // btnPlanes
             // 
-            btnPlanes.Location = new System.Drawing.Point(2, 67);
-            btnPlanes.Margin = new System.Windows.Forms.Padding(2);
+            btnPlanes.Location = new System.Drawing.Point(3, 111);
             btnPlanes.Name = "btnPlanes";
-            btnPlanes.Size = new System.Drawing.Size(291, 57);
+            btnPlanes.Size = new System.Drawing.Size(416, 95);
             btnPlanes.TabIndex = 1;
             btnPlanes.Text = "Planes";
             btnPlanes.UseVisualStyleBackColor = true;
@@ -107,10 +103,9 @@
             // 
             // btnCursos
             // 
-            btnCursos.Location = new System.Drawing.Point(2, 128);
-            btnCursos.Margin = new System.Windows.Forms.Padding(2);
+            btnCursos.Location = new System.Drawing.Point(3, 212);
             btnCursos.Name = "btnCursos";
-            btnCursos.Size = new System.Drawing.Size(291, 60);
+            btnCursos.Size = new System.Drawing.Size(416, 100);
             btnCursos.TabIndex = 2;
             btnCursos.Text = "Cursos";
             btnCursos.UseVisualStyleBackColor = true;
@@ -118,10 +113,9 @@
             // 
             // btnComisiones
             // 
-            btnComisiones.Location = new System.Drawing.Point(2, 192);
-            btnComisiones.Margin = new System.Windows.Forms.Padding(2);
+            btnComisiones.Location = new System.Drawing.Point(3, 318);
             btnComisiones.Name = "btnComisiones";
-            btnComisiones.Size = new System.Drawing.Size(291, 57);
+            btnComisiones.Size = new System.Drawing.Size(416, 95);
             btnComisiones.TabIndex = 3;
             btnComisiones.Text = "Comisiones";
             btnComisiones.UseVisualStyleBackColor = true;
@@ -129,10 +123,9 @@
             // 
             // btnProfesores
             // 
-            btnProfesores.Location = new System.Drawing.Point(2, 253);
-            btnProfesores.Margin = new System.Windows.Forms.Padding(2);
+            btnProfesores.Location = new System.Drawing.Point(3, 419);
             btnProfesores.Name = "btnProfesores";
-            btnProfesores.Size = new System.Drawing.Size(291, 60);
+            btnProfesores.Size = new System.Drawing.Size(416, 100);
             btnProfesores.TabIndex = 4;
             btnProfesores.Text = "Profesores";
             btnProfesores.UseVisualStyleBackColor = true;
@@ -140,10 +133,9 @@
             // 
             // btnAlumnos
             // 
-            btnAlumnos.Location = new System.Drawing.Point(2, 317);
-            btnAlumnos.Margin = new System.Windows.Forms.Padding(2);
+            btnAlumnos.Location = new System.Drawing.Point(3, 525);
             btnAlumnos.Name = "btnAlumnos";
-            btnAlumnos.Size = new System.Drawing.Size(291, 61);
+            btnAlumnos.Size = new System.Drawing.Size(416, 102);
             btnAlumnos.TabIndex = 5;
             btnAlumnos.Text = "Alumnos";
             btnAlumnos.UseVisualStyleBackColor = true;
@@ -151,10 +143,9 @@
             // 
             // btnUsuarios
             // 
-            btnUsuarios.Location = new System.Drawing.Point(2, 382);
-            btnUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            btnUsuarios.Location = new System.Drawing.Point(3, 633);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new System.Drawing.Size(291, 61);
+            btnUsuarios.Size = new System.Drawing.Size(416, 102);
             btnUsuarios.TabIndex = 6;
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.UseVisualStyleBackColor = true;
@@ -162,10 +153,9 @@
             // 
             // btnCatedras
             // 
-            btnCatedras.Location = new System.Drawing.Point(2, 447);
-            btnCatedras.Margin = new System.Windows.Forms.Padding(2);
+            btnCatedras.Location = new System.Drawing.Point(3, 741);
             btnCatedras.Name = "btnCatedras";
-            btnCatedras.Size = new System.Drawing.Size(291, 51);
+            btnCatedras.Size = new System.Drawing.Size(416, 85);
             btnCatedras.TabIndex = 7;
             btnCatedras.Text = "Catedras";
             btnCatedras.UseVisualStyleBackColor = true;
@@ -173,9 +163,10 @@
             // 
             // btnInscribirse
             // 
-            btnInscribirse.Location = new System.Drawing.Point(3, 503);
+            btnInscribirse.Location = new System.Drawing.Point(427, 5);
+            btnInscribirse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             btnInscribirse.Name = "btnInscribirse";
-            btnInscribirse.Size = new System.Drawing.Size(290, 53);
+            btnInscribirse.Size = new System.Drawing.Size(414, 88);
             btnInscribirse.TabIndex = 8;
             btnInscribirse.Text = "Inscribirse a nueva materia";
             btnInscribirse.UseVisualStyleBackColor = true;
@@ -183,9 +174,10 @@
             // 
             // btnInscripciones
             // 
-            btnInscripciones.Location = new System.Drawing.Point(3, 562);
+            btnInscripciones.Location = new System.Drawing.Point(4, 834);
+            btnInscripciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             btnInscripciones.Name = "btnInscripciones";
-            btnInscripciones.Size = new System.Drawing.Size(290, 48);
+            btnInscripciones.Size = new System.Drawing.Size(415, 91);
             btnInscripciones.TabIndex = 9;
             btnInscripciones.Text = "Inscripciones";
             btnInscripciones.UseVisualStyleBackColor = true;
@@ -193,10 +185,11 @@
             // 
             // Inicio
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 714);
+            ClientSize = new System.Drawing.Size(1206, 1050);
             Controls.Add(tableLayoutPanel1);
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "Inicio";
             Text = "Inicio";
             Load += Inicio_Load;

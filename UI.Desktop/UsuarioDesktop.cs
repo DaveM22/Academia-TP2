@@ -13,7 +13,7 @@ using static UI.Desktop.ApplicationForm;
 
 namespace UI.Desktop
 {
-    public partial class UsuarioDesktop : Form
+    public partial class UsuarioDesktop : ApplicationForm
     {
         private Usuario Usuario { get; set; }
         private UsuarioLogic UsuarioLogic => new UsuarioLogic();
@@ -24,10 +24,6 @@ namespace UI.Desktop
         }
 
 
-        public UsuarioDesktop(ModoForm modo) : this()
-        {
-            this.ModoForm = modo;
-        }
 
         public void Nuevo()
         {
@@ -63,14 +59,25 @@ namespace UI.Desktop
 
         }
 
-        public UsuarioDesktop(ModoForm modo, int id) : this() 
-        { 
-        
+        public UsuarioDesktop(ModoForm modo, int id) : this()
+        {
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPlan_Click_1(object sender, EventArgs e)
+        {
+            var planform = new PlanSearchForm();
+            planform.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Master.OpenForm(new Inicio());
         }
     }
 }

@@ -39,12 +39,12 @@
             txtApellido = new UserControls.TextBoxConValidacion();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            txtPlan = new UserControls.TextBoxConValidacion();
-            button1 = new System.Windows.Forms.Button();
             btnGuardar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
-            Email = new System.Windows.Forms.Label();
+            txtPlan = new UserControls.TextBoxConValidacion();
+            label6 = new System.Windows.Forms.Label();
+            btnPlan = new System.Windows.Forms.Button();
+            lblEmail = new System.Windows.Forms.Label();
             txtEmail = new System.Windows.Forms.TextBox();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -71,8 +71,8 @@
             tableLayoutPanel1.Controls.Add(btnCancelar, 3, 8);
             tableLayoutPanel1.Controls.Add(txtPlan, 2, 7);
             tableLayoutPanel1.Controls.Add(label6, 1, 7);
-            tableLayoutPanel1.Controls.Add(button1, 3, 7);
-            tableLayoutPanel1.Controls.Add(Email, 1, 6);
+            tableLayoutPanel1.Controls.Add(btnPlan, 3, 7);
+            tableLayoutPanel1.Controls.Add(lblEmail, 1, 6);
             tableLayoutPanel1.Controls.Add(txtEmail, 2, 6);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -85,8 +85,8 @@
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             tableLayoutPanel1.Size = new System.Drawing.Size(1041, 547);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -172,40 +172,15 @@
             label5.TabIndex = 9;
             label5.Text = "Apellido";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(199, 420);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(45, 25);
-            label6.TabIndex = 10;
-            label6.Text = "Plan";
-            // 
-            // txtPlan
-            // 
-            txtPlan.Location = new System.Drawing.Point(395, 423);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new System.Drawing.Size(288, 51);
-            txtPlan.TabIndex = 11;
-            // 
-            // button1
-            // 
-            button1.Location = new System.Drawing.Point(689, 423);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(152, 42);
-            button1.TabIndex = 12;
-            button1.Text = "Seleccionar plan";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // btnGuardar
             // 
             btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnGuardar.BackColor = System.Drawing.Color.Green;
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnGuardar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnGuardar.Location = new System.Drawing.Point(571, 480);
+            btnGuardar.Location = new System.Drawing.Point(571, 501);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new System.Drawing.Size(112, 48);
+            btnGuardar.Size = new System.Drawing.Size(112, 43);
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -216,21 +191,48 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(689, 480);
+            btnCancelar.Location = new System.Drawing.Point(689, 501);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(112, 48);
+            btnCancelar.Size = new System.Drawing.Size(112, 43);
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // Email
+            // txtPlan
             // 
-            Email.AutoSize = true;
-            Email.Location = new System.Drawing.Point(199, 356);
-            Email.Name = "Email";
-            Email.Size = new System.Drawing.Size(59, 25);
-            Email.TabIndex = 15;
-            Email.Text = "label7";
+            txtPlan.Location = new System.Drawing.Point(395, 423);
+            txtPlan.Name = "txtPlan";
+            txtPlan.Size = new System.Drawing.Size(288, 72);
+            txtPlan.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(199, 420);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(45, 25);
+            label6.TabIndex = 10;
+            label6.Text = "Plan";
+            // 
+            // btnPlan
+            // 
+            btnPlan.Location = new System.Drawing.Point(689, 423);
+            btnPlan.Name = "btnPlan";
+            btnPlan.Size = new System.Drawing.Size(152, 42);
+            btnPlan.TabIndex = 12;
+            btnPlan.Text = "Seleccionar plan";
+            btnPlan.UseVisualStyleBackColor = true;
+            btnPlan.Click += btnPlan_Click_1;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new System.Drawing.Point(199, 356);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new System.Drawing.Size(54, 25);
+            lblEmail.TabIndex = 15;
+            lblEmail.Text = "Email";
             // 
             // txtEmail
             // 
@@ -267,10 +269,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private UserControls.TextBoxConValidacion txtPlan;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPlan;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label Email;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
     }
 }

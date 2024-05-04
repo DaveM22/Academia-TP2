@@ -35,9 +35,10 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new System.Drawing.Point(0, 3);
+            numericUpDown1.Location = new System.Drawing.Point(0, 2);
+            numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new System.Drawing.Size(152, 31);
+            numericUpDown1.Size = new System.Drawing.Size(106, 23);
             numericUpDown1.TabIndex = 0;
             numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -45,19 +46,21 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = System.Drawing.Color.Red;
-            label1.Location = new System.Drawing.Point(0, 36);
+            label1.Location = new System.Drawing.Point(0, 22);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(0, 25);
+            label1.Size = new System.Drawing.Size(0, 15);
             label1.TabIndex = 1;
             // 
             // NumericUpDownValidation
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(label1);
             Controls.Add(numericUpDown1);
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             Name = "NumericUpDownValidation";
-            Size = new System.Drawing.Size(344, 62);
+            Size = new System.Drawing.Size(241, 46);
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();

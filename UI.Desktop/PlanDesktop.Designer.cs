@@ -249,6 +249,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
             ClientSize = new System.Drawing.Size(771, 310);
             Controls.Add(tlpPlanes);
             ForeColor = System.Drawing.SystemColors.ActiveCaption;

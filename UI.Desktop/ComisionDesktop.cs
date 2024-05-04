@@ -91,7 +91,7 @@ namespace UI.Desktop
             lblComision.Text = "Modificar comisión";
             this.txtDescripcion.TextBox.Text = Comision.Descripcion;
             this.nudAño.NumericUpDown.Value = Comision.AnioEspecialidad;
-            this.txtPlan.TextBox.Text = Comision.Plan.Descripcion;      
+            this.txtPlan.TextBox.Text = Comision.Plan.Descripcion;
         }
 
         private void Save()

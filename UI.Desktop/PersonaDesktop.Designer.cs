@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonaDesktop));
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             lblTitulo = new System.Windows.Forms.Label();
             btnGuardar = new System.Windows.Forms.Button();
@@ -49,6 +51,7 @@
             txtApellido = new UserControls.TextBoxConValidacion();
             lblLegajo = new System.Windows.Forms.Label();
             nudLegajo = new System.Windows.Forms.NumericUpDown();
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudLegajo).BeginInit();
             SuspendLayout();
@@ -89,14 +92,14 @@
             tableLayoutPanel1.RowCount = 10;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             tableLayoutPanel1.Size = new System.Drawing.Size(778, 446);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -120,7 +123,7 @@
             btnGuardar.BackColor = System.Drawing.Color.Green;
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnGuardar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnGuardar.Location = new System.Drawing.Point(365, 373);
+            btnGuardar.Location = new System.Drawing.Point(365, 406);
             btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new System.Drawing.Size(102, 32);
@@ -134,7 +137,7 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(471, 373);
+            btnCancelar.Location = new System.Drawing.Point(471, 406);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new System.Drawing.Size(100, 32);
@@ -145,15 +148,15 @@
             // 
             // txtPlan
             // 
-            txtPlan.Location = new System.Drawing.Point(252, 325);
+            txtPlan.Location = new System.Drawing.Point(252, 355);
             txtPlan.Margin = new System.Windows.Forms.Padding(1);
             txtPlan.Name = "txtPlan";
-            txtPlan.Size = new System.Drawing.Size(214, 38);
+            txtPlan.Size = new System.Drawing.Size(214, 45);
             txtPlan.TabIndex = 14;
             // 
             // btnSeleccionarPlan
             // 
-            btnSeleccionarPlan.Location = new System.Drawing.Point(471, 326);
+            btnSeleccionarPlan.Location = new System.Drawing.Point(471, 356);
             btnSeleccionarPlan.Margin = new System.Windows.Forms.Padding(2);
             btnSeleccionarPlan.Name = "btnSeleccionarPlan";
             btnSeleccionarPlan.Size = new System.Drawing.Size(129, 25);
@@ -166,7 +169,7 @@
             // 
             lblPlan.AutoSize = true;
             lblPlan.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblPlan.Location = new System.Drawing.Point(177, 324);
+            lblPlan.Location = new System.Drawing.Point(177, 354);
             lblPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPlan.Name = "lblPlan";
             lblPlan.Size = new System.Drawing.Size(30, 15);
@@ -177,7 +180,7 @@
             // 
             lblFechaNacimiento.AutoSize = true;
             lblFechaNacimiento.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblFechaNacimiento.Location = new System.Drawing.Point(177, 282);
+            lblFechaNacimiento.Location = new System.Drawing.Point(177, 305);
             lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
             lblFechaNacimiento.Size = new System.Drawing.Size(67, 30);
@@ -186,7 +189,7 @@
             // 
             // dtFechaNacimiento
             // 
-            dtFechaNacimiento.Location = new System.Drawing.Point(253, 284);
+            dtFechaNacimiento.Location = new System.Drawing.Point(253, 307);
             dtFechaNacimiento.Margin = new System.Windows.Forms.Padding(2);
             dtFechaNacimiento.Name = "dtFechaNacimiento";
             dtFechaNacimiento.Size = new System.Drawing.Size(214, 23);
@@ -196,7 +199,7 @@
             // 
             lblEmail.AutoSize = true;
             lblEmail.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblEmail.Location = new System.Drawing.Point(177, 241);
+            lblEmail.Location = new System.Drawing.Point(177, 259);
             lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new System.Drawing.Size(36, 15);
@@ -205,7 +208,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new System.Drawing.Point(252, 242);
+            txtEmail.Location = new System.Drawing.Point(252, 260);
             txtEmail.Margin = new System.Windows.Forms.Padding(1);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new System.Drawing.Size(214, 39);
@@ -215,7 +218,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            label3.Location = new System.Drawing.Point(177, 198);
+            label3.Location = new System.Drawing.Point(177, 215);
             label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(52, 15);
@@ -224,7 +227,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new System.Drawing.Point(252, 199);
+            txtTelefono.Location = new System.Drawing.Point(252, 216);
             txtTelefono.Margin = new System.Windows.Forms.Padding(1);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new System.Drawing.Size(214, 39);
@@ -234,7 +237,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            label2.Location = new System.Drawing.Point(177, 155);
+            label2.Location = new System.Drawing.Point(177, 170);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(57, 15);
@@ -243,7 +246,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new System.Drawing.Point(252, 156);
+            txtDireccion.Location = new System.Drawing.Point(252, 171);
             txtDireccion.Margin = new System.Windows.Forms.Padding(1);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new System.Drawing.Size(214, 40);
@@ -253,7 +256,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblNombre.Location = new System.Drawing.Point(177, 112);
+            lblNombre.Location = new System.Drawing.Point(177, 118);
             lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new System.Drawing.Size(51, 15);
@@ -262,10 +265,10 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new System.Drawing.Point(252, 113);
+            txtNombre.Location = new System.Drawing.Point(252, 119);
             txtNombre.Margin = new System.Windows.Forms.Padding(1);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new System.Drawing.Size(214, 38);
+            txtNombre.Size = new System.Drawing.Size(214, 50);
             txtNombre.TabIndex = 4;
             // 
             // lblApellido
@@ -284,7 +287,7 @@
             txtApellido.Location = new System.Drawing.Point(252, 71);
             txtApellido.Margin = new System.Windows.Forms.Padding(1);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new System.Drawing.Size(214, 38);
+            txtApellido.Size = new System.Drawing.Size(214, 46);
             txtApellido.TabIndex = 1;
             // 
             // lblLegajo
@@ -304,6 +307,12 @@
             nudLegajo.Name = "nudLegajo";
             nudLegajo.Size = new System.Drawing.Size(126, 23);
             nudLegajo.TabIndex = 20;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "niPersona";
+            notifyIcon1.Visible = true;
             // 
             // PersonaDesktop
             // 
@@ -344,5 +353,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.NumericUpDown nudLegajo;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

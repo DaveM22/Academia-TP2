@@ -22,6 +22,7 @@ namespace Business.Data.Mapping
             builder.HasOne(x => x.Materia).WithMany().HasForeignKey(x => x.MateriaId);
             builder.HasOne(x => x.Comision).WithMany().HasForeignKey(x => x.ComisionId);
             builder.HasMany(x => x.DocenteCursos).WithOne(x => x.Curso).HasForeignKey(x => x.CursoId);
+            builder.HasMany(x => x.Inscriptos).WithOne(x => x.Curso).HasForeignKey(x => x.CursoId);
         }
     }
 }

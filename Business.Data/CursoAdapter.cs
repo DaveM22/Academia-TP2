@@ -10,6 +10,21 @@ namespace Business.Data
 {
     public class CursoAdapter
     {
+
+        public Curso GetOneReporte(int id)
+        {
+            var context = Adapter.dbContext;
+            return context.Cursos
+                .Include(x => x.DocenteCursos)
+                .Include(x => x.Inscriptos)
+                .ThenInclude(x => x.Alumno)
+                .Include(x => x.Materia)
+                .ThenInclude(x => x.Plan)
+                .ThenInclude(x => x.Especialidad)
+                .Include(x => x.Comision).SingleOrDefault(x => x.Id == id);
+        }
+
+
         public List<Curso> GetAll()
         {
             var context = Adapter.dbContext;
@@ -19,7 +34,13 @@ namespace Business.Data
         public List<Curso> GetAllByPlan(int idPlan)
         {
             var context = Adapter.dbContext;
-            return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan).ToList();
+            return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan && x.Cupo > 0).ToList();
+        }
+
+        public List<Curso> GetAllByPlandAndMateria(int idPlan, int idMateria)
+        {
+            var context = Adapter.dbContext;
+            return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan && x.MateriaId == idMateria && x.Cupo > 0).ToList();
         }
 
         public Curso GetOne(int id)

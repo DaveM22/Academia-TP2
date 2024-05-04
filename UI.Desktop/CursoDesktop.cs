@@ -1,9 +1,11 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
+using Business.Util.ValidatorsDesktop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -42,10 +44,10 @@ namespace UI.Desktop
             Materia = Curso.Materia;
             Comision = Curso.Comision;
             Plan = Materia.Plan;
-            txtMateria.Text = Materia.Descripcion;
-            txtComision.Text = Comision.Descripcion;
-            nudAnioCalendario.Value = Curso.AnioCalendario;
-            nudCupo.Value = Curso.Cupo;
+            txtMateria.TextBox.Text = Materia.Descripcion;
+            txtComision.TextBox.Text = Comision.Descripcion;
+            nudAnioCalendario.NumericUpDown.Value = Curso.AnioCalendario;
+            nudCupo.NumericUpDown.Value = Curso.Cupo;
             txtPlan.Text = Curso.Materia.Plan.Descripcion;
             switch (modo)
             {
@@ -81,9 +83,9 @@ namespace UI.Desktop
         private void DeleteDescription()
         {
             btnAceptar.Text = "Eliminar";
-            txtMateria.ReadOnly = true;
-            txtComision.ReadOnly = true;
-            txtPlan.ReadOnly = true;
+            txtMateria.TextBox.ReadOnly = true;
+            txtComision.TextBox.ReadOnly = true;
+            txtPlan.TextBox.ReadOnly = true;
             nudAnioCalendario.Enabled = false;
             nudCupo.Enabled = false;
             Text = "Borrar curso";
@@ -101,22 +103,55 @@ namespace UI.Desktop
 
         private void Save()
         {
-            Curso.AnioCalendario = Convert.ToInt32(nudAnioCalendario.Value);
-            Curso.Cupo = Convert.ToInt32(nudCupo.Value);
+            var validator = new CursoValidator();
+            Curso.AnioCalendario = Convert.ToInt32(nudAnioCalendario.NumericUpDown.Value);
+            Curso.Cupo = Convert.ToInt32(nudCupo.NumericUpDown.Value);
             Curso.ComisionId = Comision.Id;
             Curso.MateriaId = Materia.Id;
-            DialogResult result = MessageBox.Show("¿Desea guardar los cambios del cuso?", "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            string mensajeAlerta;
+
+            if (Modo == ModoForm.Alta)
+            {
+                mensajeAlerta = "¿Desea confirmar la creación del curso?";
+            }
+            else
+            {
+                mensajeAlerta = "¿Desea guardar los cambios del curso?";
+            }
+
+            DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                try
+
+                var resultValidation = validator.Validate(Curso);
+                if (resultValidation.IsValid)
                 {
                     CursoLogic.Save(Curso);
-                    MasterForm.OpenForm(new Cursos());
+                    if (Modo == ModoForm.Alta)
+                    {
+                        niCurso.ShowBalloonTip(1000, "Crear curso", $"Se ha creado el curso de manera existosa", ToolTipIcon.Info);
+                    }
+                    else
+                    {
+                        niCurso.ShowBalloonTip(1000, "Editar curso", $"Se han guardado los cambios de manera exitosa", ToolTipIcon.Info);
+                    }
+                    this.MasterForm.OpenForm(new Comisiones());
                     this.Close();
                 }
-                catch (EntityValidationException ex)
+                else
                 {
-                    MessageBox.Show(ex.Errors.ToString(), ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var error in resultValidation.Errors)
+                    {
+                        if (error.PropertyName == nameof(Curso.MateriaId))
+                        {
+                            this.txtMateria.LabelError.Text = error.ErrorMessage;
+                        }
+                        if (error.PropertyName == nameof(Curso.ComisionId))
+                        {
+                            this.txtComision.LabelError.Text = error.ErrorMessage;
+                        }
+
+                    }
                 }
             }
         }
@@ -196,6 +231,11 @@ namespace UI.Desktop
             {
                 MessageBox.Show("Debe seleccionar un plan", "Error al seleccionar comisión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void tlCursos_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

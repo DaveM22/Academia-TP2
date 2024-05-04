@@ -42,6 +42,7 @@
             txtDescripcion = new UserControls.TextBoxConValidacion();
             nudAño = new UserControls.NumericUpDownValidation();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+            numericUpDownValidation1 = new UserControls.NumericUpDownValidation();
             tlComision.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             btnAceptar.Location = new System.Drawing.Point(425, 197);
             btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new System.Drawing.Size(99, 36);
+            btnAceptar.Size = new System.Drawing.Size(99, 35);
             btnAceptar.TabIndex = 3;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
@@ -124,6 +125,7 @@
             tlComision.Controls.Add(nudAño, 2, 2);
             tlComision.Controls.Add(lblDescripcion, 1, 1);
             tlComision.Controls.Add(lblPlan, 1, 3);
+            tlComision.Controls.Add(numericUpDownValidation1, 0, 0);
             tlComision.Dock = System.Windows.Forms.DockStyle.Fill;
             tlComision.ForeColor = System.Drawing.SystemColors.HighlightText;
             tlComision.Location = new System.Drawing.Point(0, 0);
@@ -173,7 +175,7 @@
             txtPlan.Location = new System.Drawing.Point(244, 140);
             txtPlan.Margin = new System.Windows.Forms.Padding(2);
             txtPlan.Name = "txtPlan";
-            txtPlan.Size = new System.Drawing.Size(256, 47);
+            txtPlan.Size = new System.Drawing.Size(280, 47);
             txtPlan.TabIndex = 9;
             // 
             // txtDescripcion
@@ -197,6 +199,14 @@
             notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
+            // 
+            // numericUpDownValidation1
+            // 
+            numericUpDownValidation1.Location = new System.Drawing.Point(2, 2);
+            numericUpDownValidation1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            numericUpDownValidation1.Name = "numericUpDownValidation1";
+            numericUpDownValidation1.Size = new System.Drawing.Size(130, 37);
+            numericUpDownValidation1.TabIndex = 12;
             // 
             // ComisionDesktop
             // 
@@ -227,5 +237,6 @@
         private UserControls.TextBoxConValidacion txtPlan;
         private UserControls.TextBoxConValidacion txtDescripcion;
         private UserControls.NumericUpDownValidation nudAño;
+        private UserControls.NumericUpDownValidation numericUpDownValidation1;
     }
 }

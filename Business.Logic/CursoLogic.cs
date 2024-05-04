@@ -36,6 +36,16 @@ namespace Business.Logic
             return CursoAdapter.GetOne(id);
         }
 
+        public List<Curso> GetAllByPlandAndMateria(int idPlan, int idMateria)
+        {
+            return CursoAdapter.GetAllByPlandAndMateria(idPlan, idMateria);
+        }
+
+        public Curso GetOneReporte(int id)
+        {
+            return CursoAdapter.GetOneReporte(id);
+        }
+
         public Curso Save(Curso cur)
         {
             try

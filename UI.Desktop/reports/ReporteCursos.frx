@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="04/28/2024 08:34:07" ReportInfo.Modified="05/01/2024 06:15:39" ReportInfo.CreatorVersion="2024.2.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    public string Especialidad {get; set;}
+    
+    public string Plan {get; set;}
+    
+    public string Materia {get; set;}
+    
+    public string Comision {get; set;}
+    
+    public List&lt;Alumnos&gt; AlumnoList  = new List&lt;Alumnos&gt;();
+    
+    public class Alumnos
+    {
+      public string Nombre {get; set;}
+      public string Apellido {get; set;}
+      public int Legajo {get; set;}
+      public string Email { get; set;}
+    }
+    
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+
+      this.Report.RegisterData(AlumnoList, &quot;alumnos&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="alumnos" ReferenceName="alumnos" DataType="System.Collections.Generic.List`1[[FastReport.ReportScript+Alumnos, r5mua2rv, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="Nombre" DataType="System.String"/>
+      <Column Name="Apellido" DataType="System.String"/>
+      <Column Name="Legajo" DataType="System.Int32"/>
+      <Column Name="Email" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Guides="37.8" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="151.2" Fill.Color="LightGray" Guides="0">
+      <TextObject Name="btnTituloPlan" Left="189" Top="9.45" Width="330.75" Height="47.25" Text="Plan 2008" HorzAlign="Center" Font="Arial Black, 20pt"/>
+      <TextObject Name="lblEspecialidad" Left="18.9" Top="66.15" Width="122.85" Height="18.9" Text="Especialidad:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="txtEspecialidad" Left="103.95" Top="66.15" Width="604.8" Height="18.9" Text="[Especialidad]" Font="Arial, 10pt"/>
+      <TextObject Name="Text1" Left="-9450" Top="-9450" Width="94.5" Height="18.9" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="18.9" Top="94.5" Width="94.5" Height="18.9" Text="Materia:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="103.95" Top="94.5" Width="633.15" Height="18.9" Text="[Materia]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="18.9" Top="122.85" Width="94.5" Height="18.9" Text="Comisión:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="103.95" Top="122.85" Width="623.7" Height="18.9" Text="[Comision]" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="155.2" Width="718.2" Height="28.94">
+      <TextObject Name="Text2" Left="-28.35" Width="718.2" Height="28.35" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Top="0.03" Width="718.2" Height="28.92" Anchor="Top, Bottom" Text="Inscriptos:" HorzAlign="Center" VertAlign="Center" Font="Arial Black, 14pt"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="188.14" Width="718.2" Height="18.9">
+      <TableObject Name="Table2" Left="9.45" Top="-0.01" Width="696.67" Height="18.9" Anchor="None" Border.Lines="All">
+        <TableColumn Name="Column6" Width="153.93"/>
+        <TableColumn Name="Column7" Width="153.93"/>
+        <TableColumn Name="Column8" Width="163.38"/>
+        <TableColumn Name="Column9" Width="225.43"/>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell26" Border.Lines="Right" Text="Legajo&#13;&#10;" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell27" Border.Lines="Right" Text="Apellido" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="Nombre" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell29" Border.Lines="Right" Text="Correo electronico" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="data" Top="211.04" Width="718.2" Height="18.9" DataSource="alumnos">
+      <TextObject Name="Text8" Left="316.85" Width="163.1" Height="18.9" Text="[alumnos.Nombre]" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="161.65" Width="154.65" Height="18.9" Text="[alumnos.Apellido]" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="9.45" Width="151.2" Height="18.9" Text="[alumnos.Legajo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="477.95" Width="226.8" Height="18.9" Text="[alumnos.Email]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="233.94" Width="718.2" Height="141.75" Fill.Color="LightGray">
+      <TextObject Name="Academia" Left="9.45" Width="94.5" Height="18.9" Text="Academia" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -36,5 +36,10 @@ namespace Business.Logic
         {
             MateriaData.Guardar(materia);
         }
+
+        public List<Materia> MateriaAlumno(int alumnoId, int planId)
+        {
+            return MateriaData.MateriasPlanAlumno(alumnoId, planId);
+        }
     }
 }

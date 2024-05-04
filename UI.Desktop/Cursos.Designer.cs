@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cursos));
             tscCursos = new System.Windows.Forms.ToolStripContainer();
             tlCursos = new System.Windows.Forms.TableLayoutPanel();
@@ -37,12 +38,15 @@
             Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Reporte = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             btnActualizar = new System.Windows.Forms.Button();
             btnSalir = new System.Windows.Forms.Button();
             tsCursos = new System.Windows.Forms.ToolStrip();
             tsNuevo = new System.Windows.Forms.ToolStripButton();
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tscCursos.ContentPanel.SuspendLayout();
             tscCursos.TopToolStripPanel.SuspendLayout();
             tscCursos.SuspendLayout();
@@ -96,7 +100,7 @@
             dgvCursos.AllowUserToDeleteRows = false;
             dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Materia, Comision, AnioCalendario, Cupo, Editar, Eliminar });
+            dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Materia, Comision, AnioCalendario, Cupo, Reporte, Editar, Eliminar });
             tlCursos.SetColumnSpan(dgvCursos, 2);
             dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvCursos.Location = new System.Drawing.Point(2, 2);
@@ -155,6 +159,17 @@
             Cupo.MinimumWidth = 8;
             Cupo.Name = "Cupo";
             Cupo.ReadOnly = true;
+            // 
+            // Reporte
+            // 
+            Reporte.FillWeight = 20F;
+            Reporte.HeaderText = "";
+            Reporte.Name = "Reporte";
+            Reporte.ReadOnly = true;
+            Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Reporte.Text = "Generar reporte";
+            Reporte.UseColumnTextForButtonValue = true;
             // 
             // Editar
             // 
@@ -229,6 +244,16 @@
             tsNuevo.Text = "Crear curso";
             tsNuevo.Click += tsNuevo_Click;
             // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            // 
             // Cursos
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,7 +290,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn AnioCalendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
+        private System.Windows.Forms.DataGridViewButtonColumn Reporte;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

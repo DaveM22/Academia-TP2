@@ -49,5 +49,7 @@ namespace Business.Data
             var context = Adapter.dbContext;
             return context.Planes.Where(x => x.EspecialidadId == idEspecialidad).ToList();
         }
+
+  
     }
 }

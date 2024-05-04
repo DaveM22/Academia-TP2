@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Accord.Controls" Version="3.8.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.2" />
+    <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2021.4.16" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.8.0" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.18" />
   </ItemGroup>
 
@@ -17,10 +20,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\..\Downloads\Código C#\TP2_Net\packages\CrystalReports.Shared.13.0.4003\lib\net40\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="reports\Reporte.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="reports\ReporteCursos.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="reports\ReportePlan.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
 
@@ -29,6 +47,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="reports\Untitled.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

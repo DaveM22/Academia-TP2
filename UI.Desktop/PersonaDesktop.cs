@@ -1,12 +1,15 @@
 ﻿using Business.Entities;
 using Business.Entities.Enums;
 using Business.Logic;
+using Business.Util.ValidatorsDesktop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +28,8 @@ namespace UI.Desktop
         private TipoPersonaEnum TipoPersonaEnum { get; set; }
 
         private MasterForm MasterForm => this.MdiParent as MasterForm;
+
+        private PersonaValidator PersonaValidator => new PersonaValidator();
 
         private int Id { get; set; }
 
@@ -121,39 +126,88 @@ namespace UI.Desktop
             }
         }
 
+        private void Eliminar()
+        {
+            this.PersonaLogic.Delete(Persona);
+        }
+
+
         private void Guardar()
         {
+
+            string mensajeAlerta;
             if (Modo == ModoForm.Alta)
             {
-                if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
+                mensajeAlerta = "¿Desea confirmar la creación comisión?";
+            }
+            else
+            {
+                mensajeAlerta = "¿Desea guardar los cambios de la comisión?";
+            }
+
+            DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+
+                var resultValidation = PersonaValidator.Validate(this.Persona);
+                if (resultValidation.IsValid)
                 {
-                    Persona.TipoPersona = TipoPersonaEnum.ALUMNO;
+                    MapearDatos();
+                    Persona.TipoPersona = this.TipoPersonaEnum;
+
+                    PersonaLogic.Save(this.Persona);
+                    if (Modo == ModoForm.Alta)
+                    {
+                        if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
+                        {
+                            notifyIcon1.ShowBalloonTip(1000, "Crear alumno", $"Se ha creado el alumno correctamente", ToolTipIcon.Info);
+                        }
+                        else
+                        {
+                            notifyIcon1.ShowBalloonTip(1000, "Crear profesor", $"Se ha creado el profesor correctamente", ToolTipIcon.Info);
+                        }
+
+                    }
+                    else
+                    {
+                        if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
+                        {
+                            notifyIcon1.ShowBalloonTip(1000, "Editar especialidad", $"Se han guardado los cambios del alumno correctamente", ToolTipIcon.Info);
+                        }
+                        else
+                        {
+                            notifyIcon1.ShowBalloonTip(1000, "Editar especialidad", $"Se han guardado los del profesor correctamente", ToolTipIcon.Info);
+                        }
+
+                    }
+                    this.MasterForm.OpenForm(new Personas(TipoPersonaEnum));
+                    this.Close();
                 }
                 else
                 {
-                    Persona.TipoPersona = TipoPersonaEnum.PROFESOR;
+                    foreach (var error in resultValidation.Errors)
+                    {
+                        if (error.PropertyName == nameof(Persona.Nombre))
+                        {
+                            this.txtNombre.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Persona.Apellido))
+                        {
+                            this.txtApellido.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Persona.PlanId))
+                        {
+                            this.txtPlan.LabelError.Text = error.ErrorMessage;
+                        }
+                    }
                 }
-                MapearDatos();
-                this.PersonaLogic.Save(Persona);
             }
-            if (Modo == ModoForm.Modificacion)
-            {
-                if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
-                {
-                    Persona.TipoPersona = TipoPersonaEnum.ALUMNO;
-                }
-                else
-                {
-                    Persona.TipoPersona = TipoPersonaEnum.PROFESOR;
-                }
-                MapearDatos();
-                this.PersonaLogic.Save(Persona);
-            }
-            if (Modo == ModoForm.Baja)
-            {
-                this.PersonaLogic.Delete(Persona);
-            }
-            this.MasterForm.OpenForm(new Personas(TipoPersonaEnum));
+
+
+
+
         }
 
         private void MapearDatos()

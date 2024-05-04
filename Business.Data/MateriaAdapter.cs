@@ -42,5 +42,13 @@ namespace Business.Data
             context.Update(materia);
             context.SaveChanges();
         }
+
+        public List<Materia> MateriasPlanAlumno(int idAlumno, int idPlan)
+        {
+            var context = Adapter.dbContext;
+            var inscripciones = context.AlumnoInscripciones.Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.AlumnoId == idAlumno).Select(x => x.Curso.MateriaId).Distinct().ToList();
+            var materias = context.Materias.Where(x => !inscripciones.Contains(x.Id) && x.PlanId == idPlan).ToList();
+            return materias;
+        }
     }
 }

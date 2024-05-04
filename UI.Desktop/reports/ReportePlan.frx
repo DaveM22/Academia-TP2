@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="05/01/2024 08:54:27" ReportInfo.Modified="05/01/2024 09:12:07" ReportInfo.CreatorVersion="2024.2.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    public string Plan {get; set;}
+    
+    public string Especialidad {get; set;}
+    
+    public List&lt;Materia&gt; Materias = new List&lt;Materia&gt;();
+    
+    public class Materia
+    {
+      public string Descripcion {get; set;}
+      
+      public int HorasSemanales {get; set;}
+      
+      public int HorasTotales {get; set;}
+    }
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+         this.Report.RegisterData(Materias, &quot;materias&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="materias" ReferenceName="materias" DataType="System.Collections.Generic.List`1[[FastReport.ReportScript+Materia, 0a35ldjf, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="Descripcion" DataType="System.String"/>
+      <Column Name="HorasSemanales" DataType="System.Int32"/>
+      <Column Name="HorasTotales" DataType="System.Int32"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="94.5" Fill.Color="Silver">
+      <TextObject Name="Text1" Left="113.4" Top="9.45" Width="567" Height="18.9" Text="[Plan]" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Left="18.9" Top="9.45" Width="94.5" Height="18.9" Text="Plan:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="18.9" Top="47.25" Width="94.5" Height="18.9" Text="Especialidad:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="113.4" Top="47.25" Width="567" Height="18.9" Text="[Especialidad]" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="98.5" Width="718.2" Height="47.25">
+      <TextObject Name="Text5" Left="9.45" Width="699.3" Height="47.25" Anchor="Left, Right" Text="Materias del plan:" HorzAlign="Center" VertAlign="Center" Font="Arial Black, 14pt, style=Bold"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="149.75" Width="718.2" Height="37.8">
+      <TextObject Name="Text6" Left="37.8" Top="9.45" Width="189" Height="18.9" Text="Materia" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="264.6" Top="9.45" Width="189" Height="18.9" Text="Horas semanales" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="491.4" Top="9.45" Width="189" Height="18.9" Text="Horas totales" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="191.55" Width="718.2" Height="170.1">
+      <TextObject Name="Text9" Left="37.8" Top="9.45" Width="189" Height="18.9" Text="[materias.Descripcion]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="264.6" Top="9.45" Width="189" Height="18.9" Text="[materias.HorasSemanales]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="491.4" Top="9.45" Width="189" Height="18.9" Text="[materias.HorasTotales]" HorzAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="365.65" Width="718.2" Height="56.7" Fill.Color="Silver">
+      <TextObject Name="Text12" Left="18.9" Top="18.9" Width="94.5" Height="18.9" Fill.Color="Silver" Text="Academia" HorzAlign="Center" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

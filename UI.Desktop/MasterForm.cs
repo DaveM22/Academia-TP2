@@ -14,7 +14,7 @@ namespace UI.Desktop
         private ApplicationForm Form { get; set; }
 
         public List<string> Autorizacion { get; set; }
-
+        public Usuario UsuarioActual { get; set; }
         public MasterForm()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             Master = this;
-            UsuarioActual = usuario;
+            this.UsuarioActual = usuario;
             this.Autorizacion = new List<string>();
             Permisos();
             this.OpenForm(new Inicio());

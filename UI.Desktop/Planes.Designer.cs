@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
             tscPlanes = new System.Windows.Forms.ToolStripContainer();
             tlPlanes = new System.Windows.Forms.TableLayoutPanel();
@@ -147,6 +147,7 @@
             dgvPlanes.Size = new System.Drawing.Size(746, 402);
             dgvPlanes.TabIndex = 0;
             dgvPlanes.CellClick += dgvPlanes_CellClick;
+            dgvPlanes.Paint += dgvPlanes_Paint;
             // 
             // Id
             // 
@@ -191,9 +192,9 @@
             // 
             // Editar
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "Editar";
-            Editar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Editar";
+            Editar.DefaultCellStyle = dataGridViewCellStyle1;
             Editar.FillWeight = 8F;
             Editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             Editar.HeaderText = "";

@@ -31,5 +31,10 @@ namespace Business.Logic
         { 
             adapter.Save(insc);
         }
+
+        public void Borrar(int idInscripcion)
+        {
+            adapter.Borrar(idInscripcion);
+        }
     }
 }

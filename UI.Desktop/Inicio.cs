@@ -42,6 +42,7 @@ namespace UI.Desktop
             this.btnCursos.Visible = this.MasterForm.Autorizacion.Contains("Cursos");
             this.btnCatedras.Visible = this.MasterForm.Autorizacion.Contains("AlumnoMaterias");
             this.btnInscribirse.Visible = this.MasterForm.Autorizacion.Contains("AlumnosMateriasInscripcion");
+            this.btnInscripciones.Visible = this.MasterForm.Autorizacion.Contains("Inscripciones");
         }
 
         private void btnPlanes_Click(object sender, EventArgs e)
@@ -82,6 +83,11 @@ namespace UI.Desktop
         private void btnCatedras_Click(object sender, EventArgs e)
         {
             this.MasterForm.OpenForm(new AlumnoInscripciones(this.MasterForm.UsuarioActual.PersonaId.Value));
+        }
+
+        private void btnInscripciones_Click(object sender, EventArgs e)
+        {
+            this.MasterForm.OpenForm(new Inscripciones());
         }
     }
 }

@@ -17,11 +17,17 @@ namespace UI.Desktop
     {
         private Usuario Usuario { get; set; }
         private UsuarioLogic UsuarioLogic => new UsuarioLogic();
+        private ModoForm ModoForm { get; set; }
         public UsuarioDesktop()
         {
             InitializeComponent();
         }
 
+
+        public UsuarioDesktop(ModoForm modo) : this()
+        {
+            this.ModoForm = modo;
+        }
 
         public void Nuevo()
         {

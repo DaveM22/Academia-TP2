@@ -42,7 +42,6 @@
             txtDescripcion = new UserControls.TextBoxConValidacion();
             nudAño = new UserControls.NumericUpDownValidation();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
-            numericUpDownValidation1 = new UserControls.NumericUpDownValidation();
             tlComision.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,6 +75,7 @@
             // lblPlan
             // 
             lblPlan.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            lblPlan.ForeColor = System.Drawing.SystemColors.ControlText;
             lblPlan.Location = new System.Drawing.Point(207, 143);
             lblPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPlan.Name = "lblPlan";
@@ -87,6 +87,7 @@
             // label2
             // 
             label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            label2.ForeColor = System.Drawing.SystemColors.ControlText;
             label2.Location = new System.Drawing.Point(136, 96);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
@@ -98,6 +99,7 @@
             // 
             // lblDescripcion
             // 
+            lblDescripcion.ForeColor = System.Drawing.SystemColors.ControlText;
             lblDescripcion.Location = new System.Drawing.Point(136, 42);
             lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblDescripcion.Name = "lblDescripcion";
@@ -108,7 +110,7 @@
             // 
             // tlComision
             // 
-            tlComision.BackColor = System.Drawing.Color.CornflowerBlue;
+            tlComision.BackColor = System.Drawing.SystemColors.Control;
             tlComision.ColumnCount = 5;
             tlComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
@@ -125,7 +127,6 @@
             tlComision.Controls.Add(nudAño, 2, 2);
             tlComision.Controls.Add(lblDescripcion, 1, 1);
             tlComision.Controls.Add(lblPlan, 1, 3);
-            tlComision.Controls.Add(numericUpDownValidation1, 0, 0);
             tlComision.Dock = System.Windows.Forms.DockStyle.Fill;
             tlComision.ForeColor = System.Drawing.SystemColors.HighlightText;
             tlComision.Location = new System.Drawing.Point(0, 0);
@@ -149,6 +150,7 @@
             tlComision.SetColumnSpan(lblComision, 3);
             lblComision.Dock = System.Windows.Forms.DockStyle.Fill;
             lblComision.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblComision.ForeColor = System.Drawing.SystemColors.ControlText;
             lblComision.Location = new System.Drawing.Point(136, 0);
             lblComision.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblComision.Name = "lblComision";
@@ -189,7 +191,7 @@
             // nudAño
             // 
             nudAño.Location = new System.Drawing.Point(244, 93);
-            nudAño.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            nudAño.Margin = new System.Windows.Forms.Padding(2);
             nudAño.Name = "nudAño";
             nudAño.Size = new System.Drawing.Size(280, 43);
             nudAño.TabIndex = 11;
@@ -199,14 +201,6 @@
             notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
-            // 
-            // numericUpDownValidation1
-            // 
-            numericUpDownValidation1.Location = new System.Drawing.Point(2, 2);
-            numericUpDownValidation1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            numericUpDownValidation1.Name = "numericUpDownValidation1";
-            numericUpDownValidation1.Size = new System.Drawing.Size(130, 37);
-            numericUpDownValidation1.TabIndex = 12;
             // 
             // ComisionDesktop
             // 
@@ -237,6 +231,5 @@
         private UserControls.TextBoxConValidacion txtPlan;
         private UserControls.TextBoxConValidacion txtDescripcion;
         private UserControls.NumericUpDownValidation nudAño;
-        private UserControls.NumericUpDownValidation numericUpDownValidation1;
     }
 }

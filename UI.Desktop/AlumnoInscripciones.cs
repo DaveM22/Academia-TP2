@@ -48,7 +48,17 @@ namespace UI.Desktop
 
         private void dgvAlumnoInscripciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dgvAlumnoInscripciones.CurrentCell.OwningColumn.Name == "Borrar")
+            {
+                Business.Entities.AlumnoInscripcion inscripcion = dgvAlumnoInscripciones.SelectedRows[0].DataBoundItem as Business.Entities.AlumnoInscripcion;
+                var result = MessageBox.Show("¿Desea borrar la siguiente inscripción?", "Borrar inscripción", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if(result == DialogResult.OK)
+                {
+                    AlumnoInscripcionLogic.Borrar(inscripcion.Id);
+                    this.niAlumnosIncripcion.ShowBalloonTip(1000, "Eliminar descripción", "Se ha eliminado la inscripción del alumno", ToolTipIcon.Info);
+                    this.dgvAlumnoInscripciones.DataSource = this.AlumnoInscripcionLogic.GetAll(this.AlumnoId);
+                }
+            }
         }
 
         private void tlpInscripciones_Paint(object sender, PaintEventArgs e)

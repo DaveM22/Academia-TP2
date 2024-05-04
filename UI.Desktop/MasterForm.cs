@@ -32,6 +32,7 @@ namespace UI.Desktop
             this.OpenForm(new Inicio());
         }
 
+
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenForm(new Personas((Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO));

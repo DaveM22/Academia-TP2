@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace UI.Desktop
     public partial class formLogin : ApplicationForm
     {
         private UsuarioLogic UsuarioLogic { get; set; }
+        public bool LoginCorrecto { get; set; }
+
+        public Usuario UsuarioLogin { get; set; }
         public formLogin()
         {
             InitializeComponent();
@@ -25,11 +29,10 @@ namespace UI.Desktop
             try
             {
                 var user = UsuarioLogic.GetOne(txtUsuario.Text, txtClave.Text);
-                DialogResult = DialogResult.OK;
-                this.Hide();
-                var form = new MasterForm(user);
-                form.Show();
-           
+                Program.Usuario = user;
+                Program.IsLoggin = true;
+                this.Close();
+
             }
             catch (Exception ex)
             {

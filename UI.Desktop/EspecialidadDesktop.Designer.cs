@@ -31,11 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspecialidadDesktop));
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            lblDescripcion = new System.Windows.Forms.Label();
             txtTitulo = new System.Windows.Forms.Label();
             btnAceptar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
             txtDescripcion = new UserControls.TextBoxConValidacion();
+            lblDescripcion = new System.Windows.Forms.Label();
             errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tableLayoutPanel1.SuspendLayout();
@@ -44,7 +44,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = System.Drawing.Color.CornflowerBlue;
+            tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 234F));
@@ -70,23 +70,12 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(1791, 887);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblDescripcion
-            // 
-            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblDescripcion.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblDescripcion.Location = new System.Drawing.Point(647, 96);
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new System.Drawing.Size(72, 28);
-            lblDescripcion.TabIndex = 6;
-            lblDescripcion.Text = "Descripción:";
-            lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // txtTitulo
             // 
             txtTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             tableLayoutPanel1.SetColumnSpan(txtTitulo, 3);
             txtTitulo.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            txtTitulo.ForeColor = System.Drawing.SystemColors.HighlightText;
+            txtTitulo.ForeColor = System.Drawing.SystemColors.ControlText;
             txtTitulo.Location = new System.Drawing.Point(623, 10);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new System.Drawing.Size(544, 86);
@@ -132,6 +121,17 @@
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new System.Drawing.Size(450, 50);
             txtDescripcion.TabIndex = 7;
+            // 
+            // lblDescripcion
+            // 
+            lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblDescripcion.ForeColor = System.Drawing.SystemColors.ControlText;
+            lblDescripcion.Location = new System.Drawing.Point(647, 96);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new System.Drawing.Size(72, 28);
+            lblDescripcion.TabIndex = 6;
+            lblDescripcion.Text = "Descripción:";
+            lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // errorProvider1
             // 

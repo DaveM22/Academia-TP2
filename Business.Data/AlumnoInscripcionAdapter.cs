@@ -34,6 +34,26 @@ namespace Business.Data
                 .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.CursoId == cursoId).ToList();
         }
 
+        public void Borrar(int idInscripcion) 
+        {
+            try
+            {
+                var context = Adapter.dbContext;
+                context.Database.BeginTransaction();
+                var inscripcion = context.AlumnoInscripciones.Where(x => x.Id == idInscripcion).SingleOrDefault();
+                context.AlumnoInscripciones.Remove(inscripcion);
+                var curso = context.Cursos.Where(x => x.Id == inscripcion.CursoId).SingleOrDefault();
+                curso.Cupo += 1;
+                context.SaveChanges();
+                context.Database.CommitTransaction();
+            }
+            catch
+            {
+                var context = Adapter.dbContext;
+                context.Database.RollbackTransaction();
+            }
+        }
+
         public void Save(AlumnoInscripcion insc)
         {
             using (var dbContext = new AcademiaContext())

@@ -39,6 +39,7 @@
             btnUsuarios = new System.Windows.Forms.Button();
             btnCatedras = new System.Windows.Forms.Button();
             btnInscribirse = new System.Windows.Forms.Button();
+            btnInscripciones = new System.Windows.Forms.Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -56,8 +57,8 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.53384F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.4661655F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.2477F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.75229359F));
             tableLayoutPanel1.Size = new System.Drawing.Size(800, 714);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -72,12 +73,13 @@
             flowLayoutPanel1.Controls.Add(btnUsuarios);
             flowLayoutPanel1.Controls.Add(btnCatedras);
             flowLayoutPanel1.Controls.Add(btnInscribirse);
+            flowLayoutPanel1.Controls.Add(btnInscripciones);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanel1.Location = new System.Drawing.Point(253, 62);
             flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(294, 575);
+            flowLayoutPanel1.Size = new System.Drawing.Size(294, 632);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // btnEspecialidades
@@ -179,6 +181,16 @@
             btnInscribirse.UseVisualStyleBackColor = true;
             btnInscribirse.Click += btnInscribirse_Click;
             // 
+            // btnInscripciones
+            // 
+            btnInscripciones.Location = new System.Drawing.Point(3, 562);
+            btnInscripciones.Name = "btnInscripciones";
+            btnInscripciones.Size = new System.Drawing.Size(290, 48);
+            btnInscripciones.TabIndex = 9;
+            btnInscripciones.Text = "Inscripciones";
+            btnInscripciones.UseVisualStyleBackColor = true;
+            btnInscripciones.Click += btnInscripciones_Click;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -206,5 +218,6 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnCatedras;
         private System.Windows.Forms.Button btnInscribirse;
+        private System.Windows.Forms.Button btnInscripciones;
     }
 }

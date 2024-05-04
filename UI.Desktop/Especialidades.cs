@@ -90,5 +90,14 @@ namespace UI.Desktop
                 this.Close();
             }
         }
+
+        private void dgvEspecialidades_Paint(object sender, PaintEventArgs e)
+        {
+            if (dgvEspecialidades.Rows.Count == 0)
+                TextRenderer.DrawText(e.Graphics, "No hay cursos disponibles para esta materia.",
+                    dgvEspecialidades.Font, dgvEspecialidades.ClientRectangle,
+                    dgvEspecialidades.ForeColor, dgvEspecialidades.BackgroundColor,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+        }
     }
 }

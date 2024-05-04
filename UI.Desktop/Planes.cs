@@ -97,5 +97,10 @@ namespace UI.Desktop
         {
             this.MasterForm.OpenForm(new Inicio());
         }
+
+        private void dgvPlanes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

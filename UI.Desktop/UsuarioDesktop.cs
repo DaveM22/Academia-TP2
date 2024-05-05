@@ -18,6 +18,8 @@ namespace UI.Desktop
         private Usuario Usuario { get; set; }
         private UsuarioLogic UsuarioLogic => new UsuarioLogic();
         private ModoForm ModoForm { get; set; }
+
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
         public UsuarioDesktop()
         {
             InitializeComponent();
@@ -66,18 +68,27 @@ namespace UI.Desktop
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            var usuario = new Usuario();
+            usuario.Nombre = txtNombreUsuario.TextBox.Text;
+            usuario.Apellido = txtApellido.TextBox.Text;
+            usuario.Email = txtEmail.Text;
+           
         }
 
         private void btnPlan_Click_1(object sender, EventArgs e)
         {
-            var planform = new PlanSearchForm();
-            planform.ShowDialog();
+            var personaForm = new PersonaSearchForm();
+            var result = personaForm.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                txtPlan.TextBox.Text = string.Format("{0} {1}", personaForm.Persona.Apellido, personaForm.Persona.Nombre);
+                this.Usuario.Persona = personaForm.Persona;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Master.OpenForm(new Inicio());
+            this.MasterForm.OpenForm(new Inicio());
         }
     }
 }

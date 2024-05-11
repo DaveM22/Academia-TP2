@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Business.Util.ValidatorsDesktop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace UI.Desktop
         private Usuario Usuario { get; set; }
         private UsuarioLogic UsuarioLogic => new UsuarioLogic();
         private ModoForm ModoForm { get; set; }
-
+        private UsuarioValidator UsuarioValidator => new UsuarioValidator();
         private MasterForm MasterForm => this.MdiParent as MasterForm;
         public UsuarioDesktop()
         {
@@ -32,14 +33,35 @@ namespace UI.Desktop
             Usuario = new Usuario();
         }
 
+        public UsuarioDesktop(ModoForm modo) : this()
+        {
+            this.Usuario = new();
+            lblTitulo.Text = "Crear usuario";
+        }
+
+        public UsuarioDesktop(ModoForm modo, int id) : this()
+        {
+            this.Usuario = UsuarioLogic.GetOne(id);
+            txtNombreUsuario.TextBox.Text = this.Usuario.NombreUsuario;
+            txtNombre.TextBox.Text = this.Usuario.Nombre;
+            txtApellido.TextBox.Text = this.Usuario.Apellido;
+            txtClave.TextBox.Text = this.Usuario.Clave;
+            txtEmail.Text = this.Usuario.Email;
+            cbHabilitado.Checked = this.Usuario.Habilitado;
+            txtPlan.TextBox.Text = this.Usuario.Persona != null ? $"{this.Usuario.Persona.Apellido} {this.Usuario.Persona.Nombre}" : string.Empty;
+            if (ModoForm == ModoForm.Modificacion)
+            {
+                lblTitulo.Text = "Editar usuario";
+            }
+            else
+            {
+                lblTitulo.Text = "Borrar usuario";
+            }
+        }
+
         public void Editar(int id)
         {
             this.Usuario = this.UsuarioLogic.GetOne(id);
-            txtNombreUsuario.TextBox.Text = this.Usuario.NombreUsuario;
-            txtNombre.TextBox.Text = this.Usuario.Nombre;
-            txtClave.TextBox.Text = this.Usuario.Clave;
-            txtEmail.Text = this.Usuario.Email;
-            txtPlan.TextBox.Text = this.Usuario.Persona != null ? $"{this.Usuario.Persona.Nombre} - {this.Usuario.Persona.Apellido}" : string.Empty;
         }
 
         public void Borrar(int id)
@@ -56,23 +78,77 @@ namespace UI.Desktop
             txtEmail.Enabled = false;
             txtPlan.TextBox.Enabled = false;
         }
-        public UsuarioDesktop(ModoForm modo) : this()
-        {
 
-        }
-
-        public UsuarioDesktop(ModoForm modo, int id) : this()
-        {
-
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var usuario = new Usuario();
-            usuario.Nombre = txtNombreUsuario.TextBox.Text;
-            usuario.Apellido = txtApellido.TextBox.Text;
-            usuario.Email = txtEmail.Text;
-           
+
+            string mensajeAlerta;
+            if (Modo == ModoForm.Alta)
+            {
+                mensajeAlerta = "¿Desea confirmar la creación del usuario?";
+            }
+            else
+            {
+                mensajeAlerta = "¿Desea guardar los cambios del usuario?";
+            }
+            this.MapearDatos();
+            DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+
+                var resultValidation = UsuarioValidator.Validate(this.Usuario);
+                if (resultValidation.IsValid)
+                {
+                    MapearDatos();
+                    UsuarioLogic.Save(this.Usuario);
+                    if (Modo == ModoForm.Alta)
+                    {
+                        niUsuario.ShowBalloonTip(1000, "Crear usuario", $"Se ha creado el usuario correctamente", ToolTipIcon.Info);
+
+                    }
+                    else
+                    {
+                        niUsuario.ShowBalloonTip(1000, "Editar usuario", $"Se han guardado los cambios del usuario correctamente", ToolTipIcon.Info);
+                    }
+                    this.MasterForm.OpenForm(new Usuarios());
+                }
+                else
+                {
+                    foreach (var error in resultValidation.Errors)
+                    {
+                        if (error.PropertyName == nameof(Usuario.Nombre))
+                        {
+                            this.txtNombre.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Usuario.Apellido))
+                        {
+                            this.txtApellido.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Usuario.NombreUsuario))
+                        {
+                            this.txtNombreUsuario.LabelError.Text = error.ErrorMessage;
+                        }
+
+                        if (error.PropertyName == nameof(Usuario.Clave))
+                        {
+                            this.txtClave.LabelError.Text = error.ErrorMessage;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void MapearDatos()
+        {
+            Usuario.Nombre = txtNombreUsuario.TextBox.Text;
+            Usuario.Apellido = txtApellido.TextBox.Text;
+            Usuario.Email = txtEmail.Text;
+            Usuario.Clave = txtClave.TextBox.Text;
+            Usuario.Habilitado = cbHabilitado.Checked;
+            Usuario.NombreUsuario = txtNombreUsuario.TextBox.Text;
         }
 
         private void btnPlan_Click_1(object sender, EventArgs e)
@@ -88,7 +164,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.MasterForm.OpenForm(new Inicio());
+            this.MasterForm.OpenForm(new Usuarios());
         }
     }
 }

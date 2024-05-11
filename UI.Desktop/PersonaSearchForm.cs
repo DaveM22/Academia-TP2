@@ -21,6 +21,8 @@ namespace UI.Desktop
 
         public Persona Persona { get; set; }
 
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
+
         public PersonaSearchForm()
         {
             InitializeComponent();
@@ -36,6 +38,18 @@ namespace UI.Desktop
         private void cbTipoPersona_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.dgvPersonas.DataSource = this.PersonaLogic.GetPersonas((TipoPersonaEnum)this.cbTipoPersona.SelectedValue);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.MasterForm.OpenForm(new Usuarios());
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            this.Persona = dgvPersonas.SelectedRows[0].DataBoundItem as Persona;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

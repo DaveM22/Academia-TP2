@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -18,6 +19,16 @@ namespace UI.Desktop
         private void tsNuevoUsuario_Click(object sender, System.EventArgs e)
         {
             this.MasterForm.OpenForm(new UsuarioDesktop(ModoForm.Alta));
+        }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvUsuarios.CurrentCell.OwningColumn.Name == "Editar")
+            {
+                Usuario usuario = dgvUsuarios.SelectedRows[0].DataBoundItem as Usuario;
+                var form = new UsuarioDesktop(ModoForm.Modificacion, usuario.Id);
+                this.MasterForm.OpenForm(form);
+            }
         }
     }
 }

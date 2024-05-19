@@ -256,7 +256,7 @@
             // nudAnioCalendario
             // 
             nudAnioCalendario.Location = new System.Drawing.Point(166, 175);
-            nudAnioCalendario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            nudAnioCalendario.Margin = new System.Windows.Forms.Padding(2);
             nudAnioCalendario.Name = "nudAnioCalendario";
             nudAnioCalendario.Size = new System.Drawing.Size(241, 42);
             nudAnioCalendario.TabIndex = 21;
@@ -264,7 +264,7 @@
             // nudCupo
             // 
             nudCupo.Location = new System.Drawing.Point(166, 224);
-            nudCupo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            nudCupo.Margin = new System.Windows.Forms.Padding(2);
             nudCupo.Name = "nudCupo";
             nudCupo.Size = new System.Drawing.Size(241, 41);
             nudCupo.TabIndex = 22;

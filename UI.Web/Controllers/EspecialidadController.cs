@@ -95,7 +95,7 @@ namespace UI.Web.Controllers
                 }
                 return View(especialidadViewModel);
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

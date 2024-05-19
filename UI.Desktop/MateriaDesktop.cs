@@ -46,6 +46,7 @@ namespace UI.Desktop
         {
             Modo = modo;
             this.PlanId = planId;
+            
         }
 
         public MateriaDesktop(Materia materia, ModoForm modo) : this()
@@ -74,6 +75,7 @@ namespace UI.Desktop
                 Materia.Descripcion = txtMateria.TextBox.Text;
                 Materia.HSSemanales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
                 Materia.HSTotales = Convert.ToInt32(this.nudHsSemanales.NumericUpDown.Value);
+                Materia.PlanId = this.PlanId;
             }
             else if (Modo == ModoForm.Modificacion)
             {
@@ -109,15 +111,27 @@ namespace UI.Desktop
             }
             else
             {
-
-                this.MateriaLogic.Borrar(Materia.Id);
-                niAlerta.ShowBalloonTip(1000, lblTitulo.Text, MENSAJE_EXITO_BORRAR(Materia.Descripcion), ToolTipIcon.Info);
-                this.MasterForm.OpenForm(new Materias(PlanId));
-                this.Close();
+                Borrar();
             }
+        }
 
 
-
+        private void Borrar()
+        {
+            DialogResult result = MessageBox.Show("¿Desea borrar la materia?", "Eliminar materia", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    this.MateriaLogic.Borrar(Materia.Id);
+                    niAlerta.ShowBalloonTip(1000, lblTitulo.Text, MENSAJE_EXITO_BORRAR(Materia.Descripcion), ToolTipIcon.Info);
+                    this.MasterForm.OpenForm(new Materias(PlanId));
+                }
+                catch (Exception ex)
+                {
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar materia", ex.Message, ToolTipIcon.Error);
+                }
+            }
 
         }
 

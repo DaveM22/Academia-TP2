@@ -38,6 +38,10 @@ namespace Business.Logic
 
         public void Delete(int id)
         {
+            if (PlanAdapter.ExistPlanCF(id))
+            {
+                throw new DeleteCFReferenciadaException("El plan a borrar ya forma de alguna comisión, materia o persona para poder borrar el plan debera borrar todas las entidades vinculadas al plan");
+            }
             PlanAdapter.Delete(id);
         }
 

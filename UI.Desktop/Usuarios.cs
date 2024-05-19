@@ -29,6 +29,17 @@ namespace UI.Desktop
                 var form = new UsuarioDesktop(ModoForm.Modificacion, usuario.Id);
                 this.MasterForm.OpenForm(form);
             }
+            else if (dgvUsuarios.CurrentCell.OwningColumn.Name == "Modulos")
+            {
+                Usuario usuario = dgvUsuarios.SelectedRows[0].DataBoundItem as Usuario;
+                var form = new Modulos(usuario.Id);
+                this.MasterForm.OpenForm(form);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, System.EventArgs e)
+        {
+            this.MasterForm.OpenForm(new Inicio());
         }
     }
 }

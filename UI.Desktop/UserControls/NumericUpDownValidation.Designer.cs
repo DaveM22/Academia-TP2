@@ -36,7 +36,8 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new System.Drawing.Point(0, 2);
-            numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
+            numericUpDown1.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new System.Drawing.Size(106, 23);
             numericUpDown1.TabIndex = 0;
@@ -58,7 +59,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(label1);
             Controls.Add(numericUpDown1);
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "NumericUpDownValidation";
             Size = new System.Drawing.Size(241, 46);
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();

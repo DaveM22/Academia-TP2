@@ -97,7 +97,7 @@ namespace UI.Desktop
                 CursoSeleccionado = DocenteCurso.Curso;
                 cbCargos.SelectedItem = DocenteCurso.DocenteCargo;
                 txtDocente.Text = $"{PersonaSeleccionada.Legajo} - {PersonaSeleccionada.Apellido}, {PersonaSeleccionada.Nombre}";
-                txtCurso.Text = $"{CursoSeleccionado.ComisionDescripcion} - {CursoSeleccionado.MateriaDescripcion}";
+                txtCurso.Text = $"{CursoSeleccionado.Comision.Descripcion} - {CursoSeleccionado.Materia.Descripcion}";
             }
 
 

@@ -87,7 +87,7 @@ namespace UI.Desktop
 
         private void EditDescription()
         {
-            Text = "Modificar comisión";
+            Text = "Editar comisión";
             lblComision.Text = "Modificar comisión";
             this.txtDescripcion.TextBox.Text = Comision.Descripcion;
             this.nudAño.NumericUpDown.Value = Comision.AnioEspecialidad;
@@ -157,10 +157,16 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show("¿Desea borrar la comisión?", "Eliminar especialidad", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                ComisionLogic.Delete(Comision.Id);
-                notifyIcon1.ShowBalloonTip(1000, "Borrar comisión", "Se ha borrado la comisión correctamente", ToolTipIcon.Info);
-                masterForm.OpenForm(new Comisiones());
-                this.Close();
+                try
+                {
+                    ComisionLogic.Delete(Comision.Id);
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar comisión", "Se ha borrado la comisión correctamente", ToolTipIcon.Info);
+                    masterForm.OpenForm(new Comisiones());
+                }
+                catch (Exception ex)
+                {
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar comisión", ex.Message, ToolTipIcon.Error);
+                }
             }
         }
 

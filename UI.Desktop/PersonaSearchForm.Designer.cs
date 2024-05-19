@@ -47,7 +47,7 @@
             tlpPersonas.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             tlpPersonas.BackColor = System.Drawing.Color.CornflowerBlue;
             tlpPersonas.ColumnCount = 3;
-            tlpPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            tlpPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
             tlpPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpPersonas.Controls.Add(dgvPersonas, 0, 1);
@@ -56,13 +56,12 @@
             tlpPersonas.Controls.Add(label1, 0, 0);
             tlpPersonas.Controls.Add(cbTipoPersona, 1, 0);
             tlpPersonas.Location = new System.Drawing.Point(0, 0);
-            tlpPersonas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tlpPersonas.Name = "tlpPersonas";
             tlpPersonas.RowCount = 2;
-            tlpPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            tlpPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             tlpPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpPersonas.Size = new System.Drawing.Size(1143, 780);
+            tlpPersonas.Size = new System.Drawing.Size(800, 468);
             tlpPersonas.TabIndex = 0;
             // 
             // dgvPersonas
@@ -74,14 +73,13 @@
             dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Legajo, Apellido, Nombre });
             tlpPersonas.SetColumnSpan(dgvPersonas, 3);
-            dgvPersonas.Location = new System.Drawing.Point(4, 52);
-            dgvPersonas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dgvPersonas.Location = new System.Drawing.Point(3, 31);
             dgvPersonas.Name = "dgvPersonas";
             dgvPersonas.ReadOnly = true;
             dgvPersonas.RowHeadersWidth = 62;
             dgvPersonas.RowTemplate.Height = 25;
             dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonas.Size = new System.Drawing.Size(1134, 660);
+            dgvPersonas.Size = new System.Drawing.Size(794, 396);
             dgvPersonas.TabIndex = 4;
             // 
             // Id
@@ -126,10 +124,9 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(985, 722);
-            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Location = new System.Drawing.Point(689, 433);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(154, 53);
+            btnCancelar.Size = new System.Drawing.Size(108, 32);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -141,10 +138,9 @@
             btnSeleccionar.BackColor = System.Drawing.Color.Green;
             btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSeleccionar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnSeleccionar.Location = new System.Drawing.Point(827, 722);
-            btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnSeleccionar.Location = new System.Drawing.Point(578, 433);
             btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.Size = new System.Drawing.Size(150, 53);
+            btnSeleccionar.Size = new System.Drawing.Size(105, 32);
             btnSeleccionar.TabIndex = 0;
             btnSeleccionar.Text = "Seleccionar";
             btnSeleccionar.UseVisualStyleBackColor = false;
@@ -154,10 +150,9 @@
             // 
             label1.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(4, 11);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Location = new System.Drawing.Point(3, 6);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(152, 25);
+            label1.Size = new System.Drawing.Size(106, 15);
             label1.TabIndex = 5;
             label1.Text = "Tipo persona:";
             label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -166,20 +161,18 @@
             // 
             cbTipoPersona.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cbTipoPersona.FormattingEnabled = true;
-            cbTipoPersona.Location = new System.Drawing.Point(164, 9);
-            cbTipoPersona.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cbTipoPersona.Location = new System.Drawing.Point(115, 3);
             cbTipoPersona.Name = "cbTipoPersona";
-            cbTipoPersona.Size = new System.Drawing.Size(409, 33);
+            cbTipoPersona.Size = new System.Drawing.Size(288, 23);
             cbTipoPersona.TabIndex = 6;
             cbTipoPersona.SelectedIndexChanged += cbTipoPersona_SelectedIndexChanged;
             // 
             // PersonaSearchForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1143, 780);
+            ClientSize = new System.Drawing.Size(800, 468);
             Controls.Add(tlpPersonas);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "PersonaSearchForm";
             Text = "PersonaSearchForm";
             Load += PersonaSearchForm_Load;

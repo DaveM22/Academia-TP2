@@ -1,6 +1,7 @@
 ﻿using Business.Entities;
 using Business.Entities.Enums;
 using Business.Logic;
+using Business.Util.Exceptions;
 using Business.Util.ValidatorsDesktop;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace UI.Desktop
         private Persona Persona { get; set; }
 
         private ModoForm Modo { get; set; }
+
+        private string TipoPersonaString { get; set; }
 
         private TipoPersonaEnum TipoPersonaEnum { get; set; }
 
@@ -98,6 +101,7 @@ namespace UI.Desktop
                 this.CargarDatos();
                 nudLegajo.ReadOnly = true;
                 txtApellido.TextBox.ReadOnly = true;
+                txtNombre.TextBox.ReadOnly = true;
                 txtDireccion.TextBox.ReadOnly = true;
                 txtEmail.TextBox.ReadOnly = true;
                 dtFechaNacimiento.Enabled = false;
@@ -128,21 +132,51 @@ namespace UI.Desktop
 
         private void Eliminar()
         {
-            this.PersonaLogic.Delete(Persona);
+            string tipoPersona;
+            if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
+            {
+                tipoPersona = "alumno";
+            }
+            else
+            {
+                tipoPersona = "profesor";
+            }
+            DialogResult result = MessageBox.Show($"¿Desea borrar el {tipoPersona}?", $"Borrar {tipoPersona}", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    this.PersonaLogic.Delete(Persona);
+                    notifyIcon1.ShowBalloonTip(1000, $"Borrar {tipoPersona}", $"Se ha borrado el {tipoPersona} correctamente", ToolTipIcon.Info);
+                    MasterForm.OpenForm(new Planes());
+                }
+                catch (DeleteCFReferenciadaException ex)
+                {
+                    notifyIcon1.ShowBalloonTip(1000, $"Borrar {tipoPersona}", ex.Message, ToolTipIcon.Error);
+                }
+            }
         }
 
 
         private void Guardar()
         {
-
-            string mensajeAlerta;
-            if (Modo == ModoForm.Alta)
+            string tipoPersona;
+            if (TipoPersonaEnum == TipoPersonaEnum.ALUMNO)
             {
-                mensajeAlerta = "¿Desea confirmar la creación comisión?";
+                tipoPersona = "alumno";
             }
             else
             {
-                mensajeAlerta = "¿Desea guardar los cambios de la comisión?";
+                tipoPersona = "profesor";
+            }
+            string mensajeAlerta;
+            if (Modo == ModoForm.Alta)
+            {
+                mensajeAlerta = $"¿Desea confirmar la creación del {tipoPersona}?";
+            }
+            else
+            {
+                mensajeAlerta = $"¿Desea guardar los cambios del {tipoPersona}?";
             }
 
             DialogResult result = MessageBox.Show(mensajeAlerta, "Confirmar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
@@ -229,7 +263,16 @@ namespace UI.Desktop
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Guardar();
+            switch (Modo)
+            {
+                case ModoForm.Modificacion:
+                case ModoForm.Alta:
+                    Guardar();
+                    break;
+                case ModoForm.Baja:
+                    Eliminar();
+                    break;
+            }
         }
     }
 }

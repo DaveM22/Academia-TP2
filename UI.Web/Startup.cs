@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
 using System;
 
 namespace UI.Web
@@ -23,8 +24,8 @@ namespace UI.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Adapter.SetContext(new AcademiaContext());
             services.AddAutoMapper(typeof(Startup));
+
             services.AddControllersWithViews();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
@@ -38,8 +39,8 @@ namespace UI.Web
 
             services.AddAuthorization(options =>
             {
-                using var Context = new AcademiaContext();
-                foreach (var item in Context.Modulos)
+                using var context = new AcademiaContext();
+                foreach (var item in context.Modulos)
                 {
                     options.AddPolicy($"{item.Ejecuta}.Alta", policy =>
                        policy.RequireClaim("Modulo", $"{item.Ejecuta}.Alta"));
@@ -57,8 +58,9 @@ namespace UI.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -85,7 +87,15 @@ namespace UI.Web
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
 
+            applicationLifetime.ApplicationStopping.Register(OnShutdown);
+        }
 
+        private void OnShutdown()
+        {
+            // Libera aquí los recursos, como la conexión de `AcademiaContext`
+            Adapter.dbContext.Dispose();
         }
     }
+
+
 }

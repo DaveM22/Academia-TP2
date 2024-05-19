@@ -37,34 +37,15 @@ namespace Business.Logic
 
         public Comision Save(Comision com)
         {
-            try
-            {
-                if (string.IsNullOrEmpty(com.Descripcion))
-                {
-                    Errors.AppendLine("El campo descripción es un campo obligatorio");
-                }
-                if (com.PlanId == 0)
-                {
-                    Errors.AppendLine("Se debe elegir un plan");
-                }
-                if(com.AnioEspecialidad == 0)
-                {
-                    Errors.AppendLine("Se debe elegir un año de especialidad distinto de 0");
-                }
-                if(Errors.Length > 0)
-                {
-                    throw new EntityValidationException("Error al guardar datos de la comisión", Errors);
-                }
-                return ComisionData.Save(com);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return ComisionData.Save(com);
         }
 
         public void Delete(int id)
         {
+            if (ComisionData.ExistComisionCF(id))
+            {
+                throw new DeleteCFReferenciadaException("La comisión a borrar ya forma de uno o varios cursos, para poder borrar la comisión debera borrar todos los cursos vinculados a la comisión");
+            }
             ComisionData.Delete(id);
         }
     }

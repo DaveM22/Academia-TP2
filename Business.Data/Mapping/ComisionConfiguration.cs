@@ -1,11 +1,6 @@
 ﻿using Business.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Data.Mapping
 {
@@ -19,7 +14,7 @@ namespace Business.Data.Mapping
             builder.Property(x => x.AnioEspecialidad).HasColumnName("anio_especialidad");
             builder.Property(x => x.PlanId).HasColumnName("id_plan");
             builder.HasOne(x => x.Plan).WithMany().HasForeignKey(x => x.PlanId);
-
+            builder.HasMany(x => x.Cursos).WithOne(x => x.Comision).HasForeignKey(x => x.ComisionId);
         }
     }
 }

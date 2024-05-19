@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Accord.Controls;
+using Business.Entities;
 using Business.Entities.Enums;
 using Business.Logic;
 using System;
@@ -26,6 +27,8 @@ namespace UI.Desktop
         public Personas()
         {
             InitializeComponent();
+
+            this.dgvPersonas.AllowNestedProperties(true);
         }
 
         public Personas(TipoPersonaEnum tipoPersona) : this()

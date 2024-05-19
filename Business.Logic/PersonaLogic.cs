@@ -1,6 +1,7 @@
 ﻿using Business.Data;
 using Business.Entities;
 using Business.Entities.Enums;
+using Business.Util.Exceptions;
 using System;
 using System.Collections.Generic;
 
@@ -32,6 +33,10 @@ namespace Business.Logic
 
         public void Delete(Persona persona)
         {
+            if (PersonaData.ExistPersonaCF(persona.Id))
+            {
+                throw new DeleteCFReferenciadaException("La persona esta vinculada a inscripciones o asignacion de docente a un curso. Debera borrar todas las asignaciones vinculadas a la persona para poder borrarla");
+            }
             PersonaData.Delete(persona);
         }
 

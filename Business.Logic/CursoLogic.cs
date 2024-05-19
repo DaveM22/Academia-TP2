@@ -12,15 +12,9 @@ namespace Business.Logic
 {
     public class CursoLogic
     {
-        private StringBuilder StringBuilder { get; set; }
         private CursoAdapter CursoAdapter => new();
 
-        public CursoLogic()
-        {
-            StringBuilder = new StringBuilder();
-        }
-
-
+   
         public List<Curso> GetAll()
         {
             return CursoAdapter.GetAll();
@@ -49,29 +43,7 @@ namespace Business.Logic
         public Curso Save(Curso cur)
         {
             try
-            {
-                if(cur.ComisionId == 0)
-                {
-                    StringBuilder.AppendLine("Se debe seleccionar una comisión");
-                }
-                if(cur.MateriaId == 0)
-                {
-                    StringBuilder.AppendLine("Se debe seleccionar una materia");
-                }
-                if(cur.AnioCalendario == 0)
-                {
-                    StringBuilder.AppendLine($"Se debe ingresar un año calendario distinto de 0");
-                }
-                if(cur.Cupo == 0)
-                {
-                    StringBuilder.AppendLine("Se debe ingresar un curso mayor a 0");
-                }
-                
-                if (StringBuilder.Length > 0)
-                {
-                    throw new EntityValidationException("Error al guardar datos del curso", StringBuilder);
-                }
-                
+            {                
                 return CursoAdapter.Save(cur);
             }
             catch (EntityValidationException)
@@ -82,6 +54,10 @@ namespace Business.Logic
 
         public void Delete(int id)
         {
+            if (CursoAdapter.ExistCursoCF(id))
+            {
+                throw new DeleteCFReferenciadaException("El curso a borrar ya forma de uno o varias inscriciones y/o asignaciones de profesor y para poder borrar el curso debera borrar todas las entidades vinculadas al curso");
+            }
             CursoAdapter.Delete(id);
         }
     }

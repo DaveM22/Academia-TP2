@@ -32,6 +32,10 @@
             tscPersonas = new System.Windows.Forms.ToolStripContainer();
             tlpPersonas = new System.Windows.Forms.TableLayoutPanel();
             dgvPersonas = new System.Windows.Forms.DataGridView();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnCerrar = new System.Windows.Forms.Button();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tsNuevo = new System.Windows.Forms.ToolStripLabel();
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +46,6 @@
             Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            btnActualizar = new System.Windows.Forms.Button();
-            btnCerrar = new System.Windows.Forms.Button();
-            toolStrip1 = new System.Windows.Forms.ToolStrip();
-            tsNuevo = new System.Windows.Forms.ToolStripLabel();
             tscPersonas.ContentPanel.SuspendLayout();
             tscPersonas.TopToolStripPanel.SuspendLayout();
             tscPersonas.SuspendLayout();
@@ -60,11 +60,11 @@
             // tscPersonas.ContentPanel
             // 
             tscPersonas.ContentPanel.Controls.Add(tlpPersonas);
-            tscPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             tscPersonas.ContentPanel.Size = new System.Drawing.Size(811, 250);
             tscPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             tscPersonas.Location = new System.Drawing.Point(0, 0);
-            tscPersonas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tscPersonas.Margin = new System.Windows.Forms.Padding(2);
             tscPersonas.Name = "tscPersonas";
             tscPersonas.Size = new System.Drawing.Size(811, 275);
             tscPersonas.TabIndex = 0;
@@ -85,7 +85,7 @@
             tlpPersonas.Controls.Add(btnCerrar, 1, 1);
             tlpPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpPersonas.Location = new System.Drawing.Point(0, 0);
-            tlpPersonas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            tlpPersonas.Margin = new System.Windows.Forms.Padding(2);
             tlpPersonas.Name = "tlpPersonas";
             tlpPersonas.RowCount = 2;
             tlpPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -102,7 +102,7 @@
             tlpPersonas.SetColumnSpan(dgvPersonas, 2);
             dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvPersonas.Location = new System.Drawing.Point(2, 2);
-            dgvPersonas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dgvPersonas.Margin = new System.Windows.Forms.Padding(2);
             dgvPersonas.MultiSelect = false;
             dgvPersonas.Name = "dgvPersonas";
             dgvPersonas.ReadOnly = true;
@@ -113,99 +113,6 @@
             dgvPersonas.TabIndex = 0;
             dgvPersonas.CellClick += dgvPersonas_CellClick;
             // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 8;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            Id.Width = 150;
-            // 
-            // Apellido
-            // 
-            Apellido.DataPropertyName = "Apellido";
-            Apellido.HeaderText = "Apellido";
-            Apellido.MinimumWidth = 8;
-            Apellido.Name = "Apellido";
-            Apellido.ReadOnly = true;
-            Apellido.Width = 150;
-            // 
-            // Nombre
-            // 
-            Nombre.DataPropertyName = "Nombre";
-            Nombre.HeaderText = "Nombre";
-            Nombre.MinimumWidth = 8;
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 150;
-            // 
-            // Direccion
-            // 
-            Direccion.DataPropertyName = "Direccion";
-            Direccion.HeaderText = "Dirección";
-            Direccion.MinimumWidth = 8;
-            Direccion.Name = "Direccion";
-            Direccion.ReadOnly = true;
-            Direccion.Width = 150;
-            // 
-            // Telefono
-            // 
-            Telefono.DataPropertyName = "Telefono";
-            Telefono.HeaderText = "Teléfono";
-            Telefono.MinimumWidth = 8;
-            Telefono.Name = "Telefono";
-            Telefono.ReadOnly = true;
-            Telefono.Width = 150;
-            // 
-            // Email
-            // 
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 8;
-            Email.Name = "Email";
-            Email.ReadOnly = true;
-            Email.Width = 150;
-            // 
-            // FechaNacimiento
-            // 
-            FechaNacimiento.DataPropertyName = "FechaNacimiento";
-            FechaNacimiento.HeaderText = "Fecha de Nacimiento";
-            FechaNacimiento.MinimumWidth = 8;
-            FechaNacimiento.Name = "FechaNacimiento";
-            FechaNacimiento.ReadOnly = true;
-            FechaNacimiento.Width = 150;
-            // 
-            // Plan
-            // 
-            Plan.DataPropertyName = "PlanDescripcion";
-            Plan.HeaderText = "Plan";
-            Plan.MinimumWidth = 8;
-            Plan.Name = "Plan";
-            Plan.ReadOnly = true;
-            Plan.Width = 150;
-            // 
-            // Editar
-            // 
-            Editar.HeaderText = "";
-            Editar.MinimumWidth = 8;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Text = "Editar";
-            Editar.UseColumnTextForButtonValue = true;
-            Editar.Width = 150;
-            // 
-            // Eliminar
-            // 
-            Eliminar.HeaderText = "";
-            Eliminar.MinimumWidth = 8;
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
-            Eliminar.Text = "Eliminar";
-            Eliminar.UseColumnTextForButtonValue = true;
-            Eliminar.Width = 150;
-            // 
             // btnActualizar
             // 
             btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
@@ -213,7 +120,7 @@
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
             btnActualizar.Location = new System.Drawing.Point(614, 213);
-            btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new System.Drawing.Size(94, 35);
             btnActualizar.TabIndex = 1;
@@ -227,7 +134,7 @@
             btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCerrar.ForeColor = System.Drawing.SystemColors.HighlightText;
             btnCerrar.Location = new System.Drawing.Point(712, 213);
-            btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new System.Drawing.Size(97, 35);
             btnCerrar.TabIndex = 2;
@@ -255,13 +162,115 @@
             tsNuevo.Text = "Nuevo alumno";
             tsNuevo.Click += tsNuevo_Click;
             // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 150;
+            // 
+            // Apellido
+            // 
+            Apellido.DataPropertyName = "Apellido";
+            Apellido.FillWeight = 20F;
+            Apellido.HeaderText = "Apellido";
+            Apellido.MinimumWidth = 8;
+            Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
+            Apellido.Width = 150;
+            // 
+            // Nombre
+            // 
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.FillWeight = 20F;
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 8;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 150;
+            // 
+            // Direccion
+            // 
+            Direccion.DataPropertyName = "Direccion";
+            Direccion.FillWeight = 20F;
+            Direccion.HeaderText = "Dirección";
+            Direccion.MinimumWidth = 8;
+            Direccion.Name = "Direccion";
+            Direccion.ReadOnly = true;
+            Direccion.Width = 150;
+            // 
+            // Telefono
+            // 
+            Telefono.DataPropertyName = "Telefono";
+            Telefono.FillWeight = 10F;
+            Telefono.HeaderText = "Teléfono";
+            Telefono.MinimumWidth = 8;
+            Telefono.Name = "Telefono";
+            Telefono.ReadOnly = true;
+            Telefono.Width = 150;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.FillWeight = 20F;
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 8;
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            Email.Width = 150;
+            // 
+            // FechaNacimiento
+            // 
+            FechaNacimiento.DataPropertyName = "FechaNacimiento";
+            FechaNacimiento.FillWeight = 10F;
+            FechaNacimiento.HeaderText = "Fecha de Nacimiento";
+            FechaNacimiento.MinimumWidth = 8;
+            FechaNacimiento.Name = "FechaNacimiento";
+            FechaNacimiento.ReadOnly = true;
+            FechaNacimiento.Width = 150;
+            // 
+            // Plan
+            // 
+            Plan.DataPropertyName = "Plan.Descripcion";
+            Plan.FillWeight = 15F;
+            Plan.HeaderText = "Plan";
+            Plan.MinimumWidth = 8;
+            Plan.Name = "Plan";
+            Plan.ReadOnly = true;
+            Plan.Width = 150;
+            // 
+            // Editar
+            // 
+            Editar.FillWeight = 8F;
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
+            Editar.Width = 150;
+            // 
+            // Eliminar
+            // 
+            Eliminar.FillWeight = 8F;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
+            Eliminar.Width = 150;
+            // 
             // Personas
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(811, 275);
             Controls.Add(tscPersonas);
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Personas";
             Text = "Personas";
             Load += Personas_Load;
@@ -285,6 +294,7 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel tsNuevo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -295,6 +305,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.ToolStripLabel tsNuevo;
     }
 }

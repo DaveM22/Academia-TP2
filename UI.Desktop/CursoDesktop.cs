@@ -46,6 +46,7 @@ namespace UI.Desktop
             Plan = Materia.Plan;
             txtMateria.TextBox.Text = Materia.Descripcion;
             txtComision.TextBox.Text = Comision.Descripcion;
+            txtPlan.TextBox.Text = Plan.Descripcion;
             nudAnioCalendario.NumericUpDown.Value = Curso.AnioCalendario;
             nudCupo.NumericUpDown.Value = Curso.Cupo;
             txtPlan.Text = Curso.Materia.Plan.Descripcion;
@@ -88,17 +89,17 @@ namespace UI.Desktop
             txtPlan.TextBox.ReadOnly = true;
             nudAnioCalendario.Enabled = false;
             nudCupo.Enabled = false;
-            Text = "Borrar curso";
+            lblCurso.Text = "Borrar curso";
         }
 
         private void NewDescription()
         {
-            Text = "Crear curso";
+            lblCurso.Text = "Crear curso";
         }
 
         private void EditDescription()
         {
-            Text = "Modificar curso";
+            lblCurso.Text = "Modificar curso";
         }
 
         private void Save()
@@ -135,7 +136,7 @@ namespace UI.Desktop
                     {
                         niCurso.ShowBalloonTip(1000, "Editar curso", $"Se han guardado los cambios de manera exitosa", ToolTipIcon.Info);
                     }
-                    this.MasterForm.OpenForm(new Comisiones());
+                    this.MasterForm.OpenForm(new Cursos());
                     this.Close();
                 }
                 else
@@ -161,9 +162,16 @@ namespace UI.Desktop
             DialogResult result = MessageBox.Show("¿Desea borrar el curso?", "Eliminar curso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                CursoLogic.Delete(Curso.Id);
-                MasterForm.OpenForm(new Cursos());
-                this.Close();
+                try
+                {
+                    CursoLogic.Delete(Curso.Id);
+                    niCurso.ShowBalloonTip(1000, "Borrar curso", "Se ha borrado el curso correctamente", ToolTipIcon.Info);
+                    MasterForm.OpenForm(new Cursos());
+                }
+                catch(Exception ex) 
+                {
+                    niCurso.ShowBalloonTip(1000, "Borrar curso", ex.Message, ToolTipIcon.Error);
+                }
             }
         }
 
@@ -184,9 +192,9 @@ namespace UI.Desktop
                 {
                     MessageBox.Show("Al cambiar de plan debera a volver seleccionar la comisión y la materia del curso", "Cambio de plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Plan = form.PlanObj;
-                    txtPlan.Text = Plan.Descripcion;
-                    txtComision.Text = string.Empty;
-                    txtMateria.Text = string.Empty;
+                    txtPlan.TextBox.Text = Plan.Descripcion;
+                    txtComision.TextBox.Text = string.Empty;
+                    txtMateria.TextBox.Text = string.Empty;
                     Comision = null;
                     Materia = null;
                 }
@@ -206,7 +214,7 @@ namespace UI.Desktop
                 if (result == DialogResult.OK)
                 {
                     Comision = form.ComisionObj;
-                    txtComision.Text = Comision.Descripcion;
+                    txtComision.TextBox.Text = Comision.Descripcion;
                 }
             }
             else
@@ -224,7 +232,7 @@ namespace UI.Desktop
                 if (result == DialogResult.OK)
                 {
                     Materia = form.MateriaObj;
-                    txtMateria.Text = Materia.Descripcion;
+                    txtMateria.TextBox.Text = Materia.Descripcion;
                 }
             }
             else

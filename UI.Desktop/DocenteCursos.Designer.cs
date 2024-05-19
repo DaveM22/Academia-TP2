@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocenteCursos));
             tscDocenteCursos = new System.Windows.Forms.ToolStripContainer();
             tlpDocenteCursos = new System.Windows.Forms.TableLayoutPanel();
@@ -175,9 +175,9 @@
             // 
             // Editar
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Editar";
-            Editar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Editar";
+            Editar.DefaultCellStyle = dataGridViewCellStyle1;
             Editar.HeaderText = "";
             Editar.MinimumWidth = 8;
             Editar.Name = "Editar";
@@ -187,9 +187,9 @@
             // 
             // Borrar
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "Eliminar";
-            Borrar.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Eliminar";
+            Borrar.DefaultCellStyle = dataGridViewCellStyle2;
             Borrar.HeaderText = "";
             Borrar.MinimumWidth = 8;
             Borrar.Name = "Borrar";
@@ -222,6 +222,7 @@
             btnSalir.TabIndex = 2;
             btnSalir.Text = "Volver al inicio";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
             // toolStrip1
             // 

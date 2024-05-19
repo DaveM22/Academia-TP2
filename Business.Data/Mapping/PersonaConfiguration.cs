@@ -24,6 +24,8 @@ namespace Business.Data.Mapping
             builder.Property(x => x.Email).HasColumnName("email");
             builder.Property(x => x.TipoPersona).HasColumnName("tipo_persona");
             builder.Property(x => x.PlanId).HasColumnName("id_plan");
+            builder.HasMany(x => x.DocenteCurso).WithOne(x => x.Docente).HasForeignKey(x => x.DocenteId);
+            builder.HasMany(x => x.Inscripciones).WithOne(x => x.Alumno).HasForeignKey(x => x.AlumnoId);
             builder.HasOne(x => x.Plan).WithOne();
         }
     }

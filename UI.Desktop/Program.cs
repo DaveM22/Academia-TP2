@@ -33,6 +33,7 @@ namespace UI.Desktop
             if (Program.IsLoggin)
             {
                 Application.Run(new MasterForm(Program.Usuario));
+                Adapter.dbContext.Dispose();
             }
         }
     }

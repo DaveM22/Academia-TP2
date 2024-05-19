@@ -1,3 +1,4 @@
+using Business.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,7 @@ namespace UI.Web
     {
         public static void Main(string[] args)
         {
+
             CreateHostBuilder(args).Build().Run();
         }
 

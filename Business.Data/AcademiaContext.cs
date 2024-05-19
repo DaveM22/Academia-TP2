@@ -14,6 +14,7 @@ namespace Business.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-ME5L0JN\SQLEXPRESS;Initial Catalog=Academia;User Id=net; Password=net;Integrated Security=True");
+            optionsBuilder.LogTo(Console.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +24,7 @@ namespace Business.Data
 
 
         private static AcademiaContext instance;
+
 
 
         public AcademiaContext() { }
@@ -59,5 +61,7 @@ namespace Business.Data
         public DbSet<AlumnoInscripcion> AlumnoInscripciones { get; set; }
 
         public DbSet<Modulo> Modulos { get; set; }
+
+        public DbSet<ModuloUsuario> ModuloUsuarios { get; set; }
     }
 }

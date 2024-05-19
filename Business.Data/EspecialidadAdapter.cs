@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,19 @@ namespace Business.Data
     {
         public List<Especialidad> GetAll()
         {
-            var context = Adapter.dbContext;
-            return context.Especialidades.ToList();
+            using var context = new AcademiaContext();
+            return context.Especialidades.AsNoTracking().ToList();
         }
 
         public Especialidad GetOne(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Especialidades.Find(id);
         }
 
         public Especialidad Save(Especialidad esp)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             context.Especialidades.Update(esp);
             context.SaveChanges();
             return esp;
@@ -31,7 +32,7 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             var entity = context.Especialidades.Find(id);
             context.Especialidades.Remove(entity);
             context.SaveChanges();

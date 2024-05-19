@@ -35,16 +35,16 @@
             button1 = new System.Windows.Forms.Button();
             btnCerrar = new System.Windows.Forms.Button();
             dgvMaterias = new System.Windows.Forms.DataGridView();
+            lblTituloMaterias = new System.Windows.Forms.Label();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tslCrearMateria = new System.Windows.Forms.ToolStripButton();
+            niAlerta = new System.Windows.Forms.NotifyIcon(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             HsSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             HsTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            lblTituloMaterias = new System.Windows.Forms.Label();
-            toolStrip1 = new System.Windows.Forms.ToolStrip();
-            tslCrearMateria = new System.Windows.Forms.ToolStripButton();
-            niAlerta = new System.Windows.Forms.NotifyIcon(components);
             tscMaterias.ContentPanel.SuspendLayout();
             tscMaterias.TopToolStripPanel.SuspendLayout();
             tscMaterias.SuspendLayout();
@@ -142,6 +142,46 @@
             dgvMaterias.TabIndex = 0;
             dgvMaterias.CellClick += dgvMaterias_CellClick;
             // 
+            // lblTituloMaterias
+            // 
+            lblTituloMaterias.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblTituloMaterias.AutoSize = true;
+            tlpMaterias.SetColumnSpan(lblTituloMaterias, 2);
+            lblTituloMaterias.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTituloMaterias.ForeColor = System.Drawing.SystemColors.HighlightText;
+            lblTituloMaterias.Location = new System.Drawing.Point(2, 0);
+            lblTituloMaterias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblTituloMaterias.Name = "lblTituloMaterias";
+            lblTituloMaterias.Size = new System.Drawing.Size(765, 26);
+            lblTituloMaterias.TabIndex = 3;
+            lblTituloMaterias.Text = "Materias del plan ";
+            lblTituloMaterias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tslCrearMateria });
+            toolStrip1.Location = new System.Drawing.Point(4, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(94, 25);
+            toolStrip1.TabIndex = 0;
+            // 
+            // tslCrearMateria
+            // 
+            tslCrearMateria.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tslCrearMateria.Image = (System.Drawing.Image)resources.GetObject("tslCrearMateria.Image");
+            tslCrearMateria.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tslCrearMateria.Name = "tslCrearMateria";
+            tslCrearMateria.Size = new System.Drawing.Size(82, 22);
+            tslCrearMateria.Text = "Crear materia";
+            tslCrearMateria.Click += tslCrearMateria_Click;
+            // 
+            // niAlerta
+            // 
+            niAlerta.Icon = (System.Drawing.Icon)resources.GetObject("niAlerta.Icon");
+            niAlerta.Visible = true;
+            // 
             // Id
             // 
             Id.DataPropertyName = "Id";
@@ -186,8 +226,8 @@
             // Editar
             // 
             Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            Editar.FillWeight = 10F;
-            Editar.HeaderText = "Editar";
+            Editar.FillWeight = 8F;
+            Editar.HeaderText = "";
             Editar.MinimumWidth = 8;
             Editar.Name = "Editar";
             Editar.ReadOnly = true;
@@ -199,8 +239,8 @@
             // Eliminar
             // 
             Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            Eliminar.FillWeight = 10F;
-            Eliminar.HeaderText = "Eliminar";
+            Eliminar.FillWeight = 8F;
+            Eliminar.HeaderText = "";
             Eliminar.MinimumWidth = 8;
             Eliminar.Name = "Eliminar";
             Eliminar.ReadOnly = true;
@@ -208,46 +248,6 @@
             Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             Eliminar.Text = "Eliminar";
             Eliminar.UseColumnTextForButtonValue = true;
-            // 
-            // lblTituloMaterias
-            // 
-            lblTituloMaterias.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblTituloMaterias.AutoSize = true;
-            tlpMaterias.SetColumnSpan(lblTituloMaterias, 2);
-            lblTituloMaterias.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTituloMaterias.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblTituloMaterias.Location = new System.Drawing.Point(2, 0);
-            lblTituloMaterias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            lblTituloMaterias.Name = "lblTituloMaterias";
-            lblTituloMaterias.Size = new System.Drawing.Size(765, 26);
-            lblTituloMaterias.TabIndex = 3;
-            lblTituloMaterias.Text = "Materias del plan ";
-            lblTituloMaterias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tslCrearMateria });
-            toolStrip1.Location = new System.Drawing.Point(4, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(94, 25);
-            toolStrip1.TabIndex = 0;
-            // 
-            // tslCrearMateria
-            // 
-            tslCrearMateria.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            tslCrearMateria.Image = (System.Drawing.Image)resources.GetObject("tslCrearMateria.Image");
-            tslCrearMateria.ImageTransparentColor = System.Drawing.Color.Magenta;
-            tslCrearMateria.Name = "tslCrearMateria";
-            tslCrearMateria.Size = new System.Drawing.Size(82, 22);
-            tslCrearMateria.Text = "Crear materia";
-            tslCrearMateria.Click += tslCrearMateria_Click;
-            // 
-            // niAlerta
-            // 
-            niAlerta.Icon = (System.Drawing.Icon)resources.GetObject("niAlerta.Icon");
-            niAlerta.Visible = true;
             // 
             // Materias
             // 
@@ -281,13 +281,13 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Label lblTituloMaterias;
+        private System.Windows.Forms.ToolStripButton tslCrearMateria;
+        private System.Windows.Forms.NotifyIcon niAlerta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn HsSemanales;
         private System.Windows.Forms.DataGridViewTextBoxColumn HsTotales;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.ToolStripButton tslCrearMateria;
-        private System.Windows.Forms.NotifyIcon niAlerta;
     }
 }

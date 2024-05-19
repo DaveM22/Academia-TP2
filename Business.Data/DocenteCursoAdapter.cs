@@ -49,7 +49,7 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             var doc = context.DocenteCursos.Single(x => x.Id == id);
             context.DocenteCursos.Remove(doc);
             context.SaveChanges();

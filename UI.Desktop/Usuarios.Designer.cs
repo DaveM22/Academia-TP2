@@ -37,6 +37,7 @@
             Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Modulos = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             btnActualizar = new System.Windows.Forms.Button();
@@ -57,11 +58,13 @@
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(tlUsuarios);
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 461);
+            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(560, 272);
             toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            toolStripContainer1.Margin = new System.Windows.Forms.Padding(2);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new System.Drawing.Size(800, 495);
+            toolStripContainer1.Size = new System.Drawing.Size(560, 297);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "tscUsuarios";
             // 
@@ -81,11 +84,12 @@
             tlUsuarios.Controls.Add(btnCancelar, 1, 1);
             tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             tlUsuarios.Location = new System.Drawing.Point(0, 0);
+            tlUsuarios.Margin = new System.Windows.Forms.Padding(2);
             tlUsuarios.Name = "tlUsuarios";
             tlUsuarios.RowCount = 2;
             tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlUsuarios.Size = new System.Drawing.Size(800, 461);
+            tlUsuarios.Size = new System.Drawing.Size(560, 272);
             tlUsuarios.TabIndex = 0;
             // 
             // dgvUsuarios
@@ -94,17 +98,18 @@
             dgvUsuarios.AllowUserToDeleteRows = false;
             dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, NombreUsuario, Email, Apellido, Nombre, Editar, Eliminar });
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, NombreUsuario, Email, Apellido, Nombre, Modulos, Editar, Eliminar });
             tlUsuarios.SetColumnSpan(dgvUsuarios, 2);
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvUsuarios.Location = new System.Drawing.Point(3, 3);
+            dgvUsuarios.Location = new System.Drawing.Point(2, 2);
+            dgvUsuarios.Margin = new System.Windows.Forms.Padding(2);
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersWidth = 62;
             dgvUsuarios.RowTemplate.Height = 33;
             dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new System.Drawing.Size(794, 401);
+            dgvUsuarios.Size = new System.Drawing.Size(556, 235);
             dgvUsuarios.TabIndex = 0;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
@@ -150,6 +155,14 @@
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
             // 
+            // Modulos
+            // 
+            Modulos.HeaderText = "";
+            Modulos.Name = "Modulos";
+            Modulos.ReadOnly = true;
+            Modulos.Text = "Modulos";
+            Modulos.UseColumnTextForButtonValue = true;
+            // 
             // Editar
             // 
             Editar.HeaderText = "";
@@ -174,9 +187,10 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(569, 410);
+            btnActualizar.Location = new System.Drawing.Point(369, 241);
+            btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(111, 48);
+            btnActualizar.Size = new System.Drawing.Size(78, 29);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -186,12 +200,14 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(686, 410);
+            btnCancelar.Location = new System.Drawing.Point(451, 241);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(111, 48);
+            btnCancelar.Size = new System.Drawing.Size(107, 29);
             btnCancelar.TabIndex = 2;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Volver al inicio";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // tsUsuarios
             // 
@@ -200,7 +216,7 @@
             tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevoUsuario });
             tsUsuarios.Location = new System.Drawing.Point(4, 0);
             tsUsuarios.Name = "tsUsuarios";
-            tsUsuarios.Size = new System.Drawing.Size(149, 34);
+            tsUsuarios.Size = new System.Drawing.Size(100, 25);
             tsUsuarios.TabIndex = 0;
             // 
             // tsNuevoUsuario
@@ -209,17 +225,18 @@
             tsNuevoUsuario.Image = (System.Drawing.Image)resources.GetObject("tsNuevoUsuario.Image");
             tsNuevoUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsNuevoUsuario.Name = "tsNuevoUsuario";
-            tsNuevoUsuario.Size = new System.Drawing.Size(131, 29);
+            tsNuevoUsuario.Size = new System.Drawing.Size(88, 22);
             tsNuevoUsuario.Text = "Nuevo usuario";
             tsNuevoUsuario.Click += tsNuevoUsuario_Click;
             // 
             // Usuarios
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 495);
+            ClientSize = new System.Drawing.Size(560, 297);
             ControlBox = false;
             Controls.Add(toolStripContainer1);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Usuarios";
             Text = "Usuarios";
             toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -248,6 +265,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewButtonColumn Modulos;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

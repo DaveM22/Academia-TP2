@@ -12,19 +12,19 @@ namespace Business.Data
     {
         public List<Plan> GetAll()
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Planes.Include(x => x.Especialidad).Include(x => x.Materias).ToList();
         }
 
         public Plan GetOne(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Planes.Include(x => x.Especialidad).Include(x => x.Materias).FirstOrDefault(x => x.Id == id);
         }
 
         public Plan Save(Plan plan)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             context.Planes.Update(plan);
             context.SaveChanges();
             return plan;
@@ -32,7 +32,7 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             var entity = context.Planes.Find(id);
             context.Planes.Remove(entity);
             context.SaveChanges();
@@ -40,13 +40,19 @@ namespace Business.Data
 
         public bool ExistsEspecialidadEnAlgunPlan(int idEspecialidad)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Planes.Any(x => x.EspecialidadId == idEspecialidad);
+        }
+
+        public bool ExistPlanCF(int plan)
+        {
+            using var context = new AcademiaContext();
+            return context.Planes.Include(x => x.Personas).Any(x => x.Id == plan && (x.Comisiones.Any() || x.Personas.Any() || x.Materias.Any()));
         }
 
         public List<Plan> PlanesByEspecialidad(int idEspecialidad)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Planes.Where(x => x.EspecialidadId == idEspecialidad).ToList();
         }
 

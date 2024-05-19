@@ -165,9 +165,20 @@ namespace UI.Desktop
 
         private void Borrar()
         {
-            PlanLogic.Delete(Plan.Id);
-            notifyIcon1.ShowBalloonTip(1000, "Borrar plan", $"Se ha borrado el plan: " + Plan.Descripcion, ToolTipIcon.Info);
-            MasterForm.OpenForm(new Planes());
+            DialogResult result = MessageBox.Show("¿Desea borrar la plan?", "Borrar plan", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    PlanLogic.Delete(Plan.Id);
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar plan", "Se ha borrado la plan correctamente", ToolTipIcon.Info);
+                    MasterForm.OpenForm(new Planes());
+                }
+                catch (DeleteCFReferenciadaException ex)
+                {
+                    notifyIcon1.ShowBalloonTip(1000, "Borrar plan", ex.Message, ToolTipIcon.Error);
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

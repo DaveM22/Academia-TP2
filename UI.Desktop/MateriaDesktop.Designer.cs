@@ -41,6 +41,7 @@
             lblTitulo = new System.Windows.Forms.Label();
             txtMateria = new UserControls.TextBoxConValidacion();
             niAlerta = new System.Windows.Forms.NotifyIcon(components);
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tlpMateria.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             tlpMateria.ColumnCount = 4;
             tlpMateria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlpMateria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
-            tlpMateria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            tlpMateria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 279F));
             tlpMateria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tlpMateria.Controls.Add(nudHsTotales, 2, 2);
             tlpMateria.Controls.Add(label2, 1, 2);
@@ -79,17 +80,17 @@
             // 
             // nudHsTotales
             // 
-            nudHsTotales.Location = new System.Drawing.Point(311, 132);
+            nudHsTotales.Location = new System.Drawing.Point(277, 132);
             nudHsTotales.Margin = new System.Windows.Forms.Padding(1);
             nudHsTotales.Name = "nudHsTotales";
-            nudHsTotales.Size = new System.Drawing.Size(207, 53);
+            nudHsTotales.Size = new System.Drawing.Size(276, 53);
             nudHsTotales.TabIndex = 11;
             // 
             // label2
             // 
             label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            label2.Location = new System.Drawing.Point(196, 134);
+            label2.Location = new System.Drawing.Point(162, 134);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(112, 51);
@@ -101,7 +102,7 @@
             // 
             label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            label1.Location = new System.Drawing.Point(229, 80);
+            label1.Location = new System.Drawing.Point(195, 80);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(79, 45);
@@ -111,10 +112,10 @@
             // 
             // nudHsSemanales
             // 
-            nudHsSemanales.Location = new System.Drawing.Point(311, 190);
+            nudHsSemanales.Location = new System.Drawing.Point(277, 190);
             nudHsSemanales.Margin = new System.Windows.Forms.Padding(1);
             nudHsSemanales.Name = "nudHsSemanales";
-            nudHsSemanales.Size = new System.Drawing.Size(207, 49);
+            nudHsSemanales.Size = new System.Drawing.Size(276, 49);
             nudHsSemanales.TabIndex = 10;
             // 
             // btnGuardar
@@ -123,7 +124,7 @@
             btnGuardar.BackColor = System.Drawing.Color.Green;
             btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnGuardar.Location = new System.Drawing.Point(441, 244);
+            btnGuardar.Location = new System.Drawing.Point(475, 244);
             btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new System.Drawing.Size(78, 27);
@@ -136,7 +137,7 @@
             // 
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnCancelar.Location = new System.Drawing.Point(523, 244);
+            btnCancelar.Location = new System.Drawing.Point(557, 244);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new System.Drawing.Size(74, 27);
@@ -149,7 +150,7 @@
             // 
             label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            label3.Location = new System.Drawing.Point(196, 189);
+            label3.Location = new System.Drawing.Point(162, 189);
             label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(112, 51);
@@ -173,16 +174,22 @@
             // 
             // txtMateria
             // 
-            txtMateria.Location = new System.Drawing.Point(311, 75);
+            txtMateria.Location = new System.Drawing.Point(277, 75);
             txtMateria.Margin = new System.Windows.Forms.Padding(1);
             txtMateria.Name = "txtMateria";
-            txtMateria.Size = new System.Drawing.Size(207, 53);
+            txtMateria.Size = new System.Drawing.Size(276, 53);
             txtMateria.TabIndex = 9;
             // 
             // niAlerta
             // 
             niAlerta.Icon = (System.Drawing.Icon)resources.GetObject("niAlerta.Icon");
             niAlerta.Visible = true;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "niMateria";
+            notifyIcon1.Visible = true;
             // 
             // MateriaDesktop
             // 
@@ -217,5 +224,6 @@
         private UserControls.NumericUpDownValidation nudHsTotales;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.NotifyIcon niAlerta;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

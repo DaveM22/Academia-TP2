@@ -1,5 +1,6 @@
 ﻿using Business.Entities.Enums;
 using System;
+using System.Collections.Generic;
 
 namespace Business.Entities
 {
@@ -26,5 +27,9 @@ namespace Business.Entities
         public Usuario Usuario { get; set; }
 
         public Plan Plan { get; set; }
+
+        public List<DocenteCurso> DocenteCurso { get; set; }
+
+        public List<AlumnoInscripcion> Inscripciones { get; set; }
     }
 }

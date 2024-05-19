@@ -18,6 +18,8 @@ namespace Business.Data.Mapping
             builder.Property(x => x.Descripcion).HasColumnName("desc_plan");
             builder.Property(x => x.EspecialidadId).HasColumnName("id_especialidad");
             builder.HasOne(x => x.Especialidad).WithMany().HasForeignKey(x => x.EspecialidadId);
+
+            builder.HasMany(x => x.Personas).WithOne(x => x.Plan).HasForeignKey(x => x.PlanId);
             builder.HasMany(p => p.Comisiones)
                         .WithOne(c => c.Plan)
                         .HasForeignKey(c => c.PlanId);

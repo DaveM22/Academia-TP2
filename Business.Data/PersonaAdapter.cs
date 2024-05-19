@@ -39,10 +39,17 @@ namespace Business.Data
         public void Delete(Persona persona)
         {
             using var context = new AcademiaContext();
+            
             context.Remove(persona);
             context.SaveChanges();
         }
 
+
+        public bool ExistPersonaCF(int idPersona)
+        {
+            using var context = new AcademiaContext();
+            return context.Personas.Any(x => x.Id == idPersona && (x.DocenteCurso.Any() || x.Inscripciones.Any()));
+        }
 
         //Devuelve los profesores que no esten inscriptos en el curso y que sean del mismo plan
         public List<Persona> DocentesByPlanForCurso(List<int> idsProfesor) 

@@ -13,7 +13,7 @@ namespace Business.Data
 
         public Curso GetOneReporte(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Cursos
                 .Include(x => x.DocenteCursos)
                 .Include(x => x.Inscriptos)
@@ -27,31 +27,31 @@ namespace Business.Data
 
         public List<Curso> GetAll()
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Cursos.AsNoTracking().Include(x => x.Materia).Include(x => x.Comision).ToList();
         }
 
         public List<Curso> GetAllByPlan(int idPlan)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan && x.Cupo > 0).ToList();
         }
 
         public List<Curso> GetAllByPlandAndMateria(int idPlan, int idMateria)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Cursos.Include(x => x.Materia).Include(x => x.Comision).Where(x => x.Comision.PlanId == idPlan && x.MateriaId == idMateria && x.Cupo > 0).ToList();
         }
 
         public Curso GetOne(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).Include(x => x.DocenteCursos).ThenInclude(x => x.Docente).Include(x => x.Materia).ThenInclude(x => x.Plan).SingleOrDefault(x => x.Id == id);
         }
 
         public Curso Save(Curso cur)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext();
             context.ChangeTracker.Clear();
             if (cur.Id == 0)
             {
@@ -68,10 +68,17 @@ namespace Business.Data
 
         public void Delete(int id)
         {
-            var context = Adapter.dbContext;
+            using var context = new AcademiaContext(); ;
             var entity = context.Cursos.Find(id);
             context.Cursos.Remove(entity);
             context.SaveChanges();
+        }
+
+
+        public bool ExistCursoCF(int cursoId)
+        {
+            using var context = new AcademiaContext();
+            return context.Cursos.Any(x => x.Id == cursoId && (x.DocenteCursos.Any() || x.Inscriptos.Any()));
         }
     }
 }

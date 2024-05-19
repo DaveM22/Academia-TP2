@@ -12,8 +12,9 @@ namespace Business.Data
 
         public List<Modulo> GetModulos()
         {
-            using var context = new AcademiaContext();
+            using var context = new AcademiaContext(); ;
             return context.Modulos.ToList();
         }
+
     }
 }

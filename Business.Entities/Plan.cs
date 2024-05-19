@@ -13,5 +13,6 @@ namespace Business.Entities
         public Especialidad Especialidad { get; set; }
         public List<Materia> Materias { get; set; }
         public List<Comision> Comisiones { get; set; }
+        public List<Persona> Personas { get; set; }
     }
 }

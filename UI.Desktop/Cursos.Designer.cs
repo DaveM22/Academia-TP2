@@ -33,6 +33,12 @@
             tscCursos = new System.Windows.Forms.ToolStripContainer();
             tlCursos = new System.Windows.Forms.TableLayoutPanel();
             dgvCursos = new System.Windows.Forms.DataGridView();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnSalir = new System.Windows.Forms.Button();
+            tsCursos = new System.Windows.Forms.ToolStrip();
+            tsNuevo = new System.Windows.Forms.ToolStripButton();
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,12 +47,6 @@
             Reporte = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            btnActualizar = new System.Windows.Forms.Button();
-            btnSalir = new System.Windows.Forms.Button();
-            tsCursos = new System.Windows.Forms.ToolStrip();
-            tsNuevo = new System.Windows.Forms.ToolStripButton();
-            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tscCursos.ContentPanel.SuspendLayout();
             tscCursos.TopToolStripPanel.SuspendLayout();
             tscCursos.SuspendLayout();
@@ -115,86 +115,6 @@
             dgvCursos.TabIndex = 0;
             dgvCursos.CellClick += dgvCursos_CellClick;
             // 
-            // Id
-            // 
-            Id.DataPropertyName = "ComisionDescripcion";
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 8;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // Materia
-            // 
-            Materia.DataPropertyName = "MateriaDescripcion";
-            Materia.FillWeight = 30F;
-            Materia.HeaderText = "Materia";
-            Materia.MinimumWidth = 8;
-            Materia.Name = "Materia";
-            Materia.ReadOnly = true;
-            // 
-            // Comision
-            // 
-            Comision.DataPropertyName = "ComisionDescripcion";
-            Comision.FillWeight = 30F;
-            Comision.HeaderText = "Comisión";
-            Comision.MinimumWidth = 8;
-            Comision.Name = "Comision";
-            Comision.ReadOnly = true;
-            // 
-            // AnioCalendario
-            // 
-            AnioCalendario.DataPropertyName = "AnioCalendario";
-            AnioCalendario.FillWeight = 10F;
-            AnioCalendario.HeaderText = "Año Calendario";
-            AnioCalendario.MinimumWidth = 8;
-            AnioCalendario.Name = "AnioCalendario";
-            AnioCalendario.ReadOnly = true;
-            // 
-            // Cupo
-            // 
-            Cupo.DataPropertyName = "Cupo";
-            Cupo.FillWeight = 10F;
-            Cupo.HeaderText = "Cupo";
-            Cupo.MinimumWidth = 8;
-            Cupo.Name = "Cupo";
-            Cupo.ReadOnly = true;
-            // 
-            // Reporte
-            // 
-            Reporte.FillWeight = 20F;
-            Reporte.HeaderText = "";
-            Reporte.Name = "Reporte";
-            Reporte.ReadOnly = true;
-            Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            Reporte.Text = "Generar reporte";
-            Reporte.UseColumnTextForButtonValue = true;
-            // 
-            // Editar
-            // 
-            Editar.FillWeight = 10F;
-            Editar.HeaderText = "";
-            Editar.MinimumWidth = 8;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            Editar.Text = "Editar";
-            Editar.UseColumnTextForButtonValue = true;
-            // 
-            // Eliminar
-            // 
-            Eliminar.FillWeight = 10F;
-            Eliminar.HeaderText = "";
-            Eliminar.MinimumWidth = 8;
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
-            Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            Eliminar.Text = "Eliminar";
-            Eliminar.UseColumnTextForButtonValue = true;
-            // 
             // btnActualizar
             // 
             btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
@@ -254,6 +174,86 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
+            // Id
+            // 
+            Id.DataPropertyName = "ComisionDescripcion";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // Materia
+            // 
+            Materia.DataPropertyName = "Materia.Descripcion";
+            Materia.FillWeight = 30F;
+            Materia.HeaderText = "Materia";
+            Materia.MinimumWidth = 8;
+            Materia.Name = "Materia";
+            Materia.ReadOnly = true;
+            // 
+            // Comision
+            // 
+            Comision.DataPropertyName = "Comision.Descripcion";
+            Comision.FillWeight = 30F;
+            Comision.HeaderText = "Comisión";
+            Comision.MinimumWidth = 8;
+            Comision.Name = "Comision";
+            Comision.ReadOnly = true;
+            // 
+            // AnioCalendario
+            // 
+            AnioCalendario.DataPropertyName = "AnioCalendario";
+            AnioCalendario.FillWeight = 10F;
+            AnioCalendario.HeaderText = "Año Calendario";
+            AnioCalendario.MinimumWidth = 8;
+            AnioCalendario.Name = "AnioCalendario";
+            AnioCalendario.ReadOnly = true;
+            // 
+            // Cupo
+            // 
+            Cupo.DataPropertyName = "Cupo";
+            Cupo.FillWeight = 10F;
+            Cupo.HeaderText = "Cupo";
+            Cupo.MinimumWidth = 8;
+            Cupo.Name = "Cupo";
+            Cupo.ReadOnly = true;
+            // 
+            // Reporte
+            // 
+            Reporte.FillWeight = 10F;
+            Reporte.HeaderText = "";
+            Reporte.Name = "Reporte";
+            Reporte.ReadOnly = true;
+            Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Reporte.Text = "Generar reporte";
+            Reporte.UseColumnTextForButtonValue = true;
+            // 
+            // Editar
+            // 
+            Editar.FillWeight = 8F;
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.FillWeight = 8F;
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
+            // 
             // Cursos
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -285,6 +285,8 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsCursos;
         private System.Windows.Forms.ToolStripButton tsNuevo;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
@@ -293,7 +295,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn Reporte;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

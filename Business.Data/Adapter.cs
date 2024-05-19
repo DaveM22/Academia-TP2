@@ -16,6 +16,10 @@ namespace Business.Data
 
         public static void SetContext(AcademiaContext dbContextt)
         {
+            if(dbContext != null)
+            {
+                dbContext.Dispose();
+            }
             dbContext = dbContextt;
         }
     }

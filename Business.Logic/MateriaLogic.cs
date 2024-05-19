@@ -1,5 +1,6 @@
 ﻿using Business.Data;
 using Business.Entities;
+using Business.Util.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,10 @@ namespace Business.Logic
 
         public void Borrar(int id)
         {
+            if(MateriaData.ExistMateriaCF(id))
+            {
+                throw new DeleteCFReferenciadaException("La materia esta vinculada a uno o mas cursos. Debera borrar los cursos vinculado primero para poder borarla");
+            }
             MateriaData.Delete(id);
         }
 

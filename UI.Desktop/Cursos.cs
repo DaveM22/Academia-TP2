@@ -1,4 +1,5 @@
-﻿using Accord.IO;
+﻿using Accord.Controls;
+using Accord.IO;
 using Business.Entities;
 using Business.Logic;
 using FastReport;
@@ -29,6 +30,7 @@ namespace UI.Desktop
         public Cursos()
         {
             InitializeComponent();
+            this.dgvCursos.AllowNestedProperties(true);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -88,9 +90,10 @@ namespace UI.Desktop
                 var pdfsimple = new PDFSimpleExport();
                 rep.Prepare();
                 rep.Export(pdfsimple, ms);
-                rep.FileName = "asddd.pdf";
-
+                rep.FileName = $"Curso_{curso.Comision.Descripcion}_{curso.Materia.Descripcion}.pdf";
+                saveFileDialog1.FileName = $"Curso_{curso.Comision.Descripcion}_{curso.Materia.Descripcion}.pdf";
                 var result = saveFileDialog1.ShowDialog();
+               
                 if (result == DialogResult.OK)
                 {
                     File.WriteAllBytes(saveFileDialog1.FileName, ms.ToArray());

@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Data
 {
@@ -34,11 +32,11 @@ namespace Business.Data
                 .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.CursoId == cursoId).ToList();
         }
 
-        public void Borrar(int idInscripcion) 
+        public void Borrar(int idInscripcion)
         {
             try
             {
-                var context = Adapter.dbContext;
+                using var context = new AcademiaContext();
                 context.Database.BeginTransaction();
                 var inscripcion = context.AlumnoInscripciones.Where(x => x.Id == idInscripcion).SingleOrDefault();
                 context.AlumnoInscripciones.Remove(inscripcion);
@@ -56,27 +54,26 @@ namespace Business.Data
 
         public void Save(AlumnoInscripcion insc)
         {
-            using (var dbContext = new AcademiaContext())
+            using var context = new AcademiaContext(); ;
+            using (var transaction = context.Database.BeginTransaction())
             {
-                using (var transaction = dbContext.Database.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                       
-                       dbContext.AlumnoInscripciones.Update(insc);
-                       var curso = dbContext.Cursos.Single(x => x.Id == insc.CursoId);
-                       curso.Cupo -= 1;
-                       dbContext.Cursos.Update(curso);
-                       dbContext.SaveChanges();
-                       dbContext.Database.CommitTransaction();
-                    }
-                    catch (Exception ex)
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
+
+                    context.AlumnoInscripciones.Update(insc);
+                    var curso = context.Cursos.Single(x => x.Id == insc.CursoId);
+                    curso.Cupo -= 1;
+                    context.Cursos.Update(curso);
+                    context.SaveChanges();
+                    context.Database.CommitTransaction();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw;
                 }
             }
+
         }
     }
 }

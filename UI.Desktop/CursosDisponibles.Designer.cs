@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CursosDisponibles));
             tlpCursosDisponibles = new System.Windows.Forms.TableLayoutPanel();
             btnVolver = new System.Windows.Forms.Button();
             dgvCursosDisponibles = new System.Windows.Forms.DataGridView();
@@ -35,6 +37,7 @@
             Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             label1 = new System.Windows.Forms.Label();
+            niCursosDisponibles = new System.Windows.Forms.NotifyIcon(components);
             tlpCursosDisponibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCursosDisponibles).BeginInit();
             SuspendLayout();
@@ -87,6 +90,7 @@
             dgvCursosDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvCursosDisponibles.Size = new System.Drawing.Size(794, 373);
             dgvCursosDisponibles.TabIndex = 1;
+            dgvCursosDisponibles.CellClick += dgvCursosDisponibles_CellClick;
             dgvCursosDisponibles.Paint += dgvCursosDisponibles_Paint;
             // 
             // Id
@@ -127,6 +131,11 @@
             label1.Text = "Cursos disponibles:";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // niCursosDisponibles
+            // 
+            niCursosDisponibles.Icon = (System.Drawing.Icon)resources.GetObject("niCursosDisponibles.Icon");
+            niCursosDisponibles.Visible = true;
+            // 
             // CursosDisponibles
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -151,5 +160,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.NotifyIcon niCursosDisponibles;
     }
 }

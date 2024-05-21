@@ -2,12 +2,20 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
+using FastReport;
+using FastReport.Export.PdfSimple;
+using FastReport.Web;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Numerics;
 using UI.Web.Models;
+using static FastReport.ReporteCursos;
 
 namespace UI.Web.Controllers
 {
@@ -16,6 +24,7 @@ namespace UI.Web.Controllers
     {
         private readonly IMapper mapper;
         private readonly INotyfService notyfService;
+        private readonly IWebHostEnvironment webHostEnviroment;
 
         private CursoLogic CursoLogic => new();
 
@@ -23,10 +32,11 @@ namespace UI.Web.Controllers
 
         private ComisionLogic ComisionLogic => new();
 
-        public CursoController(IMapper mapper, INotyfService notyfService)
+        public CursoController(IMapper mapper, INotyfService notyfService, IWebHostEnvironment webHostEnvironment)
         {
             this.mapper = mapper;
             this.notyfService = notyfService;
+            this.webHostEnviroment = webHostEnvironment;
         }
 
 
@@ -123,10 +133,34 @@ namespace UI.Web.Controllers
                 notyfService.Success($"Se ha borrado el curso {cursoViewModel.ComisionDescripcion} - {cursoViewModel.MateriaDescripcion}", 3);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(DeleteCFReferenciadaException ex)
             {
-                return View(cursoViewModel);
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Borrar", new { id = cursoViewModel.Id });
             }
+        }
+
+        [Authorize]
+        public IActionResult Reporte(int id)
+        {
+            var curso = CursoLogic.GetOne(id);
+            var cursoReporte = CursoLogic.GetOneReporte(curso.Id);
+            var rep = new ReporteCursos();
+            rep.Especialidad = cursoReporte.Materia.Plan.Especialidad.Descripcion;
+            rep.Plan = cursoReporte.Materia.Plan.Descripcion;
+            rep.Materia = cursoReporte.Materia.Descripcion;
+            rep.Comision = cursoReporte.Comision.Descripcion;
+            rep.AlumnoList = new();
+            foreach (var item in cursoReporte.Inscriptos)
+            {
+                var alumno = new Alumnos() { Apellido = item.Alumno.Apellido, Nombre = item.Alumno.Nombre, Email = item.Alumno.Email, Legajo = item.Alumno.Legajo };
+                rep.AlumnoList.Add(alumno);
+            }
+            rep.Prepare();
+            Stream stream = new MemoryStream();
+            rep.Report.Export(new PDFSimpleExport(), stream);
+            stream.Position = 0;
+            return File(stream, "application/pdf", $"Curso_{curso.Comision.Descripcion}_{curso.Materia.Descripcion}.pdf");
         }
     }
 }

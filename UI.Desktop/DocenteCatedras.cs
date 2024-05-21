@@ -1,4 +1,5 @@
 ﻿using Accord.Controls;
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class DocenteCatedras : Form
+    public partial class DocenteCatedras : ApplicationForm
     {
 
         private DocenteCursoLogic PersonaLogic => new DocenteCursoLogic();
+
+        private MasterForm MasterForm => this.MdiParent as MasterForm;
 
         private int PersonaId { get; set; }
         public DocenteCatedras()
@@ -33,6 +36,22 @@ namespace UI.Desktop
             this.dgvCatedras.AutoGenerateColumns = false;
             this.dgvCatedras.AllowNestedProperties(true);
             this.dgvCatedras.DataSource = this.PersonaLogic.GetDocenteCursos(this.PersonaId);
+        }
+
+        private void dgvCatedras_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCatedras.CurrentCell.OwningColumn.Name == "Actualizar")
+            {
+                DocenteCurso docenteCurso = dgvCatedras.SelectedRows[0].DataBoundItem as DocenteCurso;
+                var form = new CursoAlumnos(docenteCurso.CursoId);
+                MasterForm.OpenForm(form);
+            }
+            else if (dgvCatedras.CurrentCell.OwningColumn.Name == "Estado")
+            {
+                DocenteCurso docenteCurso = dgvCatedras.SelectedRows[0].DataBoundItem as DocenteCurso;
+                var form = new CursoAlumnos(docenteCurso.CursoId);
+                MasterForm.OpenForm(form);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Accord.Controls;
 using Business.Logic;
+using Business.Util;
+using DocumentFormat.OpenXml.Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,8 @@ namespace UI.Desktop
     {
         private MasterForm MasterForm => this.MdiParent as MasterForm;
         private CursoLogic CursoLogic => new CursoLogic();
+
+        private AlumnoInscripcionLogic AlumnoInscripcionLogic => new AlumnoInscripcionLogic();
 
         private int MateriaId { get; set; }
 
@@ -55,6 +59,25 @@ namespace UI.Desktop
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.MasterForm.OpenForm(new MateriasAlumno(AlumnoId, PlanId));
+        }
+
+        private void dgvCursosDisponibles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCursosDisponibles.CurrentCell.OwningColumn.Name == "Seleccionar")
+            {
+                Business.Entities.Curso cur = dgvCursosDisponibles.SelectedRows[0].DataBoundItem as Business.Entities.Curso;
+                var result = MessageBox.Show($"¿Desea inscribirse al siguiente curso: {cur.Materia.Descripcion} - {cur.Comision.Descripcion} ?","Incripción a cursado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if(result == DialogResult.OK) 
+                {
+                    var alumnoInscripcion = new Business.Entities.AlumnoInscripcion();
+                    alumnoInscripcion.CursoId = cur.Id;
+                    alumnoInscripcion.Condicion = CondicionEnum.INSCRIPTO.ToString();
+                    alumnoInscripcion.AlumnoId = this.AlumnoId;
+                    this.AlumnoInscripcionLogic.Save(alumnoInscripcion);
+                    this.niCursosDisponibles.ShowBalloonTip(1000, "Inscripción", $"Se ha inscripto al curso correctamente, podra ver el estado de la inscripcion en Estado Academico", ToolTipIcon.Info);
+                    this.MasterForm.OpenForm(new MateriasAlumno(this.AlumnoId, this.PlanId));
+                }
+            }
         }
     }
 }

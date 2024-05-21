@@ -70,6 +70,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Reportes\ReporteCursos.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\Reportes\Test.frx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

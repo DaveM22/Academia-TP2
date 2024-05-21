@@ -36,5 +36,10 @@ namespace Business.Logic
         {
             adapter.Borrar(idInscripcion);
         }
+
+        public List<AlumnoInscripcion> GetAllByAlumno(int alumnoId) 
+        { 
+            return adapter.GetByAlumno(alumnoId);
+        }
     }
 }

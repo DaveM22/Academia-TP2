@@ -46,7 +46,28 @@ namespace Business.Data
         public Curso GetOne(int id)
         {
             using var context = new AcademiaContext();
-            return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).Include(x => x.DocenteCursos).ThenInclude(x => x.Docente).Include(x => x.Materia).ThenInclude(x => x.Plan).SingleOrDefault(x => x.Id == id);
+            return context.Cursos.Include(x => x.Comision).Include(x => x.Inscriptos).ThenInclude(x => x.Alumno).Include(x => x.Materia).Include(x => x.DocenteCursos).ThenInclude(x => x.Docente).Include(x => x.Materia).ThenInclude(x => x.Plan).SingleOrDefault(x => x.Id == id);
+        }
+
+        public List<Curso> GetAllByPlanYDisponibleAlumno(int idPlan, int idAlumno)
+        {
+            using var context = new AcademiaContext();
+            var materiasId = context.AlumnoInscripciones.Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.AlumnoId == idAlumno).GroupBy(x => x.Curso.MateriaId).Select(x => x.Key).Distinct().ToList();
+            return context.Cursos
+                .Include(x => x.Materia)
+                .Include(x => x.Comision)
+                .Include(x => x.Inscriptos)
+                .Where(x => !x.Inscriptos.Any(x => x.AlumnoId == idAlumno) && !materiasId.Contains(x.MateriaId)).ToList();
+        }
+
+        public List<Curso> GetAllByPlanYDisponibleDocente(int idDocente)
+        {
+            using var context = new AcademiaContext();
+            return context.Cursos
+                .Include(x => x.Materia)
+                .Include(x => x.Comision)
+                .Include(x => x.Inscriptos)
+                .Where(x => !x.DocenteCursos.Any(x => x.DocenteId == idDocente)).ToList();
         }
 
         public Curso Save(Curso cur)

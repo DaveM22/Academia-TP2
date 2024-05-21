@@ -40,8 +40,11 @@
             btnActualizar = new System.Windows.Forms.Button();
             btnSalir = new System.Windows.Forms.Button();
             tsEspecialidades = new System.Windows.Forms.ToolStrip();
+            tsBusqueda = new System.Windows.Forms.ToolStripTextBox();
+            tsBuscar = new System.Windows.Forms.ToolStripLabel();
             tsNuevo = new System.Windows.Forms.ToolStripButton();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             tscEspecialidades.ContentPanel.SuspendLayout();
             tscEspecialidades.TopToolStripPanel.SuspendLayout();
             tscEspecialidades.SuspendLayout();
@@ -192,11 +195,23 @@
             tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
             tsEspecialidades.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             tsEspecialidades.ImageScalingSize = new System.Drawing.Size(24, 24);
-            tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
+            tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsBusqueda, tsBuscar, tsNuevo });
             tsEspecialidades.Location = new System.Drawing.Point(0, 0);
             tsEspecialidades.Name = "tsEspecialidades";
-            tsEspecialidades.Size = new System.Drawing.Size(116, 25);
+            tsEspecialidades.Size = new System.Drawing.Size(260, 25);
             tsEspecialidades.TabIndex = 0;
+            // 
+            // tsBusqueda
+            // 
+            tsBusqueda.Name = "tsBusqueda";
+            tsBusqueda.Size = new System.Drawing.Size(100, 25);
+            tsBusqueda.TextChanged += tsBusqueda_TextChanged;
+            // 
+            // tsBuscar
+            // 
+            tsBuscar.Name = "tsBuscar";
+            tsBuscar.Size = new System.Drawing.Size(42, 22);
+            tsBuscar.Text = "Buscar";
             // 
             // tsNuevo
             // 
@@ -214,6 +229,11 @@
             notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Especialidades
             // 
@@ -257,5 +277,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.ToolStripTextBox tsBusqueda;
+        private System.Windows.Forms.ToolStripLabel tsBuscar;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

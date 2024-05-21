@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocenteCursoDesktop));
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             lblDocente = new System.Windows.Forms.Label();
             txtDocente = new System.Windows.Forms.TextBox();
@@ -40,6 +42,7 @@
             btnCursos = new System.Windows.Forms.Button();
             lblCargo = new System.Windows.Forms.Label();
             cbCargos = new System.Windows.Forms.ComboBox();
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,16 +68,15 @@
             tableLayoutPanel1.Controls.Add(cbCargos, 2, 2);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 737F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 442F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(1464, 992);
+            tableLayoutPanel1.Size = new System.Drawing.Size(1025, 595);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -83,10 +85,9 @@
             lblDocente.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblDocente.AutoSize = true;
             lblDocente.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblDocente.Location = new System.Drawing.Point(399, 73);
-            lblDocente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDocente.Location = new System.Drawing.Point(280, 44);
             lblDocente.Name = "lblDocente";
-            lblDocente.Size = new System.Drawing.Size(82, 25);
+            lblDocente.Size = new System.Drawing.Size(54, 15);
             lblDocente.TabIndex = 0;
             lblDocente.Text = "Docente:";
             // 
@@ -94,21 +95,19 @@
             // 
             txtDocente.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtDocente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            txtDocente.Location = new System.Drawing.Point(489, 70);
-            txtDocente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtDocente.Location = new System.Drawing.Point(340, 40);
             txtDocente.Name = "txtDocente";
             txtDocente.PlaceholderText = "Seleccione un docente";
             txtDocente.ReadOnly = true;
-            txtDocente.Size = new System.Drawing.Size(374, 31);
+            txtDocente.Size = new System.Drawing.Size(263, 23);
             txtDocente.TabIndex = 1;
             txtDocente.TextChanged += txtDocente_TextChanged;
             // 
             // btnDocente
             // 
-            btnDocente.Location = new System.Drawing.Point(871, 60);
-            btnDocente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnDocente.Location = new System.Drawing.Point(609, 36);
             btnDocente.Name = "btnDocente";
-            btnDocente.Size = new System.Drawing.Size(194, 50);
+            btnDocente.Size = new System.Drawing.Size(136, 30);
             btnDocente.TabIndex = 2;
             btnDocente.Text = "Seleccionar docente";
             btnDocente.UseVisualStyleBackColor = true;
@@ -119,10 +118,9 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(871, 222);
-            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Location = new System.Drawing.Point(609, 133);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(107, 53);
+            btnCancelar.Size = new System.Drawing.Size(75, 32);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -134,10 +132,9 @@
             btnGuardar.BackColor = System.Drawing.Color.Green;
             btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnGuardar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnGuardar.Location = new System.Drawing.Point(756, 222);
-            btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnGuardar.Location = new System.Drawing.Point(528, 133);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new System.Drawing.Size(107, 53);
+            btnGuardar.Size = new System.Drawing.Size(75, 32);
             btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -149,10 +146,9 @@
             tableLayoutPanel1.SetColumnSpan(lblTitulo, 3);
             lblTitulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTitulo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblTitulo.Location = new System.Drawing.Point(489, 0);
-            lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTitulo.Location = new System.Drawing.Point(340, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new System.Drawing.Size(523, 34);
+            lblTitulo.Size = new System.Drawing.Size(352, 22);
             lblTitulo.TabIndex = 9;
             lblTitulo.Text = "Crear asignación de docente a curso";
             lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -160,11 +156,10 @@
             // txtCurso
             // 
             txtCurso.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtCurso.Location = new System.Drawing.Point(489, 175);
-            txtCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtCurso.Location = new System.Drawing.Point(340, 103);
             txtCurso.Name = "txtCurso";
             txtCurso.ReadOnly = true;
-            txtCurso.Size = new System.Drawing.Size(374, 31);
+            txtCurso.Size = new System.Drawing.Size(263, 23);
             txtCurso.TabIndex = 4;
             // 
             // lblCurso
@@ -172,20 +167,18 @@
             lblCurso.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblCurso.AutoSize = true;
             lblCurso.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblCurso.Location = new System.Drawing.Point(399, 178);
-            lblCurso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCurso.Location = new System.Drawing.Point(280, 107);
             lblCurso.Name = "lblCurso";
-            lblCurso.Size = new System.Drawing.Size(82, 25);
+            lblCurso.Size = new System.Drawing.Size(54, 15);
             lblCurso.TabIndex = 5;
             lblCurso.Text = "Curso:";
             // 
             // btnCursos
             // 
             btnCursos.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            btnCursos.Location = new System.Drawing.Point(871, 170);
-            btnCursos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCursos.Location = new System.Drawing.Point(609, 102);
             btnCursos.Name = "btnCursos";
-            btnCursos.Size = new System.Drawing.Size(194, 42);
+            btnCursos.Size = new System.Drawing.Size(136, 25);
             btnCursos.TabIndex = 3;
             btnCursos.Text = "Seleccionar curso";
             btnCursos.UseVisualStyleBackColor = true;
@@ -196,10 +189,9 @@
             lblCargo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblCargo.AutoSize = true;
             lblCargo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblCargo.Location = new System.Drawing.Point(399, 128);
-            lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCargo.Location = new System.Drawing.Point(280, 77);
             lblCargo.Name = "lblCargo";
-            lblCargo.Size = new System.Drawing.Size(82, 25);
+            lblCargo.Size = new System.Drawing.Size(54, 15);
             lblCargo.TabIndex = 10;
             lblCargo.Text = "Cargo:";
             // 
@@ -207,20 +199,24 @@
             // 
             cbCargos.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cbCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cbCargos.Location = new System.Drawing.Point(489, 124);
-            cbCargos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cbCargos.Location = new System.Drawing.Point(340, 73);
             cbCargos.Name = "cbCargos";
-            cbCargos.Size = new System.Drawing.Size(374, 33);
+            cbCargos.Size = new System.Drawing.Size(263, 23);
             cbCargos.TabIndex = 11;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (System.Drawing.Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "niDocenteCurso";
+            notifyIcon1.Visible = true;
             // 
             // DocenteCursoDesktop
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1464, 992);
+            ClientSize = new System.Drawing.Size(1025, 595);
             ControlBox = false;
             Controls.Add(tableLayoutPanel1);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "DocenteCursoDesktop";
             Text = "DocenteCursoDesktop";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -244,5 +240,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.ComboBox cbCargos;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

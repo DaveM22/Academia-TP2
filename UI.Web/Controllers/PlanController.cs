@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using FastReport.Export.PdfSimple;
 using FastReport.Web;
 using Microsoft.AspNetCore.Authorization;
@@ -21,15 +23,17 @@ namespace UI.Web.Controllers
     {
         private readonly IMapper mapper;
         private readonly IWebHostEnvironment webHostEnviroment;
+        private readonly INotyfService notyf;
 
         private PlanLogic PlanLogic => new();
 
         private EspecialidadLogic EspecialidadLogic => new();
 
-        public PlanController(IMapper mapper, IWebHostEnvironment webHostEnvironment)
+        public PlanController(IMapper mapper, IWebHostEnvironment webHostEnvironment, INotyfService notyf)
         {
             this.mapper = mapper;
             this.webHostEnviroment = webHostEnvironment;
+            this.notyf = notyf;
         }
 
 
@@ -77,6 +81,7 @@ namespace UI.Web.Controllers
                 {
                     var entity = mapper.Map<Plan>(planViewModel);
                     PlanLogic.Save(entity);
+                    notyf.Success("Se ha agregado un nuevo plan", 3);
                     return RedirectToAction(nameof(Index));
                 }
                 return View(planViewModel);
@@ -102,17 +107,47 @@ namespace UI.Web.Controllers
             return View(vm);
         }
 
-        // POST: PlanController/Edit/5
+
         [HttpPost]
-        [Authorize(Policy = "Planes.Modificacion")]
+        [Authorize(Policy = "Planes.Alta")]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(int id, IFormCollection collection)
+        public ActionResult Nuevo(PlanViewModel planViewModel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var entity = mapper.Map<Plan>(planViewModel);
+                    PlanLogic.Save(entity);
+                    notyf.Success($"Se ha creado el plan {entity.Descripcion}", 3);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(planViewModel);
             }
-            catch
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        [Authorize(Policy = "Planes.Modificacion")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar(PlanViewModel planViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var entity = mapper.Map<Plan>(planViewModel);
+                    PlanLogic.Save(entity);
+                    notyf.Success("Se han guardado los cambios plan", 3);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(planViewModel);
+            }
+            catch (Exception ex)
             {
                 return View();
             }
@@ -140,11 +175,12 @@ namespace UI.Web.Controllers
             try
             {
                 PlanLogic.Delete(model.Id);
+                notyf.Success("Se ha borrado el plan", 3);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(DeleteCFReferenciadaException ex)
             {
-                TempData["Error"] = "Ocurrió un error al borrar el plan. Por favor, contacta al administrador del sistema";
+                TempData["Error"] = ex.Message;
                 return RedirectToAction("Borrar", new { id = model.Id });
             }
         }

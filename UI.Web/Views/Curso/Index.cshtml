@@ -15,7 +15,7 @@
 
 <div class="container">
 
-    <table id="table" class="display responsive nowrap table table-dark table-stripedtable table-dark table-striped" style="width:100%">
+    <table id="table" class="display responsive nowrap table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>
@@ -50,8 +50,9 @@
                         @Html.DisplayFor(modelItem => item.Cupo)
                     </td>
                     <td class="text-center">
-                      <a class="btn btn-primary btn-sm" title="Editar comisión" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a>
-                      <a class="btn btn-danger btn-sm" title="Borrar comisión" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></a>
+                        <a class="btn btn-secondary btn-sm" title="Generar reporte" asp-controller="Curso" asp-action="Reporte" asp-route-id="@item.Id">Generar reporte</a>
+                      <a class="btn btn-primary btn-sm" title="Editar comisión" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i> Editar</a>
+                      <a class="btn btn-danger btn-sm" title="Borrar comisión" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i> Borrar</a>
                     </td>
                 </tr>
             }

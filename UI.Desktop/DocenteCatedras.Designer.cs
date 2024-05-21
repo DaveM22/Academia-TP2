@@ -30,18 +30,19 @@
         {
             tlCatedras = new System.Windows.Forms.TableLayoutPanel();
             dgvCatedras = new System.Windows.Forms.DataGridView();
-            button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Catedra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Actualizar = new System.Windows.Forms.DataGridViewButtonColumn();
+            button1 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
             tlCatedras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCatedras).BeginInit();
             SuspendLayout();
             // 
             // tlCatedras
             // 
+            tlCatedras.BackColor = System.Drawing.Color.CornflowerBlue;
             tlCatedras.ColumnCount = 2;
             tlCatedras.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlCatedras.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -74,31 +75,7 @@
             dgvCatedras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvCatedras.Size = new System.Drawing.Size(794, 406);
             dgvCatedras.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            button1.BackColor = System.Drawing.Color.Green;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button1.Location = new System.Drawing.Point(641, 415);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(75, 32);
-            button1.TabIndex = 1;
-            button1.Text = "Actualizar";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = System.Drawing.Color.Firebrick;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            button2.Location = new System.Drawing.Point(722, 415);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(75, 32);
-            button2.TabIndex = 2;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
+            dgvCatedras.CellClick += dgvCatedras_CellClick;
             // 
             // Id
             // 
@@ -135,6 +112,31 @@
             Actualizar.ReadOnly = true;
             Actualizar.Text = "Registrar nota";
             Actualizar.UseColumnTextForButtonValue = true;
+            // 
+            // button1
+            // 
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button1.BackColor = System.Drawing.Color.Green;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            button1.Location = new System.Drawing.Point(641, 415);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 32);
+            button1.TabIndex = 1;
+            button1.Text = "Actualizar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = System.Drawing.Color.Firebrick;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            button2.Location = new System.Drawing.Point(722, 415);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(75, 32);
+            button2.TabIndex = 2;
+            button2.Text = "Cancelar";
+            button2.UseVisualStyleBackColor = false;
             // 
             // DocenteCatedras
             // 

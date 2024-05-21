@@ -4,9 +4,17 @@
     ViewData["Title"] = "Borrar";
 }
 
-<h3 class="display-6 text-center">Borrar</h3>
 
-<h3 class="text-center">¿Estas seguro de borrar la siguiente comisión?</h3>
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<div class="card bg-secondary p-2">
+    <h1 class="text-center">Borrar comisión</h1>
+
+    <h3 class="text-center">¿Esta seguro de borrar la siguiente comisión?</h3>
 <div class="row">
 
         <form asp-action="Borrar">
@@ -37,10 +45,10 @@
             </dl>
             <div class="row">
                 <div class="col-md-6 col-lg-6">
-                    <input type="submit" value="Borrar" class="btn btn-danger w-100 mb-3" />
+                    <input type="submit" value="Borrar" class="btn btn-success w-100 mb-3" />
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <a class="btn btn-secondary  w-100 mb-3" asp-action="Index">Volver a comisiones</a>
+                    <a class="btn btn-danger  w-100 mb-3" asp-action="Index">Volver a comisiones</a>
                 </div>
 
             </div>
@@ -53,4 +61,5 @@
         </form>
     
 
+</div>
 </div>

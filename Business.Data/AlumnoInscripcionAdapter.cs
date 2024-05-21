@@ -32,6 +32,13 @@ namespace Business.Data
                 .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.CursoId == cursoId).ToList();
         }
 
+        public List<AlumnoInscripcion> GetByAlumno(int alumnoId)
+        {
+            using var context = new AcademiaContext();
+            return context.AlumnoInscripciones.Include(x => x.Alumno)
+                .Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.AlumnoId == alumnoId).ToList();
+        }
+
         public void Borrar(int idInscripcion)
         {
             try

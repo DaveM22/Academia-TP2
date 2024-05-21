@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ namespace UI.Web.Controllers
             {
                 var materia = mapper.Map<Materia>(model);
                 this.MateriaLogic.Guardar(materia);
-                this.notyf.Success("Se ha creado la materia: " + materia.Descripcion);
+                this.notyf.Success("Se han guardado los cambios de la materia");
                 return RedirectToAction("Index", new { id = materia.PlanId });
             }
             return View(model);
@@ -69,7 +70,7 @@ namespace UI.Web.Controllers
             {
                 var materia = mapper.Map<Materia>(model);
                 this.MateriaLogic.Guardar(materia);
-                this.notyf.Success("Se han guardado los cambios de la materia");
+                this.notyf.Success("Se ha creado la materia: " + materia.Descripcion);
                 return RedirectToAction("Index", new { id = materia.PlanId });
             }
             return View(model);
@@ -85,10 +86,18 @@ namespace UI.Web.Controllers
         [HttpPost]
         public IActionResult Borrar(MateriaModel materia)
         {
-            var mat = this.MateriaLogic.GetOne(materia.Id);
-            this.MateriaLogic.Borrar(materia.Id);
-            this.notyf.Success("Se ha borrado la materia: " + mat.Descripcion);
-            return RedirectToAction("Index", new { id = mat.PlanId});
+            try
+            {
+                var mat = this.MateriaLogic.GetOne(materia.Id);
+                this.MateriaLogic.Borrar(materia.Id);
+                this.notyf.Success("Se ha borrado la materia: " + mat.Descripcion);
+                return RedirectToAction("Index", new { id = mat.PlanId });
+            }
+            catch (DeleteCFReferenciadaException ex)
+            {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Borrar", new { id = materia.Id });
+            }
         }
 
         [HttpPost]

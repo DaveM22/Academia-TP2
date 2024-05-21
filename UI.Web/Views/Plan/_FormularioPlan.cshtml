@@ -1,9 +1,11 @@
 ﻿@using Business.Entities;
  @model UI.Web.Models.PlanViewModel
 
+@{
+    var accion = Model.Id == 0 ? "Nuevo" : "Editar";
+}
 
-
-<form asp-action="Guardar" method="post">
+<form asp-action="@accion" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input asp-for="Id" hidden />
             <div class="mb-3">

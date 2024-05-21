@@ -58,13 +58,11 @@
             // tscInscripciones.ContentPanel
             // 
             tscInscripciones.ContentPanel.Controls.Add(tlpInscripciones);
-            tscInscripciones.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            tscInscripciones.ContentPanel.Size = new System.Drawing.Size(1143, 747);
+            tscInscripciones.ContentPanel.Size = new System.Drawing.Size(800, 441);
             tscInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             tscInscripciones.Location = new System.Drawing.Point(0, 0);
-            tscInscripciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tscInscripciones.Name = "tscInscripciones";
-            tscInscripciones.Size = new System.Drawing.Size(1143, 777);
+            tscInscripciones.Size = new System.Drawing.Size(800, 466);
             tscInscripciones.TabIndex = 0;
             tscInscripciones.Text = "toolStripContainer1";
             // 
@@ -89,42 +87,38 @@
             tlpInscripciones.Controls.Add(btnCancelar, 4, 2);
             tlpInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpInscripciones.Location = new System.Drawing.Point(0, 0);
-            tlpInscripciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             tlpInscripciones.Name = "tlpInscripciones";
             tlpInscripciones.RowCount = 3;
             tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpInscripciones.Size = new System.Drawing.Size(1143, 747);
+            tlpInscripciones.Size = new System.Drawing.Size(800, 441);
             tlpInscripciones.TabIndex = 0;
             // 
             // lblLegajo
             // 
             lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblLegajo.AutoSize = true;
-            lblLegajo.Location = new System.Drawing.Point(4, 21);
-            lblLegajo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLegajo.Location = new System.Drawing.Point(3, 12);
             lblLegajo.Name = "lblLegajo";
-            lblLegajo.Size = new System.Drawing.Size(64, 25);
+            lblLegajo.Size = new System.Drawing.Size(42, 15);
             lblLegajo.TabIndex = 0;
             lblLegajo.Text = "Legajo";
             // 
             // nudLegajo
             // 
             nudLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            nudLegajo.Location = new System.Drawing.Point(76, 18);
-            nudLegajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            nudLegajo.Location = new System.Drawing.Point(51, 8);
             nudLegajo.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             nudLegajo.Name = "nudLegajo";
-            nudLegajo.Size = new System.Drawing.Size(279, 31);
+            nudLegajo.Size = new System.Drawing.Size(195, 23);
             nudLegajo.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new System.Drawing.Point(363, 5);
-            btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnBuscar.Location = new System.Drawing.Point(252, 3);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new System.Drawing.Size(197, 57);
+            btnBuscar.Size = new System.Drawing.Size(138, 34);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar por legajo";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -138,15 +132,14 @@
             dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Legajo, Apellido, Nombre, Cursos });
             tlpInscripciones.SetColumnSpan(dgvAlumnos, 5);
             dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvAlumnos.Location = new System.Drawing.Point(4, 72);
-            dgvAlumnos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dgvAlumnos.Location = new System.Drawing.Point(3, 43);
             dgvAlumnos.MultiSelect = false;
             dgvAlumnos.Name = "dgvAlumnos";
             dgvAlumnos.ReadOnly = true;
             dgvAlumnos.RowHeadersWidth = 62;
             dgvAlumnos.RowTemplate.Height = 25;
             dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvAlumnos.Size = new System.Drawing.Size(1135, 603);
+            dgvAlumnos.Size = new System.Drawing.Size(794, 355);
             dgvAlumnos.TabIndex = 3;
             dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick;
             // 
@@ -204,10 +197,9 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(808, 685);
-            btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnActualizar.Location = new System.Drawing.Point(565, 404);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(160, 55);
+            btnActualizar.Size = new System.Drawing.Size(112, 33);
             btnActualizar.TabIndex = 4;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -217,12 +209,11 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(976, 685);
-            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Location = new System.Drawing.Point(683, 404);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(163, 57);
+            btnCancelar.Size = new System.Drawing.Size(114, 34);
             btnCancelar.TabIndex = 5;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Volver al inicio";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -233,22 +224,21 @@
             toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripLabel1 });
             toolStrip1.Location = new System.Drawing.Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(169, 30);
+            toolStrip1.Size = new System.Drawing.Size(114, 25);
             toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new System.Drawing.Size(151, 25);
+            toolStripLabel1.Size = new System.Drawing.Size(102, 22);
             toolStripLabel1.Text = "Nueva inscripción";
             // 
             // Inscripciones
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1143, 777);
+            ClientSize = new System.Drawing.Size(800, 466);
             Controls.Add(tscInscripciones);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "Inscripciones";
             Text = "AlumnoInscripciones";
             Load += AlumnoInscripciones_Load;

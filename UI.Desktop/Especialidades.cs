@@ -99,5 +99,10 @@ namespace UI.Desktop
                     dgvEspecialidades.ForeColor, dgvEspecialidades.BackgroundColor,
                     TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
+
+        private void tsBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

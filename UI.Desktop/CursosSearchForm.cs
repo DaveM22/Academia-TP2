@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Accord.Controls;
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -21,25 +22,39 @@ namespace UI.Desktop
 
         private List<Curso> Cursos { get; set; }
 
-        public int IdPlan { get; set; }
+        public int IdAlumno { get; set; }
+
+        public int IdProfesor { get; set; }
 
         public CursosSearchForm()
         {
             InitializeComponent();
+            this.dgvCursos.AllowNestedProperties(true);
         }
 
-        public CursosSearchForm(int idPlan, bool cargaMultiple = false) : this()
+        public CursosSearchForm(int idProfesor, bool cargaMultiple = false) : this()
         {
-            IdPlan = idPlan;
+            this.IdProfesor = idProfesor;
             this.dgvCursos.MultiSelect = cargaMultiple;
+            CursoLogic = new CursoLogic();
+            Cursos = CursoLogic.GetAllByPlanYDisponibleDocente(this.IdProfesor);
+        }
+
+        public CursosSearchForm(int idPlan, int idAlumno, bool cargaMultiple = false) : this()
+        {
+            IdAlumno = idAlumno;
+            this.dgvCursos.MultiSelect = cargaMultiple;
+            CursoLogic = new CursoLogic();
+            //Cursos = CursoLogic.GetAllByPlanYDisponible(this.IdPlan, this.IdAlumno);
+
         }
 
         private void CursosSearchForm_Load(object sender, EventArgs e)
         {
-            CursoLogic = new CursoLogic();
-            Cursos = CursoLogic.GetAllByPlan(IdPlan);
             dgvCursos.AutoGenerateColumns = false;
             dgvCursos.DataSource = Cursos;
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -60,8 +75,17 @@ namespace UI.Desktop
                 DialogResult = DialogResult.OK;
                 Cursos = dgvCursos.SelectedRows.Cast<Curso>().ToList();
             }
- 
+
             this.Close();
+        }
+
+        private void dgvCursos_Paint(object sender, PaintEventArgs e)
+        {
+            if (dgvCursos.Rows.Count == 0)
+                TextRenderer.DrawText(e.Graphics, "No hay cursos disponible para el alumno.",
+                    dgvCursos.Font, dgvCursos.ClientRectangle,
+                    dgvCursos.ForeColor, dgvCursos.BackgroundColor,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
     }
 }

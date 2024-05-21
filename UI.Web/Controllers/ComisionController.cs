@@ -2,6 +2,7 @@
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
+using Business.Util.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -123,9 +124,10 @@ namespace UI.Web.Controllers
                 this.notyf.Success("Se ha borrado la comisión de manera exitosa", 6000);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(DeleteCFReferenciadaException ex)
             {
-                return View();
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Borrar", new { id });
             }
         }
 

@@ -25,6 +25,11 @@ namespace Business.Logic
             return CursoAdapter.GetAllByPlan(idPlan);
         }
 
+        public List<Curso> GetAllByPlanYDisponible(int idPlan, int idAlumno)
+        {
+            return CursoAdapter.GetAllByPlanYDisponibleAlumno(idPlan, idAlumno);
+        }
+
         public Curso GetOne(int id)
         {
             return CursoAdapter.GetOne(id);
@@ -33,6 +38,11 @@ namespace Business.Logic
         public List<Curso> GetAllByPlandAndMateria(int idPlan, int idMateria)
         {
             return CursoAdapter.GetAllByPlandAndMateria(idPlan, idMateria);
+        }
+
+        public List<Curso> GetAllByPlanYDisponibleDocente(int idDocente)
+        {
+            return CursoAdapter.GetAllByPlanYDisponibleDocente(idDocente);
         }
 
         public Curso GetOneReporte(int id)

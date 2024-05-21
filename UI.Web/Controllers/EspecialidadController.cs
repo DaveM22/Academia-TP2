@@ -121,7 +121,7 @@ namespace UI.Web.Controllers
             }
             catch (DeleteCFReferenciadaException ex)
             {
-                this.notyf.Error(ex.Message);
+                TempData["Error"] = ex.Message;
                 return RedirectToAction(nameof(Borrar),new { id = especialidadViewModel.Id });
             }
         }

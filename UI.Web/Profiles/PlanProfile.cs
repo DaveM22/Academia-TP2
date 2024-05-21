@@ -8,7 +8,9 @@ namespace UI.Web.Profiles
     {
         public PlanProfile()
         {
-            CreateMap<Plan, PlanViewModel>().ReverseMap();
+            CreateMap<Plan, PlanViewModel>()
+                .ReverseMap()
+                .ForMember(x => x.Especialidad, opt => opt.Ignore());
         }
     }
 }

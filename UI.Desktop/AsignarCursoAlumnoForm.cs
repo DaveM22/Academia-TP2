@@ -40,7 +40,7 @@ namespace UI.Desktop
 
         private void btnSeleccionarCurso_Click(object sender, EventArgs e)
         {
-            var curso = new CursosSearchForm(this.PlanId);
+            var curso = new CursosSearchForm(this.PlanId, this.PersonaId);
             var form = curso.ShowDialog();
             if (form == DialogResult.OK)
             {

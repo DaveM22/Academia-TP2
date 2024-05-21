@@ -32,12 +32,12 @@
             tlpCursos = new System.Windows.Forms.TableLayoutPanel();
             btnSeleccionar = new System.Windows.Forms.Button();
             dgvCursos = new System.Windows.Forms.DataGridView();
-            btnCancelar = new System.Windows.Forms.Button();
             IdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            btnCancelar = new System.Windows.Forms.Button();
             tscCursos.ContentPanel.SuspendLayout();
             tscCursos.SuspendLayout();
             tlpCursos.SuspendLayout();
@@ -106,19 +106,7 @@
             dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvCursos.Size = new System.Drawing.Size(794, 404);
             dgvCursos.TabIndex = 2;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(722, 413);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(75, 26);
-            btnCancelar.TabIndex = 1;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            dgvCursos.Paint += dgvCursos_Paint;
             // 
             // IdCurso
             // 
@@ -131,7 +119,7 @@
             // Comision
             // 
             Comision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            Comision.DataPropertyName = "ComisionDescripcion";
+            Comision.DataPropertyName = "Comision.Descripcion";
             Comision.FillWeight = 40F;
             Comision.HeaderText = "Comision";
             Comision.Name = "Comision";
@@ -140,7 +128,7 @@
             // Materia
             // 
             Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            Materia.DataPropertyName = "MateriaDescripcion";
+            Materia.DataPropertyName = "Materia.Descripcion";
             Materia.FillWeight = 40F;
             Materia.HeaderText = "Materia";
             Materia.Name = "Materia";
@@ -163,6 +151,19 @@
             Cupo.HeaderText = "Cupo";
             Cupo.Name = "Cupo";
             Cupo.ReadOnly = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            btnCancelar.Location = new System.Drawing.Point(722, 413);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(75, 26);
+            btnCancelar.TabIndex = 1;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // CursosSearchForm
             // 

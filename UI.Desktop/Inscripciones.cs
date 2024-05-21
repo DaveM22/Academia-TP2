@@ -34,7 +34,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.MasterForm.OpenForm(new Inicio());
         }
 
         private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)

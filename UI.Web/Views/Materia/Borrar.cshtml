@@ -4,6 +4,12 @@
     ViewData["Title"] = "Borrar";
 }
 
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
                 <div class="card bg-secondary p-2">
     <h1 class="text-center">Borrar Materia</h1>
 

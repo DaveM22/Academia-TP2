@@ -4,52 +4,63 @@
     ViewData["Title"] = "Borrar";
 }
 
-<h1>Borrar curso</h1>
 
-<h3>Esta seguro de borrar el siguiente curso?</h3>
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="card bg-secondary p-2">
+    <h1 class="text-center">Borrar curso</h1>
+
+    <h3 class="text-center">¿Esta seguro de borrar el siguiente curso?</h3>
 <div>
     <hr />
     <form asp-action="Borrar">
+
    <div class="row">
-                    <div class="col-md-6">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
-                <label asp-for="AnioCalendario" class="form-label"></label>
-                <input asp-for="AnioCalendario" class="form-control form-control-md" disabled />
-                <span asp-validation-for="AnioCalendario" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Cupo" class="form-label"></label>
-                <input asp-for="Cupo" class="form-control form-control-md" disabled />
-                <span asp-validation-for="Cupo" class="text-danger"></span>
-            </div>
-  
-            <input asp-for="MateriaId" hidden disabled />
-            <input asp-for="ComisionId" hidden disabled /> 
-            <input asp-for="Id" hidden disabled />
- 
-                </div>
-                <div class="col-md-6">
-                              <div class="mb-3">
-                <label asp-for="ComisionDescripcion" class="form-label"></label>      
-                  <div class="input-group">
-                    <input asp-for="ComisionDescripcion" readonly class="form-control form-control-md" />
-                  </div>
-                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
-            </div>
-            <div class="mb-3">
-                <label asp-for="MateriaDescripcion" class="form-label"></label>      
-                  <div class="input-group">
-                    <input asp-for="MateriaDescripcion" readonly class="form-control form-control-sm" />
-                  </div>
-                <span asp-validation-for="MateriaDescripcion" class="text-danger"></span> 
-            </div>
+                <div class="col-md-8 col-12 col-lg-4 mx-auto">
+                    <dl>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.Materia)
+                        </dt>
+                        <dd class="form-control">
+                            @Html.DisplayFor(model => model.Materia.Descripcion)
+                        </dd>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.Comision)
+                        </dt>
+                        <dd class="form-control">
+                            @Html.DisplayFor(model => model.Comision.Descripcion)
+                        </dd>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.AnioCalendario)
+                        </dt>
+                        <dd class="form-control">
+                            @Html.DisplayFor(model => model.AnioCalendario)
+                        </dd>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.Cupo)
+                        </dt>
+                        <dd class="form-control">
+                            @Html.DisplayFor(model => model.Cupo)
+                        </dd>
+                    </dl>
+
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <input type="submit" value="Borrar" class="btn btn-success w-100 mb-3" />
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <a class="btn btn-danger  w-100 mb-3" asp-action="Index">Volver a cursos</a>
+                        </div>
+
+                    </div>
                 </div>
 
-            </div>
 
-    
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
     </form>
+</div>
 </div>

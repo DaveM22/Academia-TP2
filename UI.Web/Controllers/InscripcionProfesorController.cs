@@ -1,4 +1,5 @@
-﻿using AspNetCoreHero.ToastNotification.Notyf;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
 using AutoMapper;
 using Business.Entities;
 using Business.Logic;
@@ -13,20 +14,22 @@ using UI.Web.Models;
 namespace UI.Web.Controllers
 {
     [Authorize]
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class InscripcionProfesorController : Controller
     {
         private CursoLogic CursoLogic { get; set; }
         private DocenteCursoLogic DocenteCursoLogic { get; set; }   
         private PersonaLogic PersonaLogic { get; set; }
-
+        public readonly INotyfService Notyf;
         private readonly IMapper mapper;
 
-        public InscripcionProfesorController(IMapper mapper)
+        public InscripcionProfesorController(IMapper mapper, INotyfService Notyf)
         {
             this.CursoLogic = new CursoLogic();
             this.PersonaLogic = new PersonaLogic();
             this.DocenteCursoLogic = new DocenteCursoLogic();
             this.mapper = mapper;
+            this.Notyf = Notyf;
         }
 
 
@@ -81,6 +84,7 @@ namespace UI.Web.Controllers
                 if (ModelState.IsValid) 
                 {
                     this.DocenteCursoLogic.Save(new DocenteCurso() { CursoId = model.CursoId, DocenteId = model.DocenteId.Value, DocenteCargo = model.DocenteCargo });
+                    this.Notyf.Success("Se ha asignado el docente al curso de manera existosa", 6);
                     return RedirectToAction("Profesores", new { id = model.CursoId });
                 }
                 return View(model);

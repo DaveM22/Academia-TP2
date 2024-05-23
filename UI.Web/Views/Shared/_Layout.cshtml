@@ -15,6 +15,9 @@
     <style>
 
     </style>
+    <script>
+
+    </script>
 </head>
 
 @{
@@ -27,21 +30,12 @@
 
 
 <body style="background-color:#6495ED">
+
     @if (User.Identity.IsAuthenticated)
     {
-        var personaId = @User.Claims.FirstOrDefault(x => x.Type == "tipoPersona").Value;
-        switch (personaId)
-        {
-            case "0":
-                <partial name="_navbarAdmin" />
-                break;
-            case "2":
-                <partial name="_navbarAlumno" />
-                break;
-        };
-
-
+        <partial name="_navbarAdmin" />
     }
+
 
 
 
@@ -51,16 +45,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="col-md-12 col-lg-12 col-sm-12" >
-        <div class="container" style="color: white">
-            &copy; 2022 - UTN Frro - Academia
-        </div>
-    </footer>
-@*     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-
-     *@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Web.Controllers
 {
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class LoginController : Controller
     {
 
@@ -35,7 +36,7 @@ namespace UI.Web.Controllers
         public async Task<ActionResult> Loginout()
         {
             await HttpContext.SignOutAsync();
-            return Redirect("/Login");
+            return RedirectToAction(nameof(Login));
         }
 
         public async Task<ActionResult> Login(string nombreUsuario, string clave, string returnUrl)
@@ -87,75 +88,5 @@ namespace UI.Web.Controllers
         }
 
 
-
-
-        // GET: LoginController/Details/5
-        public ActionResult Details(int id)
-    {
-        return View();
-    }
-
-    // GET: LoginController/Create
-    public ActionResult Create()
-    {
-        return View();
-    }
-
-    // POST: LoginController/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
-
-    // GET: LoginController/Edit/5
-    public ActionResult Edit(int id)
-    {
-        return View();
-    }
-
-    // POST: LoginController/Edit/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
-
-    // GET: LoginController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        return View();
-    }
-
-    // POST: LoginController/Delete/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
 }
 }

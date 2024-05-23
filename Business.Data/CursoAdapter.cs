@@ -31,6 +31,13 @@ namespace Business.Data
             return context.Cursos.AsNoTracking().Include(x => x.Materia).Include(x => x.Comision).ToList();
         }
 
+        public List<Curso> GetAllByComision(int comisionId)
+        {
+            using var context = new AcademiaContext();
+            return context.Cursos.AsNoTracking().Include(x => x.Materia).Include(x => x.Comision).Where(x => x.ComisionId == comisionId).ToList();
+        }
+
+
         public List<Curso> GetAllByPlan(int idPlan)
         {
             using var context = new AcademiaContext();
@@ -49,7 +56,7 @@ namespace Business.Data
             return context.Cursos.Include(x => x.Comision).Include(x => x.Inscriptos).ThenInclude(x => x.Alumno).Include(x => x.Materia).Include(x => x.DocenteCursos).ThenInclude(x => x.Docente).Include(x => x.Materia).ThenInclude(x => x.Plan).SingleOrDefault(x => x.Id == id);
         }
 
-        public List<Curso> GetAllByPlanYDisponibleAlumno(int idPlan, int idAlumno)
+        public List<Curso> GetAllByPlanYDisponibleAlumno(int idAlumno)
         {
             using var context = new AcademiaContext();
             var materiasId = context.AlumnoInscripciones.Include(x => x.Curso).ThenInclude(x => x.Materia).Where(x => x.AlumnoId == idAlumno).GroupBy(x => x.Curso.MateriaId).Select(x => x.Key).Distinct().ToList();

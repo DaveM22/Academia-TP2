@@ -8,7 +8,9 @@ namespace UI.Web.Profiles
     {
         public CursoProfile()
         {
-            CreateMap<Curso, CursoViewModel>().ReverseMap();
+            CreateMap<Curso, CursoViewModel>().ReverseMap()
+                .ForMember(x => x.Comision, opt => opt.Ignore())
+                .ForMember(x => x.Materia, opt => opt.Ignore());
         }
     }
 }

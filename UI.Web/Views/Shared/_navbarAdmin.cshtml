@@ -58,8 +58,7 @@
                     var nombre = User.Claims.FirstOrDefault(x => x.Type == "Name").Value;
                     var surname = User.Claims.FirstOrDefault(x => x.Type == "Surname").Value;
                     @string.Format("{0} {1}", nombre, surname)
-                    ;
-                    <a href="/Loginout">Salir</a>
+                    <a asp-controller="Login" asp-action="Loginout">Salir</a>
                 }
 
 

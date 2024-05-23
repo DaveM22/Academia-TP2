@@ -13,6 +13,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class InscripcionController : Controller
     {
         private AlumnoInscripcionLogic AlumnoInscripcionLogic { get; set; }

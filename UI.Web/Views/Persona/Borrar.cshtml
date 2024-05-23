@@ -23,81 +23,109 @@
             break;
      }
 
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<div class="card bg-secondary">
+    <h1 class="text-center">Borrar @namePersona</h1>
 
+    <h4 class="text-center">¿Esta seguro de borrar el siguiente @namePersona?</h4>
+    <div class="row">
+        <form asp-action="Borrar">
+        <div class="col-md-8 col-12 col-lg-4 mx-auto">
+        <dl>
+            <dt class="form-label">
+                @Html.DisplayNameFor(model => model.Legajo)
+            </dt>
+                    <dd class="form-control form-control-sm">
+                @Html.DisplayFor(model => model.Legajo)
+            </dd>
+        </dl>
+        <dl>
+            <dt class="form-label">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+                    <dd class="form-control form-control-sm">
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+        </dl>
+        <dl>
+            <dt class="form-label">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+                    <dd class="form-control form-control-sm">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+        </dl>
+        <dl>
+            <dt class="form-label">
+                @Html.DisplayNameFor(model => model.Direccion)
+            </dt>
+                    <dd class="form-control form-control-sm">
+                @Html.DisplayFor(model => model.Direccion)
+            </dd>
+        </dl>
+        <dl>
+            <dt class="form-label">
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+                    <dd class="form-control form-control-sm">
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+            <dl>
+                <dt class="form-label">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                        <dd class="form-control form-control-sm">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+            <dl>
+                <dt class="form-label">
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </dt>
+                        <dd class="form-control form-control-sm">
+                    @Html.DisplayFor(model => model.FechaNacimiento)
+                </dd>
+            </dl>
+            <dl>
+                <dt class="form-label">
+                    @Html.DisplayNameFor(model => model.TipoPersona)
+                </dt>
+                        <dd class="form-control form-control-sm">
+                    @Html.DisplayFor(model => model.TipoPersona)
+                </dd>
+            </dl>
+            <dl>
+                <dt class="form-label">
+                    @Html.DisplayNameFor(model => model.PlanDescripcion)
+                </dt>
+                        <dd class="form-control form-control-sm">
+                    @Html.DisplayFor(model => model.PlanDescripcion)
+                </dd>
+            </dl>
+        </dl>
+            <div class="row">
+   
+                    <input asp-for="Id" hidden="hidden" />
+                    <input asp-for="TipoPersona" hidden="hidden" />
+                    <div class="col-md-6 col-lg-6">
+                        <input type="submit" value="Borrar" class="btn btn-success w-100 mb-3" />
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <a class="btn btn-danger  w-100 mb-3" asp-action="@redirect">Cancelar</a>
+                    </div>
 
-<h1>Borrar</h1>
+        
+           </div>
+        </div>
+        </form>
+        </div>
+ </div>
 
-<h3>¿Esta seguro de eliminar el siguiente @namePersona </h3>
-    <div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Legajo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Legajo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaNacimiento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlanId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlanId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoPersona)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TipoPersona)
-        </dd>
-    </dl>
     
-    <form asp-action="Borrar">
-       <input asp-for="Id" hidden="hidden" />
-       
-       <input asp-for="TipoPersona" hidden="hidden" />
-        <input type="submit" value="Borrar" class="btn btn-danger" /> |
-        <a asp-action="@redirect" class="btn btn-danger">Volver al listado</a>
-    </form>
+
 </div>

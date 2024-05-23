@@ -22,10 +22,8 @@ namespace UI.Web.Models
 
         public ComisionViewModel Comision { get; set; } 
         [DisplayName("Comisión")]
-        [Required]
         public string ComisionDescripcion { get; set; }
         [DisplayName("Materia")]
-        [Required]
         public string MateriaDescripcion { get; set; }
         [DisplayName("Comisiones")]
         public List<ComisionViewModel> Comisiones { get; set; }
@@ -34,5 +32,7 @@ namespace UI.Web.Models
         public List<MateriaModel> Materias { get; set; }
 
         public List<DocenteCursoViewModel> DocenteCursos { get; set; }
+
+        public List<AlumnoInscripcionViewModel> Inscriptos { get; set; }
     }
 }

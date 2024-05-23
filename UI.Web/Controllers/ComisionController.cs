@@ -12,6 +12,7 @@ using UI.Web.Models;
 namespace UI.Web.Controllers
 {
     [Authorize]
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class ComisionController : Controller
     {
         private readonly INotyfService notyf;

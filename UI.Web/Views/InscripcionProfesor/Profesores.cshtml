@@ -12,7 +12,7 @@
 </div>
 
 
-<table id="table" class="table table-dark table-striped  nowrap " style="width:100%;">
+<table id="table" class="table table-striped  nowrap " style="width:100%;">
     <thead>
         <tr>
             <th>Apellido</th>
@@ -29,8 +29,8 @@
                 <td>@cur.Docente.Nombre</td>
                 <td>@cur.DocenteCargo</td>
                 <td style="width:30%;" class="text-center">
-                    <a class="btn btn-primary" title="Editar" asp-action="EditarAsignacionProfesor" asp-route-id="@cur.Id"><i class="fa fa-eye" aria-hidden="true"></i> Editar asignación</a>
-                    <a class="btn btn-danger" title="Borrar profesor" asp-action="Borrar" asp-route-id="@cur.CursoId"><i class="fa fa-trash" aria-hidden="true"></i>Borrar asignación</a>
+                    <a class="btn btn-primary" title="Editar" asp-action="EditarAsignacionProfesor" asp-route-id="@cur.Id"> Editar asignación</a>
+                    <a class="btn btn-danger" title="Borrar profesor" asp-action="Borrar" asp-route-id="@cur.CursoId">Borrar asignación</a>
                  </td>
             </tr>
         }

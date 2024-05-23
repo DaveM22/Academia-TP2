@@ -7,7 +7,13 @@
 @{var tuple = ("Planes", "Plan");}
 <partial for="@tuple" name="_HeaderGeneric" />
 
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
 <div class="container">
 
 <table id="table" class="display responsive nowrap table table-striped" style="width:100%">

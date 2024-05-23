@@ -44,5 +44,10 @@ namespace Business.Logic
         {
             return PersonaData.DocentesByPlanForCurso(idsProfesor);
         }
+
+        public List<Persona> AlumnosByPlan(int idPlan)
+        {
+            return PersonaData.AlumnosByPlan(idPlan);
+        }
     }
 }

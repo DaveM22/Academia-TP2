@@ -1,0 +1,112 @@
+﻿@using Business.Util
+@model UI.Web.Models.ActualizarAlumnoViewModel
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<div class="card bg-secondary p-2">
+    <h1 class="text-center">Actualizar estado de alumno en curso</h1>
+
+    <div class="row">
+
+        <form asp-action="ActualizarAlumno" method="post">
+            <div class="col-md-8 col-12 col-lg-4 mx-auto">
+                <dl>
+                    <dt class="form-label">
+                        @Html.DisplayNameFor(model => model.AlumnoInscripcion.Alumno.Legajo)
+                    </dt>
+                    <dd class="form-control">
+                        @Html.DisplayFor(model => model.AlumnoInscripcion.Alumno.Legajo)
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="form-label">
+                        @Html.DisplayNameFor(model => model.AlumnoInscripcion.Alumno.Apellido)
+                    </dt>
+                    <dd class="form-control">
+                        @Html.DisplayFor(model => model.AlumnoInscripcion.Alumno.Apellido)
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="form-label">
+                        @Html.DisplayNameFor(model => model.AlumnoInscripcion.Alumno.Nombre)
+                    </dt>
+                    <dd class="form-control">
+                        @Html.DisplayFor(model => model.AlumnoInscripcion.Alumno.Nombre)
+                    </dd>
+                </dl>
+                <input asp-for="AlumnoInscripcion.CursoId" hidden class="form-control form-control-md" />
+                <input asp-for="AlumnoInscripcion.Id" hidden class="form-control form-control-md" />
+                @if (Model.ActualizarNota)
+                {
+                    <dl>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.AlumnoInscripcion.Condicion)
+                        </dt>
+                        <dd>
+                            <input asp-for="AlumnoInscripcion.Condicion" readonly disabled class="form-control form-control-md" />
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.AlumnoInscripcion.Nota)
+                        </dt>
+                        <dd>
+                            <input asp-for="AlumnoInscripcion.Nota" class="form-control form-control-md" />
+                        </dd>
+                    </dl>
+  
+                }
+                else{
+                    <dl>
+                        <dt class="form-label">
+                            @Html.DisplayNameFor(model => model.AlumnoInscripcion.Condicion)
+                        </dt>
+                        <dd>
+                            <select asp-for="AlumnoInscripcion.Condicion" class="form-control form-select">
+                                @foreach (var option in new string[] { "INSCRIPTO", "REGULAR", "LIBRE" })
+                                {
+                                    <option value="@option">@option</option>
+                                }
+                            </select>
+                        </dd>
+                        <dl>
+                            <dt class="form-label">
+                                @Html.DisplayNameFor(model => model.AlumnoInscripcion.Nota)
+                            </dt>
+                            <dd>
+                                <input asp-for="AlumnoInscripcion.Nota" readonly disabled class="form-control form-control-md"  />
+                            </dd>
+                        </dl>
+                    </dl>
+                }
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <input type="submit" value="Guardar" class="btn btn-success w-100 mb-3" />
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <a class="btn btn-danger  w-100 mb-3" asp-action="CursoAlumnos" asp-route-cursoId="@Model.AlumnoInscripcion.CursoId">Cancelar</a>
+                    </div>
+
+                </div>
+
+    
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+</div>

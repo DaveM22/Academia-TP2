@@ -20,6 +20,7 @@ using static FastReport.ReporteCursos;
 namespace UI.Web.Controllers
 {
     [Authorize()]
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class CursoController : Controller
     {
         private readonly IMapper mapper;
@@ -120,9 +121,25 @@ namespace UI.Web.Controllers
             return View(vm);
         }
 
- 
-        [HttpPost]
 
+        [Authorize(Policy = "Cursos.Consulta")]
+        [HttpGet]
+        public JsonResult GetCursosDisponibles(int idAlumno)
+        {
+            var vms = mapper.Map<List<CursoViewModel>>(CursoLogic.GetAllByPlanYDisponible(idAlumno));
+            return Json(vms);
+        }
+
+        [HttpPost]
+        public JsonResult GetCursosByComision(int idComision)
+        {
+            var vms = mapper.Map<List<CursoViewModel>>(CursoLogic.GetAllByComision(idComision));
+            return Json(vms);
+        }
+
+
+
+        [HttpPost]
         [Authorize(Policy = "Cursos.Baja")]
         [ValidateAntiForgeryToken]
         public ActionResult Borrar(CursoViewModel cursoViewModel)
@@ -139,6 +156,11 @@ namespace UI.Web.Controllers
                 return RedirectToAction("Borrar", new { id = cursoViewModel.Id });
             }
         }
+
+
+
+
+
 
         [Authorize]
         public IActionResult Reporte(int id)

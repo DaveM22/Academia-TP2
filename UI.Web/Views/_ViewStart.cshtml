@@ -1,3 +1,24 @@
 ﻿@{
-    Layout = "_Layout";
+
+
+    if(User.HasClaim("tipoPersona", "1"))
+    {
+        Layout = "_LayoutProfesor";
+    }
+
+    else if(User.HasClaim("tipoPersona", "2"))
+    {
+        Layout = "_LayoutAlumno";
+    }
+
+    else if (User.HasClaim("tipoPersona", "0"))
+    {
+        Layout = "_Layout";
+    }
+
+    else
+    {
+        Layout = "_Layout";
+    }
+
 }

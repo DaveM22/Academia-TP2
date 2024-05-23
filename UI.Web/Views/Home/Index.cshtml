@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@{
+    var personaIdClaim = User.FindFirst("personaId");
+    var personaId = personaIdClaim != null ? personaIdClaim.Value : "No ID";
+}
+
+<div class="container">
+    <div class="row mx-auto">
+        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="EstadoAcademico" asp-action="Index" asp-route-id="@personaId">Estado academico</a>
+        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="AlumnoMateria" asp-action="MateriasDisponibles" asp-route-alumnoId="@personaId">Inscribirse a materia</a>
+        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="DocenteCurso" asp-action="Cursos" asp-route-idDocente="@personaId">Docente cursos</a>
+    </div>
 </div>

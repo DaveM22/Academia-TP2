@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Http.Extensions;
+@using Microsoft.Extensions.DependencyInjection;
+@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UI.Web</title>
+    @*     <link rel="stylesheet" href="~/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css">
+    <style>
+
+    </style>
+</head>
+
+@{
+    string basePath = Context.Request.PathBase;
+    string path = Context.Request.Path;
+
+    // Combina basePath y path para obtener la URL sin localhost
+    string urlWithoutHost = basePath + path;
+}
+
+
+<body style="background-color:#6495ED">
+    <partial name="_navbarAlumno" />
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="col-md-12 col-lg-12 col-sm-12">
+        <div class="container" style="color: white">
+            &copy; 2022 - UTN Frro - Academia
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <script src="~/DataTables/datatables.min.js"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

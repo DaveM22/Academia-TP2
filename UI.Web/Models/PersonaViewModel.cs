@@ -26,6 +26,7 @@ namespace UI.Web.Models
         [DisplayName("Fecha de nacimiento")]
         public DateTime FechaNacimiento { get; set; }
 
+        public string PlanDescripcion { get; set; }
         public int PlanId { get; set; }
 
         public TipoPersonaEnum TipoPersona { get; set; }

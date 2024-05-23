@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize]
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

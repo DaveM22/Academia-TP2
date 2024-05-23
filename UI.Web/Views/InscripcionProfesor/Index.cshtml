@@ -1,7 +1,13 @@
 ﻿@model List<CursoViewModel>;
 <h3 class="display-6 text-center">Inscripción de profesor a curso</h3>
 
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
 <div class="container row">
 
         <div class="mb-3 col-md-4">
@@ -30,20 +36,13 @@
         <table id="table" class="display responsive nowrap table table-striped" style="width:100%;">
             <thead>
                 <tr>
+                    <th hidden></th>
                     <th class="text-center">Año calendario</th>
                     <th class="text-center">Materia</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (CursoViewModel cur in Model)
-                {
-                    <tr>
-                        <td class="text-center">@cur.AnioCalendario</td>
-                        <td class="text-center">@cur.MateriaDescripcion</td>
-                        <td class="text-center"><a class="btn btn-primary btn-sm" title="Asignar" asp-action="Profesores" asp-route-id="@cur.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></a></td>
-                    </tr>
-                }
             </tbody>
         </table>
     </div>
@@ -56,8 +55,23 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-  
-            var tableCursos = new DataTable('#table',{
+
+            let columnsData = [
+                { data: "id", visible:false},
+                { data: "anioCalendario", title: "Año calendario", className: "text-center" },
+                { data: "materiaDescripcion", title: "Materia", className: "text-center" },
+                {
+                    data: null, title: "Acciones",
+                    className: "text-center",
+                    render: function (data, type, full, meta) {
+                        const id = data.id;
+                        console.log(id);
+                        const url = `/InscripcionProfesor/Profesores?id=${id}`;
+                        return `<a class="btn btn-primary btn-sm" href="${url}">Asignaciones</a>`;
+                    }
+                }
+            ]
+            let tCursos = new DataTable('#table',{
                 language: {
                     "emptyTable": "No hay cursos con los filtros ingresados",
                     "search": "Buscar",
@@ -72,6 +86,7 @@
                 pageLength: 5,
                 lengthChange: false,
                 info: false,
+                columns:columnsData
             });
 
 
@@ -139,6 +154,50 @@
                                 })
                             )
                         })
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+
+            $("#selectPlanes").change(function () {
+                var selectedValue = $(this).val();
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Comision/ComisionesByPlan",
+                    data: { id: selectedValue },
+                    success: function (response) {
+                        $("#selectComisiones option").not(":first").remove();
+                        $.each(response, function (index, opcion) {
+                            $("#selectComisiones").append(
+                                $("<option>", {
+                                    value: opcion.id,
+                                    text: opcion.descripcion
+                                })
+                            )
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+            $("#selectComisiones").change(function () {
+                let selectedValue = $(this).val();
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Curso/GetCursosByComision",
+                    data: { idComision: selectedValue },
+                    success: function (response) {
+                        console.log(response)
+                        tCursos.clear().rows.add(response).draw();
                     },
                     error: function (error) {
                         console.log(error);

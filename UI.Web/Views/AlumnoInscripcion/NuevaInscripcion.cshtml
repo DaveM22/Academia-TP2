@@ -1,0 +1,110 @@
+﻿@model AlumnoInscripcionViewModel
+
+
+@{
+    var accion = Model.Id == 0 ? "NuevaInscripcion" : "Editar";
+}
+
+<h3 class="text-center">Nueva inscripción</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4 col-12 col-lg-6 mx-auto">
+        <form id="form" asp-action="@accion" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3 col-lg-12">
+                <label asp-for="Plan" class="form-label"></label>
+                <input asp-for="Plan" class="form-control form-control-md" readonly disabled style="caret-color:transparent;" />
+            </div>
+
+            <div class="mb-3 col-lg-12">
+
+                <label asp-for="Alumno.Apellido" class="form-label"></label>
+                <input asp-for="Alumno.Apellido" class="form-control form-control-md" readonly disabled style="caret-color:transparent;" />
+
+            </div>
+            <div class="mb-3 col-lg-12">
+                
+                    <label asp-for="Alumno.Nombre" class="form-label"></label>
+                    <input asp-for="Alumno.Nombre" class="form-control form-control-md" readonly disabled style="caret-color:transparent;" />
+          
+            </div>
+            <div class="mb-3">
+
+                <label asp-for="Curso" class="form-label"></label>
+                <div class="input-group">
+                    <input id="Curso" name="Curso" readonly disabled class="form-control form-control-md" maxlength="60"  style="caret-color:transparent;" />
+                    <input asp-for="AlumnoId" value="@Model.Alumno.Id" hidden />
+                    <input asp-for="CursoId" hidden/>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCursos">
+                            Seleccionar curso
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="@Model.CursoId" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <input type="submit" value="@accion" class="btn btn-success w-100 mb-3" />
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <a asp-action="Inscripciones" asp-route-id="@Model.Alumno.Id" class="btn btn-danger w-100 mb-3">Cancelar</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<partial name="_ModalCursos" />
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+   <script>
+        $(document).ready(function () {
+            let cursoColumns = [
+                { data: "comisionDescripcion", title: "Materia" },
+                { data: "materiaDescripcion", title: "Comisión" },
+                { data: "anioCalendario", title: "Año especialidad" },
+                { data: "cupo", title: "Cupo" },
+                    {
+                    data: null, title: "Acciones",
+                    render: function (data, type, full, meta) {
+                        return '<button class="btn btn-primary" data-bs-dismiss="modal">Seleccionar</button>'
+                    }
+                }
+            ]
+            var tableCurso = $('#tableCurso').DataTable({
+                language: {
+                    "emptyTable": "No hay cursos cargados para asignar"
+                },
+                bAutoWidth: false,
+                lengthChange: false,
+                info: false,
+                columns: cursoColumns
+            });
+
+
+
+            $.ajax({
+                type: "GET",
+                url: "/Curso/GetCursosDisponibles?idAlumno=" + @Model.Alumno.Id,
+                success: function (response) {
+                    tableCurso.clear().rows.add(response).draw();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            $('#tableCurso tbody').on('click', 'button', function () {
+                var data = tableCurso.row($(this).parents('tr')).data();
+                $("#Curso").val(data.comisionDescripcion+" - "+data.materiaDescripcion);
+                $("#CursoId").val(data.id);
+                $("#modalComision").modal("dispose");
+            });
+        })
+   </script>
+        
+}
+      

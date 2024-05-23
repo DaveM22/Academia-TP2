@@ -25,9 +25,14 @@ namespace Business.Logic
             return CursoAdapter.GetAllByPlan(idPlan);
         }
 
-        public List<Curso> GetAllByPlanYDisponible(int idPlan, int idAlumno)
+        public List<Curso> GetAllByPlanYDisponible(int idAlumno)
         {
-            return CursoAdapter.GetAllByPlanYDisponibleAlumno(idPlan, idAlumno);
+            return CursoAdapter.GetAllByPlanYDisponibleAlumno(idAlumno);
+        }
+
+        public List<Curso> GetAllByComision(int idComision) 
+        {
+            return CursoAdapter.GetAllByComision(idComision);
         }
 
         public Curso GetOne(int id)

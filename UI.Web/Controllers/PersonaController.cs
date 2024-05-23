@@ -4,12 +4,14 @@ using Business.Entities;
 using Business.Entities.Enums;
 using Business.Logic;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Packaging.Signing;
 using System;
 using System.Collections.Generic;
 using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class PersonaController : Controller
     {
         private IMapper _mapper;
@@ -55,13 +57,13 @@ namespace UI.Web.Controllers
             switch (entity.TipoPersona)
             {
                 case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
-                    _notyfService.Success("Se ha creado el nuevo alumno");
+                    _notyfService.Success("Se ha creado el nuevo alumno de manera existosa", 6);
                     return RedirectToAction(nameof(Alumnos));
                 case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
-                    _notyfService.Success("Se ha creado el nuevo profesor");
+                    _notyfService.Success("Se ha creado el nuevo profesor existosa", 6);
                     return RedirectToAction(nameof(Profesores));
                 default:
-                    _notyfService.Success("Se ha creado el nuevo administrador");
+                    _notyfService.Success("Se ha creado el nuevo administrador existosa", 6);
                     return RedirectToAction(nameof(Administradores));
             }
         }
@@ -95,6 +97,15 @@ namespace UI.Web.Controllers
             }
         }
 
+
+        public JsonResult AlumnosByPlan(int idPlan)
+        {
+            var personas = this.PersonaLogic.AlumnosByPlan(idPlan);
+            var models = this._mapper.Map<List<PersonaViewModel>>(personas);
+            return Json(models);
+        }
+
+
         public JsonResult PersonaByPlan(List<int> ids)
         {
             var personas = this.PersonaLogic.DocentesByPlanForCurso(ids);
@@ -116,6 +127,8 @@ namespace UI.Web.Controllers
                 return Json(new List<PersonaViewModel>());
             }
         }
+
+
 
         // GET: PlanController_/Delete/5
         public ActionResult Borrar(int id)

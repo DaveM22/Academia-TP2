@@ -19,6 +19,7 @@ namespace UI.Web.Controllers
 
 
     [Authorize]
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class PlanController : Controller
     {
         private readonly IMapper mapper;
@@ -190,6 +191,15 @@ namespace UI.Web.Controllers
         public JsonResult PlanesByEspecialidad(int id)
         {
             var results = PlanLogic.PlanesByEspecialidad(id);
+            return Json(results);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetPlanes()
+        {
+            var results = this.mapper.Map<List<PlanViewModel>>(PlanLogic.GetAll());
             return Json(results);
         }
 

@@ -1,0 +1,80 @@
+﻿@model CursoViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+"<div class="row mt-4">
+    <div class="col-lg-12">
+        <div><h2 class="text-center">Alumnos de : @Model.Comision.Descripcion - @Model.Materia.Descripcion - @Model.AnioCalendario</h2></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <table id="table" class="table table-striped  nowrap " style="width:100%;">
+        <thead class="thead-dark">
+            <tr>
+                <th>Legajo</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Condicion</th>
+                <th>Nota</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Inscriptos)
+            {
+                <tr>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Alumno.Legajo)
+                    </td>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Alumno.Apellido)
+                    </td>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Alumno.Nombre)
+                    </td>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Condicion)
+                    </td>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Nota)
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-danger btn-sm" title="Editar comisión" asp-action="ActualizarAlumnoCondicion" asp-route-inscripcionId="@item.Id"> Actualizar Condición</a>
+                        <a class="btn btn-danger btn-sm" title="Editar comisión" asp-action="ActualizarAlumnoNota" asp-route-inscripcionId="@item.Id">Actualizar nota</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            let table = new DataTable('#table', {
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [1] }
+                ],
+                language: {
+                    "emptyTable": "No existen alumnos registrados",
+                    "search": "Buscar: ",
+                    "zeroRecords": "No se han encontrado especialidades en la busqueda",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                responsive: true,
+                pageLength: 5,
+                lengthChange: false,
+                info: false,
+            });
+        });
+    </script>
+}

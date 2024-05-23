@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\InscripcionAlumno\" />
     <Folder Include="wwwroot\Reportes\" />
   </ItemGroup>
 

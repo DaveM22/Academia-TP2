@@ -56,6 +56,9 @@ namespace Business.Data
             return context.Planes.Where(x => x.EspecialidadId == idEspecialidad).ToList();
         }
 
+
+       
+
   
     }
 }

@@ -6,10 +6,15 @@
 @{
     var personaEnum = TipoPersonaEnum.PROFESOR;
 }
-<p>
 
     <partial for="@personaEnum" name="_HeaderPersona" />
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
 <table id="table" class="table table-striped">
     <thead>
         <tr>

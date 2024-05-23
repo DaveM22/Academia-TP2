@@ -12,7 +12,7 @@ namespace UI.Web.Models
         public int CursoId { get; set; }
         public PersonaViewModel Alumno { get; set; }
         public CursoViewModel Curso { get; set; }
-
+        public string Plan { get; set; }
         public CondicionEnum CondicionEnum { get; set; }
     }
 }

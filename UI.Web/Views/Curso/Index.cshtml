@@ -5,13 +5,18 @@
 }
 
 
-<p>
     @{
         var tuple = ("Cursos", "Curso");
     }
     <partial for="@tuple" name="_HeaderGeneric" />
-</p>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
 
 <div class="container">
 

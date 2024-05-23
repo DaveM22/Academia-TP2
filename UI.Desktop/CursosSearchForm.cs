@@ -32,20 +32,31 @@ namespace UI.Desktop
             this.dgvCursos.AllowNestedProperties(true);
         }
 
-        public CursosSearchForm(int idProfesor, bool cargaMultiple = false) : this()
+        public CursosSearchForm(int idProfesor) : this()
         {
-            this.IdProfesor = idProfesor;
-            this.dgvCursos.MultiSelect = cargaMultiple;
+
             CursoLogic = new CursoLogic();
-            Cursos = CursoLogic.GetAllByPlanYDisponibleDocente(this.IdProfesor);
+
         }
 
-        public CursosSearchForm(int idPlan, int idAlumno, bool cargaMultiple = false) : this()
+        public CursosSearchForm(int idPersona, bool esProfesor) : this()
         {
-            IdAlumno = idAlumno;
-            this.dgvCursos.MultiSelect = cargaMultiple;
-            CursoLogic = new CursoLogic();
-            //Cursos = CursoLogic.GetAllByPlanYDisponible(this.IdPlan, this.IdAlumno);
+
+            if (esProfesor)
+            {
+                this.IdProfesor = idPersona;
+
+                CursoLogic = new CursoLogic();
+                Cursos = CursoLogic.GetAllByPlanYDisponibleDocente(this.IdProfesor);
+            }
+            else
+            {
+                IdAlumno = idPersona;
+
+                CursoLogic = new CursoLogic();
+                Cursos = CursoLogic.GetAllByPlanYDisponible(this.IdAlumno);
+            }
+
 
         }
 

@@ -26,7 +26,7 @@ namespace Business.Data
                 .Include(x => x.Curso).ThenInclude(x => x.Comision)
                 .Include(x => x.Curso).ThenInclude(x => x.Materia)
                 .Include(x => x.Docente)
-                .Where(x => x.DocenteId == idProfesor).ToList();
+                .Where(x => x.DocenteId == idProfesor && x.Docente.TipoPersona == Entities.Enums.TipoPersonaEnum.PROFESOR).ToList();
         }
 
         public List<DocenteCurso> GetByCurso(int idCurso)

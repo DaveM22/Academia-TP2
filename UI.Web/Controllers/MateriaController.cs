@@ -10,6 +10,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [ResponseCache(NoStore = true, Duration = 0)]
     public class MateriaController : Controller
     {
         private IMapper mapper;

@@ -1,0 +1,72 @@
+﻿@model AlumnoMateriaViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div><h2 class="text-center">Materias del alumno: @Model.Persona.Apellido, @Model.Persona.Nombre</h2></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center text-md-left p-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <table id="table" class="table table-striped  nowrap " style="width:100%;">
+        <thead class="thead-dark">
+            <tr>
+                <th> Materia</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MateriasDisponibles)
+            {
+                <tr>
+                    <td class="text-wrap">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-secondary btn-sm" title="Alumnos" asp-action="ComisionesDisponibles" asp-route-materiaId="@item.Id">Comisiones</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            let table = new DataTable('#table', {
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [1] }
+                ],
+                language: {
+                    "emptyTable": "No existen alumnos registrados",
+                    "search": "Buscar: ",
+                    "zeroRecords": "No se han encontrado especialidades en la busqueda",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                responsive: true,
+                pageLength: 5,
+                lengthChange: false,
+                info: false,
+            });
+
+
+        });
+    </script>
+}

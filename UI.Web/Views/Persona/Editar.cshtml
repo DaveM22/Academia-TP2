@@ -5,7 +5,9 @@
 }
 
 <partial name ="_FormularioPersona" for="@Model" />
+<partial name="_ModalPlan" />
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/js/planScripts.js"></script>
 }

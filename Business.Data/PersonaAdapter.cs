@@ -57,5 +57,11 @@ namespace Business.Data
             using var context = new AcademiaContext();
             return context.Personas.Where(x => TipoPersonaEnum.PROFESOR == x.TipoPersona && !idsProfesor.Contains(x.Id)).ToList();
         }
+
+        public List<Persona> AlumnosByPlan(int idPlan)
+        {
+            using var context = new AcademiaContext();
+            return context.Planes.Include(x => x.Personas).SingleOrDefault(x => x.Id == idPlan).Personas.Where(x => x.TipoPersona == TipoPersonaEnum.ALUMNO).ToList();
+        }
     }
 }

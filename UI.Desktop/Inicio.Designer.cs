@@ -201,7 +201,7 @@
             btnDocenteNotas.Name = "btnDocenteNotas";
             btnDocenteNotas.Size = new System.Drawing.Size(290, 50);
             btnDocenteNotas.TabIndex = 11;
-            btnDocenteNotas.Text = "Docente notas";
+            btnDocenteNotas.Text = "Catedras asignadas";
             btnDocenteNotas.UseVisualStyleBackColor = true;
             btnDocenteNotas.Click += btnDocenteNotas_Click;
             // 

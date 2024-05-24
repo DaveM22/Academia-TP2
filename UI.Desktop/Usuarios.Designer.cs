@@ -32,18 +32,17 @@
             toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             dgvUsuarios = new System.Windows.Forms.DataGridView();
+            btnActualizar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            tsUsuarios = new System.Windows.Forms.ToolStrip();
+            tsNuevoUsuario = new System.Windows.Forms.ToolStripButton();
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Modulos = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            btnActualizar = new System.Windows.Forms.Button();
-            btnCancelar = new System.Windows.Forms.Button();
-            tsUsuarios = new System.Windows.Forms.ToolStrip();
-            tsNuevoUsuario = new System.Windows.Forms.ToolStripButton();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
@@ -98,7 +97,7 @@
             dgvUsuarios.AllowUserToDeleteRows = false;
             dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, NombreUsuario, Email, Apellido, Nombre, Modulos, Editar, Eliminar });
+            dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, NombreUsuario, Email, Apellido, Nombre, Editar, Eliminar });
             tlUsuarios.SetColumnSpan(dgvUsuarios, 2);
             dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvUsuarios.Location = new System.Drawing.Point(2, 2);
@@ -112,74 +111,6 @@
             dgvUsuarios.Size = new System.Drawing.Size(556, 235);
             dgvUsuarios.TabIndex = 0;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
-            // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 8;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            Id.Visible = false;
-            // 
-            // NombreUsuario
-            // 
-            NombreUsuario.DataPropertyName = "NombreUsuario";
-            NombreUsuario.HeaderText = "Usuario";
-            NombreUsuario.MinimumWidth = 8;
-            NombreUsuario.Name = "NombreUsuario";
-            NombreUsuario.ReadOnly = true;
-            // 
-            // Email
-            // 
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 8;
-            Email.Name = "Email";
-            Email.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            Apellido.DataPropertyName = "Apellido";
-            Apellido.HeaderText = "Apellido";
-            Apellido.MinimumWidth = 8;
-            Apellido.Name = "Apellido";
-            Apellido.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            Nombre.DataPropertyName = "Nombre";
-            Nombre.HeaderText = "Nombre";
-            Nombre.MinimumWidth = 8;
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Modulos
-            // 
-            Modulos.HeaderText = "";
-            Modulos.Name = "Modulos";
-            Modulos.ReadOnly = true;
-            Modulos.Text = "Modulos";
-            Modulos.UseColumnTextForButtonValue = true;
-            // 
-            // Editar
-            // 
-            Editar.HeaderText = "";
-            Editar.MinimumWidth = 8;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Text = "Editar";
-            Editar.UseColumnTextForButtonValue = true;
-            // 
-            // Eliminar
-            // 
-            Eliminar.HeaderText = "";
-            Eliminar.MinimumWidth = 8;
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
-            Eliminar.Text = "Eliminar";
-            Eliminar.UseColumnTextForButtonValue = true;
             // 
             // btnActualizar
             // 
@@ -229,6 +160,66 @@
             tsNuevoUsuario.Text = "Nuevo usuario";
             tsNuevoUsuario.Click += tsNuevoUsuario_Click;
             // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            Id.Visible = false;
+            // 
+            // NombreUsuario
+            // 
+            NombreUsuario.DataPropertyName = "NombreUsuario";
+            NombreUsuario.HeaderText = "Usuario";
+            NombreUsuario.MinimumWidth = 8;
+            NombreUsuario.Name = "NombreUsuario";
+            NombreUsuario.ReadOnly = true;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 8;
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            Apellido.DataPropertyName = "Apellido";
+            Apellido.HeaderText = "Apellido";
+            Apellido.MinimumWidth = 8;
+            Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 8;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.HeaderText = "";
+            Editar.MinimumWidth = 8;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Text = "Editar";
+            Editar.UseColumnTextForButtonValue = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.HeaderText = "";
+            Eliminar.MinimumWidth = 8;
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseColumnTextForButtonValue = true;
+            // 
             // Usuarios
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,7 +256,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewButtonColumn Modulos;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

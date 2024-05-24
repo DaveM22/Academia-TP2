@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+
+@if (ViewBag.Exception != null)
+{
+    <p>Ocurrió un error: @ViewBag.Exception.Message</p>
+}
+
+<p>Por favor, contacte al administrador del sistema.</p>

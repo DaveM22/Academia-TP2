@@ -37,11 +37,13 @@ namespace UI.Desktop
             PersonaList = PersonaLogic.GetPersonas(TipoPersona);
             if (TipoPersona == TipoPersonaEnum.PROFESOR)
             {
+                this.lblTitulo.Text = "Profesores";
                 this.Text = "Profesores";
             }
             else
             {
                 this.Text = "Alumnos";
+                this.lblTitulo.Text = "Alumnos";
             }
         }
 
@@ -90,6 +92,11 @@ namespace UI.Desktop
         {
             PersonaDesktop form = new(ModoForm.Alta, TipoPersonaEnum.ALUMNO);
             this.MasterForm.OpenForm(form);
+        }
+
+        private void dgvPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

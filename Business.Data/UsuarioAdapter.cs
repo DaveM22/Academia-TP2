@@ -15,7 +15,7 @@ namespace Business.Data
         public  List<Usuario> GetAll()
         {
             using var context = new AcademiaContext();
-            return context.Usuarios.Include(x => x.Persona).Include(x => x.Modulos).ThenInclude(x => x.Modulo).ToList();
+            return context.Usuarios.Include(x => x.Persona).Include(x => x.Modulos).ThenInclude(x => x.Modulo).Where(x => x.PersonaId != null).ToList();
         }
 
         public  Usuario GetOneByString(string nombreUsuario)
@@ -43,5 +43,6 @@ namespace Business.Data
             context.SaveChanges();
             return entity;
         }
+
     }
 }

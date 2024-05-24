@@ -43,6 +43,7 @@
             btnCancelar = new System.Windows.Forms.Button();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            lblTitulo = new System.Windows.Forms.Label();
             tscInscripciones.ContentPanel.SuspendLayout();
             tscInscripciones.TopToolStripPanel.SuspendLayout();
             tscInscripciones.SuspendLayout();
@@ -79,17 +80,19 @@
             tlpInscripciones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpInscripciones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tlpInscripciones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tlpInscripciones.Controls.Add(lblLegajo, 0, 0);
-            tlpInscripciones.Controls.Add(nudLegajo, 1, 0);
-            tlpInscripciones.Controls.Add(btnBuscar, 2, 0);
-            tlpInscripciones.Controls.Add(dgvAlumnos, 0, 1);
-            tlpInscripciones.Controls.Add(btnActualizar, 3, 2);
-            tlpInscripciones.Controls.Add(btnCancelar, 4, 2);
+            tlpInscripciones.Controls.Add(btnActualizar, 3, 3);
+            tlpInscripciones.Controls.Add(btnCancelar, 4, 3);
+            tlpInscripciones.Controls.Add(dgvAlumnos, 0, 2);
+            tlpInscripciones.Controls.Add(btnBuscar, 2, 1);
+            tlpInscripciones.Controls.Add(nudLegajo, 1, 1);
+            tlpInscripciones.Controls.Add(lblLegajo, 0, 1);
+            tlpInscripciones.Controls.Add(lblTitulo, 0, 0);
             tlpInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpInscripciones.Location = new System.Drawing.Point(0, 0);
             tlpInscripciones.Name = "tlpInscripciones";
-            tlpInscripciones.RowCount = 3;
-            tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlpInscripciones.RowCount = 4;
+            tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlpInscripciones.Size = new System.Drawing.Size(800, 441);
@@ -99,7 +102,7 @@
             // 
             lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblLegajo.AutoSize = true;
-            lblLegajo.Location = new System.Drawing.Point(3, 12);
+            lblLegajo.Location = new System.Drawing.Point(3, 49);
             lblLegajo.Name = "lblLegajo";
             lblLegajo.Size = new System.Drawing.Size(42, 15);
             lblLegajo.TabIndex = 0;
@@ -108,7 +111,7 @@
             // nudLegajo
             // 
             nudLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            nudLegajo.Location = new System.Drawing.Point(51, 8);
+            nudLegajo.Location = new System.Drawing.Point(51, 45);
             nudLegajo.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             nudLegajo.Name = "nudLegajo";
             nudLegajo.Size = new System.Drawing.Size(195, 23);
@@ -116,12 +119,13 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new System.Drawing.Point(252, 3);
+            btnBuscar.Location = new System.Drawing.Point(252, 39);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new System.Drawing.Size(138, 34);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar por legajo";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // dgvAlumnos
             // 
@@ -132,14 +136,14 @@
             dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Legajo, Apellido, Nombre, Cursos });
             tlpInscripciones.SetColumnSpan(dgvAlumnos, 5);
             dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvAlumnos.Location = new System.Drawing.Point(3, 43);
+            dgvAlumnos.Location = new System.Drawing.Point(3, 81);
             dgvAlumnos.MultiSelect = false;
             dgvAlumnos.Name = "dgvAlumnos";
             dgvAlumnos.ReadOnly = true;
             dgvAlumnos.RowHeadersWidth = 62;
             dgvAlumnos.RowTemplate.Height = 25;
             dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvAlumnos.Size = new System.Drawing.Size(794, 355);
+            dgvAlumnos.Size = new System.Drawing.Size(794, 317);
             dgvAlumnos.TabIndex = 3;
             dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick;
             // 
@@ -233,6 +237,19 @@
             toolStripLabel1.Size = new System.Drawing.Size(102, 22);
             toolStripLabel1.Text = "Nueva inscripción";
             // 
+            // lblTitulo
+            // 
+            lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblTitulo.AutoSize = true;
+            tlpInscripciones.SetColumnSpan(lblTitulo, 5);
+            lblTitulo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTitulo.Location = new System.Drawing.Point(3, 4);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(794, 27);
+            lblTitulo.TabIndex = 6;
+            lblTitulo.Text = "Inscripciones de alumnos";
+            lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Inscripciones
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewButtonColumn Cursos;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

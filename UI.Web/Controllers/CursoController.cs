@@ -3,7 +3,7 @@ using AutoMapper;
 using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
-using FastReport;
+
 using FastReport.Export.PdfSimple;
 using FastReport.Web;
 using Microsoft.AspNetCore.Authorization;
@@ -167,12 +167,14 @@ namespace UI.Web.Controllers
         {
             var curso = CursoLogic.GetOne(id);
             var cursoReporte = CursoLogic.GetOneReporte(curso.Id);
-            var rep = new ReporteCursos();
-            rep.Especialidad = cursoReporte.Materia.Plan.Especialidad.Descripcion;
-            rep.Plan = cursoReporte.Materia.Plan.Descripcion;
-            rep.Materia = cursoReporte.Materia.Descripcion;
-            rep.Comision = cursoReporte.Comision.Descripcion;
-            rep.AlumnoList = new();
+            var rep = new FastReport.ReporteCursos
+            {
+                Especialidad = cursoReporte.Materia.Plan.Especialidad.Descripcion,
+                Plan = cursoReporte.Materia.Plan.Descripcion,
+                Materia = cursoReporte.Materia.Descripcion,
+                Comision = cursoReporte.Comision.Descripcion,
+                AlumnoList = new()
+            };
             foreach (var item in cursoReporte.Inscriptos)
             {
                 var alumno = new Alumnos() { Apellido = item.Alumno.Apellido, Nombre = item.Alumno.Nombre, Email = item.Alumno.Email, Legajo = item.Alumno.Legajo };

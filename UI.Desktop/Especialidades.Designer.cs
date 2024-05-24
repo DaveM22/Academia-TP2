@@ -40,11 +40,10 @@
             btnActualizar = new System.Windows.Forms.Button();
             btnSalir = new System.Windows.Forms.Button();
             tsEspecialidades = new System.Windows.Forms.ToolStrip();
-            tsBusqueda = new System.Windows.Forms.ToolStripTextBox();
-            tsBuscar = new System.Windows.Forms.ToolStripLabel();
             tsNuevo = new System.Windows.Forms.ToolStripButton();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            lblTitulo = new System.Windows.Forms.Label();
             tscEspecialidades.ContentPanel.SuspendLayout();
             tscEspecialidades.TopToolStripPanel.SuspendLayout();
             tscEspecialidades.SuspendLayout();
@@ -60,12 +59,12 @@
             // 
             tscEspecialidades.ContentPanel.Controls.Add(tlpEspecialidades);
             tscEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(801, 273);
+            tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(801, 343);
             tscEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             tscEspecialidades.Location = new System.Drawing.Point(0, 0);
             tscEspecialidades.Margin = new System.Windows.Forms.Padding(2);
             tscEspecialidades.Name = "tscEspecialidades";
-            tscEspecialidades.Size = new System.Drawing.Size(801, 298);
+            tscEspecialidades.Size = new System.Drawing.Size(801, 368);
             tscEspecialidades.TabIndex = 0;
             tscEspecialidades.Text = "Especialidades";
             // 
@@ -79,16 +78,18 @@
             tlpEspecialidades.ColumnCount = 2;
             tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tlpEspecialidades.Controls.Add(dgvEspecialidades, 0, 0);
-            tlpEspecialidades.Controls.Add(btnActualizar, 0, 1);
-            tlpEspecialidades.Controls.Add(btnSalir, 1, 1);
+            tlpEspecialidades.Controls.Add(btnActualizar, 0, 2);
+            tlpEspecialidades.Controls.Add(btnSalir, 1, 2);
+            tlpEspecialidades.Controls.Add(dgvEspecialidades, 0, 1);
+            tlpEspecialidades.Controls.Add(lblTitulo, 0, 0);
             tlpEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             tlpEspecialidades.Location = new System.Drawing.Point(0, 0);
             tlpEspecialidades.Name = "tlpEspecialidades";
-            tlpEspecialidades.RowCount = 2;
+            tlpEspecialidades.RowCount = 3;
+            tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlpEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlpEspecialidades.Size = new System.Drawing.Size(801, 273);
+            tlpEspecialidades.Size = new System.Drawing.Size(801, 343);
             tlpEspecialidades.TabIndex = 1;
             // 
             // dgvEspecialidades
@@ -100,13 +101,13 @@
             dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Nombre, Editar, Eliminar });
             tlpEspecialidades.SetColumnSpan(dgvEspecialidades, 2);
             dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
+            dgvEspecialidades.Location = new System.Drawing.Point(3, 35);
             dgvEspecialidades.Name = "dgvEspecialidades";
             dgvEspecialidades.ReadOnly = true;
             dgvEspecialidades.RowHeadersWidth = 62;
             dgvEspecialidades.RowTemplate.Height = 33;
             dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvEspecialidades.Size = new System.Drawing.Size(795, 232);
+            dgvEspecialidades.Size = new System.Drawing.Size(795, 270);
             dgvEspecialidades.TabIndex = 0;
             dgvEspecialidades.CellClick += dgvEspecialidades_CellClick_1;
             dgvEspecialidades.Paint += dgvEspecialidades_Paint;
@@ -168,7 +169,7 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(596, 241);
+            btnActualizar.Location = new System.Drawing.Point(596, 311);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new System.Drawing.Size(75, 29);
             btnActualizar.TabIndex = 1;
@@ -181,7 +182,7 @@
             btnSalir.BackColor = System.Drawing.Color.Firebrick;
             btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnSalir.Location = new System.Drawing.Point(677, 241);
+            btnSalir.Location = new System.Drawing.Point(677, 311);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new System.Drawing.Size(121, 29);
             btnSalir.TabIndex = 2;
@@ -195,23 +196,11 @@
             tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
             tsEspecialidades.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             tsEspecialidades.ImageScalingSize = new System.Drawing.Size(24, 24);
-            tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsBusqueda, tsBuscar, tsNuevo });
+            tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevo });
             tsEspecialidades.Location = new System.Drawing.Point(0, 0);
             tsEspecialidades.Name = "tsEspecialidades";
-            tsEspecialidades.Size = new System.Drawing.Size(260, 25);
+            tsEspecialidades.Size = new System.Drawing.Size(116, 25);
             tsEspecialidades.TabIndex = 0;
-            // 
-            // tsBusqueda
-            // 
-            tsBusqueda.Name = "tsBusqueda";
-            tsBusqueda.Size = new System.Drawing.Size(100, 25);
-            tsBusqueda.TextChanged += tsBusqueda_TextChanged;
-            // 
-            // tsBuscar
-            // 
-            tsBuscar.Name = "tsBuscar";
-            tsBuscar.Size = new System.Drawing.Size(42, 22);
-            tsBuscar.Text = "Buscar";
             // 
             // tsNuevo
             // 
@@ -235,19 +224,29 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // lblTitulo
+            // 
+            lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblTitulo.AutoSize = true;
+            tlpEspecialidades.SetColumnSpan(lblTitulo, 2);
+            lblTitulo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTitulo.Location = new System.Drawing.Point(3, 2);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(795, 27);
+            lblTitulo.TabIndex = 3;
+            lblTitulo.Text = "Especialidades";
+            lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Especialidades
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSize = true;
             BackColor = System.Drawing.Color.CornflowerBlue;
-            ClientSize = new System.Drawing.Size(801, 298);
-            ControlBox = false;
+            ClientSize = new System.Drawing.Size(801, 368);
             Controls.Add(tscEspecialidades);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Margin = new System.Windows.Forms.Padding(2);
-            MaximizeBox = false;
-            MinimizeBox = false;
             Name = "Especialidades";
             Text = "Especialidades";
             Load += Especialidades_Load;
@@ -257,6 +256,7 @@
             tscEspecialidades.ResumeLayout(false);
             tscEspecialidades.PerformLayout();
             tlpEspecialidades.ResumeLayout(false);
+            tlpEspecialidades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEspecialidades).EndInit();
             tsEspecialidades.ResumeLayout(false);
             tsEspecialidades.PerformLayout();
@@ -277,8 +277,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.ToolStripTextBox tsBusqueda;
-        private System.Windows.Forms.ToolStripLabel tsBuscar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

@@ -3,6 +3,7 @@ using AutoMapper;
 using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace UI.Web.Controllers
             this.notyf = notyf;
         }
 
+
+        [Authorize(Policy = "Materias.Consulta")]
         public IActionResult Index(int id)
         {
             var plan = PlanLogic.GetOne(id);
@@ -33,6 +36,7 @@ namespace UI.Web.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Materias.Alta")]
         public IActionResult Nuevo(int id)
         {
             var plan = PlanLogic.GetOne(id);
@@ -44,6 +48,7 @@ namespace UI.Web.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Materias.Modificacion")]
         public IActionResult Editar(int id)
         {
             var mat = this.MateriaLogic.GetOne(id);
@@ -52,6 +57,7 @@ namespace UI.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "Materias.Modificacion")]
         public IActionResult Editar(MateriaModel model) 
         {
             if (ModelState.IsValid)
@@ -65,6 +71,7 @@ namespace UI.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "Materias.Alta")]
         public IActionResult Nuevo(MateriaModel model)
         {
             if (ModelState.IsValid)
@@ -77,6 +84,7 @@ namespace UI.Web.Controllers
             return View(model);
         }
 
+        [Authorize(Policy = "Materias.Baja")]
         public IActionResult Borrar(int id)
         {
             var materia = this.MateriaLogic.GetOne(id);
@@ -85,6 +93,7 @@ namespace UI.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "Materias.Baja")]
         public IActionResult Borrar(MateriaModel materia)
         {
             try

@@ -10,5 +10,6 @@ namespace Business.Entities.Enums
     {
         PROFESOR = 1,
         ALUMNO = 2
+
     }
 }

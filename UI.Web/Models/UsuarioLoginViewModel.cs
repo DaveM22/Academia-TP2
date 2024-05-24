@@ -7,11 +7,11 @@ namespace UI.Web.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar un nombre de usuario")]
         [DisplayName("Nombre de usuario")]
         public string NombreUsuario { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar una clave")]
         [DataType(DataType.Password)]
         public string Clave { get; set; }
     }

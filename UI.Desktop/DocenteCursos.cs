@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Accord.Collections;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,27 @@ namespace UI.Desktop
     {
         private DocenteCursoLogic DocenteCursoLogic { get; set; }
 
+        private CursoLogic CursoLogic => new CursoLogic();
+        private int CursoId { get; set; }
+
         public MasterForm Mast => this.MdiParent as MasterForm;
         public DocenteCursos()
         {
             InitializeComponent();
         }
 
+        public DocenteCursos(int cursoId) : this()
+        {
+            this.CursoId = cursoId;
+        }
+            
+
         private void DocenteCursos_Load(object sender, EventArgs e)
         {
             DocenteCursoLogic = new DocenteCursoLogic();
             dgvDocenteCursos.AutoGenerateColumns = false;
-            dgvDocenteCursos.DataSource = DocenteCursoLogic.GetDocenteCursos();
+            var curso = this.CursoLogic.GetOne(CursoId);
+            dgvDocenteCursos.DataSource = curso.DocenteCursos;
         }
 
         private void tsNuevo_Click(object sender, EventArgs e)
@@ -36,13 +47,7 @@ namespace UI.Desktop
 
         private void dgvDocenteCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Editar")
-            {
-                int id = (int)dgvDocenteCursos.CurrentRow.Cells[0].Value;
-                var form = new DocenteCursoDesktop(id, ModoForm.Modificacion);
-                Mast.OpenForm(form);
-            }
-            else if (dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Borrar")
+            if (dgvDocenteCursos.CurrentCell.OwningColumn.Name == "Borrar")
             {
                 int id = (int)dgvDocenteCursos.CurrentRow.Cells[0].Value;
                 var form = new DocenteCursoDesktop(id, ModoForm.Baja);
@@ -52,7 +57,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Mast.OpenForm(new Inicio());
+            this.Mast.OpenForm(new CatedrasDocentes());
         }
     }
 }

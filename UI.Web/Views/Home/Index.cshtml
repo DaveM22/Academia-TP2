@@ -3,14 +3,38 @@
 }
 
 @{
-    var personaIdClaim = User.FindFirst("personaId");
-    var personaId = personaIdClaim != null ? personaIdClaim.Value : "No ID";
+    var tipoPersonaClaim = User.FindFirst("tipoPersona");
+    var personaId = User.FindFirst("personaId").Value;
+    var tipoPersona = tipoPersonaClaim != null ? tipoPersonaClaim.Value : "No ID";
+   
 }
 
 <div class="container">
     <div class="row mx-auto">
-        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="EstadoAcademico" asp-action="Index" asp-route-id="@personaId">Estado academico</a>
-        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="AlumnoMateria" asp-action="MateriasDisponibles" asp-route-alumnoId="@personaId">Inscribirse a materia</a>
-        <a class="btn btn-primary col-lg-8 mt-4 mx-auto" title="Editar" asp-controller="DocenteCurso" asp-action="Cursos" asp-route-idDocente="@personaId">Docente cursos</a>
+        @if (tipoPersona == "1")
+        {
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="DocenteCurso" asp-action="Cursos" asp-route-idDocente="@personaId">Docente cursos</a>
+        }
+
+        @if (tipoPersona == "2")
+        {
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="EstadoAcademico" asp-action="Index" asp-route-id="@personaId">Estado academico</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="AlumnoMateria" asp-action="MateriasDisponibles" asp-route-alumnoId="@personaId">Inscribirse a materia</a>
+        }
+
+        @if (tipoPersona == "0")
+        {
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Especialidad" asp-action="Index">Especialidades</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Plan" asp-action="Index">Planes</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Comision" asp-action="Index">Comisiones</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Curso" asp-action="Index">Cursos</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Persona" asp-action="Profesores">Profesores</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Persona" asp-action="Alumnos">Alumnos</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Usuario" asp-action="Index">Usuarios</a>
+
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="Inscripcion" asp-action="AlumnosCatedras">Asignar alumno a curso</a>
+            <a class="btn btn-primary col-lg-8 mt-4 mx-auto" asp-controller="InscripcionProfesor" asp-action="Index">Asignar profesor a curso</a>
+        }
     </div>
 </div>
+

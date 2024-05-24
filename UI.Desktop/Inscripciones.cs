@@ -48,6 +48,18 @@ namespace UI.Desktop
             }
         }
 
-
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var alumno = this.PersonaLogic.AlumnoByLegajo((int)this.nudLegajo.Value);
+            if(alumno != null )
+            {
+                this.dgvAlumnos.DataSource = new List<Persona>() { alumno };
+            }
+            else
+            {
+                this.dgvAlumnos.DataSource = new List<Persona>();
+            }
+     
+        }
     }
 }

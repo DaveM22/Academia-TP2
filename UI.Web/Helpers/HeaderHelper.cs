@@ -4,7 +4,6 @@ using System.Text;
 
 namespace UI.Web.Helpers
 {
-    // You may need to install the Microsoft.AspNetCore.Razor.Runtime package into your project
     [HtmlTargetElement("header-index")]
     public class HeaderHelper : TagHelper
     {

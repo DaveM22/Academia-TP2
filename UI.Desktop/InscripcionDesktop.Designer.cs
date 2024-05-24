@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class AsignarNota
+    partial class InscripcionDesktop
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarNota));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscripcionDesktop));
             tlpActualizarInscripcion = new System.Windows.Forms.TableLayoutPanel();
             lblComision = new System.Windows.Forms.Label();
             lblMateria = new System.Windows.Forms.Label();

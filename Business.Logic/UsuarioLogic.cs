@@ -23,6 +23,7 @@ namespace Business.Logic
             return UsuarioAdapter.GetAll();
         }
 
+
         public Usuario GetOne(string nombreUsario, string clave)
         {
             List<string> errors = new List<string>();
@@ -48,9 +49,17 @@ namespace Business.Logic
 
         public Usuario GetByCredenciales(string nombreUsuario, string clave)
         {
-            return this.UsuarioAdapter.GetByCredenciales(nombreUsuario, clave);
+            var usuario = this.UsuarioAdapter.GetByCredenciales(nombreUsuario, clave);
+            if (usuario == null)
+            {
+                throw new Exception("El usuario ingresado no existe");
+            }
+            if (usuario.Clave != clave)
+            {
+                throw new Exception("La contraseña es incorrecta");
+            }
+            return usuario;
         }
-
         public Usuario GetOne(int id)
         {
             return this.UsuarioAdapter.GetOne(id);

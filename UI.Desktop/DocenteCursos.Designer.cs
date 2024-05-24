@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocenteCursos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             tscDocenteCursos = new System.Windows.Forms.ToolStripContainer();
             tlpDocenteCursos = new System.Windows.Forms.TableLayoutPanel();
             dgvDocenteCursos = new System.Windows.Forms.DataGridView();
-            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LegajoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ApellidoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            NombreDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             button1 = new System.Windows.Forms.Button();
             btnSalir = new System.Windows.Forms.Button();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -52,6 +42,14 @@
             Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Comisión = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LegajoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ApellidoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            NombreDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             tscDocenteCursos.ContentPanel.SuspendLayout();
             tscDocenteCursos.TopToolStripPanel.SuspendLayout();
             tscDocenteCursos.SuspendLayout();
@@ -103,7 +101,7 @@
             dgvDocenteCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvDocenteCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dgvDocenteCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDocenteCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Comision, Column3, LegajoDocente, ApellidoDocente, NombreDocente, dataGridViewTextBoxColumn1, Editar, Borrar });
+            dgvDocenteCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Comision, Column3, LegajoDocente, ApellidoDocente, NombreDocente, dataGridViewTextBoxColumn1, Borrar });
             tlpDocenteCursos.SetColumnSpan(dgvDocenteCursos, 2);
             dgvDocenteCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             dgvDocenteCursos.Location = new System.Drawing.Point(3, 3);
@@ -115,87 +113,6 @@
             dgvDocenteCursos.Size = new System.Drawing.Size(794, 380);
             dgvDocenteCursos.TabIndex = 0;
             dgvDocenteCursos.CellContentClick += dgvDocenteCursos_CellContentClick;
-            // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 8;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // Comision
-            // 
-            Comision.DataPropertyName = "ComisionDescripcion";
-            Comision.HeaderText = "Comisión";
-            Comision.MinimumWidth = 8;
-            Comision.Name = "Comision";
-            Comision.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            Column3.DataPropertyName = "MateriaDescripcion";
-            Column3.HeaderText = "Materia";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // LegajoDocente
-            // 
-            LegajoDocente.DataPropertyName = "DocenteLegajo";
-            LegajoDocente.HeaderText = "Legajo Docente";
-            LegajoDocente.MinimumWidth = 8;
-            LegajoDocente.Name = "LegajoDocente";
-            LegajoDocente.ReadOnly = true;
-            // 
-            // ApellidoDocente
-            // 
-            ApellidoDocente.DataPropertyName = "DocenteApellido";
-            ApellidoDocente.HeaderText = "Apellido Docente";
-            ApellidoDocente.MinimumWidth = 8;
-            ApellidoDocente.Name = "ApellidoDocente";
-            ApellidoDocente.ReadOnly = true;
-            // 
-            // NombreDocente
-            // 
-            NombreDocente.DataPropertyName = "DocenteNombre";
-            NombreDocente.HeaderText = "Nombre Docente";
-            NombreDocente.MinimumWidth = 8;
-            NombreDocente.Name = "NombreDocente";
-            NombreDocente.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "DocenteCargo";
-            dataGridViewTextBoxColumn1.HeaderText = "Cargo del docente";
-            dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "Editar";
-            Editar.DefaultCellStyle = dataGridViewCellStyle1;
-            Editar.HeaderText = "";
-            Editar.MinimumWidth = 8;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Borrar
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "Eliminar";
-            Borrar.DefaultCellStyle = dataGridViewCellStyle2;
-            Borrar.HeaderText = "";
-            Borrar.MinimumWidth = 8;
-            Borrar.Name = "Borrar";
-            Borrar.ReadOnly = true;
-            Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // button1
             // 
@@ -286,6 +203,75 @@
             Materia.ReadOnly = true;
             Materia.Width = 375;
             // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // Comision
+            // 
+            Comision.DataPropertyName = "ComisionDescripcion";
+            Comision.HeaderText = "Comisión";
+            Comision.MinimumWidth = 8;
+            Comision.Name = "Comision";
+            Comision.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "MateriaDescripcion";
+            Column3.HeaderText = "Materia";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // LegajoDocente
+            // 
+            LegajoDocente.DataPropertyName = "DocenteLegajo";
+            LegajoDocente.HeaderText = "Legajo Docente";
+            LegajoDocente.MinimumWidth = 8;
+            LegajoDocente.Name = "LegajoDocente";
+            LegajoDocente.ReadOnly = true;
+            // 
+            // ApellidoDocente
+            // 
+            ApellidoDocente.DataPropertyName = "DocenteApellido";
+            ApellidoDocente.HeaderText = "Apellido Docente";
+            ApellidoDocente.MinimumWidth = 8;
+            ApellidoDocente.Name = "ApellidoDocente";
+            ApellidoDocente.ReadOnly = true;
+            // 
+            // NombreDocente
+            // 
+            NombreDocente.DataPropertyName = "DocenteNombre";
+            NombreDocente.HeaderText = "Nombre Docente";
+            NombreDocente.MinimumWidth = 8;
+            NombreDocente.Name = "NombreDocente";
+            NombreDocente.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "DocenteCargo";
+            dataGridViewTextBoxColumn1.HeaderText = "Cargo del docente";
+            dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Eliminar";
+            Borrar.DefaultCellStyle = dataGridViewCellStyle1;
+            Borrar.HeaderText = "";
+            Borrar.MinimumWidth = 8;
+            Borrar.Name = "Borrar";
+            Borrar.ReadOnly = true;
+            Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // DocenteCursos
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -328,7 +314,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoDocente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Borrar;
     }
 }

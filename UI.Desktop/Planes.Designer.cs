@@ -39,14 +39,17 @@
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Reporte = new System.Windows.Forms.DataGridViewButtonColumn();
             Materias = new System.Windows.Forms.DataGridViewButtonColumn();
             Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            lblEspecialidades = new System.Windows.Forms.Label();
             cbEspecialidades = new System.Windows.Forms.ComboBox();
+            lblEspecialidades = new System.Windows.Forms.Label();
+            lblTitulo = new System.Windows.Forms.Label();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             tsNuevo = new System.Windows.Forms.ToolStripButton();
             niPlanes = new System.Windows.Forms.NotifyIcon(components);
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             tscPlanes.ContentPanel.SuspendLayout();
             tscPlanes.TopToolStripPanel.SuspendLayout();
             tscPlanes.SuspendLayout();
@@ -62,12 +65,12 @@
             // 
             tscPlanes.ContentPanel.Controls.Add(tlPlanes);
             tscPlanes.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            tscPlanes.ContentPanel.Size = new System.Drawing.Size(750, 466);
+            tscPlanes.ContentPanel.Size = new System.Drawing.Size(1038, 471);
             tscPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             tscPlanes.Location = new System.Drawing.Point(0, 0);
             tscPlanes.Margin = new System.Windows.Forms.Padding(2);
             tscPlanes.Name = "tscPlanes";
-            tscPlanes.Size = new System.Drawing.Size(750, 491);
+            tscPlanes.Size = new System.Drawing.Size(1038, 496);
             tscPlanes.TabIndex = 0;
             tscPlanes.Text = "tscPlanes";
             // 
@@ -82,20 +85,22 @@
             tlPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             tlPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlPlanes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tlPlanes.Controls.Add(btnActualizar, 1, 2);
-            tlPlanes.Controls.Add(btnCancelar, 2, 2);
-            tlPlanes.Controls.Add(dgvPlanes, 0, 1);
-            tlPlanes.Controls.Add(lblEspecialidades, 0, 0);
-            tlPlanes.Controls.Add(cbEspecialidades, 1, 0);
+            tlPlanes.Controls.Add(btnActualizar, 1, 3);
+            tlPlanes.Controls.Add(btnCancelar, 2, 3);
+            tlPlanes.Controls.Add(dgvPlanes, 0, 2);
+            tlPlanes.Controls.Add(cbEspecialidades, 1, 1);
+            tlPlanes.Controls.Add(lblEspecialidades, 0, 1);
+            tlPlanes.Controls.Add(lblTitulo, 0, 0);
             tlPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             tlPlanes.Location = new System.Drawing.Point(0, 0);
             tlPlanes.Margin = new System.Windows.Forms.Padding(2);
             tlPlanes.Name = "tlPlanes";
-            tlPlanes.RowCount = 3;
-            tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tlPlanes.RowCount = 4;
+            tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tlPlanes.Size = new System.Drawing.Size(750, 466);
+            tlPlanes.Size = new System.Drawing.Size(1038, 471);
             tlPlanes.TabIndex = 0;
             // 
             // btnActualizar
@@ -104,10 +109,10 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(531, 437);
+            btnActualizar.Location = new System.Drawing.Point(819, 431);
             btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new System.Drawing.Size(78, 27);
+            btnActualizar.Size = new System.Drawing.Size(78, 38);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -118,10 +123,10 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(613, 437);
+            btnCancelar.Location = new System.Drawing.Point(901, 431);
             btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(135, 27);
+            btnCancelar.Size = new System.Drawing.Size(135, 38);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Volver al inicio";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -133,10 +138,10 @@
             dgvPlanes.AllowUserToDeleteRows = false;
             dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, Especialidad, Materias, Editar, Eliminar });
+            dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Descripcion, Especialidad, Reporte, Materias, Editar, Eliminar });
             tlPlanes.SetColumnSpan(dgvPlanes, 3);
             dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvPlanes.Location = new System.Drawing.Point(2, 31);
+            dgvPlanes.Location = new System.Drawing.Point(2, 65);
             dgvPlanes.Margin = new System.Windows.Forms.Padding(2);
             dgvPlanes.MultiSelect = false;
             dgvPlanes.Name = "dgvPlanes";
@@ -144,7 +149,7 @@
             dgvPlanes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPlanes.RowTemplate.Height = 33;
             dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvPlanes.Size = new System.Drawing.Size(746, 402);
+            dgvPlanes.Size = new System.Drawing.Size(1034, 362);
             dgvPlanes.TabIndex = 0;
             dgvPlanes.CellClick += dgvPlanes_CellClick;
             dgvPlanes.Paint += dgvPlanes_Paint;
@@ -178,6 +183,17 @@
             Especialidad.Name = "Especialidad";
             Especialidad.ReadOnly = true;
             Especialidad.ToolTipText = "Nombre de especialidad";
+            // 
+            // Reporte
+            // 
+            Reporte.FillWeight = 10F;
+            Reporte.HeaderText = "";
+            Reporte.Name = "Reporte";
+            Reporte.ReadOnly = true;
+            Reporte.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            Reporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Reporte.Text = "Generar reporte";
+            Reporte.UseColumnTextForButtonValue = true;
             // 
             // Materias
             // 
@@ -217,26 +233,39 @@
             Eliminar.Text = "Eliminar";
             Eliminar.UseColumnTextForButtonValue = true;
             // 
-            // lblEspecialidades
-            // 
-            lblEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblEspecialidades.AutoSize = true;
-            lblEspecialidades.ForeColor = System.Drawing.SystemColors.HighlightText;
-            lblEspecialidades.Location = new System.Drawing.Point(3, 7);
-            lblEspecialidades.Name = "lblEspecialidades";
-            lblEspecialidades.Size = new System.Drawing.Size(92, 15);
-            lblEspecialidades.TabIndex = 3;
-            lblEspecialidades.Text = "Especialidades:";
-            // 
             // cbEspecialidades
             // 
             cbEspecialidades.FormattingEnabled = true;
-            cbEspecialidades.Location = new System.Drawing.Point(101, 3);
+            cbEspecialidades.Location = new System.Drawing.Point(101, 38);
             cbEspecialidades.Name = "cbEspecialidades";
             cbEspecialidades.Size = new System.Drawing.Size(252, 23);
             cbEspecialidades.TabIndex = 4;
             cbEspecialidades.SelectedIndexChanged += cbEspecialidades_SelectedIndexChanged;
             cbEspecialidades.SelectionChangeCommitted += cbEspecialidades_SelectionChangeCommitted;
+            // 
+            // lblEspecialidades
+            // 
+            lblEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblEspecialidades.AutoSize = true;
+            lblEspecialidades.ForeColor = System.Drawing.SystemColors.HighlightText;
+            lblEspecialidades.Location = new System.Drawing.Point(3, 41);
+            lblEspecialidades.Name = "lblEspecialidades";
+            lblEspecialidades.Size = new System.Drawing.Size(92, 15);
+            lblEspecialidades.TabIndex = 3;
+            lblEspecialidades.Text = "Especialidades:";
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblTitulo.AutoSize = true;
+            tlPlanes.SetColumnSpan(lblTitulo, 3);
+            lblTitulo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTitulo.Location = new System.Drawing.Point(3, 4);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(1032, 27);
+            lblTitulo.TabIndex = 5;
+            lblTitulo.Text = "Planes";
+            lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolStrip1
             // 
@@ -266,7 +295,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(750, 491);
+            ClientSize = new System.Drawing.Size(1038, 496);
             Controls.Add(tscPlanes);
             Margin = new System.Windows.Forms.Padding(2);
             Name = "Planes";
@@ -301,8 +330,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewButtonColumn Reporte;
         private System.Windows.Forms.DataGridViewButtonColumn Materias;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

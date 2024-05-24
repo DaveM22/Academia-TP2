@@ -36,6 +36,7 @@
             Actualizar = new System.Windows.Forms.DataGridViewButtonColumn();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
             tlCatedras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCatedras).BeginInit();
             SuspendLayout();
@@ -46,17 +47,20 @@
             tlCatedras.ColumnCount = 2;
             tlCatedras.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlCatedras.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tlCatedras.Controls.Add(dgvCatedras, 0, 0);
-            tlCatedras.Controls.Add(button1, 0, 1);
-            tlCatedras.Controls.Add(button2, 1, 1);
+            tlCatedras.Controls.Add(button1, 0, 2);
+            tlCatedras.Controls.Add(button2, 1, 2);
+            tlCatedras.Controls.Add(dgvCatedras, 0, 1);
+            tlCatedras.Controls.Add(label1, 0, 0);
             tlCatedras.Dock = System.Windows.Forms.DockStyle.Fill;
             tlCatedras.Location = new System.Drawing.Point(0, 0);
             tlCatedras.Name = "tlCatedras";
-            tlCatedras.RowCount = 2;
+            tlCatedras.RowCount = 3;
+            tlCatedras.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             tlCatedras.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tlCatedras.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tlCatedras.Size = new System.Drawing.Size(800, 450);
             tlCatedras.TabIndex = 0;
+            tlCatedras.Paint += tlCatedras_Paint;
             // 
             // dgvCatedras
             // 
@@ -67,13 +71,13 @@
             dgvCatedras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, Comision, Catedra, Actualizar });
             tlCatedras.SetColumnSpan(dgvCatedras, 2);
             dgvCatedras.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgvCatedras.Location = new System.Drawing.Point(3, 3);
+            dgvCatedras.Location = new System.Drawing.Point(3, 41);
             dgvCatedras.MultiSelect = false;
             dgvCatedras.Name = "dgvCatedras";
             dgvCatedras.ReadOnly = true;
             dgvCatedras.RowTemplate.Height = 25;
             dgvCatedras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvCatedras.Size = new System.Drawing.Size(794, 406);
+            dgvCatedras.Size = new System.Drawing.Size(794, 368);
             dgvCatedras.TabIndex = 0;
             dgvCatedras.CellClick += dgvCatedras_CellClick;
             // 
@@ -138,6 +142,19 @@
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            label1.AutoSize = true;
+            tlCatedras.SetColumnSpan(label1, 2);
+            label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(3, 5);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(794, 27);
+            label1.TabIndex = 3;
+            label1.Text = "Materias asignadas";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // DocenteCatedras
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -148,6 +165,7 @@
             Text = "DocenteCatedras";
             Load += DocenteCatedras_Load;
             tlCatedras.ResumeLayout(false);
+            tlCatedras.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCatedras).EndInit();
             ResumeLayout(false);
         }
@@ -162,5 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catedra;
         private System.Windows.Forms.DataGridViewButtonColumn Actualizar;
+        private System.Windows.Forms.Label label1;
     }
 }

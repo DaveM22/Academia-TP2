@@ -40,8 +40,8 @@
             btnCatedras = new System.Windows.Forms.Button();
             btnInscripciones = new System.Windows.Forms.Button();
             btnInscribirse = new System.Windows.Forms.Button();
-            btnDocenteCursos = new System.Windows.Forms.Button();
             btnDocenteNotas = new System.Windows.Forms.Button();
+            btnInscripcionDocente = new System.Windows.Forms.Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -76,8 +76,8 @@
             flowLayoutPanel1.Controls.Add(btnCatedras);
             flowLayoutPanel1.Controls.Add(btnInscripciones);
             flowLayoutPanel1.Controls.Add(btnInscribirse);
-            flowLayoutPanel1.Controls.Add(btnDocenteCursos);
             flowLayoutPanel1.Controls.Add(btnDocenteNotas);
+            flowLayoutPanel1.Controls.Add(btnInscripcionDocente);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanel1.Location = new System.Drawing.Point(275, 42);
@@ -195,25 +195,25 @@
             btnInscribirse.UseVisualStyleBackColor = true;
             btnInscribirse.Click += btnInscribirse_Click;
             // 
-            // btnDocenteCursos
-            // 
-            btnDocenteCursos.Location = new System.Drawing.Point(3, 623);
-            btnDocenteCursos.Name = "btnDocenteCursos";
-            btnDocenteCursos.Size = new System.Drawing.Size(290, 49);
-            btnDocenteCursos.TabIndex = 10;
-            btnDocenteCursos.Text = "Docente cursos";
-            btnDocenteCursos.UseVisualStyleBackColor = true;
-            btnDocenteCursos.Click += btnDocenteCursos_Click;
-            // 
             // btnDocenteNotas
             // 
-            btnDocenteNotas.Location = new System.Drawing.Point(3, 678);
+            btnDocenteNotas.Location = new System.Drawing.Point(3, 623);
             btnDocenteNotas.Name = "btnDocenteNotas";
             btnDocenteNotas.Size = new System.Drawing.Size(290, 50);
             btnDocenteNotas.TabIndex = 11;
             btnDocenteNotas.Text = "Docente notas";
             btnDocenteNotas.UseVisualStyleBackColor = true;
             btnDocenteNotas.Click += btnDocenteNotas_Click;
+            // 
+            // btnInscripcionDocente
+            // 
+            btnInscripcionDocente.Location = new System.Drawing.Point(3, 679);
+            btnInscripcionDocente.Name = "btnInscripcionDocente";
+            btnInscripcionDocente.Size = new System.Drawing.Size(290, 58);
+            btnInscripcionDocente.TabIndex = 12;
+            btnInscripcionDocente.Text = "Inscripcion de docente a curso";
+            btnInscripcionDocente.UseVisualStyleBackColor = true;
+            btnInscripcionDocente.Click += btnInscripcionDocente_Click;
             // 
             // Inicio
             // 
@@ -243,7 +243,7 @@
         private System.Windows.Forms.Button btnCatedras;
         private System.Windows.Forms.Button btnInscribirse;
         private System.Windows.Forms.Button btnInscripciones;
-        private System.Windows.Forms.Button btnDocenteCursos;
         private System.Windows.Forms.Button btnDocenteNotas;
+        private System.Windows.Forms.Button btnInscripcionDocente;
     }
 }

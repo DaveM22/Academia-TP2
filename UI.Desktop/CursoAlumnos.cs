@@ -38,13 +38,13 @@ namespace UI.Desktop
             if (dgvCursoAlumnos.CurrentCell.OwningColumn.Name == "Actualizar")
             {
                 Business.Entities.AlumnoInscripcion ai = dgvCursoAlumnos.SelectedRows[0].DataBoundItem as Business.Entities.AlumnoInscripcion;
-                var form = new AsignarNota(ai.Id, false);
+                var form = new InscripcionDesktop(ai.Id, false);
                 MasterForm.OpenForm(form);
             }
             else if (dgvCursoAlumnos.CurrentCell.OwningColumn.Name == "Estado")
             {
                 Business.Entities.AlumnoInscripcion ai = dgvCursoAlumnos.SelectedRows[0].DataBoundItem as Business.Entities.AlumnoInscripcion;
-                var form = new AsignarNota(ai.Id, true);
+                var form = new InscripcionDesktop(ai.Id, true);
                 MasterForm.OpenForm(form);
             }
         }

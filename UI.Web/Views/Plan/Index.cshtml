@@ -39,7 +39,7 @@
                         @Html.DisplayFor(modelItem => item.EspecialidadDescripcion)
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-secondary btn-sm" title="Generar reporte" asp-controller="Plan" asp-action="Reporte" asp-route-id="@item.Id">Reporte Materias</a>
+                        <a class="btn btn-secondary btn-sm" title="Generar reporte" asp-controller="Plan" asp-action="Reporte" asp-route-id="@item.Id">Generar reporte</a>
                       <a class="btn btn-secondary btn-sm" title="Ver materias" asp-controller="Materia" asp-action="Index" asp-route-id="@item.Id">Ver materias</a>
                       <a class="btn btn-primary btn-sm" title="Editar plan" asp-action="Editar" asp-route-id="@item.Id"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i> Editar</a>
                       <a class="btn btn-danger btn-sm" title="Borrar plan" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa fa-trash fa-sm" aria-hidden="true"></i> Borrar</a>

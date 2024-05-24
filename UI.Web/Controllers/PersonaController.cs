@@ -3,6 +3,7 @@ using AutoMapper;
 using Business.Entities;
 using Business.Entities.Enums;
 using Business.Logic;
+using Business.Util.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Packaging.Signing;
 using System;
@@ -52,20 +53,28 @@ namespace UI.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Nuevo(PersonaViewModel model)
         {
-            var entity = _mapper.Map<Persona>(model);
-            PersonaLogic.Save(entity);
-            switch (entity.TipoPersona)
+            if (ModelState.IsValid)
             {
-                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
-                    _notyfService.Success("Se ha creado el nuevo alumno de manera existosa", 6);
-                    return RedirectToAction(nameof(Alumnos));
-                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
-                    _notyfService.Success("Se ha creado el nuevo profesor existosa", 6);
-                    return RedirectToAction(nameof(Profesores));
-                default:
-                    _notyfService.Success("Se ha creado el nuevo administrador existosa", 6);
-                    return RedirectToAction(nameof(Administradores));
+                var entity = _mapper.Map<Persona>(model);
+                PersonaLogic.Save(entity);
+                switch (entity.TipoPersona)
+                {
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
+                        _notyfService.Success("Se ha creado el nuevo alumno de manera existosa", 6);
+                        return RedirectToAction(nameof(Alumnos));
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
+                        _notyfService.Success("Se ha creado el nuevo profesor existosa", 6);
+                        return RedirectToAction(nameof(Profesores));
+                    default:
+                        _notyfService.Success("Se ha creado el nuevo administrador existosa", 6);
+                        return RedirectToAction(nameof(Administradores));
+                }
             }
+            else
+            {
+                return View();
+            }
+
         }
 
         // GET: PlanController_/Edit/5
@@ -81,20 +90,28 @@ namespace UI.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editar(PersonaViewModel model)
         {
-            var entity = _mapper.Map<Persona>(model);
-            PersonaLogic.Save(entity);
-            switch (entity.TipoPersona)
+            if (ModelState.IsValid)
             {
-                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
-                    _notyfService.Success("Se han guardado los cambios del alumno",3);
-                    return RedirectToAction(nameof(Alumnos));
-                case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
-                    _notyfService.Success("Se han guardado los cambios del profesor", 3);
-                    return RedirectToAction(nameof(Profesores));
-                default:
-                    _notyfService.Success("Se han guardado los cambios del administrador",3);
-                    return Redirect(nameof(Administradores));
+                var entity = _mapper.Map<Persona>(model);
+                PersonaLogic.Save(entity);
+                switch (entity.TipoPersona)
+                {
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.ALUMNO:
+                        _notyfService.Success("Se han guardado los cambios del alumno", 3);
+                        return RedirectToAction(nameof(Alumnos));
+                    case (Business.Entities.Enums.TipoPersonaEnum)TipoPersonaEnum.PROFESOR:
+                        _notyfService.Success("Se han guardado los cambios del profesor", 3);
+                        return RedirectToAction(nameof(Profesores));
+                    default:
+                        _notyfService.Success("Se han guardado los cambios del administrador", 3);
+                        return Redirect(nameof(Administradores));
+                }
             }
+            else
+            {
+                return View(model);
+            }
+
         }
 
 
@@ -160,9 +177,10 @@ namespace UI.Web.Controllers
                         return RedirectToAction(nameof(Administradores));
                 }
             }
-            catch
+            catch (DeleteCFReferenciadaException ex)
             {
-                return View();
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Borrar", new { id = personaViewModel.Id });
             }
         }
     }

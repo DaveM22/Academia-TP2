@@ -75,6 +75,16 @@ namespace UI.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult BorrarInscripcion(int docenteCursoId)
+        {
+            var docenteCurso = DocenteCursoLogic.GetOne(docenteCursoId);
+            DocenteCursoLogic.Delete(docenteCursoId);
+            this.Notyf.Success("Se ha borrado al profesor del curso de manera existosa", 6);
+            return RedirectToAction(nameof(Profesores), new { id = docenteCurso.CursoId });
+        }
+
+        [HttpPost]
         [Authorize(Policy = "InscripcionProfesor.Alta")]
         [ValidateAntiForgeryToken]
         public IActionResult AsignarProfesor(InscripcionProfesorViewModel model)
@@ -93,7 +103,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception)
             {
-                TempData["Error"] = "Ocurrió un error al borrar el plan. Por favor, contacta al administrador del sistema";
+                TempData["Error"] = "Ocurrió un error al asignar el profesor. Por favor, contacta al administrador del sistema";
                 return View(model);
             }
         }

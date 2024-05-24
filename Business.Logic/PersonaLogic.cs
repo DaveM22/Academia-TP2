@@ -49,5 +49,10 @@ namespace Business.Logic
         {
             return PersonaData.AlumnosByPlan(idPlan);
         }
+
+        public Persona AlumnoByLegajo(int legajo)
+        {
+            return PersonaData.AlumnoByLegajo(legajo);
+        }
     }
 }

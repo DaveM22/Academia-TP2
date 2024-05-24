@@ -20,14 +20,6 @@ namespace FastReport
     public FastReport.Engine.ReportEngine Engine;
     public FastReport.TextObject Academia;
     public FastReport.TextObject btnTituloPlan;
-    public FastReport.Table.TableCell Cell26;
-    public FastReport.Table.TableCell Cell27;
-    public FastReport.Table.TableCell Cell28;
-    public FastReport.Table.TableCell Cell29;
-    public FastReport.Table.TableColumn Column6;
-    public FastReport.Table.TableColumn Column7;
-    public FastReport.Table.TableColumn Column8;
-    public FastReport.Table.TableColumn Column9;
     public FastReport.ColumnHeaderBand ColumnHeader1;
     public FastReport.DataBand data;
     public FastReport.TextObject lblEspecialidad;
@@ -35,11 +27,13 @@ namespace FastReport
     public FastReport.PageFooterBand PageFooter1;
     public FastReport.PageHeaderBand PageHeader1;
     public FastReport.ReportTitleBand ReportTitle1;
-    public FastReport.Table.TableRow Row6;
-    public FastReport.Table.TableObject Table2;
     public FastReport.TextObject Text1;
     public FastReport.TextObject Text10;
     public FastReport.TextObject Text11;
+    public FastReport.TextObject Text12;
+    public FastReport.TextObject Text13;
+    public FastReport.TextObject Text14;
+    public FastReport.TextObject Text15;
     public FastReport.TextObject Text2;
     public FastReport.TextObject Text3;
     public FastReport.TextObject Text4;
@@ -49,31 +43,6 @@ namespace FastReport
     public FastReport.TextObject Text8;
     public FastReport.TextObject Text9;
     public FastReport.TextObject txtEspecialidad;
-    private object Sum(TableCell cell)
-    {
-      return cell.Table.Sum(cell);
-    }
-
-    private object Min(TableCell cell)
-    {
-      return cell.Table.Min(cell);
-    }
-
-    private object Max(TableCell cell)
-    {
-      return cell.Table.Max(cell);
-    }
-
-    private object Avg(TableCell cell)
-    {
-      return cell.Table.Avg(cell);
-    }
-
-    private object Count(TableCell cell)
-    {
-      return cell.Table.Count(cell);
-    }
-
     protected override object CalcExpression(string expression, Variant Value)
     {
       if (expression == "Especialidad")
@@ -274,7 +243,6 @@ namespace FastReport
     {
       return FastReport.Functions.StdFunctions.Chr(i);
     }
-
 
     private String Insert(String s, Int32 startIndex, String value)
     {
@@ -765,7 +733,7 @@ namespace FastReport
     {
       string reportString = 
         "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Report ScriptLanguage=\"CSharp\" ReportI" +
-        "nfo.Created=\"04/28/2024 08:34:07\" ReportInfo.Modified=\"05/01/2024 06:15:35\" Repo" +
+        "nfo.Created=\"04/28/2024 08:34:07\" ReportInfo.Modified=\"05/24/2024 10:31:06\" Repo" +
         "rtInfo.CreatorVersion=\"2024.2.0.0\">\r\n  <Dictionary>\r\n    <BusinessObjectDataSour" +
         "ce Name=\"alumnos\" ReferenceName=\"alumnos\" DataType=\"System.Int32\" Enabled=\"true\"" +
         ">\r\n      <Column Name=\"Nombre\" DataType=\"System.String\"/>\r\n      <Column Name=\"A" +
@@ -788,33 +756,32 @@ namespace FastReport
         "Text=\"Comisión:\" Font=\"Arial, 10pt, style=Bold\"/>\r\n      <TextObject Name=\"Text6" +
         "\" Left=\"103.95\" Top=\"122.85\" Width=\"623.7\" Height=\"18.9\" Text=\"[Comision]\" Font=" +
         "\"Arial, 10pt\"/>\r\n    </ReportTitleBand>\r\n    <PageHeaderBand Name=\"PageHeader1\" " +
-        "Top=\"155.2\" Width=\"718.2\" Height=\"28.94\">\r\n      <TextObject Name=\"Text2\" Left=\"";
+        "Top=\"153.2\" Width=\"718.2\" Height=\"29.89\">\r\n      <TextObject Name=\"Text2\" Left=\"";
       reportString += "-28.35\" Width=\"718.2\" Height=\"28.35\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Nam" +
-        "e=\"Text7\" Top=\"0.03\" Width=\"718.2\" Height=\"28.92\" Anchor=\"Top, Bottom\" Text=\"Ins" +
+        "e=\"Text7\" Top=\"0.03\" Width=\"718.2\" Height=\"29.87\" Anchor=\"Top, Bottom\" Text=\"Ins" +
         "criptos:\" HorzAlign=\"Center\" VertAlign=\"Center\" Font=\"Arial Black, 14pt\"/>\r\n    " +
-        "</PageHeaderBand>\r\n    <ColumnHeaderBand Name=\"ColumnHeader1\" Top=\"188.14\" Width" +
-        "=\"718.2\" Height=\"18.9\">\r\n      <TableObject Name=\"Table2\" Left=\"9.45\" Top=\"-0.01" +
-        "\" Width=\"696.67\" Height=\"18.9\" Anchor=\"None\" Border.Lines=\"All\">\r\n        <Table" +
-        "Column Name=\"Column6\" Width=\"153.93\"/>\r\n        <TableColumn Name=\"Column7\" Widt" +
-        "h=\"153.93\"/>\r\n        <TableColumn Name=\"Column8\" Width=\"163.38\"/>\r\n        <Tab" +
-        "leColumn Name=\"Column9\" Width=\"225.43\"/>\r\n        <TableRow Name=\"Row6\">\r\n      " +
-        "    <TableCell Name=\"Cell26\" Border.Lines=\"Right\" Text=\"Legajo&#13;&#10;\" Font=\"" +
-        "Arial, 10pt, style=Bold\"/>\r\n          <TableCell Name=\"Cell27\" Border.Lines=\"Rig" +
-        "ht\" Text=\"Apellido\" Font=\"Arial, 10pt, style=Bold\"/>\r\n          <TableCell Name=";
-      reportString += "\"Cell28\" Border.Lines=\"All\" Text=\"Nombre\" Font=\"Arial, 10pt, style=Bold\"/>\r\n    " +
-        "      <TableCell Name=\"Cell29\" Border.Lines=\"Right\" Text=\"Correo electronico\" Fo" +
-        "nt=\"Arial, 10pt, style=Bold\"/>\r\n        </TableRow>\r\n      </TableObject>\r\n    <" +
-        "/ColumnHeaderBand>\r\n    <DataBand Name=\"data\" Top=\"211.04\" Width=\"718.2\" Height=" +
-        "\"18.9\" DataSource=\"alumnos\">\r\n      <TextObject Name=\"Text8\" Left=\"316.85\" Width" +
-        "=\"163.1\" Height=\"18.9\" Text=\"[alumnos.Nombre]\" Font=\"Arial, 10pt\"/>\r\n      <Text" +
-        "Object Name=\"Text9\" Left=\"161.65\" Width=\"154.65\" Height=\"18.9\" Text=\"[alumnos.Ap" +
-        "ellido]\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text10\" Left=\"9.45\" Width" +
-        "=\"151.2\" Height=\"18.9\" Text=\"[alumnos.Legajo]\" Font=\"Arial, 10pt\"/>\r\n      <Text" +
-        "Object Name=\"Text11\" Left=\"477.95\" Width=\"226.8\" Height=\"18.9\" Text=\"[alumnos.Em" +
-        "ail]\" Font=\"Arial, 10pt\"/>\r\n    </DataBand>\r\n    <PageFooterBand Name=\"PageFoote" +
-        "r1\" Top=\"233.94\" Width=\"718.2\" Height=\"141.75\" Fill.Color=\"LightGray\">\r\n      <T";
-      reportString += "extObject Name=\"Academia\" Left=\"9.45\" Width=\"94.5\" Height=\"18.9\" Text=\"Academia\"" +
-        " Font=\"Arial, 10pt\"/>\r\n    </PageFooterBand>\r\n  </ReportPage>\r\n</Report>\r\n";
+        "</PageHeaderBand>\r\n    <ColumnHeaderBand Name=\"ColumnHeader1\" Top=\"185.09\" Width" +
+        "=\"718.2\" Height=\"18.9\">\r\n      <TextObject Name=\"Text12\" Left=\"18.9\" Width=\"113." +
+        "4\" Height=\"18.9\" Border.Lines=\"Left, Top, Bottom\" Fill.Color=\"Silver\" Text=\"Lega" +
+        "jo\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text13\" Left=\"132.3\" Width=\"17" +
+        "0.1\" Height=\"18.9\" Border.Lines=\"Left, Top, Bottom\" Fill.Color=\"Silver\" Text=\"Ap" +
+        "ellido\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text14\" Left=\"302.4\" Width" +
+        "=\"170.1\" Height=\"18.9\" Border.Lines=\"Left, Top, Bottom\" Fill.Color=\"Silver\" Text" +
+        "=\"Nombre\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text15\" Left=\"472.5\" Wid" +
+        "th=\"236.25\" Height=\"18.9\" Border.Lines=\"All\" Fill.Color=\"Silver\" Text=\"Email\" Fo";
+      reportString += "nt=\"Arial, 10pt\"/>\r\n    </ColumnHeaderBand>\r\n    <DataBand Name=\"data\" Top=\"205." +
+        "99\" Width=\"718.2\" Height=\"18.9\" DataSource=\"alumnos\">\r\n      <TextObject Name=\"T" +
+        "ext8\" Left=\"302.4\" Width=\"169.55\" Height=\"18.9\" Border.Lines=\"Bottom\" Text=\"[alu" +
+        "mnos.Nombre]\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text9\" Left=\"132.3\" " +
+        "Width=\"170.1\" Height=\"18.9\" Border.Lines=\"Left, Right, Bottom\" Text=\"[alumnos.Ap" +
+        "ellido]\" Font=\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text10\" Left=\"18.9\" Width" +
+        "=\"113.4\" Height=\"18.9\" Border.Lines=\"Left, Bottom\" Text=\"[alumnos.Legajo]\" Font=" +
+        "\"Arial, 10pt\"/>\r\n      <TextObject Name=\"Text11\" Left=\"472.5\" Width=\"236.25\" Hei" +
+        "ght=\"18.9\" Border.Lines=\"Left, Right, Bottom\" Text=\"[alumnos.Email]\" Font=\"Arial" +
+        ", 10pt\"/>\r\n    </DataBand>\r\n    <PageFooterBand Name=\"PageFooter1\" Top=\"226.89\" " +
+        "Width=\"718.2\" Height=\"141.75\" Fill.Color=\"LightGray\">\r\n      <TextObject Name=\"A" +
+        "cademia\" Left=\"18.9\" Top=\"94.5\" Width=\"94.5\" Height=\"18.9\" Text=\"[Date]\" Font=\"A";
+      reportString += "rial, 10pt\"/>\r\n    </PageFooterBand>\r\n  </ReportPage>\r\n</Report>\r\n";
       LoadFromString(reportString);
       InternalInit();
       StartReport += _StartReport;

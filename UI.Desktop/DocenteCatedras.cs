@@ -53,5 +53,10 @@ namespace UI.Desktop
                 MasterForm.OpenForm(form);
             }
         }
+
+        private void tlCatedras_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

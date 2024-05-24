@@ -4,7 +4,12 @@
     ViewData["Title"] = "Login";
 }
 
-
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger text-center mt-4" role="alert">
+        @TempData["Error"]
+    </div>
+}
 <div class="row">
     <h1 class="text-center">Ingreso</h1>
 
@@ -17,10 +22,12 @@
                     <div class="mb-3">
                         <label asp-for="NombreUsuario" class="form-label col-form-label-sm text-white"></label>
                         <input asp-for="NombreUsuario" class="form-control form-control-sm" />
+                        <span asp-validation-for="@Model.NombreUsuario" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Clave" class="form-label col-form-label-sm text-white"></label>
                         <input asp-for="Clave" class="form-control form-control-sm" />
+                        <span asp-validation-for="@Model.Clave" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-12">

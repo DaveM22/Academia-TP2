@@ -29,13 +29,18 @@
                 <td>@cur.Docente.Nombre</td>
                 <td>@cur.DocenteCargo</td>
                 <td style="width:30%;" class="text-center">
-                    <a class="btn btn-primary" title="Editar" asp-action="EditarAsignacionProfesor" asp-route-id="@cur.Id"> Editar asignación</a>
-                    <a class="btn btn-danger" title="Borrar profesor" asp-action="Borrar" asp-route-id="@cur.CursoId">Borrar asignación</a>
+@*                     <a class="btn btn-primary" title="Editar" asp-action="EditarAsignacionProfesor" asp-route-id="@cur.Id"> Editar asignación</a> *@
+                    <form method="post" asp-action="BorrarInscripcion">
+                        <input id="docenteCursoId" name="docenteCursoId" hidden value="@cur.Id" />
+                    </form>
+                    <button id="borrar" class="btn btn-danger">Borrar asignación</button>
                  </td>
             </tr>
         }
     </tbody>
 </table>
+
+<partial name="_ModalConfirmarBorrar"></partial>
 
 @section scripts {
     <script>
@@ -55,6 +60,18 @@
                 lengthChange: false,
                 info: false,
             });
+        });
+
+        $(document).on("click", "button#borrar", function () {
+            formSelected = $(this).closest('tr').find('form')
+
+            $('#modalConfirmar').modal('show');
+        });
+
+        $('#btnConfirmar').click(function () {
+
+            formSelected.submit();
+            $("#modalConfirmar").modal("dismiss");
         });
     </script>
 }

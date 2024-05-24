@@ -48,7 +48,6 @@
             lblPlan = new System.Windows.Forms.Label();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             tsNuevaAsignacion = new System.Windows.Forms.ToolStripButton();
-            tsCargaMasiva = new System.Windows.Forms.ToolStripButton();
             niAlumnosIncripcion = new System.Windows.Forms.NotifyIcon(components);
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -257,10 +256,10 @@
             // 
             toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevaAsignacion, tsCargaMasiva });
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsNuevaAsignacion });
             toolStrip1.Location = new System.Drawing.Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(282, 25);
+            toolStrip1.Size = new System.Drawing.Size(159, 25);
             toolStrip1.TabIndex = 0;
             // 
             // tsNuevaAsignacion
@@ -272,16 +271,6 @@
             tsNuevaAsignacion.Size = new System.Drawing.Size(147, 22);
             tsNuevaAsignacion.Text = "Asignar nueva inscripción";
             tsNuevaAsignacion.Click += tsNuevaAsignacion_Click;
-            // 
-            // tsCargaMasiva
-            // 
-            tsCargaMasiva.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            tsCargaMasiva.Image = (System.Drawing.Image)resources.GetObject("tsCargaMasiva.Image");
-            tsCargaMasiva.ImageTransparentColor = System.Drawing.Color.Magenta;
-            tsCargaMasiva.Name = "tsCargaMasiva";
-            tsCargaMasiva.Size = new System.Drawing.Size(123, 22);
-            tsCargaMasiva.Text = "Asignar inscripciones";
-            tsCargaMasiva.Click += tsCargaMasiva_Click;
             // 
             // niAlumnosIncripcion
             // 
@@ -331,7 +320,6 @@
         private System.Windows.Forms.Label lblAlumno;
         private System.Windows.Forms.Label lblPlanDescripcion;
         private System.Windows.Forms.Label lblPlan;
-        private System.Windows.Forms.ToolStripButton tsCargaMasiva;
         private System.Windows.Forms.NotifyIcon niAlumnosIncripcion;
     }
 }

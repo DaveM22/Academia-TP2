@@ -59,6 +59,12 @@ namespace UI.Desktop
                     this.dgvAlumnoInscripciones.DataSource = this.AlumnoInscripcionLogic.GetAll(this.AlumnoId);
                 }
             }
+            else if (dgvAlumnoInscripciones.CurrentCell.OwningColumn.Name == "Editar")
+            {
+                Business.Entities.AlumnoInscripcion inscripcion = dgvAlumnoInscripciones.SelectedRows[0].DataBoundItem as Business.Entities.AlumnoInscripcion;
+                var form = new InscripcionDesktop(inscripcion.Id, false, true);
+                this.MasterForm.OpenForm(form);
+            }
         }
 
         private void tlpInscripciones_Paint(object sender, PaintEventArgs e)

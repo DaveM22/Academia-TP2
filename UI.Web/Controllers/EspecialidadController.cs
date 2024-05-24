@@ -12,6 +12,7 @@ using UI.Web.Models;
 
 namespace UI.Web.Controllers
 {
+    [Authorize]
     [ResponseCache(NoStore = true, Duration = 0)]
     public class EspecialidadController : Controller
     {
@@ -27,24 +28,21 @@ namespace UI.Web.Controllers
         }
 
         // GET: EspecialidadController
+
+        [Authorize(Policy = "Especialidades.Consulta")]
         public ActionResult Index()
         {
             var vms = mapper.Map<List<EspecialidadViewModel>>(EspecialidadLogic.GetAll());
             return View(vms);
         }
 
-        // GET: EspecialidadController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        [Authorize(Policy = "Especialidades.Consulta")]
         public JsonResult Especialidades()
         {
             return Json(EspecialidadLogic.GetAll());
         }
 
-        // GET: EspecialidadController/Create
+        [Authorize(Policy = "Especialidades.Alta")]
         public ActionResult Nuevo()
         {
             return View(new EspecialidadViewModel());
@@ -52,6 +50,7 @@ namespace UI.Web.Controllers
 
         // POST: EspecialidadController/Create
         [HttpPost]
+        [Authorize(Policy = "Especialidades.Alta")]
         [ValidateAntiForgeryToken]
         public ActionResult Nuevo(EspecialidadViewModel especialidadViewModel)
         {
@@ -74,6 +73,7 @@ namespace UI.Web.Controllers
         }
 
         // GET: EspecialidadController/Edit/5
+        [Authorize(Policy = "Especialidades.Modificacion")]
         public ActionResult Editar(int id)
         {
             var vm = mapper.Map<EspecialidadViewModel>(EspecialidadLogic.GetOne(id));
@@ -82,6 +82,7 @@ namespace UI.Web.Controllers
 
         // POST: EspecialidadController/Edit/5
         [HttpPost]
+        [Authorize(Policy = "Especialidades.Modificacion")]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(EspecialidadViewModel especialidadViewModel)
         {
@@ -102,7 +103,7 @@ namespace UI.Web.Controllers
             }
         }
 
-        // GET: EspecialidadController/Delete/5
+        [Authorize(Policy = "Especialidades.Baja")]
         public ActionResult Borrar(int id)
         {
             var vm = mapper.Map<EspecialidadViewModel>(EspecialidadLogic.GetOne(id));
@@ -112,6 +113,7 @@ namespace UI.Web.Controllers
         // POST: EspecialidadController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Especialidades.Baja")]
         public ActionResult Borrar(EspecialidadViewModel especialidadViewModel)
         {
             try

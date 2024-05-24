@@ -35,11 +35,11 @@
             btnActualizar = new System.Windows.Forms.Button();
             btnCancelar = new System.Windows.Forms.Button();
             dgvModulos = new System.Windows.Forms.DataGridView();
-            toolStrip1 = new System.Windows.Forms.ToolStrip();
-            tsbNuevoRol = new System.Windows.Forms.ToolStripButton();
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Modulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            tsbNuevoRol = new System.Windows.Forms.ToolStripButton();
             tscModulos.ContentPanel.SuspendLayout();
             tscModulos.TopToolStripPanel.SuspendLayout();
             tscModulos.SuspendLayout();
@@ -104,7 +104,7 @@
             btnActualizar.BackColor = System.Drawing.Color.Green;
             btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnActualizar.Location = new System.Drawing.Point(602, 396);
+            btnActualizar.Location = new System.Drawing.Point(576, 396);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new System.Drawing.Size(93, 39);
             btnActualizar.TabIndex = 1;
@@ -117,11 +117,11 @@
             btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            btnCancelar.Location = new System.Drawing.Point(701, 396);
+            btnCancelar.Location = new System.Drawing.Point(675, 396);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new System.Drawing.Size(96, 39);
+            btnCancelar.Size = new System.Drawing.Size(122, 39);
             btnCancelar.TabIndex = 2;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Volver a usuario";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -142,25 +142,6 @@
             dgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvModulos.Size = new System.Drawing.Size(794, 351);
             dgvModulos.TabIndex = 3;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsbNuevoRol });
-            toolStrip1.Location = new System.Drawing.Point(3, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new System.Drawing.Size(144, 25);
-            toolStrip1.TabIndex = 0;
-            // 
-            // tsbNuevoRol
-            // 
-            tsbNuevoRol.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            tsbNuevoRol.Image = (System.Drawing.Image)resources.GetObject("tsbNuevoRol.Image");
-            tsbNuevoRol.ImageTransparentColor = System.Drawing.Color.Magenta;
-            tsbNuevoRol.Name = "tsbNuevoRol";
-            tsbNuevoRol.Size = new System.Drawing.Size(132, 22);
-            tsbNuevoRol.Text = "Asignar nuevo modulo";
-            tsbNuevoRol.Click += tsbNuevoRol_Click;
             // 
             // Id
             // 
@@ -186,6 +167,25 @@
             Quitar.ReadOnly = true;
             Quitar.Text = "Quitar";
             Quitar.UseColumnTextForButtonValue = true;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsbNuevoRol });
+            toolStrip1.Location = new System.Drawing.Point(3, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(144, 25);
+            toolStrip1.TabIndex = 0;
+            // 
+            // tsbNuevoRol
+            // 
+            tsbNuevoRol.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tsbNuevoRol.Image = (System.Drawing.Image)resources.GetObject("tsbNuevoRol.Image");
+            tsbNuevoRol.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tsbNuevoRol.Name = "tsbNuevoRol";
+            tsbNuevoRol.Size = new System.Drawing.Size(132, 22);
+            tsbNuevoRol.Text = "Asignar nuevo modulo";
+            tsbNuevoRol.Click += tsbNuevoRol_Click;
             // 
             // Modulos
             // 

@@ -72,9 +72,6 @@ namespace UI.Desktop
 
         private void dgvEspecialidades_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            var cell = dgvEspecialidades.CurrentCell.OwningColumn.Name;
-
-
             if (dgvEspecialidades.CurrentCell.OwningColumn.Name == "Editar")
             {
                 Especialidad esp = dgvEspecialidades.SelectedRows[0].DataBoundItem as Especialidad;

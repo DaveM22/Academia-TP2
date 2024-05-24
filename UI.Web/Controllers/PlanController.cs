@@ -3,6 +3,7 @@ using AutoMapper;
 using Business.Entities;
 using Business.Logic;
 using Business.Util.Exceptions;
+using FastReport;
 using FastReport.Export.PdfSimple;
 using FastReport.Web;
 using Microsoft.AspNetCore.Authorization;
@@ -51,11 +52,7 @@ namespace UI.Web.Controllers
             return View(vms);
         }
 
-        // GET: PlanController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+
 
         // GET: PlanController/Create
         [Authorize(Policy = "Planes.Alta")]
@@ -206,15 +203,22 @@ namespace UI.Web.Controllers
         [Authorize]
         public IActionResult Reporte(int id)
         {
+
             var plan = PlanLogic.GetOne(id);
-            WebReport webReport = new WebReport();
-            var path = $"{this.webHostEnviroment.WebRootPath}\\Reportes\\Test.frx";
-            webReport.Report.Load(path);
-            webReport.Report.Prepare();
+            var rep = new ReportePlan();
+            rep.Especialidad = plan.Especialidad.Descripcion;
+            rep.Plan = plan.Descripcion;
+            foreach (var item in plan.Materias)
+            {
+                var materia = new ReportePlan.Materia() { Descripcion = item.Descripcion, HorasSemanales = item.HSSemanales, HorasTotales = item.HSTotales };
+                rep.Materias.Add(materia);
+            }
+            rep.Prepare();
             Stream stream = new MemoryStream();
-            webReport.Report.Export(new PDFSimpleExport(), stream);
+            rep.Report.Export(new PDFSimpleExport(), stream);
             stream.Position = 0;
-            return File(stream, "application/pdf", "Plan_" + plan.Descripcion+".pdf");
+            return File(stream, "application/pdf", $"{plan.Descripcion}.pdf");
+
         }
     }
 }

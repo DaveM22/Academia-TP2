@@ -44,14 +44,12 @@ namespace Business.Data
             context.SaveChanges();
         }
 
-
         public bool ExistPersonaCF(int idPersona)
         {
             using var context = new AcademiaContext();
             return context.Personas.Any(x => x.Id == idPersona && (x.DocenteCurso.Any() || x.Inscripciones.Any()));
         }
 
-        //Devuelve los profesores que no esten inscriptos en el curso y que sean del mismo plan
         public List<Persona> DocentesByPlanForCurso(List<int> idsProfesor) 
         {
             using var context = new AcademiaContext();
@@ -62,6 +60,12 @@ namespace Business.Data
         {
             using var context = new AcademiaContext();
             return context.Planes.Include(x => x.Personas).SingleOrDefault(x => x.Id == idPlan).Personas.Where(x => x.TipoPersona == TipoPersonaEnum.ALUMNO).ToList();
+        }
+
+        public Persona AlumnoByLegajo(int legajo)
+        {
+            using var context = new AcademiaContext();
+            return context.Personas.SingleOrDefault(x => x.TipoPersona == TipoPersonaEnum.ALUMNO && x.Legajo == legajo);
         }
     }
 }

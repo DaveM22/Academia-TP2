@@ -1,15 +1,19 @@
 ﻿using Accord.Controls;
 using Business.Entities;
 using Business.Logic;
+using FastReport;
+using FastReport.Export.PdfSimple;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FastReport.ReportePlan;
 
 namespace UI.Desktop
 {
@@ -54,6 +58,32 @@ namespace UI.Desktop
                 Plan plan = dgvPlanes.SelectedRows[0].DataBoundItem as Plan;
                 var form = new Materias(plan.Id);
                 MasterForm.OpenForm(form);
+            }
+            else if(dgvPlanes.CurrentCell.OwningColumn.Name == "Reporte")
+            {
+                Plan plan = dgvPlanes.SelectedRows[0].DataBoundItem as Plan;
+                var planReporte = PlanLogic.GetOne(plan.Id);
+                var rep = new ReportePlan();
+                rep.Especialidad = planReporte.Especialidad.Descripcion;
+                rep.Plan = planReporte.Descripcion;
+                foreach (var item in planReporte.Materias)
+                {
+                    var materia = new ReportePlan.Materia() { Descripcion = item.Descripcion, HorasSemanales = item.HSSemanales, HorasTotales = item.HSTotales };
+                    rep.Materias.Add(materia);
+                }
+                MemoryStream ms = new();
+                var pdfsimple = new PDFSimpleExport();
+                rep.Prepare();
+                rep.Export(pdfsimple, ms);
+                rep.FileName = $"{plan.Descripcion}.pdf";
+                saveFileDialog1.FileName = $"{plan.Descripcion}.pdf";
+                var result = saveFileDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    File.WriteAllBytes(saveFileDialog1.FileName, ms.ToArray());
+                    niPlanes.ShowBalloonTip(1000, "Reporte del curso", $"Se creado y guardado el reporte del curso", ToolTipIcon.Info);
+                }
             }
         }
 

@@ -116,8 +116,7 @@ namespace UI.Desktop
             var result = MessageBox.Show("¿Desea realmente salir sin guardar los cambios?", "Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
-                Mast.OpenForm(new DocenteCursos());
-                this.Dispose();
+                Mast.OpenForm(new DocenteCursos(this.CursoSeleccionado.Id));
             }
         }
 
